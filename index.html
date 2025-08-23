@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gw's website</title>
+    <link rel="icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1 data-i18n="site.title">Gw's website</h1>
+        <div class="header-right">
+            <!-- Language Switcher -->
+            <div class="lang-switch" role="group" aria-label="Language switcher">
+                <button class="lang-btn" id="lang-ko" data-lang="ko" aria-pressed="false">한국어</button>
+                <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">English</button>
+            </div>
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" id="hamburger-menu" aria-label="Toggle navigation">&#9776;</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="nav-menu" id="nav-menu">
+            <button class="menu-button" onclick="showContent('intro')" data-i18n="menu.intro">Introduce myself</button>
+            <button class="menu-button" onclick="showContent('languages')" data-i18n="menu.languages">Available Computer Languages</button>
+            <button class="menu-button" onclick="showContent('projects')" data-i18n="menu.projects">One-man production project</button>
+            <button class="menu-button" onclick="showContent('extensions')" data-i18n="menu.extensions">One-man Google Extension</button>
+            <button class="menu-button" onclick="showContent('links')" data-i18n="menu.links">Link</button>
+            <button class="menu-button" onclick="showContent('goal')" data-i18n="menu.goal">Goal</button>
+            <button class="menu-button" onclick="showContent('contact')" data-i18n="menu.contact">Contact Me</button>
+
+            <div class="contact-card">
+                <p class="name">Geun Woo KIM</p>
+                <p data-i18n="card.tel">TEL : +82 1021131655</p>
+                <p data-i18n="card.email">Email : rmsdn1955@gmail.com</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <!-- Intro -->
+            <div id="intro" class="content-section">
+                <h2 data-i18n="intro.h2">Introduce myself</h2>
+                <p data-i18n="intro.p1">I am a computer engineering graduate and know how to use Python, C++, C, Java, Javascript, HTML, and CSS.</p>
+                <p data-i18n="intro.p2">I have experience making games using Unity. I also use Python to make programs available for Windows. I created Google extensions using HTML, CSS, and Javascript.</p>
+                <p data-i18n="intro.p3">The projects I created can be found on my Linkedin profile and on my own website, GW's website.</p>
+                <p data-i18n="intro.p4">I have a Microsoft Office Specialist Master (MOS Master) certificate and know how to specialize in Excel, Word, PowerPoint, and Access.</p>
+                <p data-i18n="intro.p5">Currently, I am in charge of QA/QC of 'ArcheAge WAR', the main game of Kakao, the No. 1 Korean company, </p>
+                <p data-i18n="intro.p6">and I am working on professional Game QA/QC, writing TestCase directly in Sheets and using Jira to communicate with other departments.</p>
+                <p data-i18n="intro.p7">I have experience in producing various longforms and shortforms using PowerDirector and CapCut</p>
+                <p data-i18n="intro.p8">and it has not been long since I started uploading, so I have about 1,000 views on average. </p>
+                <p data-i18n="intro.p9">In addition, I have experience in growing a Facebook page with 200k followers by utilizing video editing and photo editing technology, </p>
+                <p data-i18n="intro.p10">so I know how to find and like people more on SNS marketing.</p>
+                <p data-i18n="intro.p11">I'm looking for a company that fits me to improve my broader perspective and my abilities..</p>
+            </div>
+
+            <!-- Languages -->
+            <div id="languages" class="content-section" style="display:none;">
+                <h2 data-i18n="languages.h2">Available Computer Languages</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>C++</li>
+                    <li>C</li>
+                </ul>
+            </div>
+
+            <!-- Projects -->
+            <div id="projects" class="content-section" style="display:none;">
+                <h2 data-i18n="projects.program">Program</h2>
+                <div class="project-card">
+                    <h3>Time Minder</h3>
+                    <p data-i18n="tm.p1">When I work and take a break on a computer instead of a mobile phone, I often can't hear the alarm on my phone due to the sound of the computer. This is why I developed this program.</p>
+                    <p data-i18n="tm.p2">It is a program in which when you specify a time on your computer, the sound source of the mp3 file is output at a specified time.</p>
+                    <p data-i18n="tm.p3">It appears at the top of other programs, so there is no way you can never hear the alarm.</p>
+                    <a href="Time Minder.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Smart Weather Guide</h3>
+                    <p data-i18n="swg.p1">Smart Weather Guide was developed for couples and families who are currently living in different cities than themselves.</p>
+                    <p data-i18n="swg.p2">Running the program will reveal their current location, date, time, weather, and air quality status, plus additional hours in the major cities that you specify at the bottom.</p>
+                    <p data-i18n="swg.p3">Just by running the program, you can get a lot of information and check the time in other cities where couples and their families live.</p>
+                    <a href="Smart Weather Guide.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                </div>
+
+                <hr />
+
+                <h2 data-i18n="projects.game">Game</h2>
+                <div class="project-card">
+                    <h3>The mini-games collection</h3>
+                    <p data-i18n="mgc.p1">The mini-games collection is a collection of four mini-games produced by itself using unity and grouped them into one project.</p>
+                    <p data-i18n="mgc.p2">When you play this game, you can select one of the four games and play a variety of games as there is also a button to return to the main screen at any time.</p>
+                    <p data-i18n="mgc.p3">Each game has its own characteristics, characters, and homemade BGM, which can give users a lot of experience and enjoyment.</p>
+                    <a href="Mini-game collection.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                </div>
+            </div>
+
+            <!-- Extensions -->
+            <div id="extensions" class="content-section" style="display:none;">
+                <h2 data-i18n="ext.h2">One-man Google Extension</h2>
+
+                <div class="project-card">
+                    <h3>Chime</h3>
+                    <p data-i18n="chime.p1">This program was developed for those who cannot hear the alarm on their mobile phone due to sound when they are working or playing games on their computer.</p>
+                    <p data-i18n="chime.p2">If you specify HH:MM after running this program, an alarm for the specified time is added to the alarm list, </p>
+                    <p data-i18n="chime.p3">and even if you close the program and are doing something else, the alarm will automatically run at that time along with the music of the MP3 file.</p>
+                    <p data-i18n="chime.p4">If you want to end the alarm, you can click the alarm end button on the pop-up window of the alarm end message.</p>
+                    <p data-i18n="chime.p5">The icon of this program means that my birthday is 0212😂</p>
+                    <a href="Chime.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                    <a href="https://chromewebstore.google.com/detail/chime/hbfppfjoiodmanglpofccdkeeokdmfhd?hl=ko-" target="_blank"><button class="download-button" data-i18n="btn.download">Click to download</button></a>
+                </div>
+
+                <div class="project-card">
+                    <h3>A Belgium Translator</h3>
+                    <p data-i18n="abt.p1">The program allows users to select a total of five languages, including English, French, Dutch, German and Korean, which are commonly used in Belgium, </p>
+                    <p data-i18n="abt.p2">and automatically translates the text into the language of their choice when they input text from all over the world.</p>
+                    <p data-i18n="abt.p3">The program will also be registered in a Chrome extension program.</p>
+                    <p data-i18n="abt.p4">And i can change the main screen language</p>
+                    <a href="A Belgium Translator.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                    <a href="https://chromewebstore.google.com/detail/%EB%B2%A8%EA%B8%B0%EC%97%90-%EC%A0%84%EC%9A%A9-%EB%B2%88%EC%97%AD%EA%B8%B0/kbbkhjnnibijkfppinigegopneijmopl?hl=ko-" target="_blank"><button class="download-button" data-i18n="btn.download">Click to download</button></a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Color My Site</h3>
+                    <p data-i18n="cms.p1">The Color My Site program is a program that changes the color of the website to the color that users want. </p>
+                    <p data-i18n="cms.p2">users want. Change the color of the website to your favorite color to relax your mind.</p>
+                    <p data-i18n="cms.p3">Please remember these two things</p>
+                    <p data-i18n="cms.p4">1. Turn off the dark mode</p>
+                    <p data-i18n="cms.p5">2. High-security websites do not change color.</p>
+                    <a href="Color My Site.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                    <!-- UPDATED: waiting -> download link -->
+                    <a href="https://chromewebstore.google.com/detail/color-my-site/clnemkiiifjagbagbodbemnbmkihpnma?hl=ko-" target="_blank"><button class="download-button" data-i18n="btn.download">Click to download</button></a>
+                </div>
+
+                <div class="project-card">
+                    <h3>D-Day Calculator</h3>
+                    <p data-i18n="dday.p1">D-Day Calculator is a program developed to keep someone's anniversary and precious time safe. </p>
+                    <p data-i18n="dday.p2">It can be used by anyone around the world, and it is a program that </p>
+                    <p data-i18n="dday.p3">everyone will be satisfied with its easy UI and excellent features.</p>
+                    <a href="D-Day Calculator.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                    <!-- UPDATED: waiting -> download link -->
+                    <a href="https://chromewebstore.google.com/detail/d-day-calculator/piebllmlbgioonlgjlnbmlmgbfoladfe?hl=ko-" target="_blank"><button class="download-button" data-i18n="btn.download">Click to download</button></a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Link Saver</h3>
+                    <p data-i18n="ls.p1">Link Saver is a program that makes links more convenient and easy to see. </p>
+                    <p data-i18n="ls.p2">You can get the address and name of all the tabs that are currently open,</p>
+                    <p data-i18n="ls.p3">and you can insert the URL directly to name and save them.</p>
+                    <p data-i18n="ls.p4">Once you enter the menu, you can create, modify, and delete folders,</p>
+                    <p data-i18n="ls.p5">and you can put links in folders to manage them through the move button.</p>
+                    <a href="Link Saver.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                    <!-- UPDATED: waiting -> download link -->
+                    <a href="https://chromewebstore.google.com/detail/link-saver/mmhjffjmkfgonkhelkbhbobcdbfahgfl?hl=ko-" target="_blank"><button class="download-button" data-i18n="btn.download">Click to download</button></a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Offline Web Capture</h3>
+                    <p data-i18n="owc.p1">Offline Web Capture can be captured on the current monitor screen and stored locally anytime, </p>
+                    <p data-i18n="owc.p2">anywhere to check the captured screen offline. It is useful for saving newspapers, photos, etc. on the screen.</p>
+                    <p data-i18n="owc.p3">You can check the title of the site in the list and add or delete it to the list at any time.</p>
+                    <a href="Offline Web Capture.pptx" download><button class="download-button" data-i18n="btn.readmore">Read more (Download PPTX)</button></a>
+                    <a href="#" target="_blank"><button class="download-button" data-i18n="btn.waiting">Waiting to review Google extensions</button></a>
+                </div>
+
+                <!-- === Newly added cards === -->
+                <div class="project-card">
+                    <h3>Audio Max</h3>
+                    <p data-i18n="am.p1">With Audio Max, you can freely boost volume up to 800%, adjust bass boost and the equalizer, and save presets to enjoy your music exactly the way you like.</p>
+                    <a href="https://chromewebstore.google.com/detail/audio-max/jfncdhbfgfceolageflpanbobdocmcbk?hl=ko-" target="_blank">
+                        <button class="download-button" data-i18n="btn.download">Click to download</button>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Let's emoji</h3>
+                    <p data-i18n="emoji.p1">Copy multiple emojis with a single click! We've packed the most popular emojis—no need to visit a website; just click inside this extension to copy. Want to know the creator? After launching, press the GW button!</p>
+                    <a href="https://chromewebstore.google.com/detail/lets-emoji/gnndhcpkjdidhniegfhifcekenjgpphb?hl=ko-" target="_blank">
+                        <button class="download-button" data-i18n="btn.download">Click to download</button>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Lumina</h3>
+                    <p data-i18n="lumina.p1">Lumina is a personal color analysis tool that helps you discover the color palette that best matches your natural features. Upload a photo to analyze your skin, hair, and overall tone, and determine your personal color season within the 12-tone system.</p>
+                    <a href="https://chromewebstore.google.com/detail/lumina/lpfdnopcpgohckbbjdhjmpmcmoamhjic?hl=ko-" target="_blank">
+                        <button class="download-button" data-i18n="btn.download">Click to download</button>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Minesweeper</h3>
+                    <p data-i18n="mine.p1">Feeling bored while surfing the web? Sharpen your focus (and have fun) with this game!</p>
+                    <a href="https://chromewebstore.google.com/detail/minesweeper/bhdlcmdecbiggkcbdeboomlkghmhbjni?hl=ko-" target="_blank">
+                        <button class="download-button" data-i18n="btn.download">Click to download</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div id="links" class="content-section" style="display:none;">
+                <h2 data-i18n="links.h2">Link</h2>
+                <div class="project-card">
+                    <h3>LinkedIn</h3>
+                    <p data-i18n="links.li.p">Check out my Linkedin profile</p>
+                    <a href="https://www.linkedin.com/in/geun-woo-kim-94a29b372" target="_blank"><button class="download-button" data-i18n="btn.open">Click</button></a>
+                </div>
+                <div class="project-card">
+                    <h3>GitHub</h3>
+                    <p data-i18n="links.gh.p">You can see the different project codes I've worked on.</p>
+                    <a href="https://github.com/GW0212" target="_blank"><button class="download-button" data-i18n="btn.open">Click</button></a>
+                </div>
+            </div>
+
+            <!-- Goal -->
+            <div id="goal" class="content-section" style="display:none;">
+                <h2 data-i18n="goal.h2">Goal</h2>
+                <p data-i18n="goal.p1">I am currently living in South Korea</p>
+                <p data-i18n="goal.p2">but, I'm willing to work abroad depending on my job, country.</p>
+                <p data-i18n="goal.p3">Whatever I do, I plan to develop various programs and games in my personal time. </p>
+                <p data-i18n="goal.p4">Someday you will hear my name as a successful developer.</p>
+            </div>
+
+            <!-- Contact -->
+            <div id="contact" class="content-section" style="display:none;">
+                <h2 data-i18n="contact.h2">Contact Me</h2>
+                <form action="https://formspree.io/f/xdkdrkoz" method="POST">
+                    <label for="name" data-i18n="contact.name">Your Name</label>
+                    <input type="text" id="name" name="name" required />
+
+                    <label for="email" data-i18n="contact.email">Your Email</label>
+                    <input type="email" id="email" name="email" required />
+
+                    <label for="message" data-i18n="contact.msg">Your Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit" class="download-button" data-i18n="btn.send">Send Message</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Section switching
+        function showContent(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach((section) => {
+                section.style.display = 'none';
+            });
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) activeSection.style.display = 'block';
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu) navMenu.classList.remove('active');
+        }
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+            document.addEventListener('click', (event) => {
+                if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
+
+        // ===== i18n =====
+        const i18n = { en: {}, ko: {} };
+        const i18nNodes = document.querySelectorAll('[data-i18n]');
+        i18nNodes.forEach((node) => {
+            const key = node.getAttribute('data-i18n');
+            if (!(key in i18n.en)) i18n.en[key] = node.textContent.trim();
+        });
+
+        i18n.ko = {
+            'site.title': '근우의 웹사이트',
+
+            'menu.intro': '자기소개',
+            'menu.languages': '사용 가능 언어',
+            'menu.projects': '1인 개발 프로그램, 게임',
+            'menu.extensions': '1인 개발 크롬 확장 프로그램',
+            'menu.links': '링크',
+            'menu.goal': '목표',
+            'menu.contact': '이메일 보내기',
+
+            'card.tel': '전화 : +82 1021131655',
+            'card.email': '이메일 : rmsdn1955@gmail.com',
+
+            'intro.h2': '자기소개',
+            'intro.p1': '컴퓨터공학 전공으로 Python, C++, C, Java, JavaScript, HTML, CSS를 다룰 수 있습니다.',
+            'intro.p2': 'Unity로 게임을 제작한 경험이 있으며, Python으로 Windows용 프로그램도 개발했습니다. 또한 HTML, CSS, JavaScript로 크롬 확장 프로그램을 만들고 있습니다.',
+            'intro.p3': "제가 만든 프로젝트는 LinkedIn 프로필과 제 개인 사이트인 GW's website에서 확인하실 수 있습니다.",
+            'intro.p4': 'Microsoft Office Specialist Master(MOS Master) 자격을 보유하고 있으며 Excel, Word, PowerPoint, Access에 능숙합니다.',
+            'intro.p5': "현재 카카오의 대표 게임인 '아키에이지 워'의 QA/QC를 담당하고 있으며,",
+            'intro.p6': '시트로 테스트 케이스를 직접 작성하고 Jira로 유관 부서와 커뮤니케이션하는 게임 전문 QA/QC 업무를 수행하고 있습니다.',
+            'intro.p7': 'PowerDirector와 CapCut을 활용해 다양한 롱폼/숏폼 콘텐츠를 제작한 경험이 있고,',
+            'intro.p8': '현재는 업로드를 시작한 지 오래되지 않아 평균 조회수는 약 1,000회 기록중 입니다.',
+            'intro.p9': '또한 영상·사진 편집 기술을 활용해 20만 팔로워 규모의 페이스북 페이지를 성장시킨 경험이 있어,',
+            'intro.p10': 'SNS 마케팅과 트렌드 분석에 뛰어나며 사람들이 좋아할 만한 포인트를 잘 파악합니다.',
+            'intro.p11': '더 넓은 시야와 저의 능력을 향상시키기 위해 저와 맞는 회사를 찾고 있습니다.',
+
+            'languages.h2': '사용 가능 언어',
+
+            'projects.program': '프로그램',
+            'projects.game': '게임',
+
+            'tm.p1': '업무나 게임 등으로 PC 사용 중 휴대폰 알람을 놓치는 문제를 해결하고자 이 프로그램을 만들었습니다.',
+            'tm.p2': 'PC에서 지정한 시간에 MP3 파일의 사운드를 재생하는 알람 프로그램입니다.',
+            'tm.p3': '다른 프로그램 위로 표시되어 알람을 놓치기 어렵습니다.',
+
+            'swg.p1': '서로 다른 도시에 사는 연인·가족을 위해 개발한 프로그램입니다.',
+            'swg.p2': '실행하면 현재 위치, 날짜, 시간, 날씨, 대기질 정보를 보여주며, 하단에는 지정한 주요 도시들의 시간도 함께 표시합니다.',
+            'swg.p3': '프로그램만 실행해도 많은 정보를 한 번에 확인할 수 있습니다.',
+
+            'mgc.p1': 'Unity로 직접 제작한 4가지 미니 게임을 하나의 프로젝트로 묶은 컬렉션입니다.',
+            'mgc.p2': '원하는 게임을 선택해 플레이할 수 있고, 언제든 메인 화면으로 돌아갈 수 있습니다.',
+            'mgc.p3': '각 게임은 고유의 특징과 캐릭터, 직접 만든 BGM을 갖추고 있어 다양한 재미를 제공합니다.',
+
+            'ext.h2': '1인 제작 크롬 확장 프로그램',
+
+            'chime.p1': 'PC 작업·게임 중 소음 때문에 휴대폰 알람을 못 듣는 분들을 위해 만들었습니다.',
+            'chime.p2': '프로그램에서 HH:MM을 지정하면 해당 시간의 알람이 목록에 추가되며,',
+            'chime.p3': '창을 닫아도 지정 시간에 MP3 음악과 함께 알람이 자동으로 실행됩니다.',
+            'chime.p4': '알람 종료는 팝업의 종료 버튼으로 할 수 있습니다.',
+            'chime.p5': '아이콘의 0212는 제 생일을 의미합니다 😂',
+
+            'abt.p1': '벨기에에서 흔히 쓰는 영어·프랑스어·네덜란드어·독일어·한국어 중 원하는 언어를 선택할 수 있으며,',
+            'abt.p2': '전 세계 어떤 텍스트라도 입력하면 선택한 언어로 자동 번역해 줍니다.',
+            'abt.p3': '이 프로그램은 Chrome 확장 프로그램으로도 제공될 예정입니다.',
+            'abt.p4': '메인 화면 언어도 변경할 수 있습니다.',
+
+            'cms.p1': '웹사이트의 색상을 사용자가 원하는 색으로 바꿔주는 프로그램입니다.',
+            'cms.p2': '좋아하는 색으로 바꿔서 눈의 피로를 줄여보세요.',
+            'cms.p3': '다음 두 가지를 기억해주세요.',
+            'cms.p4': '1. 다크 모드를 꺼주세요.',
+            'cms.p5': '2. 보안 수준이 높은 웹사이트는 색상 변경이 제한될 수 있습니다.',
+
+            'dday.p1': 'D-Day Calculator는 기념일과 소중한 시간을 놓치지 않도록 돕기 위해 개발되었습니다.',
+            'dday.p2': '누구나 쉽게 사용할 수 있으며,',
+            'dday.p3': '간단한 UI와 충분한 기능으로 만족감을 드립니다.',
+
+            'ls.p1': '링크를 더 편하고 보기 쉽게 관리해 주는 프로그램입니다.',
+            'ls.p2': '현재 열려 있는 모든 탭의 주소와 이름을 가져올 수 있고,',
+            'ls.p3': '직접 URL을 입력해 이름을 붙여 저장할 수도 있습니다.',
+            'ls.p4': '메뉴에서 폴더를 생성·수정·삭제할 수 있으며,',
+            'ls.p5': '폴더 간 이동 기능으로 체계적으로 관리할 수 있습니다.',
+
+            'owc.p1': '현재 모니터 화면을 캡처하여 로컬에 저장하고,',
+            'owc.p2': '오프라인에서도 언제든 캡처 화면을 확인할 수 있습니다. 신문/사진 등을 저장할 때 유용합니다.',
+            'owc.p3': '목록에서 사이트 제목을 확인하고 항목을 추가·삭제할 수 있습니다.',
+
+            'links.h2': '링크',
+            'links.li.p': '제 LinkedIn 프로필을 확인해 보세요',
+            'links.gh.p': '제가 작업한 다양한 프로젝트 코드를 보실 수 있습니다.',
+
+            'goal.h2': '목표',
+            'goal.p1': '현재 한국에 거주하고 있으며,',
+            'goal.p2': '직무와 국가에 따라 해외 근무도 고려하고 있습니다.',
+            'goal.p3': '무엇을 하든 개인 시간에 다양한 프로그램과 게임을 개발할 계획입니다.',
+            'goal.p4': '언젠가 성공한 개발자로서 제 이름을 들려드리겠습니다.',
+
+            'contact.h2': '이름, 이메일, 내용 입력 후 메시지를 보내시면 입력해주신 이메일로 답 드리겠습니다.',
+            'contact.name': '이름',
+            'contact.email': '이메일',
+            'contact.msg': '메시지',
+
+            'btn.readmore': '자세히 보기 (PPTX 다운로드)',
+            'btn.download': '다운로드 바로가기',
+            'btn.waiting': 'Chrome 확장 프로그램 심사 대기중',
+            'btn.open': '바로가기',
+            'btn.send': '메시지 보내기',
+
+            // Newly added extensions
+            'am.p1': '오디오 맥스를 사용하면 볼륨을 최대 800%까지 자유롭게 조절하고, 베이스 부스트와 이퀄라이저를 조절할 수 있으며, 프리셋을 저장하여 언제든지 원하는 음으로 음악을 즐길 수 있습니다.',
+            'emoji.p1': '클릭 한 번으로 여러 이모티콘을 복사하여 사용하세요! 가장 인기 있는 이모티콘을 프로그램에 넣었으며 이모티콘 복사하려고 웹사이트로 이동할 필요 없이 이 프로그램에서 클릭만 하면 복사 됩니다! 제작자를 알고 싶으시면 프로그램을 실행한 후 GW 버튼을 눌러주세요!',
+            'lumina.p1': '루미나는 내추럴한 특징에 가장 잘 어울리는 컬러 팔레트를 발견할 수 있도록 도와주는 퍼스널 컬러 분석 도구입니다. 사진을 업로드하여 피부, 머리카락, 전체적인 외모의 지배적인 톤을 분석하여 12톤 시스템 내에서 퍼스널 컬러 시즌을 결정합니다.',
+            'mine.p1': '인터넷 서핑이 지루할 때! 이 게임을 통해 집중력과 지능지수를 향상시키세요!'
+        };
+
+        function applyTranslations(lang) {
+            document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
+            i18nNodes.forEach((node) => {
+                const key = node.getAttribute('data-i18n');
+                const text = (i18n[lang] && i18n[lang][key]) || i18n.en[key] || node.textContent;
+                node.textContent = text;
+            });
+            document.querySelectorAll('.lang-btn').forEach((btn) => {
+                const isActive = btn.dataset.lang === lang;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', String(isActive));
+            });
+        }
+
+        // Initial language setup (fixed precedence)
+        const saved = localStorage.getItem('lang');
+        let preferred;
+        if (saved) {
+            preferred = saved;
+        } else {
+            const navLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            preferred = navLang.startsWith('ko') ? 'ko' : 'en';
+        }
+        applyTranslations(preferred);
+        localStorage.setItem('lang', preferred);
+
+        document.getElementById('lang-ko').addEventListener('click', () => {
+            applyTranslations('ko');
+            localStorage.setItem('lang', 'ko');
+        });
+        document.getElementById('lang-en').addEventListener('click', () => {
+            applyTranslations('en');
+            localStorage.setItem('lang', 'en');
+        });
+    </script>
+</body>
+</html>
