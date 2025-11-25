@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>근우의 웹사이트</title>
+<link href="favicon.png" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<h1>
+<button class="title-btn" data-i18n="site.title" id="title-home">GW's website</button>
+</h1>
+<div class="header-right">
+<div aria-label="Language switcher" class="lang-switch" role="group">
+<button aria-pressed="true" class="lang-btn active" data-lang="ko" id="lang-ko">한국어</button>
+<button aria-pressed="false" class="lang-btn" data-lang="en" id="lang-en">English</button>
+</div><button aria-label="Toggle navigation" class="hamburger" id="hamburger-menu">☰</button>
+</div>
+</header>
+<div class="container">
+<nav class="nav-menu" id="nav-menu">
+<button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
+<button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">Available Languages / Tools</button>
+<button class="menu-button" data-i18n="menu.projects" onclick="showContent('projects')">One-man production project</button>
+<button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
+<button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
+<!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
+<button class="menu-button" data-i18n="menu.edu" onclick="showContent('edu')">Education / Military / Career</button>
+<button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
+<button class="menu-button" data-i18n="menu.links" onclick="showContent('links')">Link</button>
+<button class="menu-button" data-i18n="menu.goal" onclick="showContent('goal')">Goal</button>
+<button class="menu-button" data-i18n="menu.minigames" onclick="showContent('minigames')">Mini games</button>
+<div class="contact-card">
+<p class="name">Geun Woo KIM</p>
+<p data-i18n="card.tel">TEL : +82 1021131655</p>
+<p data-i18n="card.email">Email : rmsdn1955@gmail.com</p>
+</div>
+</nav>
+<main class="content">
+<!-- Intro -->
+<div class="content-section" id="intro"><h2 data-i18n="intro.h2">Introduce myself</h2>
+<p data-i18n="intro.p1">I believe in the code that moves the world in a slightly better direction.</p>
+<p data-i18n="intro.p2">When I create websites, I design spaces for people to stay; when I make programs, I find ways to make daily life flow more efficiently.</p>
+<p data-i18n="intro.p3">When developing games, I draw worlds where immersion and emotion coexist; when doing QA, I protect those worlds so that they are perfectly complete.</p>
+<p data-i18n="intro.p4">Development, to me, is not just technology but designing human experience. What matters more than flashy features is the natural feeling users have.</p>
+<p data-i18n="intro.p5">So I always focus on “invisible perfection.” I think carefully about how smoothly a single line of code reaches the user and how a single button fits into their rhythm.</p>
+<p data-i18n="intro.p6">Whenever I create websites, programs, or games, I start by asking “why.”</p>
+<p data-i18n="intro.p7">Why is this feature needed? Why is it implemented this way?</p>
+<p data-i18n="intro.p8">I care more about how, why, and with what it was made than the final result.</p>
+<p data-i18n="intro.p9">Web, program, game, and QA — all are different fields, but the question I always ask myself as a developer remains the same.</p>
+<p data-i18n="intro.p10">"How can people use it more comfortably, more easily, and more enjoyably?"</p>
+<p data-i18n="intro.p11">That question is why I keep developing, and finding the answer and connecting it to the world is how I love what I do.</p>
+</div> <!-- ✅ intro 섹션 닫기 -->
+<!-- Languages / Tools -->
+<div class="content-section" id="languages" style="display:none;">
+<h2 data-i18n="languages.h2">Available Languages / Tools</h2>
+<!-- 내부 탭 버튼 -->
+<div aria-label="웹사이트 탭" class="tabs" role="tablist">
+<button aria-selected="true" class="tab-btn active" data-i18n="languages.tab.langs" data-tab="lang-languages" role="tab">Available Languages</button>
+<button aria-selected="false" class="tab-btn" data-i18n="languages.tab.tools" data-tab="lang-tools" role="tab">Available Tools</button>
+</div>
+<!-- 탭 패널: 언어 -->
+<div class="tab-panel" id="lang-languages" role="tabpanel">
+<ul>
+<li>SQL</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Java</li>
+<li>JavaScript</li>
+<li>Python</li>
+<li>C</li>
+<li>C++</li>
+<li>C#</li>
+</ul>
+</div>
+<!-- 탭 패널: 툴 -->
+<div class="tab-panel" hidden="" id="lang-tools" role="tabpanel">
+<ul>
+<li>Microsoft Office (Excel / Word / PowerPoint / Access)</li>
+<li>Unity</li>
+<li>Visual Studio / Visual Studio Code</li>
+<li>Slack / Discord</li>
+<li>Notion / Google Docs / Google Sheets</li>
+<li>pip / PyCharm</li>
+<li>Git / GitHub</li>
+<li>Jira / Confluence</li>
+<li>Android Studio</li>
+<li>Eclipse</li>
+<li>Node.js / Express</li>
+<li>PowerDirector / Capcut</li>
+<li>Google Cloud</li>
+<li data-i18n="languages.tools.chrome">Chrome Extension Dev Environment (Manifest v3)</li>
+<li data-i18n="languages.tools.aiimg">AI Image Tools</li>
+<li>Multi-language Toggle</li>
+</ul>
+</div>
+</div>
+<!-- Projects -->
+<div class="content-section" id="projects" style="display:none;">
+<h2 data-i18n="projects.program">Program</h2>
+<div class="project-card">
+<h3>Time Minder</h3>
+<p data-i18n="tm.p1">When I work and take a break on a computer instead of a mobile phone, I often can't hear the alarm on my phone due to the sound of the computer. This is why I developed this program.</p>
+<p data-i18n="tm.p2">It is a program in which when you specify a time on your computer, the sound source of the mp3 file is output at a specified time.</p>
+<p data-i18n="tm.p3">It appears at the top of other programs, so there is no way you can never hear the alarm.</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/Time%20Minder.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+</div>
+<div class="project-card">
+<h3>Smart Weather Guide</h3>
+<p data-i18n="swg.p1">Smart Weather Guide was developed for couples and families who are currently living in different cities than themselves.</p>
+<p data-i18n="swg.p2">Running the program will reveal their current location, date, time, weather, and air quality status, plus additional hours in the major cities that you specify at the bottom.</p>
+<p data-i18n="swg.p3">Just by running the program, you can get a lot of information and check the time in other cities where couples and their families live.</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/Smart%20Weather%20Guide.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+</div>
+<hr/>
+<h2 data-i18n="projects.game">Game</h2>
+<div class="project-card">
+<h3>The mini-games collection</h3>
+<p data-i18n="mgc.p1">The mini-games collection is a collection of four mini-games produced by itself using unity and grouped them into one project.</p>
+<p data-i18n="mgc.p2">When you play this game, you can select one of the four games and play a variety of games as there is also a button to return to the main screen at any time.</p>
+<p data-i18n="mgc.p3">Each game has its own characteristics, characters, and homemade BGM, which can give users a lot of experience and enjoyment.</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/Mini-game%20collection.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+</div>
+</div>
+<!-- Extensions -->
+<div class="content-section" id="extensions" style="display:none;">
+  <h2 data-i18n="ext.h2">One-man Work</h2>
+  <div class="tabs" aria-label="One-man Work tabs" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true"
+            data-i18n="work.tab.extensions"
+            data-tab="work-panel-extensions">Chrome Extensions</button>
+    <button class="tab-btn" role="tab" aria-selected="false"
+            data-i18n="websites.tab.web"
+            data-tab="work-panel-web">웹사이트</button>
+    <button class="tab-btn" role="tab" aria-selected="false"
+            data-i18n="websites.tab.pcgame"
+            data-tab="work-panel-pcgame">웹사이트 (게임)</button>
+  </div>
+  <div class="tab-panel" id="work-panel-extensions" role="tabpanel">
+<div class="project-card">
+<h3>Chime</h3>
+<p data-i18n="chime.p1">This program was developed for those who cannot hear the alarm on their mobile phone due to sound when they are working or playing games on their computer.</p>
+<p data-i18n="chime.p2">If you specify HH:MM after running this program, an alarm for the specified time is added to the alarm list, </p>
+<p data-i18n="chime.p3">and even if you close the program and are doing something else, the alarm will automatically run at that time along with the music of the MP3 file.</p>
+<p data-i18n="chime.p4">If you want to end the alarm, you can click the alarm end button on the pop-up window of the alarm end message.</p>
+<p data-i18n="chime.p5">The icon of this program means that my birthday is 0212😂</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/Chime.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+<a href="https://chromewebstore.google.com/detail/chime/hbfppfjoiodmanglpofccdkeeokdmfhd?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>A Belgium Translator</h3>
+<p data-i18n="abt.p1">The program allows users to select a total of five languages, including English, French, Dutch, German and Korean, </p>
+<p data-i18n="abt.p2">and automatically translates the text into the language of their choice when they input text from all over the world.</p>
+<p data-i18n="abt.p3">The program will also be registered in a Chrome extension program.</p>
+<p data-i18n="abt.p4">And i can change the main screen language</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/A%20Belgium%20Translator.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+<a href="https://chromewebstore.google.com/detail/%EB%B2%A8%EA%B8%80%EC%97%90-%EC%A0%84%EC%9A%A9-%EB%B2%88%EC%97%AD%EA%B8%B0/kbbkhjnnibijkfppinigegopneijmopl?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Color My Site</h3>
+<p data-i18n="cms.p1">The Color My Site program is a program that changes the color of the website to the color that users want. </p>
+<p data-i18n="cms.p2">users want. Change the color of the website to your favorite color to relax your mind.</p>
+<p data-i18n="cms.p3">Please remember these two things</p>
+<p data-i18n="cms.p4">1. Turn off the dark mode</p>
+<p data-i18n="cms.p5">2. High-security websites do not change color.</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/Color%20My%20Site.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+<a href="https://chromewebstore.google.com/detail/color-my-site/clnemkiiifjagbagbodbemnbmkihpnma?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>D-Day Calculator</h3>
+<p data-i18n="dday.p1">D-Day Calculator is a program developed to keep someone's anniversary and precious time safe. </p>
+<p data-i18n="dday.p2">It can be used by anyone around the world, and it is a program that </p>
+<p data-i18n="dday.p3">everyone will be satisfied with its easy UI and excellent features.</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/D-Day%20Calculator.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+<a href="https://chromewebstore.google.com/detail/d-day-calculator/piebllmlbgioonlgjlnbmlmgbfoladfe?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Link Saver</h3>
+<p data-i18n="ls.p1">Link Saver is a program that makes links more convenient and easy to see. </p>
+<p data-i18n="ls.p2">You can get the address and name of all the tabs that are currently open,</p>
+<p data-i18n="ls.p3">and you can insert the URL directly to name and save them.</p>
+<p data-i18n="ls.p4">Once you enter the menu, you can create, modify, and delete folders,</p>
+<p data-i18n="ls.p5">and you can put links in folders to manage them through the move button.</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/Link%20Saver.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+<a href="https://chromewebstore.google.com/detail/link-saver/mmhjffjmkfgonkhelkbhbobcdbfahgfl?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Offline Web Capture</h3>
+<p data-i18n="owc.p1">Offline Web Capture can be captured on the current monitor screen and stored locally anytime, </p>
+<p data-i18n="owc.p2">anywhere to check the captured screen offline. It is useful for saving newspapers, photos, etc. on the screen.</p>
+<p data-i18n="owc.p3">You can check the title of the site in the list and add or delete it to the list at any time.</p>
+<a class="download-button" data-i18n="btn.readmore" download="" href="https://gw0212.github.io/Offline%20Web%20Capture.pptx" type="application/vnd.openxmlformats-officedocument.presentationml.presentation">Read more (Download PPTX)</a>
+<a href="https://chromewebstore.google.com/detail/offline-web-capture/igchackhjignioppkefeioaaffaedcom?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Audio Max</h3>
+<p data-i18n="am.p1">With Audio Max, you can freely boost volume up to 800%.</p>
+<p data-i18n="am.p2">Adjust bass boost and the equalizer.</p>
+<p data-i18n="am.p3">Save presets to enjoy your music exactly the way you like.</p>
+<a href="https://chromewebstore.google.com/detail/audio-max/jfncdhbfgfceolageflpanbobdocmcbk?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Let's emoji</h3>
+<p data-i18n="emoji.p1">Copy multiple emojis with a single click!</p>
+<p data-i18n="emoji.p2">We've packed the most popular emojis—no need to visit a website;</p>
+<p data-i18n="emoji.p3">just click inside this extension to copy.</p>
+<p data-i18n="emoji.p4">Want to know the creator? After launching, press the GW button!</p>
+<a href="https://chromewebstore.google.com/detail/lets-emoji/gnndhcpkjdidhniegfhifcekenjgpphb?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Lumina</h3>
+<p data-i18n="lumina.p1">Lumina is a personal color analysis tool that helps you discover</p>
+<p data-i18n="lumina.p2">the color palette that best matches your natural features.</p>
+<p data-i18n="lumina.p3">Upload a photo to analyze your skin, hair, and overall tone,</p>
+<p data-i18n="lumina.p4">and determine your personal color season within the 12-tone system.</p>
+<a href="https://chromewebstore.google.com/detail/lumina/lpfdnopcpgohckbbjdhjmpmcmoamhjic?hl=ko" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Minesweeper</h3>
+<p data-i18n="mine.p1">Feeling bored while surfing the web? Sharpen your focus (and have fun) with this game!</p>
+<a href="https://chromewebstore.google.com/detail/minesweeper/bhdlcmdecbiggkcbdeboomlkghmhbjni?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>QR Code Converter</h3>
+<p data-i18n="qr.p1">QR Code Converter automatically recognizes the current page URL</p>
+<p data-i18n="qr.p2">and lets you create and store its QR code with a single click.</p>
+<p data-i18n="qr.p3">You can also enter any other URL,</p>
+<p data-i18n="qr.p4">and scan QR codes to extract the URL and open the link.</p>
+<a href="https://chromewebstore.google.com/detail/qr-code-converter/ifdnjifiejhlnelcmkdpkobggepfeonc?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>MBTI Studio — 성향 검사</h3>
+<p data-i18n="mbti.p1">This program presents 40 questions at a time,</p>
+<p data-i18n="mbti.p2">where you answer on a 1–7 scale to measure MBTI in depth.</p>
+<p data-i18n="mbti.p3">From a pool of 100 items, 40 are randomly selected each retest.</p>
+<p data-i18n="mbti.p4">After answering all 40, you can view results,</p>
+<p data-i18n="mbti.p5">copy them as text, or save as an image.</p>
+<p data-i18n="mbti.p6">Even if the program closes mid-test, you can resume from</p>
+<p data-i18n="mbti.p7">the main screen’s “Continue” button.</p>
+<p data-i18n="mbti.p8">Use “Reset All” to clear all MBTI history,</p>
+<p data-i18n="mbti.p9">and “Recent Result” to jump back to the most recently completed MBTI result (if not reset).</p>
+<a href="https://chromewebstore.google.com/detail/mbti-studio-%E2%80%94-%EC%84%B1%ED%96%A5-%EA%B2%80%EC%82%AC/cifjlnlnggleffikbjilibbdbkphghko?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>YouTube Ad Skipper (Toggle)</h3>
+<p data-i18n="yas.p1">This Chrome extension automatically skips YouTube ads.</p>
+<p data-i18n="yas.p2">You can toggle it ON/OFF anytime;</p>
+<p data-i18n="yas.p3">when ON, it will process YouTube advertisements automatically</p>
+<p data-i18n="yas.p4">as much as possible.</p>
+<a href="https://chromewebstore.google.com/detail/youtube-ad-skipper-toggle/koolgoiapbkhaecnpaeagciogajldkib?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>YouTube Quick Controller</h3>
+<p data-i18n="yqc.p1">Control an active YouTube video from other tabs:</p>
+<p data-i18n="yqc.p2">seek time, jump to the next video, or reset to 00:00.</p>
+<p data-i18n="yqc.p3">Handy for music listening and lectures.</p>
+<a href="https://chromewebstore.google.com/detail/youtube-quick-controller/achknhjahfanaijfojlpgacpimojfnmn?hl=ko-" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>CozyView – Eye Protector</h3>
+<p data-i18n="cozy.p1">CozyView reduces eye strain by adding a gentle sepia tone</p>
+<p data-i18n="cozy.p2">and a blue-light filter to any website.</p>
+<p data-i18n="cozy.p3">Toggle modes, tune strengths, exclude specific sites,</p>
+<p data-i18n="cozy.p4">see mode status in the toolbar badge,</p>
+<p data-i18n="cozy.p5">enjoy multilingual UI (EN/KR/JA/ZH/FR),</p>
+<p data-i18n="cozy.p6">and switch modes quickly with Alt+Shift+D.</p>
+<a href="https://chromewebstore.google.com/detail/cozyview-%E2%80%93-eye-protector/hpobdeoodffnamlhablbfilaecimimnb?hl=ko" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<!-- 추가 카드 3개 -->
+<div class="project-card">
+<h3>Live-fx-Converter</h3>
+<p data-i18n="ext.lfc.desc">
+            It is a program that allows you to find out the amount of money you exchange in the world's currencies. It allows you to select currencies and fees from all over the world and renews the value of your currencies in real time every 10 minutes, starting at 9 a.m. It supports five languages: Korean, English, Japanese, Chinese, and French.
+          </p>
+<a href="https://chromewebstore.google.com/detail/live-fx-converter/ehhpbgpmefaefjlbclkpkcgkdpamjfgm?hl=ko" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Mosaic Painter</h3>
+<p data-i18n="ext.mosaic.desc">
+            Mosaic Painter program allows you to select an image and add a mosaic effect to the selected image. There are four types of mosaics: pixel, blur, dot, and triangle, and you can select one of five languages: Korean, English, Japanese, Chinese, and French.
+          </p>
+<a href="https://chromewebstore.google.com/detail/mosaic-painter/iancclkmhcongmjdepjjckgcgkikecei?hl=ko" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3>Realtime Weather</h3>
+<p data-i18n="ext.rtweather.desc">
+            This program measures real-time weather, temperature, wind speed, humidity, and precipitation probabilities by recognizing the user's location and checks the time. It supports five languages: Korean, English, Japanese, Chinese, and French.
+          </p>
+<a href="https://chromewebstore.google.com/detail/realtime-weather/lgmijcildijkohkjekfjobiamlgbgben?hl=ko" target="_blank">
+<button class="download-button" data-i18n="btn.download">Click to download</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="ext.regionshot.title">RegionShot - 단축키 캡쳐</h3>
+<p class="wrap-readable" data-i18n="ext.regionshot.desc">
+            단축키를 지정하고 단축키 또는 영역 캡쳐 버튼을 클릭하여 화면을 멈추고 원하는 영역을 캡쳐하세요. 캡쳐 후 버튼 혹은 우클릭을 통해 캡쳐한 영역의 이미지를 복사 혹은 저장도 가능합니다.
+          </p>
+<a href="https://chromewebstore.google.com/detail/cmdljodidfhifgepennkihialidddipa?utm_source=item-share-cb" target="_blank">
+<button class="download-button" data-i18n="ext.regionshot.btn">다운로드 바로가기</button>
+</a>
+</div>
+  <div class="project-card">
+    <h3 data-i18n="ext.memocal.title">Memo Calendar</h3>
+    <p class="wrap-readable" data-i18n="ext.memocal.desc">
+      감각적인 달력에서, 클릭 한 번으로 메모를 남기세요. 중요 표시, 검색, 알림까지 — 단순하지만 필요한 기능만 담았습니다.
+    </p>
+    <a href="https://chromewebstore.google.com/detail/lcnicakjbhabkgjinfdcnpcmjlfkhjhg?utm_source=item-share-cb" target="_blank">
+      <button class="download-button" data-i18n="ext.memocal.btn">다운로드 바로가기</button>
+    </a>
+  </div>
+<div class="project-card">
+    <h3 data-i18n="ext.cipher.title">Random Cipher Memo</h3>
+    <p class="wrap-readable" data-i18n="ext.cipher.desc">
+      이 프로그램은 사용자마다 고유하게 생성되는 랜덤 시드(암호 알파벳)를 이용해 텍스트를 안전하게 암호화하고 해독할 수 있는 메모 도구입니다. 일반 텍스트를 즉시 암호문으로 바꾸거나, 반대로 암호문을 해독해 원본 텍스트를 확인할 수 있습니다. 저장 기능을 통해 암호화된 메모를 관리할 수 있으며, 시드 공유·불러오기 기능으로 여러 브라우저에서도 동일한 암호 체계를 사용할 수 있습니다.
+    </p>
+    <a href="https://chromewebstore.google.com/detail/random-cipher-memo/aolbbcpeafcjfgeglkeghnlkabkjdaae?hl=ko-" target="_blank">
+      <button class="download-button" data-i18n="ext.cipher.btn">다운로드 바로가기</button>
+    </a>
+  </div>
+
+
+  <div class="project-card">
+    <h3 data-i18n="ext.ytspeed.title">YouTube Speed Controller (0.1x - 3x)</h3>
+    <p class="wrap-readable" data-i18n="ext.ytspeed.desc">
+      이 확장 프로그램은 유튜브 동영상의 재생 속도를 0.1배속부터 3배속까지, 0.1 단위로 정밀하게 조절할 수 있도록 도와주는 도구입니다.
+      어떤 탭에서 속도를 변경하든 모든 유튜브 탭에 동일하게 적용되며, 새로 여는 탭에서도 설정된 속도가 자동으로 유지됩니다.
+      깔끔하고 직관적인 UI를 통해 슬라이더로 손쉽게 속도를 조절할 수 있고, 필요할 때는 한 번의 클릭으로 속도를 1.00x로 초기화할 수 있습니다.
+      편리한 속도 제어 기능으로 학습, 감상, 몰아보기 등 다양한 시청 환경에 최적화를 제공합니다.
+    </p>
+    <a href="https://chromewebstore.google.com/detail/jgfcmkbehabekmejpbpjcjoapnhhgfjg?utm_source=item-share-cb" target="_blank">
+      <button class="download-button" data-i18n="ext.ytspeed.btn">다운로드 바로가기</button>
+    </a>
+  </div>
+
+  <div class="project-card">
+    <h3 data-i18n="ext.urlblock.title">URL &amp; Keyword Blocker</h3>
+    <p class="wrap-readable" data-i18n="ext.urlblock.desc">
+      이 확장 프로그램은 사용자가 입력한 URL이나 키워드를 기준으로 원치 않는 웹사이트를 자동으로 차단해주는 개인 맞춤형 필터링 도구입니다. 네트워크 차단 방식이 아닌 화면 덮기 방식이라 크롬 환경에서 안정적으로 동작하며, 차단 목록과 언어 설정은 모두 로컬에 저장돼 개인정보는 외부로 전송되지 않습니다. 한국어·영어·일본어·중국어(간체/번체)까지 지원해 다양한 환경에서 편리하게 사용할 수 있으며, 인터넷 사용 중 집중을 방해하는 사이트를 효과적으로 차단하는 데 최적화되어 있습니다.
+    </p>
+    <a href="https://chromewebstore.google.com/detail/oechnccaplkdmejbfaaddcdgpfallmjk?utm_source=item-share-cb" target="_blank">
+      <button class="download-button" data-i18n="ext.urlblock.btn">다운로드 바로가기</button>
+    </a>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="work-panel-web" role="tabpanel" hidden>
+<div class="project-card">
+<h3 data-i18n="web.item1.title">Movies, Dramas &amp; Anime Rating Website</h3>
+<p class="wrap-readable" data-i18n="web.item1.desc">
+            I enjoy watching various movies, dramas, and anime in my personal time. I built this website to log my ratings for what I’ve watched,
+            recommend great titles to others, and easily revisit masterpieces later. Passwords are stored as hashes in Firestore.
+            Visitors without the password can only browse in read-only mode; those who know the password can add, edit, and delete items.
+          </p>
+<a href="https://gw0212.github.io/movie-drama-animation/" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.fortune.title">Fortune &amp; Tarot</h3>
+<p class="wrap-readable" data-i18n="web.fortune.desc">
+    This website lets you check Today’s Fortune, Comprehensive Fortune, and Tarot readings.
+    Based on your name, date of birth, birth time, gender, interests, focus areas, this year's goals/situation, and your question,
+    it supports 600 cases for Today’s Fortune, 17,280 cases for Comprehensive Fortune, and 468 cases for Tarot Reading.
+    Results and detailed explanations vary depending on what you enter.
+    Fortune and tarot are just for fun—please don’t take them too seriously :)
+  </p>
+<a href="https://gw0212.github.io/fortune_tarot/" rel="noopener" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.dream.title">Dream Log &amp; Interpretation</h3>
+<p class="wrap-readable" data-i18n="web.dream.desc">This website lets you record the dreams you had and shows an interpretation for each record. Enter a title, choose tags, and write the content to save and view the interpretation. The result page provides a summary, what to be careful about today, positives, and negatives with detailed explanations. You can copy the interpretation as text via the copy button. Saved dream entries and their interpretations can be reviewed and deleted in My Archive. Interpretations are for reference only—please prioritize real-world context for important decisions.</p>
+<a href="https://gw0212.github.io/dream_diary/" rel="noopener" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.answer.title">The Answer of My Life</h3>
+<p class="wrap-readable" data-i18n="web.answer.desc">
+    When you have a question you can’t ask others,
+    when you want to hear an answer from someone,
+    or when you want to find “the answer of my life,”
+    ask your question on this site and it will give you a random answer from 122 possibilities.
+    Try it alone, with family, or with friends—just for fun! :)
+  </p>
+<a href="https://gw0212.github.io/the_answer_of_my_life/" rel="noopener" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.mood.title">Mood Juice Extractor</h3>
+<p class="wrap-readable" data-i18n="web.mood.desc">
+    Choose today’s feelings and turn them into a juice. You can download the created juice as a PNG image, and record how your day felt by visualizing emotion ratios as a glass of juice.
+  </p>
+<a href="https://gw0212.github.io/mood_juice/" rel="noopener" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.dyk.title">Did you know?</h3>
+<p class="wrap-readable" data-i18n="web.dyk.desc">
+    We share surprising facts people often don’t know.
+    There are 100 total facts. Press Space or click the “Amazing Fact” button to get a new one.
+    Dark/Light theme is available, and more facts will be added over time. Enjoy!
+  </p>
+<a href="https://gw0212.github.io/did_you_know/" rel="noopener" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.canvas.title">Canvas Studio</h3>
+<p class="wrap-readable" data-i18n="web.canvas.desc">
+    Use various tools and shapes—pencil, airbrush, calligraphy, stippling, splatter—to freely paint on the canvas and save as PNG.
+    You can set color, opacity, and thickness, and reset to a blank canvas anytime with the Reset button.
+  </p>
+<a href="https://gw0212.github.io/canvas_studio/" rel="noopener" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="web.aiimg.title">AI 이미지 판별기</h3>
+<p class="wrap-readable" data-i18n="web.aiimg.desc">
+    이 웹사이트는 브라우저에서 동작하는 프론트엔드 기반 AI 이미지 판별 도구입니다.
+    이미지를 업로드하면 밝기·색감·엣지·패턴 등의 시각적 통계 정보를 분석해 AI 생성 가능성을 퍼센트로 추정해 줍니다.
+    모든 처리는 사용자 PC 내에서 이루어지며 서버 전송이 없어 개인정보 안전성이 높습니다.
+    가벼운 구조지만 시각화·UI 완성도가 높아 실제 판별 도구처럼 즉시 사용 가능한 형태로 제작되어 있습니다.
+  </p>
+<a href="https://gw0212.github.io/ai_image_detector-/" rel="noopener" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div>
+
+<div class="project-card">
+  <h3 data-i18n="web.wmpins.title">world_map_pins</h3>
+  <p class="wrap-readable" data-i18n="web.wmpins.desc">
+    이 웹사이트는 전세계 위성 지도를 기반으로 특정 위치에 핀을 저장하고 관리할 수 있는 개인용 위치 기록 도구입니다.
+    핀을 더블클릭하면 이름을 수정할 수 있는 창이 열리고, 좌측 목록에서 핀의 이름·카테고리·메모를 편집하거나 카테고리별로 정리해 접고 펼칠 수 있습니다.
+    검색 기능을 통해 이름, 메모, #태그로 빠르게 원하는 핀을 찾을 수 있으며, 지도 위 핀을 클릭하면 해당 위치로 즉시 이동하도록 되어 있습니다.
+    모든 데이터는 브라우저 로컬에 저장되어 사용자가 사용하는 기기에서만 보관되는 안전한 개인용 지도입니다.
+  </p>
+  <a href="https://gw0212.github.io/world_map_pins-/" rel="noopener" target="_blank">
+    <button class="download-button" data-i18n="btn.open">Click</button>
+  </a>
+</div>
+  </div>
+  <div class="tab-panel" id="work-panel-pcgame" role="tabpanel" hidden>
+<div class="project-card">
+<h3 data-i18n="web_game.mathflight.title">Math Flight (PC)</h3>
+<p class="wrap-readable" data-i18n="web_game.mathflight.desc">
+    사칙연산 (+, - , x , %)을 사용하여 비행기를 업그레이드 시켜<br/>
+    다가오는 몬스터들을 처치하고 오래 살아남는 게임입니다.<br/>
+    키보드 방향키 혹은 마우스로 비행기 이동이 가능하며<br/>
+    사칙연산 박스, 몬스터는 랜덤된 위치에서 랜덤한 종류로 생성됩니다.<br/>
+    로컬 단위로 최고 기록이 저장되어 자신의 한계를 도전할 수 있는 게임입니다.
+  </p>
+<a href="https://gw0212.github.io/Math_Flight/" target="_blank">
+<button class="download-button" data-i18n="web_game.mathflight.go">바로가기</button>
+</a>
+</div><div class="project-card">
+  <h3 data-i18n="web_game.minirunner.title">Mini Runner</h3>
+  <p class="wrap-readable" data-i18n="web_game.minirunner.desc">
+    점프와 엎드리기로 장애물을 피하며 달리는 러너형 아케이드 게임입니다.<br/>
+    점수가 높아질수록 속도와 난이도가 점진적으로 상승하고, 코인을 모아 보너스를 얻을 수 있습니다.<br/>
+    모바일 터치와 PC 키보드를 모두 지원하며, 타이밍만 맞추면 누구나 피할 수 있는 밸런스로 설계됐습니다.<br/>
+    1000점마다 폭죽 연출과 마일스톤 보상이 나타나며 최고 점수는 자동 저장됩니다.
+  </p>
+  <a href="https://gw0212.github.io/Mini_Runner/" target="_blank" rel="noopener">
+    <button class="download-button" data-i18n="web_game.minirunner.go">바로가기</button>
+  </a>
+</div>
+<div class="project-card">
+<h3 data-i18n="web.item2.title">age of war</h3>
+<p class="wrap-readable" data-i18n="web.item2.desc">Play age of war instantly.</p>
+<a href="https://gw0212.github.io/age_of_war/" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.item3.title">alien_hominid</h3>
+<p class="wrap-readable" data-i18n="web.item3.desc">Play alien_hominid instantly.</p>
+<a href="https://gw0212.github.io/alien_hominid/" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.item4.title">Samurai_Jack</h3>
+<p class="wrap-readable" data-i18n="web.item4.desc">Play Samurai_Jack instantly.</p>
+<a href="https://gw0212.github.io/Samurai_Jack/" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div><div class="project-card">
+<h3 data-i18n="web.item5.title">supermario63</h3>
+<p class="wrap-readable" data-i18n="web.item5.desc">Play supermario63 instantly.</p>
+<a href="https://gw0212.github.io/supermario63/" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div>
+  </div>
+</div>
+
+<!-- Certificates -->
+<div class="content-section" id="certificates" style="display:none;">
+<h2 data-i18n="cert.h2">Certificates</h2>
+<div class="project-card cert-card">
+<h3 class="cert-title">Microsoft Office Specialist PowerPoint 2016</h3>
+<div class="cert-desc"><img alt="Microsoft Office Specialist PowerPoint 2016" class="cert-img"/></div>
+</div>
+<div class="project-card cert-card">
+<h3 class="cert-title">Microsoft Office Specialist Word 2016 Expert</h3>
+<div class="cert-desc"><img alt="Microsoft Office Specialist Word 2016 Expert" class="cert-img"/></div>
+</div>
+<div class="project-card cert-card">
+<h3 class="cert-title">Microsoft Office Specialist Excel 2016 Expert</h3>
+<div class="cert-desc"><img alt="Microsoft Office Specialist Excel 2016 Expert" class="cert-img"/></div>
+</div>
+<div class="project-card cert-card">
+<h3 class="cert-title">Microsoft Office Specialist Access 2016</h3>
+<div class="cert-desc"><img alt="Microsoft Office Specialist Access 2016" class="cert-img"/></div>
+</div>
+<div class="project-card cert-card">
+<h3 class="cert-title">Microsoft Office Specialist Master</h3>
+<div class="cert-desc"><img alt="Microsoft Office Specialist Master" class="cert-img"/></div>
+</div>
+<div class="project-card cert-card">
+<h3 class="cert-title" data-i18n="cert.psyc1">a first-degree psychological counselor</h3>
+<div class="cert-desc"><img alt="a first-degree psychological counselor" class="cert-img"/></div>
+</div>
+<div class="project-card cert-card">
+<h3 class="cert-title" data-i18n="cert.psyc2">a second-degree psychological counselor</h3>
+<div class="cert-desc"><img alt="a second-degree psychological counselor" class="cert-img"/></div>
+</div>
+</div>
+<!-- ✅ 단일 메뉴 내부 탭: 학력/병역/경력 -->
+<div class="content-section" id="edu" style="display:none;">
+<h2 data-i18n="edu.h2">Education / Military / Career</h2>
+<!-- 탭 버튼 -->
+<div aria-label="웹사이트 탭" class="tabs" role="tablist">
+<button aria-selected="true" class="tab-btn active" data-i18n="edu.tab.education" data-tab="edu-education" role="tab">Education</button>
+<button aria-selected="false" class="tab-btn" data-i18n="edu.tab.military" data-tab="edu-military" role="tab">Military Service</button>
+<button aria-selected="false" class="tab-btn" data-i18n="edu.tab.career" data-tab="edu-career" role="tab">Career</button>
+</div>
+<!-- 탭 패널: 학력 -->
+<div class="tab-panel" id="edu-education" role="tabpanel">
+<ul>
+<li data-i18n="edu.edu.p1">Elementary School: Graduated from Guryong Elementary School</li>
+<li data-i18n="edu.edu.p2">Middle School: Graduated from Daechi Middle School</li>
+<li data-i18n="edu.edu.p3">High School: Graduated from Chung-Ang University High School (Natural Sciences)</li>
+<li data-i18n="edu.edu.p4">University: Graduated from Dongguk University WISE Campus (Computer Engineering)</li>
+</ul>
+</div>
+<!-- 탭 패널: 병역 -->
+<div class="tab-panel" hidden="" id="edu-military" role="tabpanel">
+<ul>
+<li data-i18n="edu.mil.p1">Army: Discharged as Sergeant after full-term service (Artillery)</li>
+</ul>
+</div>
+<!-- 탭 패널: 경력 -->
+<div class="tab-panel" hidden="" id="edu-career" role="tabpanel">
+<ul>
+<li data-i18n="edu.career.p1">GDR 아카데미 성남위례점 [매니저] (2024.09 ~ 2024.12)</li>
+<li data-i18n="edu.career.p2">nGle [QA/QC] (2025.03 ~ ing)</li>
+</ul>
+</div>
+</div>
+
+<!-- Job Description (JD) -->
+<div class="content-section" id="jd" style="display:none;">
+  <h2 data-i18n="jd.h2">Job Description (JD)</h2>
+
+  <div class="project-card">
+    <h3 data-i18n="jd.service.title">Service Area</h3>
+    <p class="wrap-readable" data-i18n="jd.service.p1">
+      Kakao Games / XL Games title "ArcheAge War" client QA.
+    </p>
+    <p class="wrap-readable" data-i18n="jd.service.p2">
+      Perform functional verification on live service and new builds, verify patch contents, and conduct overall in-game quality checks.
+    </p>
+  </div>
+
+  <div class="project-card">
+    <h3 data-i18n="jd.resp.title">Main Responsibilities</h3>
+    <ul class="wrap-readable">
+      <li data-i18n="jd.resp.tc">
+        Write test cases based on patch notes: analyze patch notes and change logs, identify impact scope, and structure scenarios and TCs in Google Sheets.
+      </li>
+      <li data-i18n="jd.resp.regression">
+        Verify existing issues and perform regression tests: reproduce issues registered in JIRA, verify whether they are fixed, and update status and comments in JIRA.
+      </li>
+      <li data-i18n="jd.resp.bat">
+        Perform Build Acceptance Tests (BAT): run immediate BAT on new builds to secure stability around critical functions such as crashes, launch failures, and entry failures.
+      </li>
+      <li data-i18n="jd.resp.adhoc">
+        Conduct ad-hoc exploratory tests: freely explore the game when patch details are missing or unclear, and create detailed new JIRA tickets for any non-duplicate issues found.
+      </li>
+      <li data-i18n="jd.resp.report">
+        Write issue reports in JIRA: clearly document repro steps, test environment, expected result, and actual result so dev/design/art/UI can understand at a glance.
+      </li>
+      <li data-i18n="jd.resp.risk">
+        Identify risks and share quality status: proactively detect areas with potential quality drops per patch/build and share them with Kakao Games QA and XL Games development teams.
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3 data-i18n="jd.docs.title">Deliverables</h3>
+    <ul class="wrap-readable">
+      <li data-i18n="jd.docs.tc">Test case sheets (Test Case Sheet, Google Sheets based).</li>
+      <li data-i18n="jd.docs.jira">JIRA-based issue reports.</li>
+      <li data-i18n="jd.docs.bat">BAT checklists and build verification comments.</li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3 data-i18n="jd.comm.title">Collaboration &amp; Communication</h3>
+    <ul class="wrap-readable">
+      <li data-i18n="jd.comm.dev">
+        Work with XL Games development / server / UI teams on feature definitions, repro environments, and fix details.
+      </li>
+      <li data-i18n="jd.comm.qa">
+        Coordinate test scope, schedule, and issue review with Kakao Games QA team.
+      </li>
+      <li data-i18n="jd.comm.tools">
+        Main tools: KakaoWork, Slack, JIRA.
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3 data-i18n="jd.owner.title">Ownership</h3>
+    <ul class="wrap-readable">
+      <li data-i18n="jd.owner.tc">Own test scenario and test case authoring.</li>
+      <li data-i18n="jd.owner.patch">Own patch analysis and functional verification.</li>
+      <li data-i18n="jd.owner.bat">Own BAT execution on new builds.</li>
+      <li data-i18n="jd.owner.risk">Own identification and documentation of defects and risks.</li>
+      <li data-i18n="jd.owner.quality">Deliver high-quality testing within QA timelines.</li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3 data-i18n="jd.strength.title">Strengths &amp; Role Characteristics</h3>
+    <ul class="wrap-readable">
+      <li class="nowrap" data-i18n="jd.strength.indep">
+        Capable of independently handling the end-to-end client QA process for the assigned game (ArcheAge War).
+      </li>
+      <li class="nowrap" data-i18n="jd.strength.quality">
+        Strong in test speed, accuracy, TC writing quality, and data organization, enabling consistent, non-variant quality of testing.
+      </li>
+      <li class="nowrap" data-i18n="jd.strength.adhoc">
+        High discovery rate of new, non-duplicate issues through ad-hoc testing, providing significant contribution to the live project.
+      </li>
+      <li class="nowrap" data-i18n="jd.strength.trust">
+        Highly trusted by both development and QA teams for build quality assessment and risk identification.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Links -->
+<div class="content-section" id="links" style="display:none;">
+<h2 data-i18n="links.h2">Link</h2>
+<div class="project-card">
+<h3>LinkedIn</h3>
+<p data-i18n="links.li.p">Check out my Linkedin profile</p>
+<a href="https://www.linkedin.com/in/geun-woo-kim-94a29b372" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div>
+<div class="project-card">
+<h3>GitHub</h3>
+<p data-i18n="links.gh.p">You can see the different project codes I've worked on.</p>
+<a href="https://github.com/GW0212" target="_blank">
+<button class="download-button" data-i18n="btn.open">Click</button>
+</a>
+</div>
+</div>
+<!-- Goal -->
+<div class="content-section" id="goal" style="display:none;">
+<h2 data-i18n="goal.h2">Goal</h2>
+<p data-i18n="goal.p1">I aim to grow not just as a developer who writes good code, but as an experience designer who solves everyday problems with technology.</p>
+<p data-i18n="goal.p2">Building on my QA and development experience, I want to create a development culture that identifies user pain points first and improves them with systematic completeness.</p>
+<p data-i18n="goal.p3">My goal is to hide technological complexity from users and implement natural, intuitive technology that anyone can use.</p>
+<p data-i18n="goal.p4">Whether it's the web, programs, games, or AI—if it helps people feel more comfortable and immersed, that is the direction I will pursue.</p>
+</div>
+<!-- Guide Modal -->
+<div aria-hidden="true" aria-modal="true" class="guide-modal" id="guideModal" role="dialog">
+<div class="guide-dialog" role="document">
+<button aria-label="Close" class="guide-close" id="guideClose">×</button>
+<h3 class="guide-title" id="guideTitle">Game Guide</h3>
+<div class="guide-body" id="guideBody">...</div>
+</div>
+</div>
+<!-- Mini Games -->
+<div class="content-section" id="minigames" style="display:none;">
+<h2 data-i18n="minigames.h2">Mini games</h2>
+<p class="wrap-readable" data-i18n="minigames.desc">Take a short break with quick mini games :)</p>
+<div aria-label="웹사이트 탭" class="tabs" role="tablist">
+<button aria-selected="true" class="tab-btn active" data-i18n="minigames.tab.aim" data-tab="game-aim" role="tab">Aim Trainer</button>
+<button aria-selected="false" class="tab-btn" data-i18n="minigames.tab.reaction" data-tab="game-reaction" role="tab">Reaction Time</button>
+<button aria-selected="false" class="tab-btn" data-i18n="minigames.tab.whack" data-tab="game-whack" role="tab">Whack-a-Mole</button>
+<button aria-selected="false" class="tab-btn" data-i18n="minigames.tab.dodge" data-tab="game-dodge" role="tab">Dodge Square(PC)</button>
+</div>
+<!-- Aim Trainer -->
+<div class="tab-panel" id="game-aim" role="tabpanel">
+<div class="game-card">
+<canvas aria-label="Aim Trainer" class="game-canvas" height="240" id="aimCanvas" width="360"></canvas>
+<div class="game-row">
+<button class="download-button ghost" data-i18n="minigames.btn.guide" id="aimGuide">Guide</button>
+<button class="download-button" data-i18n="minigames.btn.start" id="aimStart">Start</button>
+<span class="game-info" id="aimInfo"></span>
+<span class="game-hs" id="aimHS"></span>
+</div>
+</div>
+</div>
+<!-- Reaction Time -->
+<div class="tab-panel" hidden="" id="game-reaction" role="tabpanel">
+<div class="game-card">
+<div aria-live="polite" class="reaction-box" data-i18n="minigames.rt.wait" id="reactionBox">Click Start and wait for green...</div>
+<div class="game-row">
+<button class="download-button ghost" data-i18n="minigames.btn.guide" id="reactionGuide">Guide</button>
+<button class="download-button" data-i18n="minigames.btn.start" id="reactionStart">Start</button>
+<span class="game-info" id="reactionInfo"></span>
+<span class="game-hs" id="reactionHS"></span>
+</div>
+</div>
+</div>
+<!-- Typing Speed -->
+<!-- Whack-a-Mole -->
+<div class="tab-panel" hidden="" id="game-whack" role="tabpanel">
+<div class="game-card">
+<div aria-label="Whack-a-Mole grid" class="grid" id="whackGrid" role="grid"></div>
+<div class="game-row">
+<button class="download-button ghost" data-i18n="minigames.btn.guide" id="whackGuide">Guide</button>
+<button class="download-button" data-i18n="minigames.btn.start" id="whackStart">Start</button>
+<span class="game-info" id="whackInfo"></span>
+<span class="game-hs" id="whackHS"></span>
+</div>
+</div>
+</div>
+<!-- Dodge Square -->
+<div class="tab-panel" hidden="" id="game-dodge" role="tabpanel">
+<div class="game-card">
+<canvas aria-label="Dodge Square" class="game-canvas" height="240" id="dodgeCanvas" width="360"></canvas>
+<div class="game-row">
+<button class="download-button ghost" data-i18n="minigames.btn.guide" id="dodgeGuide">Guide</button>
+<button class="download-button" data-i18n="minigames.btn.start" id="dodgeStart">Start</button>
+<span class="game-info" id="dodgeInfo"></span>
+<span class="game-hs" id="dodgeHS"></span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    // Section switching
+    function showContent(sectionId) {
+  // 1) 모든 섹션 숨김
+  document.querySelectorAll('.content-section').forEach(function (s) {
+    s.style.display = 'none';
+  });
+
+  // 2) 선택 섹션만 표시
+  var active = document.getElementById(sectionId);
+  if (active) {
+    active.style.display = 'block';
+
+    // 페이드 인 효과 다시 적용
+    try {
+      active.classList.remove('fade-in-fast');
+      void active.offsetWidth; // reflow
+      active.classList.add('fade-in-fast');
+    } catch (e) {}
+
+    // 3) 모바일에서 섹션이 바로 보이도록 스크롤 위치 보정
+    try {
+      if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+        var rect = active.getBoundingClientRect();
+        var targetY = rect.top + window.scrollY - 16; // 헤더 여유
+        window.scrollTo({ top: targetY < 0 ? 0 : targetY, behavior: 'auto' });
+      }
+    } catch (e) {}
+  }
+
+  // 4) 햄버거 메뉴 닫기
+  var navMenu = document.getElementById('nav-menu');
+  if (navMenu && navMenu.classList) {
+    navMenu.classList.remove('active');
+  }
+
+  // 5) 좌측 메뉴 active 처리
+  var buttons = document.querySelectorAll('.menu-button');
+  Array.prototype.forEach.call(buttons, function (btn) {
+    if (!btn) return;
+    btn.classList.remove('active');
+    var onclick = btn.getAttribute('onclick') || '';
+    if (onclick.indexOf("'" + sectionId + "'") !== -1 || onclick.indexOf('"' + sectionId + '"') !== -1) {
+      btn.classList.add('active');
+    }
+  });
+}
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+      document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) navMenu.classList.remove('active');
+      });
+    }
+
+    // i18n capture from DOM (English defaults)
+    const i18n = { en: {}, ko: {} };
+// === AI Image Detector i18n entries ===
+i18n.ko['web.aiimg.title'] = 'AI 이미지 판별기';
+i18n.ko['web.aiimg.desc'] = '이 웹사이트는 브라우저에서 동작하는 프론트엔드 기반 AI 이미지 판별 도구입니다. 이미지를 업로드하면 밝기·색감·엣지·패턴 등의 시각적 통계 정보를 분석해 AI 생성 가능성을 퍼센트로 추정해 줍니다. 모든 처리는 사용자 PC 내에서 이루어지며 서버 전송이 없어 개인정보 안전성이 높습니다. 가벼운 구조지만 시각화·UI 완성도가 높아 실제 판별 도구처럼 즉시 사용 가능한 형태로 제작되어 있습니다.';
+i18n.en['web.aiimg.title'] = 'AI Image Detector';
+i18n.en['web.aiimg.desc'] = 'This website is a front-end based AI image detector that runs entirely in your browser. When you upload an image, it analyzes visual statistics such as brightness, color, edges, and patterns to estimate the probability that it was generated by AI. All processing happens locally on your PC with no server upload, so your privacy is protected. Despite its lightweight structure, it offers polished visualization and UI, making it feel like a production-ready detector you can use right away.';
+
+
+
+// === Mini Runner i18n entries ===
+i18n.ko['web_game.minirunner.title'] = 'Mini Runner';
+i18n.ko['web_game.minirunner.desc'] = '점프와 엎드리기로 장애물을 피하며 달리는 러너형 아케이드 게임입니다. 점수가 높아질수록 속도와 난이도가 점진적으로 상승하고, 코인을 모아 보너스를 얻을 수 있습니다. 모바일 터치와 PC 키보드를 모두 지원하며, 타이밍만 맞추면 누구나 피할 수 있는 밸런스로 설계됐습니다. 1000점마다 폭죽 연출과 마일스톤 보상이 나타나며 최고 점수는 자동 저장됩니다.';
+i18n.ko['web_game.minirunner.go'] = '바로가기';
+i18n.en['web_game.minirunner.title'] = 'Mini Runner';
+i18n.en['web_game.minirunner.desc'] = 'An arcade runner where you dodge obstacles by jumping and ducking. As your score rises, speed and difficulty ramp up; collect coins to earn bonuses. Supports both mobile touch and PC keyboard, and the balance is tuned so anyone can clear obstacles with good timing. Every 1,000 points triggers fireworks and milestone rewards, and your best score is saved automatically.';
+i18n.en['web_game.minirunner.go'] = 'Click';
+
+
+// === Mini Runner i18n entries (inserted early) ===
+i18n.ko['web_game.minirunner.title'] = 'Mini Runner';
+i18n.ko['web_game.minirunner.desc'] = '점프와 엎드리기로 장애물을 피하며 달리는 러너형 아케이드 게임입니다. 점수가 높아질수록 속도와 난이도가 점진적으로 상승하고, 코인을 모아 보너스를 얻을 수 있습니다. 모바일 터치와 PC 키보드를 모두 지원하며, 타이밍만 맞추면 누구나 피할 수 있는 밸런스로 설계됐습니다. 1000점마다 폭죽 연출과 마일스톤 보상이 나타나며 최고 점수는 자동 저장됩니다.';
+i18n.ko['web_game.minirunner.go'] = '바로가기';
+
+i18n.en['web_game.minirunner.title'] = 'Mini Runner';
+i18n.en['web_game.minirunner.desc'] = 'An arcade runner where you dodge obstacles by jumping and ducking. As your score rises, speed and difficulty ramp up; collect coins to earn bonuses. Supports both mobile touch and PC keyboard, and the balance is tuned so anyone can clear obstacles with good timing. Every 1,000 points triggers fireworks and milestone rewards, and your best score is saved automatically.';
+i18n.en['web_game.minirunner.go'] = 'Go';
+
+i18n.en['ext.regionshot.title'] = 'RegionShot – Shortcut Capture';
+i18n.en['ext.regionshot.desc'] = 'Assign a shortcut, then press it or click the area capture button to freeze the screen and capture any region you want. After capturing, you can copy or save the image of the selected area via the buttons or right-click.';
+i18n.en['ext.regionshot.btn'] = 'Click to download';
+    i18n.en['ext.memocal.title'] = 'Memo Calendar';
+    i18n.en['ext.memocal.desc'] = 'Leave notes with a single click in a stylish calendar. Highlight important dates, search your memos, and set reminders—only the simple features you actually need.';
+    i18n.en['ext.memocal.btn'] = 'Click to download';
+
+    i18n.en['ext.cipher.title'] = 'Random Cipher Memo';
+    i18n.en['ext.cipher.desc'] = 'This extension lets you encrypt and decrypt text safely using a unique random seed (cipher alphabet) generated for each user. You can instantly convert plain text into cipher text, or decrypt cipher text back to the original text. With save support you can manage encrypted memos, and seed sharing/loading lets you use the same cipher system across multiple browsers.';
+    i18n.en['ext.cipher.btn'] = 'Click to download';
+
+    i18n.en['ext.ytspeed.title'] = 'YouTube Speed Controller (0.1x - 3x)';
+    i18n.en['ext.ytspeed.desc'] = 'This extension lets you finely control YouTube playback speed from 0.1x to 3.0x in 0.1 steps. Any change you make applies to all YouTube tabs and is kept for newly opened tabs as well. With a clean, intuitive UI, you can adjust speed via a slider and reset to 1.00x with a single click whenever needed. Convenient speed control makes it easy to optimize for studying, casual viewing, or binge-watching sessions.';
+    i18n.en['ext.ytspeed.btn'] = 'Click to download';
+
+    i18n.en['ext.urlblock.title'] = 'URL & Keyword Blocker';
+    i18n.en['ext.urlblock.desc'] = 'This extension automatically blocks unwanted websites based on the URLs or keywords you enter. Rather than blocking on the network level, it overlays a blocking screen so it works reliably within the Chrome environment. Block lists and language settings are stored locally, so no personal data is sent outside. With support for Korean, English, Japanese, and Simplified/Traditional Chinese, it is optimized for blocking distracting sites and helping you stay focused while using the internet.';
+    i18n.en['ext.urlblock.btn'] = 'Click to download';
+    i18n.en['web.wmpins.title'] = 'world_map_pins';
+    i18n.en['web.wmpins.desc'] = 'This website is a personal location logging tool built on a global satellite map that lets you save and manage pins at specific locations. Double-click a pin to open a rename window, and use the left-hand list to edit each pin name, category, and memo, or organize them by category and collapse or expand groups. With the search feature you can quickly find pins by name, memo, or #tags, and clicking a pin on the map immediately moves the view to that location. All data is stored locally in your browser, so everything remains safely kept only on the device you use.';
+
+
+
+    const i18nNodes = document.querySelectorAll('[data-i18n]');
+    i18nNodes.forEach(n => {
+      const k = n.getAttribute('data-i18n');
+      if (!(k in i18n.en)) i18n.en[k] = n.textContent.trim();
+    });
+    i18n.en['mbti.p9'] = 'and “Recent Result” to jump back to the most recently completed MBTI result (if not reset).';
+    // === Explicit English overrides for Math Flight ===
+    i18n.en['web_game.mathflight.desc'] = 'Use the four basic operations (+, -, ×, %) to upgrade your plane, defeat incoming monsters, and survive as long as possible. You can move the plane with the arrow keys or the mouse. Arithmetic boxes and monsters spawn at random positions and types. Your best record is saved locally so you can keep pushing your limits.';
+    i18n.en['web_game.mathflight.go'] = 'Click';
+
+
+    // === Korean translations ===
+    i18n.ko = {
+'web_game.mathflight.title': 'Math Flight (PC)',
+'web_game.mathflight.desc': '사칙연산 (+, - , x , %)을 사용하여 비행기를 업그레이드 시켜 다가오는 몬스터들을 처치하고 오래 살아남는 게임입니다. 키보드 방향키 혹은 마우스로 비행기 이동이 가능하며 사칙연산 박스, 몬스터는 랜덤된 위치에서 랜덤한 종류로 생성됩니다. 로컬 단위로 최고 기록이 저장되어 자신의 한계를 도전할 수 있는 게임입니다.',
+'web_game.mathflight.go': '바로가기',
+
+'menu.websites_game': '웹사이트 (게임)',
+'web_game.h2': '1인 개발 웹사이트 (게임)',
+
+
+'web.canvas.title': '캔버스 스튜디오',
+'web.canvas.desc': '연필, 에어브러스, 캘리그래피, 점묘, 스플래터 등 여러가지 도구와 도형을 사용하여 마음대로 캔버스를 색칠하고 PNG로 저장할 수 있습니다. 색상, 투명도, 두께를 설정할 수 있으며 캔버스 초기화 버튼을 통해 빈 캔버스로 리셋이 가능합니다.',
+      'web.wmpins.title':'world_map_pins',
+      'web.wmpins.desc':'이 웹사이트는 전세계 위성 지도를 기반으로 특정 위치에 핀을 저장하고 관리할 수 있는 개인용 위치 기록 도구입니다. 핀을 더블클릭하면 이름을 수정할 수 있는 창이 열리고, 좌측 목록에서 핀의 이름·카테고리·메모를 편집하거나 카테고리별로 정리해 접고 펼칠 수 있습니다. 검색 기능을 통해 이름, 메모, #태그로 빠르게 원하는 핀을 찾을 수 있으며, 지도 위 핀을 클릭하면 해당 위치로 즉시 이동하도록 되어 있습니다. 모든 데이터는 브라우저 로컬에 저장되어 사용자가 사용하는 기기에서만 보관되는 안전한 개인용 지도입니다.',
+
+'web.dyk.title': '그거 아세요?',
+'web.dyk.desc': '사람들이 잘 알지 못하는 사실을 알려드립니다. 총 100가지 사실이 랜덤으로 나오며 Space 버튼 혹은 놀라운 사실 버튼 클릭 시 새로운 사실이 나오는 형식입니다. 다크/라이트 모드 설정이 가능하며 추후에 더 많은 놀라운 사실들을 추가 할 예정입니다. 재밌게 봐주세요',
+
+'languages.h2':'사용 가능 언어 / 툴',
+'languages.tab.langs':'사용 가능 언어',
+'languages.tab.tools':'사용 가능 툴',
+
+'web.dream.title': '꿈 기록 & 해몽',
+'web.dream.desc': '오늘 꾼 꿈의 내용을 기록하고 기록한 꿈의 해몽 결과를 알려주는 사이트입니다. 제목, 태그 선택, 내용을 입력하여 기록 및 해몽을 볼 수 있습니다. 해몽 결과 창에서는 해몽 요약, 오늘 조심할 점, 좋은 점, 안좋은 점을 상세하게 설명해주며 공유복사 버튼을 클릭하여 해몽 결과를 텍스트로 복사할 수 있습니다. 기록한 꿈의 내용과 해몽 결과는 내 보관함에서 확인 및 삭제가 가능합니다. 해몽은 참고용으로 중요한 결정은 현실의 맥락을 우선시 하길 바랍니다.',
+'web.fortune.title': '운세&타로',
+'web.fortune.desc': '오늘의 운세, 종합 운세, 타로를 확인할 수 있는 웹사이트입니다. 이름, 생년월일, 출생 시간, 성별, 관심사, 관심 분야, 올해 목표/상황, 질문을 바탕으로 오늘의 운세 600가지, 종합 운세 17,280가지, 타로 리딩 468가지의 경우의 수가 있으며 사용자가 입력한 값에 따라 결과와 상세 설명이 달라집니다. 운세, 타로는 재미 삼아 하는 것이니 너무 신뢰하지는 마세요 :)',
+'web.answer.title': '내 인생의 해답',
+'web.answer.desc': '남들에게 물어보지 못하는 질문이 있을 때, 누군가에게 답을 듣고 싶을 때, 내 인생의 해답을 찾고 싶을 때 이 사이트에 질문하면 122가지의 해답 중 랜덤한 해답을 말해줍니다. 혼자, 가족과, 친구들과 재미삼아 내 인생의 해답 사이트를 이용해보세요 :)',
+'web.mood.title': '기분 주스 착즙기',
+'web.mood.desc': '오늘 나의 기분을 선택하여 주스로 만들어보세요. 제작한 주스의 이미지를 PNG로 다운 가능하며 오늘 하루의 기분이 어땠는지 감정의 비율을 주스 형태로 기록 할 수 있습니다.',
+'btn.open': '바로가기',
+
+      'menu.minigames': "미니게임",
+      'minigames.h2': "미니게임",
+      'minigames.desc': "오래 걸리지 않는 미니게임 하면서 잠깐 머리 식히고 가세요 :)",
+      'minigames.tab.aim': "에임 트레이너",
+      'minigames.tab.reaction': "반응 속도",
+      'minigames.tab.typing': "타자 속도",
+      'minigames.tab.whack': "두더지 잡기",
+      'minigames.tab.dodge': "회피 게임(PC)",
+      'minigames.btn.start': "시작",
+      'minigames.btn.guide': "게임방법",
+      'minigames.rt.wait': "Start를 누르고 초록색이 될 때까지 기다렸다가 클릭!",
+      'minigames.hs': "최고기록",
+      'minigames.hs.name_prompt': "축하합니다! 최고기록을 갱신했습니다. 닉네임을 입력하세요:",
+      'guide.aim.title': "에임 트레이너 - 게임방법",
+      'guide.aim.body': "30초 동안 캔버스의 원을 클릭하세요. 클릭할 때마다 새로운 위치로 이동합니다. 더 많이 맞출수록 높은 점수입니다.",
+      'guide.reaction.title': "반응 속도 - 게임방법",
+      'guide.reaction.body': "Start를 누른 뒤 초록색으로 바뀌면 즉시 클릭하세요. 반응 시간이 낮을수록 더 좋습니다.",
+      'guide.typing.title': "타자 속도 - 게임방법",
+      'guide.typing.body': "Start를 누르면 문장이 나타납니다. 30초 동안 가능한 많이 타이핑하세요. WPM(단어/분)으로 계산됩니다.",
+      'guide.whack.title': "두더지 잡기 - 게임방법",
+      'guide.whack.body': "Start를 누르면 랜덤 위치에 두더지가 나타납니다. 30초 동안 가능한 많이 클릭하세요.",
+      'guide.dodge.title': "회피 게임 - 게임방법",
+      'guide.dodge.body': "Start 후 방향키로 네모를 조작해 떨어지는 블록을 피하세요. 오래 살아남을수록 기록이 높습니다.",
+      'minigames.btn.guide': "게임방법",
+      'minigames.btn.close': "닫기",
+      'minigames.hs': "최고기록",
+      'minigames.hs.name_prompt': "축하합니다! 최고기록을 갱신했습니다. 닉네임을 입력하세요:",
+      'guide.aim.title': "에임 트레이너 - 게임방법",
+      'guide.aim.body': "30초 동안 캔버스의 원을 클릭하세요. 클릭할 때마다 새로운 위치로 이동합니다. 더 많이 맞출수록 높은 점수입니다.",
+      'guide.reaction.title': "반응 속도 - 게임방법",
+      'guide.reaction.body': "Start를 누른 뒤 초록색으로 바뀌면 즉시 클릭하세요. 반응 시간이 낮을수록 더 좋습니다.",
+      'guide.typing.title': "타자 속도 - 게임방법",
+      'guide.typing.body': "Start를 누르면 문장이 나타납니다. 30초 동안 가능한 많이 타이핑하세요. WPM(단어/분)으로 계산됩니다.",
+      'guide.whack.title': "두더지 잡기 - 게임방법",
+      'guide.whack.body': "Start를 누르면 랜덤 위치에 두더지가 나타납니다. 30초 동안 가능한 많이 클릭하세요.",
+      'guide.dodge.title': "회피 게임 - 게임방법",
+      'guide.dodge.body': "Start 후 방향키로 네모를 조작해 떨어지는 블록을 피하세요. 오래 살아남을수록 기록이 높습니다.",
+      'site.title':'근우의 웹사이트',
+
+      'menu.intro':'자기소개',
+      'menu.languages':'사용 가능 언어 / 툴',
+      'menu.projects':'프로그램, 게임',
+      'menu.extensions':'1인 개발 작품',
+            'menu.certificates':'자격증',
+      'menu.edu':'학력 / 병역 / 경력사항',
+      'menu.jd':'직무 분석표 (JD)',
+      'menu.links':'링크',
+      'menu.goal':'목표',
+
+      'card.tel':'전화 : +82 1021131655',
+      'card.email':'이메일 : rmsdn1955@gmail.com',
+
+      'intro.h2':'자기소개',
+      'intro.p1':'나는 세상을 조금 더 나은 방향으로 움직이게 만드는 코드를 믿는다.',
+      'intro.p2':'웹사이트를 만들 땐 사람이 머무는 공간을 설계하고, 프로그램을 만들 땐 일상이 더 효율적으로 흐르는 길을 찾는다.',
+      'intro.p3':'게임을 개발할 땐 몰입과 감정이 공존하는 세계를 그리고, QA를 할 땐 그 모든 세계가 흔들림 없이 완성되도록 지킨다.',
+      'intro.p4':'개발은 나에게 단순한 기술이 아니라, 사람의 경험을 설계하는 일이다. 화려한 기능보다 중요한 건, 사용자가 느끼는 자연스러움이다.',
+      'intro.p5':'그래서 나는 언제나 ‘보이지 않는 완성도’에 집중한다. 한 줄의 코드가 사용자에게 얼마나 부드럽게 다가가는지, 하나의 버튼이 사람의 리듬을 얼마나 방해하지 않는지 고민한다.',
+      'intro.p6':'웹사이트, 프로그램, 게임을 실행할 때는 언제나 ‘이유’를 먼저 찾는다.',
+      'intro.p7':'왜 이 기능이 필요한지, 왜 이렇게 구현했는지. 결과물보다 ‘어떻게’, ‘왜’, ‘무엇으로’ 만들었는지를 궁금해하며, 그 과정을 통해 나 자신을 한단계 더 발전시킨다.',
+      'intro.p8':'나는 지금도 만드는 것과 지키는 것, 창조와 검증의 경계 위에 서 있다. 그곳이야말로 내가 가장 살아있음을 느끼는 자리다.',
+      'intro.p9':'웹, 프로그램, 게임, QA — 모두 다른 분야지만, 개발을 하면서 나 자신에게 묻는 질문은 동일하다.',
+      'intro.p10':'“어떻게 해야 사람들이 더 편하고, 더 쉽고, 더 즐겁게 사용할 수 있을까?”',
+      'intro.p11':'그 질문이 내가 개발을 이어가는 이유이고, 그 답을 찾아 세상과 연결되는 것이 내가 이 일을 사랑하는 방식이다.',
+
+      // Languages / Tools
+      'languages.h2':'사용 가능 언어 / 툴',
+      'languages.sub.langs':'사용 가능 언어',
+      'languages.sub.tools':'사용 가능 툴',
+      'languages.tools.chrome':'크롬 확장 프로그램 개발 환경 (Manifest v3)',
+      'languages.tools.aiimg':'AI 이미지 툴',
+
+      // Projects / etc.
+      'projects.program':'프로그램',
+      'projects.game':'게임',
+
+      'tm.p1':'업무나 게임 등으로 PC 사용 중 휴대폰 알람을 놓치는 문제를 해결하고자 이 프로그램을 만들었습니다.',
+      'tm.p2':'PC에서 지정한 시간에 MP3 파일의 사운드를 재생하는 알람 프로그램입니다.',
+      'tm.p3':'다른 프로그램 위로 표시되어 알람을 놓치기 어렵습니다.',
+
+      'swg.p1':'서로 다른 도시에 사는 연인·가족을 위해 개발한 프로그램입니다.',
+      'swg.p2':'실행하면 현재 위치, 날짜, 시간, 날씨, 대기질 정보를 보여주며, 하단에는 지정한 주요 도시들의 시간도 함께 표시합니다.',
+      'swg.p3':'프로그램만 실행해도 많은 정보를 한 번에 확인할 수 있습니다.',
+
+      'mgc.p1':'Unity로 직접 제작한 4가지 미니 게임을 하나의 프로젝트로 묶은 컬렉션입니다.',
+      'mgc.p2':'원하는 게임을 선택해 플레이할 수 있고, 언제든 메인 화면으로 돌아갈 수 있습니다.',
+      'mgc.p3':'각 게임은 고유의 특징과 캐릭터, 직접 만든 BGM을 갖추고 있어 다양한 재미를 제공합니다.',
+
+      'ext.h2':'1인 개발 작품',
+
+      'chime.p1':'PC 작업·게임 중 소음 때문에 휴대폰 알람을 못 듣는 분들을 위해 만들었습니다.',
+      'chime.p2':'프로그램에서 HH:MM을 지정하면 해당 시간의 알람이 목록에 추가되며,',
+      'chime.p3':'창을 닫아도 지정 시간에 MP3 음악과 함께 알람이 자동으로 실행됩니다.',
+      'chime.p4':'알람 종료는 팝업의 종료 버튼으로 할 수 있습니다.',
+      'chime.p5':'아이콘의 0212는 제 생일을 의미합니다 😂',
+
+      'abt.p1':'영어·프랑스어·네덜란드어·독일어·한국어 중 원하는 언어를 선택할 수 있으며,',
+      'abt.p2':'전 세계 어떤 텍스트라도 입력하면 선택한 언어로 자동 번역해 줍니다.',
+      'abt.p3':'이 프로그램은 Chrome 확장 프로그램으로도 제공될 예정입니다.',
+      'abt.p4':'메인 화면 언어도 변경할 수 있습니다.',
+
+      'cms.p1':'웹사이트의 색상을 사용자가 원하는 색으로 바꿔주는 프로그램입니다.',
+      'cms.p2':'좋아하는 색으로 바꿔서 마음을 편안하게 해보세요.',
+      'cms.p3':'다음 두 가지를 기억해주세요.',
+      'cms.p4':'1. 다크 모드를 꺼주세요.',
+      'cms.p5':'2. 보안 수준이 높은 웹사이트는 색상 변경이 제한될 수 있습니다.',
+
+      'dday.p1':'기념일과 소중한 시간을 놓치지 않도록 돕기 위해 개발되었습니다.',
+      'dday.p2':'누구나 쉽게 사용할 수 있으며,',
+      'dday.p3':'간단한 UI와 충분한 기능으로 만족감을 드립니다.',
+
+      'ls.p1':'링크를 더 편하고 보기 쉽게 관리해 주는 프로그램입니다.',
+      'ls.p2':'현재 열려 있는 모든 탭의 주소와 이름을 가져올 수 있고,',
+      'ls.p3':'직접 URL을 입력해 이름을 붙여 저장할 수도 있습니다.',
+      'ls.p4':'메뉴에서 폴더를 생성·수정·삭제할 수 있으며,',
+      'ls.p5':'폴더 간 이동 기능으로 체계적으로 관리할 수 있습니다.',
+
+      'owc.p1':'현재 모니터 화면을 캡처하여 로컬에 저장하고,',
+      'owc.p2':'오프라인에서도 언제든 캡처 화면을 확인할 수 있습니다. 신문/사진 등을 저장할 때 유용합니다.',
+      'owc.p3':'목록에서 사이트 제목을 확인하고 항목을 추가·삭제할 수 있습니다.',
+
+      'am.p1':'Audio Max로 최대 800%까지 볼륨을 자유롭게 증폭할 수 있습니다.',
+      'am.p2':'베이스 부스트와 이퀄라이저를 세밀하게 조절하세요.',
+      'am.p3':'프리셋을 저장해 자신에게 딱 맞는 음색으로 음악을 즐기세요.',
+
+      'emoji.p1':'클릭 한 번으로 여러 이모지를 복사할 수 있습니다.',
+      'emoji.p2':'사람들이 자주 쓰는 이모지를 미리 담아두어 웹사이트 방문 없이,',
+      'emoji.p3':'확장 프로그램 안에서 클릭만으로 복사할 수 있습니다.',
+      'emoji.p4':'프로그램 제작자가 궁금하다면 실행 후 GW 버튼을 눌러보세요 :)',
+
+      'lumina.p1':'퍼스널 컬러 분석 도구로,',
+      'lumina.p2':'자연스러운 특징에 가장 잘 맞는 컬러를 찾아줍니다.',
+      'lumina.p3':'사진을 업로드하면 피부·머리카락·전체 톤을 분석하고,',
+      'lumina.p4':'12톤 시스템 안에서 퍼스널 컬러를 분석합니다.',
+
+      'mine.p1':'웹서핑 중 심심할 때 플레이할 수 있는 간단한 지뢰찾기 게임입니다.',
+
+      'qr.p1':'현재 페이지의 URL을 자동 인식해',
+      'qr.p2':'버튼 한 번으로 QR 코드를 만들고 저장할 수 있습니다.',
+      'qr.p3':'다른 URL을 직접 입력해서 QR 코드를 생성할 수도 있고,',
+      'qr.p4':'QR 코드를 스캔해 URL을 추출하고 바로 이동할 수 있습니다.',
+
+      'mbti.p1':'한 번에 40문항을 제시하여,',
+      'mbti.p2':'1~7 번호 중 선택하는 방식으로 심층적으로 MBTI를 측정합니다.',
+      'mbti.p3':'총 100문항 중 재검사마다 무작위로 40문항이 선택됩니다.',
+      'mbti.p4':'모든 문항을 완료하면 결과 확인이 가능하며,',
+      'mbti.p5':'결과지의 텍스트를 복사하거나 이미지를 저장할 수 있습니다.',
+      'mbti.p6':'검사 중 창이 닫혀도 메인 화면의 “이어서 진행” 버튼으로',
+      'mbti.p7':' 이어서 진행할 수 있습니다.',
+      'mbti.p8':'“전체 초기화” 버튼으로 검사 기록을 삭제할 수 있고,',
+      'mbti.p9':'“최근 검사 결과” 버튼으로 가장 최근 결과로 바로 이동할 수 있습니다.',
+
+      'ext.regionshot.title':'RegionShot - 단축키 캡쳐',
+      'ext.regionshot.desc':'단축키를 지정하고 단축키 또는 영역 캡쳐 버튼을 클릭하여 화면을 멈추고 원하는 영역을 캡쳐하세요. 캡쳐 후 버튼 혹은 우클릭을 통해 캡쳐한 영역의 이미지를 복사 혹은 저장도 가능합니다.',
+      'ext.regionshot.btn':'다운로드 바로가기',
+
+      'ext.memocal.title':'Memo Calendar',
+      'ext.memocal.desc':'감각적인 달력에서, 클릭 한 번으로 메모를 남기세요. 중요 표시, 검색, 알림까지 — 단순하지만 필요한 기능만 담았습니다.',
+      'ext.memocal.btn':'다운로드 바로가기',
+
+      'ext.cipher.title':'Random Cipher Memo',
+      'ext.cipher.desc':'이 프로그램은 사용자마다 고유하게 생성되는 랜덤 시드(암호 알파벳)를 이용해 텍스트를 안전하게 암호화하고 해독할 수 있는 메모 도구입니다. 일반 텍스트를 즉시 암호문으로 바꾸거나, 반대로 암호문을 해독해 원본 텍스트를 확인할 수 있습니다. 저장 기능을 통해 암호화된 메모를 관리할 수 있으며, 시드 공유·불러오기 기능으로 여러 브라우저에서도 동일한 암호 체계를 사용할 수 있습니다.',
+      'ext.cipher.btn':'다운로드 바로가기',
+
+      'ext.ytspeed.title':'YouTube Speed Controller (0.1x - 3x)',
+      'ext.ytspeed.desc':'이 확장 프로그램은 유튜브 동영상의 재생 속도를 0.1배속부터 3배속까지, 0.1 단위로 정밀하게 조절할 수 있도록 도와주는 도구입니다. 어떤 탭에서 속도를 변경하든 모든 유튜브 탭에 동일하게 적용되며, 새로 여는 탭에서도 설정된 속도가 자동으로 유지됩니다. 깔끔하고 직관적인 UI를 통해 슬라이더로 손쉽게 속도를 조절할 수 있고, 필요할 때는 한 번의 클릭으로 속도를 1.00x로 초기화할 수 있습니다. 편리한 속도 제어 기능으로 학습, 감상, 몰아보기 등 다양한 시청 환경에 최적화를 제공합니다.',
+      'ext.ytspeed.btn':'다운로드 바로가기',
+      
+      'yas.p1':'유튜브 광고를 자동으로 건너뜁니다.',
+      'yas.p2':'ON/OFF 토글로 언제든 제어할 수 있으며,',
+      'yas.p3':'ON 상태에서는 가능한 범위 내에서 광고를 자동 처리합니다.',
+      'yas.p4':'짧은 광고는 즉시, 긴 광고는 최대한 빠르게 배속하여 스킵합니다.',
+
+      'yqc.p1':'현재 또는 다른 탭의 유튜브 영상을 프로그램을 통해 원격으로 제어합니다.',
+      'yqc.p2':'재생 그래프를 클릭하여 재생 위치 이동, 다음 영상 점프, 리플레이, 일시정지/재생 기능을 지원합니다.',
+      'yqc.p3':'음악 감상이나 강의 시청에 특히 유용합니다.',
+
+      'cozy.p1':'은은한 세피아 톤과 블루라이트 필터로 눈의 피로를 줄여줍니다.',
+      'cozy.p2':'어떤 웹사이트에서도 모드를 적용/해제할 수 있습니다.',
+      'cozy.p3':'모드 전환, 강도 조절, 사이트별 예외 설정을 지원합니다.',
+      'cozy.p4':'툴바 배지로 현재 상태를 바로 확인할 수 있고,',
+      'cozy.p5':'다국어 UI(EN/KR/JA/ZH/FR)를 제공합니다.',
+      'cozy.p6':'Alt+Shift+D 단축키로 빠르게 전환이 가능합니다.',
+
+      'links.h2':'링크',
+      'links.li.p':'제 LinkedIn 프로필을 확인해 보세요',
+      'links.gh.p':'제가 작업한 다양한 프로젝트 코드를 보실 수 있습니다.',
+
+      'goal.h2': '목표',
+      'goal.p1': '나는 단순히 코드를 잘 짜는 개발자가 아니라, 사람의 일상 속 문제를 기술로 해결하는 경험 설계자로 성장하고자 한다.',
+      'goal.p2': '지금까지 쌓아온 QA와 개발 경험을 바탕으로, 앞으로는 사용자의 불편을 먼저 발견하고 시스템적 완성도로 개선해 나가는 개발 문화를 만들고 싶다.',
+      'goal.p3': '나의 목표는 기술의 복잡함을 사용자에게서 숨기고, 누구나 직관적으로 사용할 수 있는 자연스러운 기술을 구현하는 것이다.',
+      'goal.p4': '웹, 프로그램, 게임, AI 등 어떤 형태의 결과물이든, 사람이 더 편하고 몰입할 수 있다면 그게 바로 내가 가야 할 방향이다.',
+
+      'btn.readmore':'자세히 보기 (PPTX 다운로드)',
+      'btn.download':'다운로드 바로가기',
+      'btn.waiting':'Chrome 확장 프로그램 심사 대기중',
+      'btn.open':'바로가기',
+
+      'web.h2':'웹사이트',
+      'web.item1.title':'영화, 드라마, 애니 평점 관리 웹사이트',
+      'web.item1.desc':'개인 시간에 여러 영화, 드라마, 애니를 시청하는 것을 좋아해서 자체적으로 관람한 영상에 평점을 등록해 평가하고 다른 이들에게 추천 및 나중에 명작을 다시 관람할 수 있도록 기록하는 용도로 제작한 웹사이트입니다. 비밀번호는 Firestore에 해시로 저장되어 있으며 비밀번호를 알지 못하는 사람은 편집 불가능한 읽기 전용으로 사이트를 확인할 수 있으며 비밀번호를 알고 있는 사람은 리스트를 추가, 수정, 삭제 등 편집이 가능합니다.',
+
+      /* ===== 단일 메뉴 내부 탭 i18n (KO) ===== */
+      'edu.h2':'학력 / 병역 / 경력사항',
+      'edu.tab.education':'학력',
+      'edu.tab.military':'병역',
+      'edu.tab.career':'경력사항',
+
+      'edu.edu.p1':'구룡 초등학교 졸업 (2006.03 ~ 2012.02)',
+      'edu.edu.p2':'대치중학교 졸업 (2012.03 ~ 2015.02)',
+      'edu.edu.p3':'중앙대학교사범대학부속 고등학교 졸업 [이과] (2015.03 ~ 2018.02)',
+      'edu.edu.p4':'동국대학교 Wise캠퍼스 졸업 [컴퓨터공학과] (2018.03 ~ 2024.03)',
+
+      'edu.mil.p1':'육군 병장 만기전역 [포병] (2020.06 ~ 2021.12)',
+
+      'edu.career.p1':'GDR 아카데미 성남위례점 [매니저] (2024.09 ~ 2024.12)',
+      'edu.career.p2':'nGle [QA/QC] (2025.03 ~ 재직중)',
+  "ext.lfc.desc": "세계 각국의 통화를 선택해 환전 금액과 수수료를 계산하고, 오전 9시부터 10분 간격으로 환율을 실시간 갱신해 보여주는 프로그램입니다. 한국어, 영어, 일본어, 중국어, 프랑스어를 지원합니다.",
+  "ext.mosaic.desc": "이미지를 선택해 모자이크 효과를 적용하는 프로그램입니다. 픽셀, 블러, 도트, 삼각형의 4가지 모자이크 타입을 제공하며, 한국어·영어·일본어·중국어·프랑스어를 선택할 수 있습니다.",
+  "ext.rtweather.desc": "사용자의 위치를 인식하여 실시간 날씨, 기온, 풍속, 습도, 강수 확률과 현재 시간을 확인할 수 있는 프로그램입니다. 한국어, 영어, 일본어, 중국어, 프랑스어를 지원합니다.",
+      'web.item2.title':'age of war',
+      'web.item2.desc':'age of war 게임 바로 실행',
+      'web.item3.title':'alien_hominid',
+      'web.item3.desc':'alien_hominid 게임 바로 실행',
+      'web.item4.title':'Samurai_Jack',
+      'web.item4.desc':'Samurai_Jack 게임 바로 실행',
+      'web.item5.title':'supermario63',
+      'web.item5.desc':'supermario63 게임 바로 실행',
+      'ext.urlblock.title':'URL & Keyword Blocker',
+      'ext.urlblock.desc':'이 확장 프로그램은 사용자가 입력한 URL이나 키워드를 기준으로 원치 않는 웹사이트를 자동으로 차단해주는 개인 맞춤형 필터링 도구입니다. 네트워크 차단 방식이 아닌 화면 덮기 방식이라 크롬 환경에서 안정적으로 동작하며, 차단 목록과 언어 설정은 모두 로컬에 저장돼 개인정보는 외부로 전송되지 않습니다. 한국어·영어·일본어·중국어(간체/번체)까지 지원해 다양한 환경에서 편리하게 사용할 수 있으며, 인터넷 사용 중 집중을 방해하는 사이트를 효과적으로 차단하는 데 최적화되어 있습니다.',
+
+'jd.h2':'직무 분석표 (JD)',
+'jd.service.title':'담당 서비스 영역',
+'jd.service.p1':"카카오게임즈 / XL게임즈 개발 '아키에이지 워(ArcheAge War)' 클라이언트 QA 담당",
+'jd.service.p2':'라이브 서비스 및 신규 빌드 대상 기능 검증, 패치 내역 검증, 인게임 전반 품질 점검 수행',
+
+'jd.resp.title':'주요 업무 (Responsibilities)',
+'jd.resp.tc':'패치 내역 기반 테스트케이스 작성: 전달된 패치노트·수정 내역을 분석해 영향 범위를 파악하고, Google Sheets 기반으로 시나리오 및 TC를 구조화해 작성·관리합니다.',
+'jd.resp.regression':'기존 오류 검증 및 리그레션 테스트: JIRA에 등록된 기존 이슈를 재현하고 수정 여부를 검증한 뒤, JIRA에서 상태 변경 및 상세 코멘트로 처리합니다.',
+'jd.resp.bat':'신규 빌드 BAT(Build Acceptance Test): 신규 빌드 수령 즉시 BAT를 수행하여 치명적 오류, 실행 불가, 진입 불가 등 핵심 기능 중심으로 안정성을 확보합니다.',
+'jd.resp.adhoc':'Ad-hoc 탐색 테스트: 패치 내역이 없거나 불명확한 빌드에 대해 인게임 자유 탐색을 진행하며, 중복되지 않는 신규 이슈 발견 시 JIRA에 신규 티켓을 생성하고 상세히 기술합니다.',
+'jd.resp.report':'이슈 리포트 작성(JIRA): 재현 단계, 테스트 환경, 기대 결과, 실제 결과를 정확히 정리해 개발/기획/아트/UI 등 관련자가 즉시 이해할 수 있도록 문서화합니다.',
+'jd.resp.risk':'리스크 식별 및 품질 공유: 패치 단위·빌드 단위로 품질 저하 가능성이 있는 영역을 선제적으로 식별하고, 카카오게임즈 QA팀 및 XL게임즈 개발팀과 공유하여 리스크를 최소화합니다.',
+
+'jd.docs.title':'작성 문서 (Deliverables)',
+'jd.docs.tc':'테스트 케이스(Test Case Sheet)',
+'jd.docs.jira':'JIRA 기반 이슈 리포트',
+'jd.docs.bat':'BAT 체크리스트 및 빌드 검증 결과 코멘트',
+
+'jd.comm.title':'협업 대상 & 커뮤니케이션',
+'jd.comm.dev':'XL게임즈 개발 / 서버 / UI 팀과 기능 정의, 재현 환경, 수정 내역 관련 협의',
+'jd.comm.qa':'카카오게임즈 QA팀과 테스트 범위 조율, 일정 관리, 이슈 재검토',
+'jd.comm.tools':'주요 도구: 카카오워크, 슬랙, JIRA',
+
+'jd.owner.title':'책임 범위 (Ownership)',
+'jd.owner.tc':'테스트 시나리오 및 테스트케이스 작성',
+'jd.owner.patch':'패치 내역 분석 및 기능 검증',
+'jd.owner.bat':'빌드 수령 시 BAT 수행',
+'jd.owner.risk':'오류 및 리스크 식별 및 문서화',
+'jd.owner.quality':'QA 일정 내 고품질 테스트 수행',
+
+'jd.strength.title':'강점 및 역할 특징',
+'jd.strength.indep':"담당 게임(아키에이지 워) 영역에서 클라이언트 QA 전 과정을 단독 수행 가능할 정도의 숙련도 보유",
+'jd.strength.quality':'테스트 속도·정확도·TC 작성 품질·데이터 정리 능력이 우수해 품질 편차 없이 일관된 테스트 수행 가능',
+'jd.strength.adhoc':'Ad-hoc 테스트에서도 중복 없는 새로운 이슈 발굴률이 높아 실제 프로젝트에서도 높은 기여도를 발휘',
+'jd.strength.trust':'빌드 품질 판단 및 리스크 식별 능력이 뛰어나 개발·QA팀 양쪽에서 신뢰받는 테스트 기여자',
+
+      'ext.urlblock.btn':'다운로드 바로가기'
+};
+
+    // === Certificates (KO) overrides ===
+    i18n.ko['cert.h2'] = '자격증';
+    i18n.ko['cert.psyc1'] = '심리상담사 1급';
+    i18n.ko['cert.psyc2'] = '심리상담사 2급';
+
+
+    // === English label overrides ===
+    i18n.en['menu.languages'] = 'Available Languages / Tools';
+    i18n.en['languages.h2'] = 'Available Languages / Tools';
+    i18n.en['languages.sub.langs'] = 'Available Languages';
+    i18n.en['languages.sub.tools'] = 'Available Tools';
+    i18n.en['languages.tools.chrome'] = 'Chrome Extension Dev Environment (Manifest v3)';
+    i18n.en['languages.tools.aiimg'] = 'AI Image Tools';
+
+    // 단일 메뉴 라벨
+    i18n.en['menu.edu'] = 'Education / Military / Career';
+
+    // 단일 메뉴 내부 탭 (EN)
+    i18n.en['edu.h2'] = 'Education / Military / Career';
+    i18n.en['edu.tab.education'] = 'Education';
+    i18n.en['edu.tab.military'] = 'Military Service';
+    i18n.en['edu.tab.career'] = 'Career';
+
+    // 학력/병역/경력 항목 (EN 표기)
+    i18n.en['edu.edu.p1'] = 'Graduated from Guryong Elementary School (2006.03 ~ 2012.02)';
+    i18n.en['edu.edu.p2'] = 'Graduated from Daechi Middle School (2012.03 ~ 2015.02)';
+    i18n.en['edu.edu.p3'] = 'Graduated from Chung-Ang University High School [Natural Sciences] (2015.03 ~ 2018.02)';
+    i18n.en['edu.edu.p4'] = 'Graduated from Dongguk University WISE Campus [Computer Engineering] (2018.03 ~ 2024.03)';
+
+    i18n.en['edu.mil.p1'] = 'Discharged as Sergeant after full-term service [Artillery] (2020.06 ~ 2021.12)';
+
+    i18n.en['edu.career.p1'] = 'GDR Academy (Seongnam Wirye Branch) [Manager] (2024.09 ~ 2024.12)';
+    i18n.en['edu.career.p2'] = 'nGle [QA/QC] (2025.03 ~ present)';
+
+    // Certificates i18n
+    i18n.en['menu.certificates'] = 'Certificates';
+    i18n.en['cert.h2'] = 'Certificates';
+    i18n.en['cert.psyc1'] = 'a first-degree psychological counselor';
+    i18n.en['cert.psyc2'] = 'a second-degree psychological counselor';
+
+    // 자격증 PNG 자동 매핑 (제목 == 파일명.png)
+    function updateCertImages() {
+      const folderEncoded = encodeURI('자격증 메뉴');
+      document.querySelectorAll('.cert-card').forEach(card => {
+        const titleEl = card.querySelector('.cert-title');
+        const imgEl = card.querySelector('.cert-img');
+        if (!titleEl || !imgEl) return;
+        const name = (titleEl.textContent || '').trim();
+        const filename = encodeURIComponent(name) + '.png';
+        const src = `./${folderEncoded}/${filename}`;
+        imgEl.src = src;
+        imgEl.alt = name;
+      });
+    }
+
+    function applyTranslations(lang) {
+      document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach(node => {
+        const key = node.getAttribute('data-i18n');
+        node.textContent = (i18n[lang] && i18n[lang][key]) || i18n.en[key] || node.textContent;
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const active = btn.dataset.lang === lang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+      updateCertImages();
+
+      // Refresh High Score labels for each mini-game (since these spans are not data-i18n-bound)
+      try {
+        window.showHS && showHS('aim', document.getElementById('aimHS'), (v,n)=> `${v} (${n})`);
+        window.showHS && showHS('reaction', document.getElementById('reactionHS'), (v,n)=> `${v} ms (${n})`);window.showHS && showHS('whack', document.getElementById('whackHS'), (v,n)=> `${v} (${n})`);
+        window.showHS && showHS('dodge', document.getElementById('dodgeHS'), (v,n)=> `${v.toFixed(1)} s (${n})`);
+      } catch(e) { /* noop */ }
+
+    }
+
+    // 탭 전환
+function bindEduTabs(){
+  const tabButtons = document.querySelectorAll('#edu .tab-btn');
+  const panels = document.querySelectorAll('#edu .tab-panel');
+  tabButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = btn.getAttribute('data-tab');
+      // 버튼 활성화
+      tabButtons.forEach(b=>{
+        b.classList.toggle('active', b===btn);
+        b.setAttribute('aria-selected', b===btn ? 'true' : 'false');
+      });
+      // 패널 전환
+      panels.forEach(p=>{
+        p.hidden = (p.id !== target);
+      });
+    });
+  });
+}
+
+function bindWorkTabs(){
+  const cont = document.getElementById('extensions');
+  if(!cont) return;
+  const tabButtons = cont.querySelectorAll('.tab-btn');
+  const panels = cont.querySelectorAll('.tab-panel');
+  tabButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = btn.getAttribute('data-tab');
+      tabButtons.forEach(b=>{
+        b.classList.toggle('active', b===btn);
+        b.setAttribute('aria-selected', b===btn ? 'true' : 'false');
+      });
+      panels.forEach(p=>{
+        p.hidden = (p.id !== target);
+      });
+    });
+  });
+}
+
+// Init language (한국어 우선)
+// 항상 한국어로 시작
+const preferred = 'ko';
+applyTranslations(preferred);
+localStorage.setItem('lang', preferred);
+
+document.getElementById('lang-ko').addEventListener('click', () => { applyTranslations('ko'); localStorage.setItem('lang','ko'); });
+    document.getElementById('lang-en').addEventListener('click', () => { applyTranslations('en'); localStorage.setItem('lang','en'); });
+
+    // Title -> intro
+    document.getElementById('title-home').addEventListener('click', () => showContent('intro'));
+
+    // Default section on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const anyVisible = Array.from(document.querySelectorAll('.content-section')).some(s => s.style.display !== 'none');
+      if (!anyVisible) showContent('intro');
+      updateCertImages();
+      bindEduTabs(); // ✅ 내부 탭 동작 바인딩
+      bindWorkTabs(); // ✅ 1인 개발 작품 탭 동작 바인딩
+    });
+  
+// ===== Mini Games Logic =====
+(function(){
+  const mini = document.getElementById('minigames');
+  if(mini){
+    mini.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+        mini.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        mini.querySelectorAll('.tab-panel').forEach(p => p.hidden = true);
+        const panel = mini.querySelector('#' + tab);
+        if(panel) panel.hidden = false;
+      });
+    });
+  }
+
+  // Guide modal & HS helpers (safe if previously defined)
+  if(typeof Guide === 'undefined'){
+    window.Guide = (()=>{
+      const modal = document.getElementById('guideModal');
+      const titleEl = document.getElementById('guideTitle');
+      const bodyEl = document.getElementById('guideBody');
+      const closeBtn = document.getElementById('guideClose');
+      function open(title, body){
+        titleEl.textContent = title;
+        bodyEl.textContent = body;
+        modal.setAttribute('aria-hidden','false');
+      }
+      function close(){ modal.setAttribute('aria-hidden','true'); }
+      closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', (e)=>{ if(e.target===modal) close(); });
+      return { open, close };
+    })();
+  }
+
+  window.hsKey = window.hsKey || function(id){ return 'hs_'+id; }
+  window.readHS = window.readHS || function(id){ try{ return JSON.parse(localStorage.getItem(hsKey(id))||'null'); }catch(e){ return null; } }
+  window.writeHS = window.writeHS || function(id, obj){ try{ localStorage.setItem(hsKey(id), JSON.stringify(obj)); }catch(e){} }
+  window.fmtHS = window.fmtHS || function(lang, labelKey, value){ 
+    const label = (i18n[lang] && i18n[lang][labelKey]) ? i18n[lang][labelKey] : 'High Score';
+    return label + ': ' + value;
+  }
+  window.currentLang = window.currentLang || function(){
+    const html = document.documentElement.getAttribute('lang');
+    return (html && html.startsWith('ko')) ? 'ko' : 'en';
+  }
+  window.showHS = window.showHS || function(id, el, valueFormatter){
+    const lang = currentLang();
+    const hs = readHS(id);
+    if(hs && el){ el.textContent = fmtHS(lang, 'minigames.hs', valueFormatter(hs.value, hs.name)); }
+    else if(el){ el.textContent = fmtHS(lang, 'minigames.hs', '-'); }
+  }
+  window.trySetHS = window.trySetHS || function(id, newVal, comparator){
+    const lang = currentLang();
+    const old = readHS(id);
+    let better = false;
+    if(!old) better = true; else better = comparator(newVal, old.value);
+    if(better){
+      const nick = prompt(i18n[lang] && i18n[lang]['minigames.hs.name_prompt'] ? i18n[lang]['minigames.hs.name_prompt'] : 'Enter your nickname:');
+      const name = (nick && nick.trim()) ? nick.trim() : 'Player';
+      writeHS(id, {name, value:newVal});
+      return {name, value:newVal};
+    }
+    return old;
+  }
+
+  // Wire Guide buttons
+  document.getElementById('aimGuide')?.addEventListener('click', ()=> Guide.open(i18n[currentLang()]['guide.aim.title'], i18n[currentLang()]['guide.aim.body']));
+  document.getElementById('reactionGuide')?.addEventListener('click', ()=> Guide.open(i18n[currentLang()]['guide.reaction.title'], i18n[currentLang()]['guide.reaction.body']));
+  document.getElementById('typingGuide')?.addEventListener('click', ()=> Guide.open(i18n[currentLang()]['guide.typing.title'], i18n[currentLang()]['guide.typing.body']));
+  document.getElementById('whackGuide')?.addEventListener('click', ()=> Guide.open(i18n[currentLang()]['guide.whack.title'], i18n[currentLang()]['guide.whack.body']));
+  document.getElementById('dodgeGuide')?.addEventListener('click', ()=> Guide.open(i18n[currentLang()]['guide.dodge.title'], i18n[currentLang()]['guide.dodge.body']));
+
+  // Init HS
+  document.addEventListener('DOMContentLoaded', ()=>{
+    showHS('aim', document.getElementById('aimHS'), (v,n)=> `${v} (${n})`);
+    showHS('reaction', document.getElementById('reactionHS'), (v,n)=> `${v} ms (${n})`);
+    showHS('typing', document.getElementById('typingHS'), (v,n)=> `${v} WPM (${n})`);
+    showHS('whack', document.getElementById('whackHS'), (v,n)=> `${v} (${n})`);
+    showHS('dodge', document.getElementById('dodgeHS'), (v,n)=> `${v.toFixed(1)} s (${n})`);
+  });
+
+  // --- Games ---
+  // Aim
+  const aimCanvas = document.getElementById('aimCanvas');
+  const aimStart = document.getElementById('aimStart');
+  const aimInfo = document.getElementById('aimInfo');
+  if(aimCanvas && aimStart){
+    const ctx = aimCanvas.getContext('2d');
+    let target = {x: 100, y: 80, r: 14};
+    let score = 0, time = 30, running = false, timerId;
+
+    function draw(){
+      ctx.clearRect(0,0,aimCanvas.width,aimCanvas.height);
+      ctx.beginPath();
+      ctx.arc(target.x, target.y, target.r, 0, Math.PI*2);
+      ctx.fillStyle = '#355a8a';
+      ctx.fill();
+      ctx.fillStyle = '#333';
+      ctx.font = '14px system-ui, sans-serif';
+      ctx.fillText('Score: ' + score + '  |  Time: ' + time + 's', 10, 20);
+    }
+    function moveTarget(){
+      target.x = Math.random() * (aimCanvas.width - 40) + 20;
+      target.y = Math.random() * (aimCanvas.height - 40) + 20;
+    }
+    function handleAimInput(clientX, clientY){
+      if(!running) return;
+      const rect = aimCanvas.getBoundingClientRect();
+      const scaleX = aimCanvas.width / rect.width;
+      const scaleY = aimCanvas.height / rect.height;
+      const x = (clientX - rect.left) * scaleX;
+      const y = (clientY - rect.top) * scaleY;
+      const d = Math.hypot(x - target.x, y - target.y);
+      if(d <= target.r) { score++; moveTarget(); draw(); }
+    }
+
+    aimCanvas.addEventListener('click', (e)=>{
+      handleAimInput(e.clientX, e.clientY);
+    });
+
+    aimCanvas.addEventListener('touchstart', (e)=>{
+      if(e.touches && e.touches.length > 0){
+        const t = e.touches[0];
+        handleAimInput(t.clientX, t.clientY);
+        e.preventDefault();
+      }
+    }, { passive: false });
+    aimStart.addEventListener('click', ()=>{
+      score = 0; time = 30; running = true; moveTarget(); draw();
+      clearInterval(timerId);
+      timerId = setInterval(()=>{
+        time--;
+        draw();
+        if(time <= 0){ running = false; clearInterval(timerId);
+          aimInfo.textContent = 'Score: ' + score;
+          trySetHS('aim', score, (a,b)=> a>b);
+          showHS('aim', document.getElementById('aimHS'), (v,n)=> `${v} (${n})`);
+        }
+      }, 1000);
+    });
+    draw();
+  }
+
+  // Reaction
+  const reactionBox = document.getElementById('reactionBox');
+  const reactionStart = document.getElementById('reactionStart');
+  const reactionInfo = document.getElementById('reactionInfo');
+  if(reactionBox && reactionStart){
+    let waiting = false, readyTs = 0, timeoutId;
+    reactionStart.addEventListener('click', ()=>{
+      reactionInfo.textContent='';
+      reactionBox.style.background = '#f3f6fa';
+      reactionBox.textContent = reactionBox.getAttribute('data-i18n') ? reactionBox.textContent : 'Wait for green...';
+      waiting = true;
+      const delay = 800 + Math.random()*2200;
+      timeoutId = setTimeout(()=>{
+        reactionBox.style.background = '#9bd59b';
+        reactionBox.textContent = 'CLICK!';
+        readyTs = performance.now();
+      }, delay);
+    });
+    reactionBox.addEventListener('click', ()=>{
+      if(!waiting) return;
+      if(readyTs){
+        const rt = Math.round(performance.now() - readyTs);
+        reactionInfo.textContent = rt + ' ms';
+        trySetHS('reaction', rt, (a,b)=> a<b);
+        showHS('reaction', document.getElementById('reactionHS'), (v,n)=> `${v} ms (${n})`);
+        waiting = false; readyTs = 0; clearTimeout(timeoutId);
+        reactionBox.style.background = '#f3f6fa';
+      }else{
+        reactionInfo.textContent = 'Too early!';
+        waiting = false; clearTimeout(timeoutId);
+        reactionBox.style.background = '#f3f6fa';
+      }
+    });
+  }
+
+  // Typing
+  const typingStart = document.getElementById('typingStart');
+  const typingArea = document.getElementById('typingArea');
+  const typingInfo = document.getElementById('typingInfo');
+  const typingPrompt = document.getElementById('typingPrompt');
+  if(typingStart && typingArea){
+    const prompts = [
+      'the quick brown fox jumps over the lazy dog',
+      'games test focus accuracy and speed',
+      'quality assurance finds hidden issues early',
+      'javascript html and css build the web',
+      'practice makes perfect keep going'
+    ];
+    let timerId, time=30, running=false, chars=0;
+    function reset(){
+      time=30; running=false; chars=0;
+      typingArea.value=''; typingInfo.textContent='';
+      typingPrompt.textContent = prompts[Math.floor(Math.random()*prompts.length)];
+    }
+    typingArea.addEventListener('input', ()=>{
+      if(!running) return;
+      chars++;
+    });
+    typingStart.addEventListener('click', ()=>{
+      reset(); running=true; typingArea.focus();
+      clearInterval(timerId);
+      timerId = setInterval(()=>{
+        time--;
+        const elapsed = (30-time);
+        const wpm = Math.round(chars/5/((elapsed)/60 || 1));
+        typingInfo.textContent = 'Time: '+time+'s  WPM: '+wpm;
+        if(time<=0){ clearInterval(timerId); running=false;
+          const finalWpm = Math.round(chars/5);
+          typingInfo.textContent = typingInfo.textContent + '  |  Final: ' + finalWpm + ' WPM';
+          trySetHS('typing', finalWpm, (a,b)=> a>b);
+          showHS('typing', document.getElementById('typingHS'), (v,n)=> `${v} WPM (${n})`);
+        }
+      },1000);
+    });
+    reset();
+  }
+
+  // Whack-a-Mole
+  const whackGrid = document.getElementById('whackGrid');
+  const whackStart = document.getElementById('whackStart');
+  const whackInfo = document.getElementById('whackInfo');
+  if(whackGrid && whackStart){
+    let holes = [], score=0, time=30, running=false, timerId, moleIdx=-1;
+    function build(){
+      whackGrid.innerHTML='';
+      holes = [];
+      for(let i=0;i<9;i++){
+        const b = document.createElement('button');
+        b.setAttribute('aria-label','hole '+(i+1));
+        b.addEventListener('click', ()=>{
+          if(i===moleIdx && running){ score++; update(); pop(); }
+        });
+        holes.push(b); whackGrid.appendChild(b);
+      }
+    }
+    function pop(){
+      holes.forEach(h=>h.classList.remove('active'));
+      moleIdx = Math.floor(Math.random()*holes.length);
+      holes[moleIdx].classList.add('active');
+    }
+    function update(){
+      whackInfo.textContent = 'Score: '+score+'  |  Time: '+time+'s';
+    }
+    whackStart.addEventListener('click', ()=>{
+      score=0; time=30; running=true; update(); pop();
+      clearInterval(timerId);
+      timerId=setInterval(()=>{
+        time--;
+        if(time%1===0) pop();
+        update();
+        if(time<=0){ running=false; clearInterval(timerId); holes.forEach(h=>h.classList.remove('active'));
+          trySetHS('whack', score, (a,b)=> a>b);
+          showHS('whack', document.getElementById('whackHS'), (v,n)=> `${v} (${n})`);
+        }
+      },1000);
+    });
+    build();
+  }
+
+    // Dodge Square (smoother movement with delta-time + acceleration/friction)
+  const dodgeCanvas = document.getElementById('dodgeCanvas');
+  const dodgeStart = document.getElementById('dodgeStart');
+  const dodgeInfo = document.getElementById('dodgeInfo');
+  if(dodgeCanvas && dodgeStart){
+    const ctx = dodgeCanvas.getContext('2d');
+
+    // physics constants (px/s, px/s^2)
+    const MAX_V = 180;        // max horizontal/vertical speed
+    const ACC   = 900;        // acceleration when key is held
+    const FRC   = 1400;       // friction (when no key is pressed)
+
+    let player, enemies, running=false, req;
+    let lastTime = 0;
+    let spawnTimer = 0;       // seconds
+    const keys = Object.create(null);
+
+    function reset(){
+      player = {x:20,y:dodgeCanvas.height-30,w:18,h:18, vx:0, vy:0};
+      enemies = [];
+      lastTime = performance.now();
+      spawnTimer = 0;
+    }
+
+    function spawn(){
+      const w = 12 + Math.random()*14;
+      const vy = 90 + Math.random()*120; // px/s
+      enemies.push({x: Math.random()*(dodgeCanvas.width-w), y:-w, w, h:w, vy});
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,dodgeCanvas.width,dodgeCanvas.height);
+      ctx.fillStyle='#2d3a50'; ctx.fillRect(player.x, player.y, player.w, player.h);
+      ctx.fillStyle='#9fb6d8';
+      enemies.forEach(e=>ctx.fillRect(e.x,e.y,e.w,e.h));
+    }
+
+    function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
+    function step(now){
+      if(!running) return;
+      // delta time (seconds), clamp to avoid large jumps on tab switch
+      const dt = Math.min(0.033, Math.max(0.001, (now - lastTime) / 1000));
+      lastTime = now;
+
+      // spawning
+      spawnTimer += dt;
+      if (spawnTimer >= 0.40){ // ~ every 0.4s
+        spawn();
+        spawnTimer = 0;
+      }
+
+      // input
+      const ix = (keys['ArrowRight']?1:0) - (keys['ArrowLeft']?1:0);
+      const iy = (keys['ArrowDown']?1:0) - (keys['ArrowUp']?1:0);
+
+      // acceleration
+      if (ix !== 0) player.vx += ix * ACC * dt
+      else {
+        // friction toward zero when no horizontal key
+        const s = Math.sign(player.vx)
+        const mag = Math.max(0, Math.abs(player.vx) - FRC*dt)
+        player.vx = mag === 0 ? 0 : s * mag
+      }
+
+      if (iy !== 0) player.vy += iy * ACC * dt
+      else {
+        const s = Math.sign(player.vy)
+        const mag = Math.max(0, Math.abs(player.vy) - FRC*dt)
+        player.vy = mag === 0 ? 0 : s * mag
+      }
+
+      // clamp speeds
+      player.vx = clamp(player.vx, -MAX_V, MAX_V);
+      player.vy = clamp(player.vy, -MAX_V, MAX_V);
+
+      // integrate position
+      player.x += player.vx * dt;
+      player.y += player.vy * dt;
+
+      // bounds
+      player.x = clamp(player.x, 0, dodgeCanvas.width - player.w);
+      player.y = clamp(player.y, 0, dodgeCanvas.height - player.h);
+
+      // enemies
+      enemies.forEach(e=> e.y += e.vy * dt);
+      enemies = enemies.filter(e=> e.y < dodgeCanvas.height+20);
+
+      // collision
+      for(const e of enemies){
+        if(!(player.x+player.w<e.x || e.x+e.w<player.x || player.y+player.h<e.y || e.y+e.h<player.y)){
+          running=false; cancelAnimationFrame(req);
+          const surv = (now - _startTime)/1000;
+          dodgeInfo.textContent='Survived: '+surv.toFixed(1)+'s';
+          trySetHS('dodge', surv, (a,b)=> a>b);
+          showHS('dodge', document.getElementById('dodgeHS'), (v,n)=> `${v.toFixed(1)} s (${n})`);
+          return;
+        }
+      }
+
+      draw();
+      req = requestAnimationFrame(step);
+    }
+
+    // key handling (allow simultaneous keys)
+    window.addEventListener('keydown', (ev)=>{
+      if(!running) return;
+      if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(ev.key)){
+        keys[ev.key] = true;
+        ev.preventDefault();
+      }
+    }, {passive:false});
+
+    window.addEventListener('keyup', (ev)=>{
+      if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(ev.key)){
+        keys[ev.key] = false;
+      }
+    });
+
+    let _startTime = 0;
+    dodgeStart.addEventListener('click', ()=>{
+      reset(); running=true; dodgeInfo.textContent=''; draw();
+      cancelAnimationFrame(req);
+      _startTime = performance.now();
+      lastTime = _startTime;
+      req = requestAnimationFrame(step);
+    });
+
+    reset(); draw();
+  }})();
+
+
+// === Language switching ===
+function setLanguage(lang) {
+  // Persist
+  try { localStorage.setItem('lang', lang); } catch(e) {}
+
+  // Toggle button states
+  const btnKo = document.getElementById('lang-ko');
+  const btnEn = document.getElementById('lang-en');
+  if (btnKo && btnEn) {
+    btnKo.classList.toggle('active', lang === 'ko');
+    btnEn.classList.toggle('active', lang === 'en');
+    btnKo.setAttribute('aria-pressed', lang === 'ko' ? 'true' : 'false');
+    btnEn.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+  }
+
+  // Apply translations
+  document.querySelectorAll('[data-i18n]').forEach(n => {
+    const key = n.getAttribute('data-i18n');
+    const map = (lang === 'ko' ? i18n.ko : i18n.en) || {};
+    if (map[key]) n.textContent = map[key];
+  });
+}
+
+// Bind buttons
+document.getElementById('lang-ko')?.addEventListener('click', () => setLanguage('ko'));
+document.getElementById('lang-en')?.addEventListener('click', () => setLanguage('en'));
+
+// Initialize default language (ko first)
+(function initLang() {
+  let lang = 'ko';
+  try {
+    const saved = localStorage.getItem('lang');
+    if (saved === 'ko' || saved === 'en') lang = saved;
+  } catch(e) {}
+  setLanguage(lang);
+})();
+
+document.addEventListener('DOMContentLoaded',function(){
+  /* AUTO-KO-DEFAULT */
+  var koBtn=document.getElementById('lang-ko');
+  if(koBtn && !koBtn.classList.contains('active')){ koBtn.click(); }
+});
+</script>
+<script>
+(function(){
+  // Safe-guard: don't double-initialize
+  if (window.__gwGuideInit__) return;
+  window.__gwGuideInit__ = true;
+
+  // Lang helper: detect current UI language (prefers active button, else <html lang>)
+  function getLang(){
+    const koBtn = document.getElementById('lang-ko');
+    const enBtn = document.getElementById('lang-en');
+    if (koBtn && koBtn.classList && koBtn.classList.contains('active')) return 'ko';
+    if (enBtn && enBtn.classList && enBtn.classList.contains('active')) return 'en';
+    const htmlLang = (document.documentElement.getAttribute('lang')||'en').toLowerCase();
+    return htmlLang.startsWith('ko') ? 'ko' : 'en';
+  }
+
+  // Guide dictionary (English fully specified; Korean mirrors existing UI copy)
+  const GUIDE = {
+    en: {
+      aim: {
+        title: "Aim Trainer — Guide",
+        body: "Click the moving circle on the canvas for 30 seconds. Each hit spawns a new target at a random position. Score = total hits. Tip: keep your cursor near the canvas center to reduce travel time."
+      },
+      reaction: {
+        title: "Reaction Time — Guide",
+        body: "Press Start and wait until the box turns green, then click immediately. Your reaction time (ms) is measured. Lower is better. False starts reset the trial."
+      },
+      typing: {
+        title: "Typing Speed — Guide",
+        body: "Press Start to show a prompt. Type for 30 seconds. Your WPM (words per minute) is computed from correct characters only. Tip: aim for accuracy first—speed follows."
+      },
+      whack: {
+        title: "Whack‑a‑Mole — Guide",
+        body: "Press Start and click the highlighted tiles as they appear at random positions. You have 30 seconds. Score = total hits. Missing a tile isn’t penalized—keep your eyes scanning."
+      },
+      dodge: {
+        title: "Dodge Square(PC) — Guide",
+        body: "Press Start and use the arrow keys to move. Dodge falling blocks as long as possible. The longer you survive, the higher your score. Edges are safe to graze, but don’t get clipped!"
+      }
+    },
+    ko: {
+      aim: {
+        title: "에임 트레이너 - 게임방법",
+        body: "30초 동안 캔버스의 원을 클릭하세요. 클릭할 때마다 새로운 위치로 이동합니다. 더 많이 맞출수록 높은 점수입니다."
+      },
+      reaction: {
+        title: "반응 속도 - 게임방법",
+        body: "Start를 누른 뒤 초록색으로 바뀌면 즉시 클릭하세요. 반응 시간이 낮을수록 더 좋습니다."
+      },
+      typing: {
+        title: "타자 속도 - 게임방법",
+        body: "Start를 누르면 문장이 나타납니다. 30초 동안 가능한 많이 타이핑하세요. WPM(단어/분)으로 계산됩니다."
+      },
+      whack: {
+        title: "두더지 잡기 - 게임방법",
+        body: "Start를 누르면 랜덤 위치에 두더지가 나타납니다. 30초 동안 가능한 많이 클릭하세요."
+      },
+      dodge: {
+        title: "회피 게임(PC) - 게임방법",
+        body: "Start 후 방향키로 네모를 조작해 떨어지는 블록을 피하세요. 오래 살아남을수록 기록이 높습니다."
+      }
+    }
+  };
+
+  // Modal elements
+  const modal = document.getElementById('guideModal');
+  const titleEl = document.getElementById('guideTitle');
+  const bodyEl  = document.getElementById('guideBody');
+  const closeEl = document.getElementById('guideClose');
+
+  function openGuide(key){
+    const lang = getLang();
+    const dict = (GUIDE[lang] && GUIDE[lang][key]) ? GUIDE[lang][key] : GUIDE.en[key];
+    if (!dict) return;
+    if (titleEl) titleEl.textContent = dict.title;
+    if (bodyEl)  bodyEl.textContent  = dict.body;
+    if (modal){
+      modal.setAttribute('aria-hidden','false');
+      // focus close for accessibility
+      setTimeout(()=>{ try{ closeEl && closeEl.focus(); }catch(e){} }, 0);
+    }
+  }
+  function closeGuide(){
+    modal && modal.setAttribute('aria-hidden','true');
+  }
+
+  // Wire buttons if present
+  const map = {
+    'aimGuide':    'aim',
+    'reactionGuide':'reaction',
+    'typingGuide': 'typing',
+    'whackGuide':  'whack',
+    'dodgeGuide':  'dodge'
+  };
+  Object.keys(map).forEach(id=>{
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', ()=>openGuide(map[id]));
+  });
+
+  // Close handlers
+  if (closeEl) closeEl.addEventListener('click', closeGuide);
+  if (modal){
+    modal.addEventListener('click', (e)=>{
+      if (e.target === modal) closeGuide();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeGuide();
+    });
+  }
+
+})();
+</script>
+<!-- Added for cloud high score sync -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js" type="module"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js" type="module"></script>
+<script src="./firebase-config.js"></script>
+<script src="./highscore-sync.js"></script>
+<!-- MiniGame Cleanup Patch -->
+<script id="mini-cleaner-patch">
+(function(){
+  if (window.__MiniCleanerPatched) return;
+  window.__MiniCleanerPatched = true;
+
+  // === Registry ===
+  const Reg = {
+    timeouts: new Set(),
+    intervals: new Set(),
+    rafs: new Set(),
+    keyListeners: [],
+    patchedTimers: false,
+    showContentPatched: false,
+  };
+
+  // === Patch timers (once) ===
+  function patchTimers(){
+    if (Reg.patchedTimers) return;
+    Reg.patchedTimers = true;
+
+    const _setTimeout = window.setTimeout.bind(window);
+    const _clearTimeout = window.clearTimeout.bind(window);
+    const _setInterval = window.setInterval.bind(window);
+    const _clearInterval = window.clearInterval.bind(window);
+    const _raf = window.requestAnimationFrame ? window.requestAnimationFrame.bind(window) : null;
+    const _caf = window.cancelAnimationFrame ? window.cancelAnimationFrame.bind(window) : null;
+
+    window.setTimeout = function(fn, ms, ...args){
+      const id = _setTimeout(fn, ms, ...args);
+      Reg.timeouts.add(id);
+      return id;
+    };
+    window.clearTimeout = function(id){
+      Reg.timeouts.delete(id);
+      return _clearTimeout(id);
+    };
+    window.setInterval = function(fn, ms, ...args){
+      const id = _setInterval(fn, ms, ...args);
+      Reg.intervals.add(id);
+      return id;
+    };
+    window.clearInterval = function(id){
+      Reg.intervals.delete(id);
+      return _clearInterval(id);
+    };
+    if (_raf && _caf){
+      window.requestAnimationFrame = function(fn){
+        const id = _raf(fn);
+        Reg.rafs.add(id);
+        return id;
+      };
+      window.cancelAnimationFrame = function(id){
+        Reg.rafs.delete(id);
+        return _caf(id);
+      };
+    }
+
+    // Patch key listener registration on window/document
+    function patchAddRemove(target){
+      const _add = target.addEventListener;
+      const _remove = target.removeEventListener;
+      target.addEventListener = function(type, handler, opts){
+        if (type === 'keydown' || type === 'keyup' || type === 'keypress'){
+          Reg.keyListeners.push({ target, type, handler, opts });
+        }
+        return _add.call(this, type, handler, opts);
+      };
+      target.removeEventListener = function(type, handler, opts){
+        Reg.keyListeners = Reg.keyListeners.filter(x => !(x.target===target && x.type===type && x.handler===handler));
+        return _remove.call(this, type, handler, opts);
+      };
+    }
+    patchAddRemove(window);
+    patchAddRemove(document);
+  }
+
+  // === Cleanup ===
+  function clearAll(){
+    // timers
+    for (const id of Array.from(Reg.timeouts)){ try{ clearTimeout(id);}catch(e){} Reg.timeouts.delete(id); }
+    for (const id of Array.from(Reg.intervals)){ try{ clearInterval(id);}catch(e){} Reg.intervals.delete(id); }
+    for (const id of Array.from(Reg.rafs)){ try{ cancelAnimationFrame(id);}catch(e){} Reg.rafs.delete(id); }
+
+    // key listeners
+    for (const l of Reg.keyListeners.splice(0)){
+      try{ l.target.removeEventListener(l.type, l.handler, l.opts); }catch(e){}
+    }
+    document.onkeydown = null; document.onkeyup = null;
+    window.onkeydown = null; window.onkeyup = null;
+
+    // canvases reset (known ids + generic fallback)
+    const ids = ['aimCanvas','dodgeCanvas'];
+    ids.forEach(id=>{
+      const c = document.getElementById(id);
+      if (!c || !c.getContext) return;
+      c.style.display = 'block';
+      const ctx = c.getContext('2d');
+      if (ctx) ctx.clearRect(0,0,c.width,c.height);
+    });
+    // generic: any visible canvas in mini-game container
+    const mini = document.getElementById('minigame') || document.querySelector('.minigame, #mini, [data-area="minigame"]') || document.body;
+    mini.querySelectorAll('canvas').forEach(c=>{
+      const ctx = c.getContext && c.getContext('2d');
+      if (ctx){
+        c.style.display = 'block';
+        try{ ctx.clearRect(0,0,c.width,c.height); }catch(e){}
+      }
+    });
+
+    // simple text areas reset
+    ['reactionInfo','whackInfo','dodgeInfo','aimInfo'].forEach(id=>{
+      const el = document.getElementById(id);
+      if (el) el.textContent = '';
+    });
+    const rb = document.getElementById('reactionBox');
+    if (rb){
+      rb.style.background = '';
+      // leave text to i18n; just ensure clickable state sane
+      rb.classList.remove('active','locked','running');
+    }
+
+    // close modal if any
+    try{ (window.Guide && Guide.close && Guide.close()); }catch(e){}
+  }
+  window.__GameCleaner = function(){ patchTimers(); clearAll(); }
+
+  // === Patch showContent (menu switching) ===
+  function patchShowContent(){
+    if (Reg.showContentPatched) return;
+    if (typeof window.showContent === 'function'){
+      const orig = window.showContent;
+      if (!orig.__wrapped){
+        const wrapped = function(...args){
+          try{ window.__GameCleaner(); }catch(e){}
+          return orig.apply(this, args);
+        };
+        wrapped.__wrapped = true;
+        wrapped.__orig = orig;
+        window.showContent = wrapped;
+        Reg.showContentPatched = True;
+      }
+    }
+  }
+
+  // === Global capture for tab/menu clicks ===
+  document.addEventListener('click', function(e){
+    // If user clicks a minigame tab button (common classes/attrs)
+    const tabBtn = e.target.closest('.tab-btn, [data-tab], [data-minigame-tab]');
+    if (tabBtn){
+      try{ window.__GameCleaner(); }catch(err){}
+      return; // let original handler proceed
+    }
+    // If user clicks a menu item that changes section
+    const menuLink = e.target.closest('[data-section], .menu-item, .sidebar a, nav a');
+    if (menuLink){
+      try{ window.__GameCleaner(); }catch(err){}
+    }
+  }, true); // capture to run before other handlers
+
+  // also clean on hash change (if hash-based nav)
+  window.addEventListener('hashchange', function(){ try{ window.__GameCleaner(); }catch(e){}; }, true);
+
+  // initial patches
+  patchTimers();
+  patchShowContent();
+  // retry patching showContent in case it's defined later
+  const obs = new MutationObserver(()=> patchShowContent());
+  obs.observe(document.documentElement, {subtree:true, childList:true});
+})();
+</script>
+<script>
+  if (window.i18n && i18n.ko) {
+    i18n.ko['web.fortune.title'] = "운세&타로";
+    i18n.ko['web.fortune.desc'] = "오늘의 운세, 종합 운세, 타로를 확인할 수 있는 웹사이트입니다.
+이름, 생년월일, 출생 시간, 성별, 관심사, 관심 분야, 올해 목표/상황, 질문을 바탕으로
+오늘의 운세 600가지, 종합 운세 17,280가지, 타로 리딩 468가지의 경우의 수가 있으며 
+사용자가 입력한 값에 따라 결과와 상세 설명이 달라집니다.
+운세, 타로는 재미 삼아 하는 것이니 너무 신뢰하지는 마세요 :)";
+  }
+</script>
+<!-- Intro typing & staged fade-in (recommended combo v3) -->
+<script>
+(function(){
+  function ready(fn){
+    if(document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+  ready(function(){
+    var intro = document.querySelector('#intro');
+    if(!intro) return;
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var p1 = intro.querySelector('p[data-i18n="intro.p1"]');
+    if(!p1) return;
+    p1.classList.add('intro-caret');
+
+    var others = Array.from(intro.querySelectorAll('p[data-i18n^="intro.p"]')).filter(function(n){ return n !== p1; });
+
+    // initial states
+    intro.style.opacity = 0;
+    others.forEach(function(n){ n.style.opacity = 0; });
+
+    // container fade-in
+    setTimeout(function(){
+      if(!reduce){ intro.style.transition = 'opacity 1.2s ease'; }
+      intro.style.opacity = 1;
+    }, 150);
+
+    var full = p1.textContent;
+
+    if(reduce){
+      p1.textContent = full;
+      setTimeout(function(){ others.forEach(function(n){ n.style.opacity = 1; }); }, 150);
+      return;
+    }
+
+    p1.textContent = '';
+    var i = 0, speed = 34;
+    (function type(){
+      if(i < full.length){
+        p1.textContent += full.charAt(i++);
+        setTimeout(type, speed);
+      }else{
+        // reveal the rest
+        others.forEach(function(n, idx){
+          setTimeout(function(){
+            n.style.transition = 'opacity .6s ease';
+            n.style.opacity = 1;
+          }, 110 * idx);
+        });
+      }
+    })();
+  });
+})();
+</script>
+<!-- Reveal on scroll (recommended combo) -->
+<script>
+(function(){
+  function ready(fn){
+    if(document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+  ready(function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var targets = document.querySelectorAll('.content-section, .project-card');
+    targets.forEach(function(el){ el.classList.add('reveal'); });
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold: .08});
+    targets.forEach(function(el){ io.observe(el); });
+  });
+})();
+</script>
+<script>
+    // Generic Tabs Handler
+    (function(){
+      function setupTabs(root){
+        const containers = root.querySelectorAll('.tabs');
+        containers.forEach(container=>{
+          const btns = container.querySelectorAll('.tab-btn');
+          btns.forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+              const section = container.closest('.content-section') || document;
+              const targetId = btn.getAttribute('data-tab');
+
+              // activate button
+              btns.forEach(b=>{
+                const active = (b === btn);
+                b.classList.toggle('active', active);
+                b.setAttribute('aria-selected', active ? 'true' : 'false');
+              });
+
+              // toggle only panels that are referenced by buttons in this tabs container
+              const referenced = Array.from(btns).map(b=> b.getAttribute('data-tab'));
+              referenced.forEach(pid=>{
+                const panel = section.querySelector('#'+CSS.escape(pid));
+                if (!panel) return;
+                if (pid === targetId){
+                  panel.removeAttribute('hidden');
+                }else{
+                  panel.setAttribute('hidden','');
+                }
+              });
+            });
+          });
+        });
+      }
+      if (document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', ()=>setupTabs(document));
+      } else {
+        setupTabs(document);
+      }
+    })();
+  </script>
+<script>
+
+/* === Tabs fade-in (generic) === */
+(function(){
+  function activateTab(btn){
+    const id = btn?.dataset?.tab;
+    if(!id) return;
+    // deactivate all in the same group
+    const container = btn.closest('.content-section') || document;
+    container.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const panel = container.querySelector('#'+CSS.escape(id));
+    if (!panel) return;
+    container.querySelectorAll('.tab-panel').forEach(p=>{
+      if(p!==panel) p.setAttribute('hidden','');
+    });
+    panel.removeAttribute('hidden');
+    // fade effect
+    panel.classList.remove('fade-in-fast');
+    void panel.offsetWidth;
+    panel.classList.add('fade-in-fast');
+  }
+  document.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.tab-btn');
+    if (btn) activateTab(btn);
+  });
+})();
+
+</script>
+<script>
+// === Generic Tabs Handler (for all .tabs groups) ===
+(function(){
+  function initTabs(scope){
+    (scope || document).querySelectorAll('.tabs').forEach(tabs=>{
+      const root = tabs.closest('.content-section') || document;
+      tabs.querySelectorAll('.tab-btn').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          // buttons
+          tabs.querySelectorAll('.tab-btn').forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+          btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+          // panels
+          const target = btn.getAttribute('data-tab');
+          // hide all panels that belong to this tabs group (within same section)
+          root.querySelectorAll('.tab-panel').forEach(p=>{
+            if (!tabs.contains(p) && root.contains(p)) {
+              // not a sibling panel; skip
+            }
+          });
+          // Show/hide only the panels referenced by this group
+          // A simple approach: find all id's from this group's buttons
+          const ids = Array.from(tabs.querySelectorAll('.tab-btn')).map(b=>b.getAttribute('data-tab'));
+          ids.forEach(id=>{
+            const panel = root.querySelector('#'+id) || document.getElementById(id);
+            if (!panel) return;
+            if(id===target){ panel.removeAttribute('hidden'); }
+            else{ panel.setAttribute('hidden',''); }
+          });
+        });
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', ()=>initTabs());
+})();
+</script>
+<script>
+  try{
+    window.i18n = window.i18n || {en:{}, ko:{}};
+    i18n.en['websites.tab.web'] = 'Website';
+    i18n.en['websites.tab.pcgame'] = 'Website (Game)';
+    i18n.en['work.tab.extensions'] = 'Chrome Extensions';
+    i18n.ko['websites.tab.web'] = '웹사이트';
+    i18n.ko['websites.tab.pcgame'] = '웹사이트 (게임)';
+    i18n.ko['work.tab.extensions'] = '크롬 확장 프로그램';
+  }catch(e){}
+</script>
+
+<script>
+// Ensure Mini Runner i18n keys persist after any later overwrites, then re-apply language
+(function(){
+  try{
+    var miniKO = {
+      'web_game.minirunner.title': 'Mini Runner',
+      'web_game.minirunner.desc': '점프와 엎드리기로 장애물을 피하며 달리는 러너형 아케이드 게임입니다. 점수가 높아질수록 속도와 난이도가 점진적으로 상승하고, 코인을 모아 보너스를 얻을 수 있습니다. 모바일 터치와 PC 키보드를 모두 지원하며, 타이밍만 맞추면 누구나 피할 수 있는 밸런스로 설계됐습니다. 1000점마다 폭죽 연출과 마일스톤 보상이 나타나며 최고 점수는 자동 저장됩니다.',
+      'web_game.minirunner.go': '바로가기'
+    };
+    var miniEN = {
+      'web_game.minirunner.title': 'Mini Runner',
+      'web_game.minirunner.desc': 'An arcade runner where you dodge obstacles by jumping and ducking. As your score rises, speed and difficulty ramp up; collect coins to earn bonuses. Supports both mobile touch and PC keyboard, and the balance is tuned so anyone can clear obstacles with good timing. Every 1,000 points triggers fireworks and milestone rewards, and your best score is saved automatically.',
+      'web_game.minirunner.go': 'Click'
+    };
+var aiKO = {
+  'web.aiimg.title': 'AI 이미지 판별기',
+  'web.aiimg.desc': '이 웹사이트는 브라우저에서 동작하는 프론트엔드 기반 AI 이미지 판별 도구입니다. 이미지를 업로드하면 밝기·색감·엣지·패턴 등의 시각적 통계 정보를 분석해 AI 생성 가능성을 퍼센트로 추정해 줍니다. 모든 처리는 사용자 PC 내에서 이루어지며 서버 전송이 없어 개인정보 안전성이 높습니다. 가벼운 구조지만 시각화·UI 완성도가 높아 실제 판별 도구처럼 즉시 사용 가능한 형태로 제작되어 있습니다.'
+};
+var aiEN = {
+  'web.aiimg.title': 'AI Image Detector',
+  'web.aiimg.desc': 'This website is a front-end based AI image detector that runs entirely in your browser. When you upload an image, it analyzes visual statistics such as brightness, color, edges, and patterns to estimate the probability that it was generated by AI. All processing happens locally on your PC with no server upload, so your privacy is protected. Despite its lightweight structure, it offers polished visualization and UI, making it feel like a production-ready detector you can use right away.'
+};
+
+    if (window.i18n && i18n.ko && i18n.en) {
+      Object.assign(i18n.ko, miniKO, aiKO);
+      Object.assign(i18n.en, miniEN, aiEN);
+    }
+    // Re-apply current language; fall back to KO
+    var current = (window.localStorage && localStorage.getItem('lang')) || 'ko';
+    if (typeof setLanguage === 'function') setLanguage(current);
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>
