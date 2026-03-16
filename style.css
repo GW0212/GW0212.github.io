@@ -1406,3 +1406,25 @@ button,
     height:100dvh !important;
   }
 }
+
+
+/* ===== Compact tab buttons (1인 개발 작품) ===== */
+@media (max-width: 768px){
+  .works-tabs button,
+  .tab-buttons button,
+  .portfolio-tabs button{
+    padding:10px 14px !important;
+    margin:6px !important;
+    font-size:14px !important;
+    line-height:1.2 !important;
+    border-radius:14px !important;
+  }
+}
+
+/* desktop slightly smaller too */
+.works-tabs button,
+.tab-buttons button,
+.portfolio-tabs button{
+  padding:12px 18px !important;
+  margin:8px !important;
+}
