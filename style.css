@@ -1122,3 +1122,227 @@ button,
     align-items:center !important;
   }
 }
+
+
+/* ===== Mobile final fix ===== */
+@media (max-width: 768px){
+  /* mobile nav menu same color as PC */
+  nav#nav-menu,
+  .nav-menu,
+  #nav-menu{
+    background:#2b3a55 !important;
+    opacity:1 !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    box-shadow:0 10px 24px rgba(0,0,0,.18) !important;
+  }
+
+  nav#nav-menu.show,
+  .nav-menu.show,
+  #nav-menu.show{
+    display:flex !important;
+    background:#2b3a55 !important;
+  }
+
+  nav#nav-menu .menu-button,
+  .nav-menu .menu-button,
+  #nav-menu .menu-button{
+    background:#3b4a63 !important;
+    color:#ffffff !important;
+    border:1px solid rgba(255,255,255,.12) !important;
+    opacity:1 !important;
+  }
+
+  nav#nav-menu .menu-button.active,
+  nav#nav-menu .menu-button:hover,
+  nav#nav-menu .menu-button:focus,
+  .nav-menu .menu-button.active,
+  .nav-menu .menu-button:hover,
+  .nav-menu .menu-button:focus,
+  #nav-menu .menu-button.active,
+  #nav-menu .menu-button:hover,
+  #nav-menu .menu-button:focus{
+    background:#445474 !important;
+    color:#ffffff !important;
+  }
+
+  /* resume layout */
+  .resume-profile{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    gap:18px !important;
+  }
+
+  .resume-photo{
+    width:220px !important;
+    max-width:78vw !important;
+    height:auto !important;
+    aspect-ratio:3 / 4 !important;
+    object-fit:cover !important;
+    margin:0 auto !important;
+  }
+
+  .resume-basic{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+  }
+
+  .resume-name-stack{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    margin-top:0 !important;
+  }
+
+  .resume-name-stack > h3{
+    width:100% !important;
+    text-align:center !important;
+    margin:0 0 12px 0 !important;
+    display:block !important;
+  }
+
+  .resume-name-stack .resume-name-row{
+    width:100% !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:10px !important;
+    flex-wrap:wrap !important;
+    margin:0 0 14px 0 !important;
+  }
+
+  .resume-contact-list{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+  }
+
+  .resume-contact-item{
+    justify-content:center !important;
+    text-align:center !important;
+  }
+}
+
+
+/* ===== Mobile final layout + hamburger fill fix ===== */
+@media (max-width: 768px){
+  /* hamburger drawer must fill top and bottom with same background */
+  .nav-menu,
+  #nav-menu,
+  nav#nav-menu{
+    position:fixed !important;
+    top:64px !important;
+    left:-100vw !important;
+    width:100vw !important;
+    height:calc(100vh - 64px) !important;
+    min-height:calc(100vh - 64px) !important;
+    padding:16px 16px 32px !important;
+    margin:0 !important;
+    background:#2b3a55 !important;
+    box-sizing:border-box !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    z-index:9998 !important;
+  }
+
+  .nav-menu.active,
+  .nav-menu.show,
+  #nav-menu.active,
+  #nav-menu.show,
+  nav#nav-menu.active,
+  nav#nav-menu.show{
+    left:0 !important;
+    display:flex !important;
+  }
+
+  .nav-menu::before,
+  #nav-menu::before,
+  nav#nav-menu::before,
+  .nav-menu::after,
+  #nav-menu::after,
+  nav#nav-menu::after{
+    content:none !important;
+    display:none !important;
+  }
+
+  .nav-menu .menu-button,
+  #nav-menu .menu-button,
+  nav#nav-menu .menu-button{
+    width:100% !important;
+    background:#445474 !important;
+    color:#ffffff !important;
+    border:1px solid rgba(255,255,255,.12) !important;
+    margin:0 0 14px 0 !important;
+    opacity:1 !important;
+  }
+
+  /* resume order: photo -> name -> badges */
+  .resume-profile{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    gap:18px !important;
+  }
+
+  .resume-photo{
+    width:220px !important;
+    max-width:78vw !important;
+    height:auto !important;
+    margin:0 auto !important;
+  }
+
+  .resume-basic{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+  }
+
+  .resume-name-stack{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    width:100% !important;
+    order:1 !important;
+  }
+
+  .resume-name-stack h3{
+    display:block !important;
+    width:100% !important;
+    text-align:center !important;
+    margin:0 0 12px 0 !important;
+    font-size:2rem !important;
+  }
+
+  .resume-name-stack .resume-name-row{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:10px !important;
+    flex-wrap:wrap !important;
+    width:100% !important;
+    margin:0 0 14px 0 !important;
+  }
+
+  .resume-contact-list{
+    width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    order:2 !important;
+  }
+
+  .resume-contact-item{
+    justify-content:center !important;
+    text-align:center !important;
+  }
+}
