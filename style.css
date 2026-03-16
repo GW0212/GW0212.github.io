@@ -1064,3 +1064,61 @@ button,
     width:100% !important;
   }
 }
+
+
+/* Mobile menu color + resume name layout fix */
+@media (max-width: 768px){
+  .nav-menu{
+    background:#2b3a55 !important;
+    box-shadow:0 10px 24px rgba(0,0,0,.18) !important;
+  }
+
+  .nav-menu .menu-button{
+    background:#3b4a63 !important;
+    color:#ffffff !important;
+    border:1px solid rgba(255,255,255,.12) !important;
+    opacity:1 !important;
+  }
+
+  .nav-menu .menu-button.active,
+  .nav-menu .menu-button:hover,
+  .nav-menu .menu-button:focus{
+    background:#445474 !important;
+    color:#ffffff !important;
+  }
+
+  .resume-profile{
+    align-items:center !important;
+    text-align:center !important;
+  }
+
+  .resume-name-stack{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    margin-top:6px;
+  }
+
+  .resume-name-stack h3{
+    margin:0 0 12px 0 !important;
+    width:100%;
+    text-align:center !important;
+  }
+
+  .resume-name-stack .resume-name-row{
+    justify-content:center !important;
+    margin-bottom:14px !important;
+  }
+
+  .resume-basic{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .resume-contact-list{
+    width:100%;
+    align-items:center !important;
+  }
+}
