@@ -14,7 +14,7 @@
 <body>
 <header>
 <h1>
-<button class="title-btn" data-i18n="site.title" id="title-home">GW's website</button>
+<button class="title-btn" data-i18n="site.title" id="title-home" onclick="showContent('resume')">GW's website</button>
 </h1>
 <div class="header-right">
 <div aria-label="Language switcher" class="lang-switch" role="group">
@@ -25,15 +25,13 @@
 </header>
 <div class="container">
 <nav class="nav-menu" id="nav-menu">
-<button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
+<button class="menu-button" data-i18n="menu.resume" onclick="showContent('resume')">이력서 요약</button><button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.edu" onclick="showContent('edu')">Education / Military / Career</button>
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
 <button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">Available Languages / Tools</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
-
-<button class="menu-button" data-i18n="menu.links" onclick="showContent('links')">Link</button>
 <button class="menu-button" data-i18n="menu.goal" onclick="showContent('goal')">Goal</button>
 <button class="menu-button" data-i18n="menu.minigames" onclick="showContent('minigames')">Mini games</button>
 <div class="contact-card">
@@ -44,10 +42,67 @@
 </nav>
 <main class="content">
 <!-- Intro -->
-<div class="content-section" id="intro">
+<div class="content-section" id="resume">
+<h2 data-i18n="resume.h2">이력서 요약</h2>
+<div class="resume-summary-card">
+<div class="resume-profile">
+<img alt="김근우 프로필 사진" class="resume-photo" src="resume_photo.png"/>
+<div class="resume-basic">
+<div class="resume-name-row">
+<h3 data-i18n="resume.name">김근우</h3>
+<span class="resume-badge" data-i18n="resume.gender">남자</span>
+<span class="resume-badge">990212</span>
+</div>
+<div class="resume-contact-list">
+<div class="resume-contact-item"><span aria-hidden="true" class="resume-icon">📱</span><button aria-label="Copy resume phone number" class="copy-contact resume-copy-btn" data-copy="01021131655" type="button">010-2113-1655</button></div>
+<div class="resume-contact-item"><span aria-hidden="true" class="resume-icon">✉️</span><button aria-label="Copy resume email" class="copy-contact resume-copy-btn" data-copy="rmsdn1955@naver.com" type="button">rmsdn1955@naver.com</button></div>
+<div class="resume-contact-item"><span aria-hidden="true" class="resume-icon">🏠</span><span data-i18n="resume.address">(13144) 경기 성남시 수정구 산성대로 437번길</span></div>
+</div>
+</div>
+</div>
+<div class="resume-grid">
+<div class="resume-block">
+<h3 data-i18n="resume.summary.title">요약 정보</h3>
+<ul class="resume-list">
+<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">대학교(4년) 졸업</span></li>
+<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 3개월</span></li>
+</ul>
+</div>
+<div class="resume-block">
+<h3 data-i18n="resume.works.title">개발한 작품</h3>
+<ul class="resume-list">
+<li><strong data-i18n="resume.work.chrome">크롬 확장 프로그램</strong> <span id="resume-count-extensions">38개</span></li>
+<li><strong data-i18n="resume.work.website">웹사이트</strong> <span id="resume-count-websites">25개</span></li>
+<li><strong data-i18n="resume.work.program">윈도우 프로그램</strong> <span id="resume-count-programs">2개</span></li>
+<li><strong data-i18n="resume.work.game">유니티 게임</strong> <span id="resume-count-games">1개</span></li>
+</ul>
+</div>
+<div class="resume-block">
+<h3 data-i18n="resume.links.title">링크</h3>
+
+<div class="resume-link-buttons">
+  <a class="resume-link-card" href="https://www.instagram.com/gw990212/" target="_blank" rel="noopener noreferrer">
+    <img src="instagram.png" alt="Instagram" class="resume-link-icon"/>
+    <span class="resume-link-btn">Instagram</span>
+  </a>
+  <a class="resume-link-card" href="https://github.com/GW0212" target="_blank" rel="noopener noreferrer">
+    <img src="github.png" alt="GitHub" class="resume-link-icon"/>
+    <span class="resume-link-btn">GitHub</span>
+  </a>
+  <a class="resume-link-card" href="https://www.linkedin.com/in/geun-woo-kim-94a29b372/?locale=ko" target="_blank" rel="noopener noreferrer">
+    <img src="linkedin.png" alt="LinkedIn" class="resume-link-icon"/>
+    <span class="resume-link-btn">LinkedIn</span>
+  </a>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="content-section" id="intro" style="display:none;">
 <h2 data-i18n="intro.h2">Introduce myself</h2>
 <p data-lang="ko">저는 개발과 품질, 운영 전반을 함께 이해하며 문제를 해결해 온 실무형 엔지니어입니다.<br/>요구사항을 정리하고 이슈를 재현·분석해, 문제를 실제 개선으로 연결하는 과정을 중심으로 경험을 쌓아왔습니다.<br/><br/>Unity 기반 프로토타입 및 미니게임 개발, HTML/CSS/JavaScript 웹사이트 제작,<br/>Manifest V3 기반 크롬 확장 프로그램을 직접 설계·구현·배포하며<br/>사용자 플로우, 상태 관리, 예외 처리 등 안정성과 유지보수를 고려한 구조적 구현을 중요하게 다뤄왔습니다.<br/><br/>직접 개발한 크롬 기반 웹사이트 및 확장 프로그램은 누적 사용자 500명 이상이 실제 사용 중이며,<br/>실사용 환경에서 발생하는 이슈를 바탕으로 기능 개선과 구조 보완을 지속하고 있습니다.<br/>이를 통해 단순히 동작하는 기능을 넘어서, 신뢰할 수 있는 서비스 품질에 대해 고민해 왔습니다.<br/><br/>또한 게임 QA 실무 경험을 통해 기능 검증, 흐름 점검, 이슈 재현과 원인 분석을 수행하며<br/>문제를 발견하는 데서 끝내지 않고, 개발자가 바로 대응할 수 있는 형태로 정리해 전달해 왔습니다.<br/>이 과정에서 개발과 QA 사이의 간극을 줄이며 협업 효율을 높이는 역할을 수행했습니다.<br/><br/>MOS 자격증을 기반으로 문서 작성과 데이터 정리에 능숙하며,<br/>기술 이슈와 진행 상황을 명확한 문서와 자료로 공유하는 커뮤니케이션 역량을 갖추고 있습니다.<br/>이는 팀 내 의사결정 속도를 높이고, 불필요한 반복 작업을 줄이는 데 기여해 왔습니다.<br/><br/>저는 기능 구현과 검증, 운영 중 어느 단계에서도 구조적으로 사고하고 문제의 원인을 끝까지 추적하며,<br/>단기적인 해결에 그치지 않고 제품과 팀에 장기적으로 도움이 되는 방향을 함께 고민하는 역할을 지향합니다.<br/><br/>앞으로도 개발과 품질, 사용자 경험을 함께 고려하며,<br/>팀이 신뢰할 수 있는 결과를 안정적으로 만들어 내는 엔지니어로 기여하고자 합니다.</p>
-<p data-lang="en" style="display:none;">I am a hands-on engineer who understands development, quality, and operations as a whole,<br/>and has continuously solved problems across these areas.<br/><br/>I have built experience around organizing requirements, reproducing and analyzing issues,<br/>and connecting problems to real and practical improvements.<br/><br/>I have designed, implemented, and deployed Unity-based prototypes and mini-games,<br/>HTML/CSS/JavaScript websites, and Manifest V3–based Chrome extensions,<br/>placing strong emphasis on user flow, state management, exception handling,<br/>and maintainable, stable architecture.<br/><br/>Websites and Chrome extensions I developed are actively used by over 350 users,<br/>and I continuously improve functionality and structure based on issues<br/>identified in real-world usage environments.<br/>Through this process, I have focused not only on making features work,<br/>but on building reliable service quality.<br/><br/>Through hands-on game QA experience, I have conducted feature verification,<br/>flow validation, issue reproduction, and root cause analysis,<br/>going beyond simply identifying problems by delivering them<br/>in a form that developers can act on immediately.<br/>This has allowed me to bridge the gap between development and QA<br/>and improve collaboration efficiency.<br/><br/>With MOS certification, I am proficient in documentation and data organization,<br/>and I possess strong communication skills to clearly share technical issues<br/>and project progress through structured documents and materials.<br/>This has contributed to faster decision-making<br/>and reduced unnecessary repetitive work within teams.<br/><br/>At every stage—implementation, validation, or live operation—I approach problems structurally,<br/>trace root causes thoroughly, and aim for solutions<br/>that benefit both the product and the team in the long term.<br/><br/>Going forward, I seek to contribute as an engineer<br/>who consistently delivers trustworthy results<br/>by considering development, quality, and user experience together.</p>
+<p data-lang="en" style="display:none;">I am a hands-on engineer who understands development, quality, and operations as a whole,<br/>and has continuously solved problems across these areas.<br/><br/>I have built experience around organizing requirements, reproducing and analyzing issues,<br/>and connecting problems to real and practical improvements.<br/><br/>I have designed, implemented, and deployed Unity-based prototypes and mini-games,<br/>HTML/CSS/JavaScript websites, and Manifest V3–based Chrome extensions,<br/>placing strong emphasis on user flow, state management, exception handling,<br/>and maintainable, stable architecture.<br/><br/>Websites and Chrome extensions I developed are actively used by over 500 users,<br/>and I continuously improve functionality and structure based on issues<br/>identified in real-world usage environments.<br/>Through this process, I have focused not only on making features work,<br/>but on building reliable service quality.<br/><br/>Through hands-on game QA experience, I have conducted feature verification,<br/>flow validation, issue reproduction, and root cause analysis,<br/>going beyond simply identifying problems by delivering them<br/>in a form that developers can act on immediately.<br/>This has allowed me to bridge the gap between development and QA<br/>and improve collaboration efficiency.<br/><br/>With MOS certification, I am proficient in documentation and data organization,<br/>and I possess strong communication skills to clearly share technical issues<br/>and project progress through structured documents and materials.<br/>This has contributed to faster decision-making<br/>and reduced unnecessary repetitive work within teams.<br/><br/>At every stage—implementation, validation, or live operation—I approach problems structurally,<br/>trace root causes thoroughly, and aim for solutions<br/>that benefit both the product and the team in the long term.<br/><br/>Going forward, I seek to contribute as an engineer<br/>who consistently delivers trustworthy results<br/>by considering development, quality, and user experience together.</p>
 </div> <!-- ✅ intro 섹션 닫기 -->
 <!-- Languages / Tools -->
 <div class="content-section" id="languages" style="display:none;">
@@ -94,7 +149,6 @@
 </div>
 </div>
 <!-- Projects -->
-
 <!-- Extensions -->
 <div class="content-section" id="extensions" style="display:none;">
 <h2 data-i18n="ext.h2">One-man Work</h2>
@@ -102,7 +156,6 @@
 <button aria-selected="true" class="tab-btn active" data-tab="work-panel-extensions" role="tab"><span class="tab-label" data-i18n="work.tab.extensions">Chrome Extensions</span> <span class="tab-count" data-count-for="work-panel-extensions">[0]</span></button>
 <button aria-selected="false" class="tab-btn" data-tab="work-panel-web" role="tab"><span class="tab-label" data-i18n="websites.tab.web">웹사이트</span> <span class="tab-count" data-count-for="work-panel-web">[0]</span></button>
 <button aria-selected="false" class="tab-btn" data-tab="work-panel-pcgame" role="tab"><span class="tab-label" data-i18n="websites.tab.pcgame">웹사이트 (게임)</span> <span class="tab-count" data-count-for="work-panel-pcgame">[0]</span></button>
-
 <button aria-selected="false" class="tab-btn" data-tab="proj-program" role="tab"><span class="tab-label" data-i18n="projects.program">프로그램</span> <span class="tab-count" data-count-for="proj-program">[0]</span></button>
 <button aria-selected="false" class="tab-btn" data-tab="proj-game" role="tab"><span class="tab-label" data-i18n="projects.game">게임</span> <span class="tab-count" data-count-for="proj-game">[0]</span></button></div>
 <div class="tab-panel" id="work-panel-extensions" role="tabpanel">
@@ -750,7 +803,6 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </a>
 </div>
 </div>
-
 <div class="tab-panel" hidden="" id="proj-program" role="tabpanel">
 <div class="project-card">
 <h3>Time Minder</h3>
@@ -1282,6 +1334,52 @@ i18n.ko['web.aiimg.desc'] = '이 웹사이트는 브라우저에서 동작하는
 i18n.en['projects.program'] = 'Program';
 i18n.en['projects.game'] = 'Game';
 
+
+i18n.ko['menu.resume'] = '이력서 요약';
+i18n.en['menu.resume'] = 'Resume Summary';
+
+i18n.ko['resume.h2'] = '이력서 요약';
+i18n.en['resume.h2'] = 'Resume Summary';
+
+i18n.ko['resume.name'] = '김근우';
+i18n.en['resume.name'] = 'Geun Woo Kim';
+
+i18n.ko['resume.gender'] = '남자';
+i18n.en['resume.gender'] = 'Male';
+
+i18n.ko['resume.summary.title'] = '요약 정보';
+i18n.en['resume.summary.title'] = 'Summary';
+
+i18n.ko['resume.education.label'] = '학력사항';
+i18n.en['resume.education.label'] = 'Education';
+
+i18n.ko['resume.education.value'] = '대학교(4년) 졸업';
+i18n.en['resume.education.value'] = "Bachelor's Degree Completed";
+
+i18n.ko['resume.career.label'] = '경력사항';
+i18n.en['resume.career.label'] = 'Career';
+
+i18n.ko['resume.works.title'] = '개발한 작품';
+i18n.en['resume.works.title'] = 'Developed Works';
+
+i18n.ko['resume.work.chrome'] = '크롬 확장 프로그램';
+i18n.en['resume.work.chrome'] = 'Chrome Extensions';
+
+i18n.ko['resume.work.website'] = '웹사이트';
+i18n.en['resume.work.website'] = 'Websites';
+
+i18n.ko['resume.work.program'] = '윈도우 프로그램';
+i18n.en['resume.work.program'] = 'Windows Programs';
+
+i18n.ko['resume.work.game'] = '유니티 게임';
+i18n.en['resume.work.game'] = 'Unity Games';
+
+i18n.ko['resume.links.title'] = '링크';
+i18n.en['resume.links.title'] = 'Links';
+
+i18n.ko['resume.address'] = '(13144) 경기 성남시 수정구 산성대로 437번길';
+i18n.en['resume.address'] = '437 Sanseong-daero, Sujeong-gu, Seongnam-si, Gyeonggi-do, Republic of Korea';
+
 i18n.en['web.aiimg.title'] = 'AI Image Detector';
 i18n.en['web.aiimg.desc'] = 'This website is a front-end based AI image detector that runs entirely in your browser. When you upload an image, it analyzes visual statistics such as brightness, color, edges, and patterns to estimate the probability that it was generated by AI. All processing happens locally on your PC with no server upload, so your privacy is protected. Despite its lightweight structure, it offers polished visualization and UI, making it feel like a production-ready detector you can use right away.';
 
@@ -1532,6 +1630,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'guide.dodge.body': "Start 후 방향키로 네모를 조작해 떨어지는 블록을 피하세요. 오래 살아남을수록 기록이 높습니다.",
       'site.title':'근우의 웹사이트',
 
+      'menu.resume':'이력서 요약',
       'menu.intro':'자기소개',
       'menu.languages':'사용 가능 언어 / 툴',
       'menu.projects':'프로그램, 게임',
@@ -1545,6 +1644,20 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'card.name':'김근우',
       'card.tel':'전화 : 01021131655',
       'card.email':'이메일 : rmsdn1955@naver.com',
+      'resume.h2':'이력서 요약',
+      'resume.name':'김근우',
+      'resume.gender':'남자',
+      'resume.summary.title':'요약 정보',
+      'resume.education.label':'학력사항',
+      'resume.education.value':'대학교(4년) 졸업',
+      'resume.career.label':'경력사항',
+      'resume.works.title':'개발한 작품',
+      'resume.work.chrome':'크롬 확장 프로그램',
+      'resume.work.website':'웹사이트',
+      'resume.work.program':'윈도우 프로그램',
+      'resume.work.game':'유니티 게임',
+      'resume.links.title':'링크',
+      'resume.address':'(13144) 경기 성남시 수정구 산성대로 437번길',
 
       'intro.h2':'자기소개',
       'intro.p1':'나는 세상을 조금 더 나은 방향으로 움직이게 만드는 코드를 믿는다.',
@@ -1887,6 +2000,8 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
         btn.setAttribute('aria-pressed', String(active));
       });
       updateCertImages();
+      
+      if (typeof updateResumeSummaryStats === 'function') updateResumeSummaryStats();
       if (typeof window.ensureCertificateQuickNav === 'function') {
         window.ensureCertificateQuickNav();
       }
@@ -1904,7 +2019,14 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
         window.showHS && showHS('color', document.getElementById('colorHS'), (v,n)=> `${v} (${n})`);
       } catch(e) { /* noop */ }
 
+    
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang] && i18n[lang][key]) {
+      el.textContent = i18n[lang][key];
     }
+  });
+}
 
     // 탭 전환
 function bindEduTabs(){
@@ -1955,12 +2077,12 @@ document.getElementById('lang-ko').addEventListener('click', () => { applyTransl
     document.getElementById('lang-en').addEventListener('click', () => { applyTranslations('en'); localStorage.setItem('lang','en'); });
 
     // Title -> intro
-    document.getElementById('title-home').addEventListener('click', () => showContent('intro'));
+    document.getElementById('title-home').addEventListener('click', () => showContent('resume'));
 
     // Default section on load
     window.addEventListener('DOMContentLoaded', () => {
       const anyVisible = Array.from(document.querySelectorAll('.content-section')).some(s => s.style.display !== 'none');
-      if (!anyVisible) showContent('intro');
+      if (!anyVisible) showContent('resume');
       updateCertImages();
       bindEduTabs(); // ✅ 내부 탭 동작 바인딩
       bindWorkTabs(); // ✅ 1인 개발 작품 탭 동작 바인딩
@@ -3645,13 +3767,125 @@ var aiEN = {
   }
 })();
 </script>
-
-<button id="scrollTopBtn" aria-label="Go to top">↑</button>
+<button aria-label="Go to top" id="scrollTopBtn">↑</button>
 <script>
 const scrollBtn = document.getElementById("scrollTopBtn");
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({top:0, behavior:"smooth"});
 });
+</script>
+<script>
+function updateResumeSummaryStats() {
+  const parseCount = (selector) => {
+    const el = document.querySelector(selector);
+    if (!el) return 0;
+    const m = (el.textContent || '').match(/\d+/);
+    return m ? parseInt(m[0], 10) : 0;
+  };
+
+  const lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ko';
+
+  const extCount = parseCount('[data-count-for="work-panel-extensions"]');
+  const webCount = parseCount('[data-count-for="work-panel-web"]') + parseCount('[data-count-for="work-panel-pcgame"]');
+
+  const extEl = document.getElementById('resume-count-extensions');
+  const webEl = document.getElementById('resume-count-websites');
+  const programEl = document.getElementById('resume-count-programs');
+  const gameEl = document.getElementById('resume-count-games');
+  const careerEl = document.getElementById('career-duration-text');
+
+  if (extEl) extEl.textContent = lang === 'en' ? `${extCount} items` : `${extCount}개`;
+  if (webEl) webEl.textContent = lang === 'en' ? `${webCount} items` : `${webCount}개`;
+  if (programEl) programEl.textContent = lang === 'en' ? `2 items` : `2개`;
+  if (gameEl) gameEl.textContent = lang === 'en' ? `1 item` : `1개`;
+
+  if (careerEl) {
+    const fixedMonths = 3;
+    const startDate = new Date(2025, 2, 1);
+    const now = new Date();
+    let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+    if (now.getDate() < startDate.getDate()) months -= 1;
+    if (months < 0) months = 0;
+    const totalMonths = fixedMonths + months;
+    const years = Math.floor(totalMonths / 12);
+    const remainMonths = totalMonths % 12;
+
+    careerEl.textContent = lang === 'en'
+      ? `Total ${years > 0 ? years + ' year' + (years > 1 ? 's ' : ' ') : ''}${remainMonths} month${remainMonths !== 1 ? 's' : ''}`
+      : `경력 총 ${years > 0 ? years + '년 ' : ''}${remainMonths}개월`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  updateResumeSummaryStats();
+
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+</script>
+<button aria-label="Go to top" id="scrollTopBtn" title="Top">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M6.7 14.7a1 1 0 0 1 0-1.4l4.6-4.6a1 1 0 0 1 1.4 0l4.6 4.6a1 1 0 0 1-1.4 1.4L12 10.82l-3.9 3.88a1 1 0 0 1-1.4 0Z"></path>
+</svg>
+</button>
+
+<script>
+(function () {
+  function getScrollableElement() {
+    const candidates = [
+      document.querySelector('main.content'),
+      document.querySelector('.content'),
+      document.querySelector('.container'),
+      document.scrollingElement,
+      document.documentElement,
+      document.body
+    ].filter(Boolean);
+
+    for (const el of candidates) {
+      const style = window.getComputedStyle(el);
+      const canScroll = el.scrollHeight > el.clientHeight + 5;
+      const scrollable = ['auto', 'scroll', 'overlay'].includes(style.overflowY) ||
+                         el === document.scrollingElement ||
+                         el === document.documentElement ||
+                         el === document.body;
+      if (canScroll && scrollable) return el;
+    }
+    return document.scrollingElement || document.documentElement || document.body;
+  }
+
+  function bindExtras() {
+    document.querySelectorAll('.copy-contact').forEach(function(btn){
+      if (btn.dataset.extraCopyBound === 'true') return;
+      btn.dataset.extraCopyBound = 'true';
+      btn.addEventListener('click', function(){}, false);
+    });
+
+    const scrollBtns = document.querySelectorAll('#scrollTopBtn');
+    scrollBtns.forEach(function(btn){
+      if (btn.dataset.extraScrollBound === 'true') return;
+      btn.dataset.extraScrollBound = 'true';
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = getScrollableElement();
+        try { target.scrollTo({top:0, behavior:'smooth'}); } catch(err) { target.scrollTop = 0; }
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo(0,0);
+      }, true);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindExtras);
+  } else {
+    bindExtras();
+  }
+  window.addEventListener('load', bindExtras);
+})();
 </script>
 
 </body>

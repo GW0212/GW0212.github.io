@@ -667,3 +667,299 @@ button,
   transform:translateY(-2px);
   box-shadow:0 6px 16px rgba(0,0,0,0.25);
 }
+
+
+/* Resume summary */
+.resume-summary-card{
+  background:#eef2f8;
+  border:1px solid rgba(43,58,85,.14);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 10px 24px rgba(43,58,85,.08);
+}
+.resume-profile{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  margin-bottom:28px;
+}
+.resume-photo{
+  width:220px;
+  max-width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:18px;
+  border:1px solid rgba(43,58,85,.14);
+  background:#fff;
+  box-shadow:0 8px 20px rgba(43,58,85,.08);
+}
+.resume-basic{flex:1;min-width:0;}
+.resume-name-row{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;
+}
+.resume-name-row h3{margin:0;font-size:2rem;color:#21314d;}
+.resume-badge{
+  display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;
+  background:#e9edf4;color:#314564;font-weight:700;border:1px solid rgba(43,58,85,.1);
+}
+.resume-contact-list{display:flex;flex-direction:column;gap:12px;}
+.resume-contact-item{display:flex;align-items:flex-start;gap:10px;font-size:1rem;color:#334155;line-height:1.6;}
+.resume-icon{width:22px;flex:0 0 22px;text-align:center;}
+.resume-grid{
+  display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px;
+}
+.resume-block{
+  background:#f8fbff;
+  border:1px solid rgba(43,58,85,.12);
+  border-radius:18px;
+  padding:20px;
+}
+.resume-block h3{margin:0 0 14px;color:#21314d;font-size:1.18rem;}
+.resume-list{list-style:none;margin:0;padding:0;}
+.resume-list li{color:#475569;line-height:1.75;margin-bottom:10px;word-break:keep-all;}
+
+
+/* Scroll top button */
+#scrollTopBtn{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:50%;
+  background:#2b3a55;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.2);
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+#scrollTopBtn:hover{
+  transform:translateY(-2px);
+  background:#223047;
+  box-shadow:0 10px 20px rgba(0,0,0,.24);
+}
+#scrollTopBtn svg{
+  width:22px;
+  height:22px;
+  fill:currentColor;
+}
+
+@media (max-width: 980px){
+  .resume-grid{grid-template-columns:1fr;}
+}
+@media (max-width: 720px){
+  .resume-summary-card{padding:18px;border-radius:18px;}
+  .resume-profile{flex-direction:column;align-items:center;}
+  .resume-photo{width:180px;}
+  .resume-name-row h3{font-size:1.6rem;}
+  #scrollTopBtn{right:16px;bottom:16px;}
+}
+
+
+/* Resume copy buttons */
+.resume-copy-btn{
+  background:transparent;
+  border:none;
+  padding:0;
+  margin:0;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+  text-align:left;
+  text-decoration:none;
+}
+.resume-copy-btn:hover{
+  text-decoration:underline;
+}
+
+
+.resume-link-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  align-items:flex-start;
+}
+
+.resume-link-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.resume-link-icon{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  display:block;
+}
+
+.resume-link-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:110px;
+  padding:10px 14px;
+  border-radius:12px;
+  background:#2f4d79;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 6px 14px rgba(47,77,121,.18);
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.resume-link-card:hover .resume-link-btn{
+  transform:translateY(-1px);
+  background:#284268;
+  box-shadow:0 10px 20px rgba(47,77,121,.22);
+}
+
+
+/* Resume copy buttons */
+.resume-copy-btn{
+  background:transparent;
+  border:none;
+  padding:0;
+  margin:0;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+  text-align:left;
+}
+.resume-copy-btn:hover{
+  text-decoration:underline;
+}
+
+/* Resume alignment */
+.resume-grid .resume-block h3{
+  text-align:center;
+}
+.resume-grid .resume-block{
+  text-align:left;
+}
+.resume-grid .resume-block:last-child{
+  text-align:center;
+}
+.resume-link-buttons{
+  justify-content:center;
+}
+
+/* Ensure scroll-top button is clickable and visible */
+#scrollTopBtn{
+  z-index:99999;
+}
+#scrollTopBtn svg{
+  pointer-events:none;
+}
+
+
+/* =====================
+   Mobile Responsive Fix
+   ===================== */
+@media (max-width: 768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .container{
+    width:100%;
+    padding:0 14px;
+  }
+
+  header .container{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .title-btn{
+    font-size:18px;
+  }
+
+  .nav-menu{
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#ffffff;
+    flex-direction:column;
+    padding:10px;
+    display:none;
+    z-index:9999;
+  }
+
+  .nav-menu.show{
+    display:flex;
+  }
+
+  .menu-button{
+    width:100%;
+    text-align:left;
+    padding:10px 12px;
+  }
+
+  main.content{
+    padding:14px;
+  }
+
+  .resume-summary-card{
+    flex-direction:column;
+  }
+
+  .resume-profile{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .resume-photo{
+    width:120px;
+    height:120px;
+  }
+
+  .resume-basic{
+    width:100%;
+  }
+
+  .resume-contact-list{
+    align-items:center;
+  }
+
+  .resume-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .resume-link-buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .resume-link-card{
+    width:100%;
+    max-width:260px;
+  }
+
+  iframe{
+    width:100% !important;
+    height:auto !important;
+  }
+
+  img{
+    max-width:100%;
+    height:auto;
+  }
+
+  #scrollTopBtn{
+    right:16px;
+    bottom:16px;
+  }
+
+}
