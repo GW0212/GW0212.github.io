@@ -705,6 +705,11 @@ button,
 .resume-contact-list{display:flex;flex-direction:column;gap:12px;}
 .resume-contact-item{display:flex;align-items:flex-start;gap:10px;font-size:1rem;color:#334155;line-height:1.6;}
 .resume-icon{width:22px;flex:0 0 22px;text-align:center;}
+.resume-project-item{align-items:center;}
+.resume-project-inline{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.resume-inline-project-btn{display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-size:.92rem;font-weight:600;line-height:1.2;border:1px solid transparent;box-shadow:0 2px 8px rgba(39,70,109,.16);transition:background var(--speed) ease, box-shadow var(--speed) ease, transform var(--speed-fast) ease;}
+.resume-inline-project-btn:hover{background:var(--accent-strong);box-shadow:0 6px 14px rgba(39,70,109,.22);transform:translateY(-1px);}
+.resume-inline-project-btn:focus-visible{outline:3px solid #c8d7ef;outline-offset:2px;border-color:#a9c0e3;}
 .resume-grid{
   display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:18px;
 }
