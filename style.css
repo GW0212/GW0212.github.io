@@ -707,6 +707,9 @@ button,
 .resume-icon{width:22px;flex:0 0 22px;text-align:center;}
 .resume-project-item{align-items:center;}
 .resume-project-inline{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.resume-qa-text{word-break:keep-all;}
+.resume-project-label::after{content:" -";}
+
 .resume-inline-project-btn{display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-size:.92rem;font-weight:600;line-height:1.2;border:1px solid transparent;box-shadow:0 2px 8px rgba(39,70,109,.16);transition:background var(--speed) ease, box-shadow var(--speed) ease, transform var(--speed-fast) ease;}
 .resume-inline-project-btn:hover{background:var(--accent-strong);box-shadow:0 6px 14px rgba(39,70,109,.22);transform:translateY(-1px);}
 .resume-inline-project-btn:focus-visible{outline:3px solid #c8d7ef;outline-offset:2px;border-color:#a9c0e3;}
@@ -937,6 +940,12 @@ button,
     align-items:center;
   }
 
+  .resume-contact-item{justify-content:center;}
+  .resume-qa-text{display:inline-block;max-width:30ch;text-align:center;word-break:keep-all;overflow-wrap:normal;}
+  .resume-project-item{align-items:center;}
+  .resume-project-inline{flex-direction:column;align-items:center;gap:10px;text-align:center;width:100%;}
+  .resume-project-label::after{content:"";}
+
   .resume-grid{
     grid-template-columns:1fr;
     gap:16px;
@@ -1012,6 +1021,12 @@ button,
   .resume-contact-list{
     align-items:center;
   }
+
+  .resume-contact-item{justify-content:center;}
+  .resume-qa-text{display:inline-block;max-width:30ch;text-align:center;word-break:keep-all;overflow-wrap:normal;}
+  .resume-project-item{align-items:center;}
+  .resume-project-inline{flex-direction:column;align-items:center;gap:10px;text-align:center;width:100%;}
+  .resume-project-label::after{content:"";}
 
   .menu-button{
     width:100%;
