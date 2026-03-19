@@ -31,9 +31,10 @@
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
-<button class="menu-button" data-i18n="menu.edu" onclick="showContent('edu')">Education / Military / Career</button>
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
+<button class="menu-button" data-i18n="menu.testcases" onclick="showContent('testcases')">테스트 케이스</button>
 <button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">Available Languages / Tools</button>
+<button class="menu-button" data-i18n="menu.edu" onclick="showContent('edu')">Education / Military / Career</button>
 <button class="menu-button" data-i18n="menu.goal" onclick="showContent('goal')">Goal</button>
 <button class="menu-button" data-i18n="menu.minigames" onclick="showContent('minigames')">Mini games</button>
 <div class="contact-card">
@@ -869,6 +870,17 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 <div class="cert-desc"><img alt="Psychological Counselor Level 2" class="cert-img"/></div>
 </div>
 </div>
+<!-- Test Cases -->
+<div class="content-section" id="testcases" style="display:none;">
+<h2 data-i18n="testcases.h2">테스트 케이스</h2>
+<div class="project-card">
+<h3 data-i18n="testcases.youtube.title">유튜브 TC</h3>
+<p class="wrap-readable" data-i18n="testcases.youtube.desc">전세계 사람들이 대표적으로 사용하는 웹사이트이자 플랫폼인 '유튜브 (youtube)'의 버그를 직접 찾아 영상을 업로드하고 해당되는 현상의 TC를 간단하게 작성해보았습니다.</p>
+<a href="https://docs.google.com/spreadsheets/d/1rQNGB6AOJ_URZhA17ntvWBlVvPp4Oq1YE04ByCc60Uc/edit?pli=1&amp;gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="testcases.youtube.button">시트 바로가기</button>
+</a>
+</div>
+</div>
 <!-- ✅ 단일 메뉴 내부 탭: 학력/병역/경력 -->
 <div class="content-section" id="edu" style="display:none;">
 <h2 data-i18n="edu.h2">Education / Military / Career</h2>
@@ -1658,6 +1670,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'menu.projects':'프로그램, 게임',
       'menu.extensions':'1인 개발 작품',
             'menu.certificates':'자격증',
+      'menu.testcases':'테스트 케이스',
       'menu.edu':'학력 / 병역 / 경력사항',
       'menu.jd':'직무 분석표 (JD)',
       'menu.links':'링크',
@@ -1684,6 +1697,10 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'resume.qaDev':'게임 QA / 개발형 QA / 웹·크롬 확장·유니티 게임 개발 가능',
       'resume.projectLabel':'대표 프로젝트',
       'resume.projectButton':'RegionShot - 단축키 캡쳐',
+      'testcases.h2':'테스트 케이스',
+      'testcases.youtube.title':'유튜브 TC',
+      'testcases.youtube.desc':"전세계 사람들이 대표적으로 사용하는 웹사이트이자 플랫폼인 '유튜브 (youtube)'의 버그를 직접 찾아 영상을 업로드하고 해당되는 현상의 TC를 간단하게 작성해보았습니다.",
+      'testcases.youtube.button':'시트 바로가기',
 
       'intro.h2':'자기소개',
       'intro.p1':'나는 세상을 조금 더 나은 방향으로 움직이게 만드는 코드를 믿는다.',
@@ -1984,7 +2001,12 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 
     // Certificates i18n
     i18n.en['menu.certificates'] = 'Certificates';
+    i18n.en['menu.testcases'] = 'Test Cases';
     i18n.en['cert.h2'] = 'Certificates';
+    i18n.en['testcases.h2'] = 'Test Cases';
+    i18n.en['testcases.youtube.title'] = 'YouTube TC';
+    i18n.en['testcases.youtube.desc'] = 'I personally found a bug on YouTube, one of the most widely used websites and platforms in the world, uploaded a video of the issue, and briefly documented the related test case for the observed behavior.';
+    i18n.en['testcases.youtube.button'] = 'Open Sheet';
     i18n.en['cert.psyc1'] = 'Psychological Counselor Level 1';
     i18n.en['cert.psyc2'] = 'Psychological Counselor Level 2';
     i18n.ko['card.telLabel'] = 'TEL';
