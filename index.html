@@ -198,6 +198,15 @@
 </a>
 </div>
 <div class="project-card">
+<h3 data-i18n="ext.xvideodownloader.title">X Video Downloader</h3>
+<p class="wrap-readable" data-i18n="ext.xvideodownloader.desc">
+      트위터 (X) 영상 링크를 사용하여 해당 영상에서 지원하는 해상도 중 원하는 해상도를 선택해 영상을 다운로드할 수 있는 프로그램입니다.
+    </p>
+<a href="https://chromewebstore.google.com/detail/hdpgnmlbcfafdgmfaemmdndddncgcamk?utm_source=item-share-cb" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="ext.xvideodownloader.btn">바로가기</button>
+</a>
+</div>
+<div class="project-card">
 <h3 data-i18n="ext.worddock.title">WordDock - Quick Copy Buttons</h3>
 <p class="wrap-readable" data-i18n="ext.worddock.desc">
       이 프로그램은 웹 서핑 중 자주 사용하는 단어·문장을 빠르게 저장하고, 필요할 때 즉시 불러와 복사·수정·삭제할 수 있도록 돕는 경량 생산성 도구입니다.
@@ -1554,6 +1563,13 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
     i18n.en['ext.cinefinder.desc'] = 'It is a Chrome extension program that allows you to explore movies and dramas around the world on one screen and quickly check information on each piece. Through search, sorting, and genre filters, you can find the content you want efficiently, and you can organize and manage your favorite or watchlist. It supports five languages.';
     i18n.en['ext.cinefinder.btn'] = 'Click to download';
 
+    i18n.ko['ext.xvideodownloader.title'] = 'X Video Downloader';
+    i18n.ko['ext.xvideodownloader.desc'] = '트위터 (X) 영상 링크를 사용하여 해당 영상에서 지원하는 해상도 중 원하는 해상도를 선택해 영상을 다운로드할 수 있는 프로그램입니다.';
+    i18n.ko['ext.xvideodownloader.btn'] = '바로가기';
+    i18n.en['ext.xvideodownloader.title'] = 'X Video Downloader';
+    i18n.en['ext.xvideodownloader.desc'] = 'A program that lets you use a Twitter (X) video link, choose from the resolutions supported by that video, and download it in your preferred quality.';
+    i18n.en['ext.xvideodownloader.btn'] = 'Open';
+
     // ✅ WordDock (KO) — prevent KO UI from falling back to EN
     i18n.ko['ext.worddock.title'] = 'WordDock - Quick Copy Buttons';
     i18n.ko['ext.worddock.desc'] = '이 프로그램은 웹 서핑 중 자주 사용하는 단어·문장을 빠르게 저장하고, 필요할 때 즉시 불러와 복사·수정·삭제할 수 있도록 돕는 경량 생산성 도구입니다. 사이트와 상관없이 화면 위에 고정된 창으로 동작해 작업 흐름을 끊지 않으며, 반복 입력을 줄여 실사용 중심의 효율적인 텍스트 관리 경험을 제공합니다.';
@@ -1982,7 +1998,10 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 ,
       'ext.cinefinder.title':'cinefinder',
       'ext.cinefinder.desc':'전 세계 영화와 드라마를 한 화면에서 탐색하고, 작품별 정보를 빠르게 확인할 수 있도록 만든 크롬 확장 프로그램입니다. 검색과 정렬, 장르 필터를 통해 원하는 콘텐츠를 효율적으로 찾을 수 있으며, 관심 작품은 즐겨찾기나 워치리스트로 정리해 관리할 수 있습니다. 5개 국어를 지원합니다.',
-      'ext.cinefinder.btn':'다운로드 바로가기'
+      'ext.cinefinder.btn':'다운로드 바로가기',
+      'ext.xvideodownloader.title':'X Video Downloader',
+      'ext.xvideodownloader.desc':'트위터 (X) 영상 링크를 사용하여 해당 영상에서 지원하는 해상도 중 원하는 해상도를 선택해 영상을 다운로드할 수 있는 프로그램입니다.',
+      'ext.xvideodownloader.btn':'바로가기'
 });
 
 
@@ -4059,6 +4078,9 @@ document.addEventListener('DOMContentLoaded', function () {
       'web.nexusplay.title':'Nexus_Play',
       'web.nexusplay.desc':'NEXUS PLAY is a web service that analyzes the user's taste after they select 10 favorite games and recommends tailored titles. Using Steam-linked data, it also provides objective indicators such as real-time player counts, average playtime, and user ratings. Beyond recommendations, it integrates genre-based browsing, real-time trending games, and bookmark features to strengthen the overall game discovery experience. It is a game recommendation platform that combines personalized recommendations with real-time data-driven exploration.',
       'web.nexusplay.go':'Click',
+      'ext.xvideodownloader.title':'X Video Downloader',
+      'ext.xvideodownloader.desc':'A program that lets you use a Twitter (X) video link, choose from the resolutions supported by that video, and download it in your preferred quality.',
+      'ext.xvideodownloader.btn':'Open',
       'web.item2.desc':'A side-view strategy game where you generate units, push the front line, and destroy the enemy base while advancing through multiple ages. Managing timing, resource use, and unit composition is the core of the game, so you need to balance offense and defense rather than just spam troops.',
       'web.item3.desc':'A fast-paced action shooter where you dodge enemy fire, attack at close range, and keep moving through chaotic stages. It focuses on arcade-style combat with quick reactions, aggressive play, and boss fights that reward momentum and pattern reading.',
       'web.item4.desc':'An action platform game based on the Samurai Jack theme, centered on precise jumps, enemy encounters, and stage progression. You move through side-scrolling levels using timing and positioning to overcome traps and opponents in a classic flash-game style.',
@@ -4068,6 +4090,9 @@ document.addEventListener('DOMContentLoaded', function () {
       'web.nexusplay.title':'Nexus_Play',
       'web.nexusplay.desc':'NEXUS PLAY는 사용자가 선호하는 게임 10개를 선택하면, 해당 취향을 분석해 맞춤형 게임을 추천해주는 웹서비스입니다. Steam 연동 데이터를 활용해 실시간 플레이어 수, 평균 플레이 시간, 유저 평점 등 객관적인 지표를 함께 제공하며, 추천 결과뿐 아니라 장르별 탐색, 실시간 인기 게임, 북마크 기능까지 통합해 게임 탐색 경험을 강화했습니다. 개인화 추천과 실시간 데이터 기반 정보 탐색을 결합한 게임 추천 플랫폼입니다.',
       'web.nexusplay.go':'바로가기',
+      'ext.xvideodownloader.title':'X Video Downloader',
+      'ext.xvideodownloader.desc':'트위터 (X) 영상 링크를 사용하여 해당 영상에서 지원하는 해상도 중 원하는 해상도를 선택해 영상을 다운로드할 수 있는 프로그램입니다.',
+      'ext.xvideodownloader.btn':'바로가기',
       'web.item2.desc':'유닛을 생산해 전선을 밀고 적 기지를 파괴하는 횡스크롤 전략 게임입니다. 시대를 업그레이드하며 더 강한 유닛과 포탑을 활용할 수 있고, 자원 운용·생산 타이밍·공수 밸런스가 핵심인 작품입니다.',
       'web.item3.desc':'빠른 이동과 회피, 근접 공격과 사격을 조합해 적을 돌파하는 아케이드 액션 슈팅 게임입니다. 박진감 있는 전투 흐름과 패턴 대응, 보스전 중심의 템포감 있는 진행이 특징입니다.',
       'web.item4.desc':'사무라이 잭 테마를 바탕으로 점프, 이동, 적 처치를 통해 스테이지를 진행하는 액션 플랫포머 게임입니다. 함정과 적 배치에 맞춰 타이밍과 위치를 조절하며 전진하는 고전 플래시 감성의 구조를 갖고 있습니다.',
