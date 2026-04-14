@@ -705,10 +705,10 @@ button,
 .resume-contact-list{display:flex;flex-direction:column;gap:12px;}
 .resume-contact-item{display:flex;align-items:flex-start;gap:10px;font-size:1rem;color:#334155;line-height:1.6;}
 .resume-icon{width:22px;flex:0 0 22px;text-align:center;}
-.resume-project-item{align-items:center;}
-.resume-project-inline{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.resume-project-item{align-items:flex-start;}
+.resume-project-stack{display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
 .resume-qa-text{word-break:keep-all;}
-.resume-project-label::after{content:" -";}
+.resume-star-icon{filter:saturate(1.1);}
 
 .resume-inline-project-btn{display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-size:.92rem;font-weight:600;line-height:1.2;border:1px solid transparent;box-shadow:0 2px 8px rgba(39,70,109,.16);transition:background var(--speed) ease, box-shadow var(--speed) ease, transform var(--speed-fast) ease;}
 .resume-inline-project-btn:hover{background:var(--accent-strong);box-shadow:0 6px 14px rgba(39,70,109,.22);transform:translateY(-1px);}
@@ -947,8 +947,7 @@ button,
   .resume-contact-item{justify-content:center;}
   .resume-qa-text{display:inline-block;max-width:30ch;text-align:center;word-break:keep-all;overflow-wrap:normal;}
   .resume-project-item{align-items:center;}
-  .resume-project-inline{flex-direction:column;align-items:center;gap:10px;text-align:center;width:100%;}
-  .resume-project-label::after{content:"";}
+  .resume-project-stack{align-items:center;gap:10px;text-align:center;width:100%;}
 
   .resume-grid{
     grid-template-columns:1fr;
@@ -1029,8 +1028,7 @@ button,
   .resume-contact-item{justify-content:center;}
   .resume-qa-text{display:inline-block;max-width:30ch;text-align:center;word-break:keep-all;overflow-wrap:normal;}
   .resume-project-item{align-items:center;}
-  .resume-project-inline{flex-direction:column;align-items:center;gap:10px;text-align:center;width:100%;}
-  .resume-project-label::after{content:"";}
+  .resume-project-stack{align-items:center;gap:10px;text-align:center;width:100%;}
 
   .menu-button{
     width:100%;
@@ -1451,4 +1449,20 @@ button,
 .portfolio-tabs button{
   padding:12px 18px !important;
   margin:8px !important;
+}
+
+
+.resume-position-line{ white-space: normal; font-size: clamp(11px, 0.95vw, 16px); overflow-wrap:anywhere; word-break:break-word; }
+
+.ko-position-line{ white-space:nowrap !important; font-size:clamp(10px, 0.82vw, 16px); letter-spacing:-0.01em; }
+
+
+/* Resume key intro line */
+.resume-keyline{
+  margin: -2px 0 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #355a8a;
+  font-weight: 700;
+  word-break: keep-all;
 }
