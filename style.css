@@ -1795,6 +1795,19 @@ button,
 #gw-sub.vis { opacity: 1; }
 
 /* ── 토글 버튼 ── */
+/* ── 모바일 오프닝 토글 겹침 수정 ── */
+@media (max-width: 768px) {
+  .opening-toggle-wrap {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 !important;
+    z-index: 201;
+  }
+  .opening-label { display: none; }
+}
+
 .opening-toggle-wrap {
   display: flex; align-items: center; gap: 6px; margin-right: 10px;
 }
