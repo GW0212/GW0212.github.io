@@ -30,6 +30,7 @@
 <button class="menu-button" data-i18n="menu.resume" onclick="showContent('resume')">이력서 요약</button><button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
+<button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">QA 자동화</span><span data-lang="en" style="display:none;">QA Automation</span></button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
 <button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">언어 · QA 협업 · 개발 툴</button>
@@ -886,6 +887,112 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 </div>
 </div>
+<!-- QA Automation -->
+<div class="content-section" id="qa-automation" style="display:none;">
+<h2><span data-lang="ko">QA 자동화</span><span data-lang="en" style="display:none;">QA Automation</span></h2>
+<div class="tabs" role="tablist">
+  <button class="tab-btn active" role="tab" aria-selected="true" data-qtab="qa-tab-1">🎭 Playwright</button>
+</div>
+<div class="qa-tab-panel" id="qa-tab-1">
+
+  <div class="project-card">
+    <h3><span data-lang="ko">프로젝트 개요</span><span data-lang="en" style="display:none;">Project Overview</span></h3>
+    <ul class="resume-list">
+      <li><strong>Framework</strong> : Playwright 1.44 + TypeScript 5.4</li>
+      <li><strong>Pattern</strong> : Page Object Model (POM) —
+        <span data-lang="ko">페이지별 클래스로 분리하여 셀렉터 중앙 관리, 유지보수성 향상</span>
+        <span data-lang="en" style="display:none;">per-page class separation for centralized selector management and maintainability</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">테스트 유형</span><span data-lang="en" style="display:none;">Test Types</span></strong> :
+        <ul style="margin-top:6px;">
+          <li>🔐 <strong>E2E <span data-lang="ko">테스트</span><span data-lang="en" style="display:none;">Test</span></strong> —
+            <span data-lang="ko">실제 브라우저를 자동으로 조작해 로그인·검증·상품·결제 전 흐름을 처음부터 끝까지 테스트</span>
+            <span data-lang="en" style="display:none;">automates real browser actions to test the full user flow from login to checkout end-to-end</span>
+          </li>
+          <li>🔌 <strong>API <span data-lang="ko">테스트</span><span data-lang="en" style="display:none;">Test</span></strong> —
+            <span data-lang="ko">서버에 HTTP 요청을 보내 응답 상태코드·데이터 구조·타입을 자동 검증</span>
+            <span data-lang="en" style="display:none;">sends HTTP requests to the server and automatically validates response status codes, data structure, and types</span>
+          </li>
+          <li>📸 <strong>Visual Regression <span data-lang="ko">테스트</span><span data-lang="en" style="display:none;">Test</span></strong> —
+            <span data-lang="ko">화면을 스냅샷 찍어 두고, 추후 변경 사항을 픽셀 단위로 비교하여 UI 의도치 않은 변경 감지</span>
+            <span data-lang="en" style="display:none;">captures screenshots and compares pixel-by-pixel to detect unintended UI changes</span>
+          </li>
+        </ul>
+      </li>
+      <li><strong>CI/CD</strong> : GitHub Actions —
+        <span data-lang="ko">코드 푸시 시 자동 실행, 매일 오전 9시 자동 점검</span>
+        <span data-lang="en" style="display:none;">auto-runs on every push, scheduled daily at 9AM KST</span>
+      </li>
+      <li><strong><span data-lang="ko">브라우저</span><span data-lang="en" style="display:none;">Browsers</span></strong> : Chromium / Firefox / WebKit</li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3><span data-lang="ko">무엇을 테스트했나</span><span data-lang="en" style="display:none;">What Was Tested</span></h3>
+    <ul class="resume-list">
+      <li>
+        <strong>SauceDemo</strong> <span style="font-family:monospace;font-size:12px;color:#888;">www.saucedemo.com</span> —
+        <span data-lang="ko">QA 연습용으로 공개된 가짜 쇼핑몰 사이트. 로그인·상품 목록·정렬·장바구니 담기·결제 완료까지 전체 흐름을 E2E 테스트</span>
+        <span data-lang="en" style="display:none;">A public e-commerce demo site for QA practice. E2E tested the full flow: login, product list, sorting, add to cart, and checkout completion.</span>
+      </li>
+      <li style="margin-top:8px;">
+        <strong>JSONPlaceholder</strong> <span style="font-family:monospace;font-size:12px;color:#888;">jsonplaceholder.typicode.com</span> —
+        <span data-lang="ko">REST API 연습용 공용 서버. GET·조회, POST·생성, PUT/PATCH·수정, DELETE·삭제 전 메서드의 응답 코드·데이터 구조·헤더를 API 테스트</span>
+        <span data-lang="en" style="display:none;">A public REST API practice server. API tested all methods — GET (read), POST (create), PUT/PATCH (update), DELETE (delete) — validating response codes, data structure, and headers.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3><span data-lang="ko">테스트 케이스</span><span data-lang="en" style="display:none;">Test Cases</span></h3>
+    <ul class="resume-list">
+      <li>🔐 <strong><span data-lang="ko">로그인 E2E</span><span data-lang="en" style="display:none;">Login E2E</span></strong> —
+        <span data-lang="ko">정상 로그인, 잠긴 계정, 잘못된 비밀번호, 빈 입력, 로그아웃 (9 cases)</span>
+        <span data-lang="en" style="display:none;">valid login, locked account, wrong password, empty input, logout (9 cases)</span>
+      </li>
+      <li>🛒 <strong><span data-lang="ko">쇼핑 플로우 E2E</span><span data-lang="en" style="display:none;">Shopping Flow E2E</span></strong> —
+        <span data-lang="ko">상품 목록, 정렬, 장바구니, 전체 결제 플로우 (10 cases)</span>
+        <span data-lang="en" style="display:none;">product list, sorting, cart, full checkout flow (10 cases)</span>
+      </li>
+      <li>🔌 <strong>REST API</strong> — GET / POST / PUT / PATCH / DELETE ·
+        <span data-lang="ko">상태코드 · 응답 구조 검증 (12 cases)</span>
+        <span data-lang="en" style="display:none;">status code · response structure validation (12 cases)</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3><span data-lang="ko">링크</span><span data-lang="en" style="display:none;">Links</span></h3>
+    <div class="resume-link-buttons" style="justify-content:center;align-items:flex-start;gap:18px;">
+      <!-- 카드 1: 대상 사이트 -->
+      <div class="resume-link-card" style="flex-direction:column;align-items:center;gap:6px;cursor:default;">
+        <div style="height:70px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <span style="font-size:28px;line-height:1;">🌐</span>
+          <span data-i18n="qa.links.targetSites" style="font-size:10px;font-weight:600;color:#888;letter-spacing:0.05em;">대상 사이트</span>
+        </div>
+        <a class="resume-link-btn" href="https://www.saucedemo.com" target="_blank" rel="noopener noreferrer" style="text-align:center;text-decoration:none;width:100%;">SauceDemo</a>
+        <a class="resume-link-btn" href="https://jsonplaceholder.typicode.com" target="_blank" rel="noopener noreferrer" style="text-align:center;text-decoration:none;width:100%;">JSONPlaceholder</a>
+      </div>
+      <!-- 카드 2: 대시보드 -->
+      <a class="resume-link-card" href="https://gw0212.github.io/qa-automation-portfolio/" target="_blank" rel="noopener noreferrer" style="flex-direction:column;align-items:center;gap:6px;">
+        <div style="height:70px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:28px;line-height:1;">📊</span>
+        </div>
+        <span class="resume-link-btn" data-i18n="qa.links.dashboardReport">대시보드 · 테스트 리포트</span>
+      </a>
+      <!-- 카드 3: GitHub -->
+      <a class="resume-link-card" href="https://github.com/GW0212/qa-automation-portfolio" target="_blank" rel="noopener noreferrer" style="flex-direction:column;align-items:center;gap:6px;">
+        <div style="height:70px;display:flex;align-items:center;justify-content:center;">
+          <img src="github.png" alt="GitHub" class="resume-link-icon"/>
+        </div>
+        <span class="resume-link-btn" data-i18n="qa.links.githubRepo">GitHub Repository</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+</div>
 <!-- Certificates -->
 <div class="content-section" id="certificates" style="display:none;">
 <h2 data-i18n="cert.h2">Certificates</h2><div aria-label="Certificate quick navigation" class="cert-quick-nav" id="cert-quick-nav"></div>
@@ -1309,7 +1416,7 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 </main>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Section switching
     function showContent(sectionId) {
   // 1) 모든 섹션 숨김
@@ -1445,6 +1552,12 @@ i18n.ko['resume.project.region'] = '크롬 확장 프로그램 - RegionShot - �
 i18n.en['resume.project.region'] = 'Chrome Extension Program - RegionShot - Shortcut Capture';
 i18n.ko['resume.project.nexus'] = '웹사이트 - Nexus Play';
 i18n.en['resume.project.nexus'] = 'Website - Nexus Play';
+i18n.ko['qa.links.targetSites'] = '대상 사이트';
+i18n.en['qa.links.targetSites'] = 'Target Sites';
+i18n.ko['qa.links.dashboardReport'] = '대시보드 · 테스트 리포트';
+i18n.en['qa.links.dashboardReport'] = 'Dashboard · Test Report';
+i18n.ko['qa.links.githubRepo'] = 'GitHub 저장소';
+i18n.en['qa.links.githubRepo'] = 'GitHub Repository';
 
 i18n.en['web.aiimg.title'] = 'AI Image Detector';
 i18n.en['web.aiimg.desc'] = 'This website is a front-end based AI image detector that runs entirely in your browser. When you upload an image, it analyzes visual statistics such as brightness, color, edges, and patterns to estimate the probability that it was generated by AI. All processing happens locally on your PC with no server upload, so your privacy is protected. Despite its lightweight structure, it offers polished visualization and UI, making it feel like a production-ready detector you can use right away.';
@@ -1753,6 +1866,9 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'resume.qaDev':'QA / 웹·크롬 확장·게임·서비스 구조 이해',
       'resume.project.region':'크롬 확장 프로그램 - RegionShot - 단축키 캡쳐',
       'resume.project.nexus':'웹사이트 - Nexus Play',
+      'qa.links.targetSites':'대상 사이트',
+      'qa.links.dashboardReport':'대시보드 · 테스트 리포트',
+      'qa.links.githubRepo':'GitHub 저장소',
       'testcases.h2':'테스트 케이스',
       'testcases.youtube.title':'유튜브 TC',
       'testcases.youtube.desc':"전세계 사람들이 대표적으로 사용하는 웹사이트이자 플랫폼인 '유튜브 (youtube)'의 버그를 직접 찾아 영상을 업로드하고 해당되는 현상의 TC를 간단하게 작성해보았습니다.",
@@ -4409,14 +4525,29 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.addEventListener('DOMContentLoaded', function(){
-    applyCustomSectionText();
-    document.getElementById('lang-ko')?.addEventListener('click', function(){ setTimeout(applyCustomSectionText, 0); });
-    document.getElementById('lang-en')?.addEventListener('click', function(){ setTimeout(applyCustomSectionText, 0); });
+    applyCustomSe
+ctionText();
   });
-
-  window.applyCustomSectionText = applyCustomSectionText;
 })();
 </script>
-
+<script>
+(function(){
+  document.addEventListener('DOMContentLoaded',function(){
+    var sec=document.getElementById('qa-automation');
+    if(!sec)return;
+    var tabs=sec.querySelectorAll('[data-qtab]');
+    var panels=sec.querySelectorAll('.qa-tab-panel');
+    tabs.forEach(function(btn){
+      btn.addEventListener('click',function(){
+        tabs.forEach(function(b){b.classList.remove('active');b.setAttribute('aria-selected','false');});
+        panels.forEach(function(p){p.style.display='none';});
+        btn.classList.add('active');btn.setAttribute('aria-selected','true');
+        var t=document.getElementById(btn.dataset.qtab);
+        if(t)t.style.display='block';
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
