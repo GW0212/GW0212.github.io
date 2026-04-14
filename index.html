@@ -33,7 +33,7 @@
 <button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">QA 자동화</span><span data-lang="en" style="display:none;">QA Automation</span></button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
-<button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">언어 · QA 협업 · 개발 툴</button>
+<button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">개발 언어 · QA 협업 · 개발 툴</button>
 <button class="menu-button" data-i18n="menu.edu" onclick="showContent('edu')">Education / Military / Career</button>
 <button class="menu-button" data-i18n="menu.goal" onclick="showContent('goal')">Goal</button>
 <button class="menu-button" data-i18n="menu.minigames" onclick="showContent('minigames')">Mini games</button>
@@ -132,10 +132,10 @@ I aim to grow into a QA professional who strengthens quality, collaboration, and
 </div> <!-- ✅ intro 섹션 닫기 -->
 <!-- Languages / Tools -->
 <div class="content-section" id="languages" style="display:none;">
-<h2 data-i18n="languages.h2">언어 · QA 협업 · 개발 툴</h2>
+<h2 data-i18n="languages.h2">개발 언어 · QA 협업 · 개발 툴</h2>
 <!-- 내부 탭 버튼 -->
 <div aria-label="언어 및 툴 탭" class="tabs" role="tablist">
-<button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">언어</button>
+<button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">개발 언어</button>
 <button aria-selected="false" class="tab-btn" data-tab="lang-qa-tools" role="tab">QA 협업</button>
 <button aria-selected="false" class="tab-btn" data-tab="lang-dev-tools" role="tab">개발 운영</button>
 </div>
@@ -1416,7 +1416,7 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 </main>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Section switching
     function showContent(sectionId) {
   // 1) 모든 섹션 숨김
@@ -1771,7 +1771,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 'web.dyk.title': '그거 아세요?',
 'web.dyk.desc': '사람들이 잘 알지 못하는 사실을 알려드립니다. 총 100가지 사실이 랜덤으로 나오며 Space 버튼 혹은 놀라운 사실 버튼 클릭 시 새로운 사실이 나오는 형식입니다. 다크/라이트 모드 설정이 가능하며 추후에 더 많은 놀라운 사실들을 추가 할 예정입니다. 재밌게 봐주세요',
 
-'languages.h2':'언어 · QA 협업 · 개발 툴',
+'languages.h2':'개발 언어 · QA 협업 · 개발 툴',
 'languages.tab.langs':'언어',
 'languages.tab.tools':'사용 가능 툴',
 
@@ -1835,7 +1835,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 
       'menu.resume':'이력서 요약',
       'menu.intro':'자기소개',
-      'menu.languages':'언어 · QA 협업 · 개발 툴',
+      'menu.languages':'개발 언어 · QA 협업 · 개발 툴',
       'menu.projects':'프로그램, 게임',
       'menu.extensions':'1인 개발 작품',
             'menu.certificates':'자격증',
@@ -1888,7 +1888,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'intro.p11':'그 질문이 내가 개발을 이어가는 이유이고, 그 답을 찾아 세상과 연결되는 것이 내가 이 일을 사랑하는 방식이다.',
 
       // Languages / Tools
-      'languages.h2':'언어 · QA 협업 · 개발 툴',
+      'languages.h2':'개발 언어 · QA 협업 · 개발 툴',
       'languages.sub.langs':'언어',
       'languages.sub.tools':'사용 가능 툴',
       'languages.tools.chrome':'크롬 확장 프로그램 개발 환경 (Manifest v3)',
@@ -2149,8 +2149,8 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 
 
     // === English label overrides ===
-    i18n.en['menu.languages'] = 'Language · QA · Dev';
-    i18n.en['languages.h2'] = 'Language · QA · Dev';
+    i18n.en['menu.languages'] = 'Dev Languages · QA · Dev Tools';
+    i18n.en['languages.h2'] = 'Dev Languages · QA · Dev Tools';
     i18n.en['languages.sub.langs'] = 'Language';
     i18n.en['languages.sub.tools'] = 'Tools';
     i18n.en['languages.tools.chrome'] = 'Chrome Extension Dev Environment (Manifest v3)';
@@ -2230,6 +2230,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       updateCertImages();
       
       if (typeof updateResumeSummaryStats === 'function') updateResumeSummaryStats();
+      if (typeof window.applyCustomSectionText === 'function') window.applyCustomSectionText();
       if (typeof window.ensureCertificateQuickNav === 'function') {
         window.ensureCertificateQuickNav();
       }
@@ -4289,16 +4290,16 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   try {
     const langMenuBtn = document.querySelector('.menu-button[data-i18n="menu.languages"]');
-    if (langMenuBtn) langMenuBtn.textContent = '언어 · QA 협업 · 개발 툴';
+    if (langMenuBtn) langMenuBtn.textContent = '개발 언어 · QA 협업 · 개발 툴';
 
     const langTitle = document.querySelector('#languages h2');
-    if (langTitle) langTitle.textContent = '언어 · QA 협업 · 개발 툴';
+    if (langTitle) langTitle.textContent = '개발 언어 · QA 협업 · 개발 툴';
 
     const tabWrap = document.querySelector('#languages .tabs');
     const panels = document.querySelectorAll('#languages .tab-panel');
     if (tabWrap && panels.length) {
       tabWrap.innerHTML = `
-        <button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">언어</button>
+        <button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">개발 언어</button>
         <button aria-selected="false" class="tab-btn" data-tab="lang-qa-tools" role="tab">QA 협업</button>
         <button aria-selected="false" class="tab-btn" data-tab="lang-dev-tools" role="tab">개발 운영</button>
       `;
@@ -4422,24 +4423,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (langMenuBtn) {
       langMenuBtn.textContent = lang === 'en'
-        ? 'Languages · QA · Dev Tools'
-        : '언어 · QA 협업 · 개발 툴';
+        ? 'Dev Languages · QA · Dev Tools'
+        : '개발 언어 · QA 협업 · 개발 툴';
     }
 
     if (langTitle) {
       langTitle.textContent = lang === 'en'
-        ? 'Languages · QA · Dev Tools'
-        : '언어 · QA 협업 · 개발 툴';
+        ? 'Dev Languages · QA · Dev Tools'
+        : '개발 언어 · QA 협업 · 개발 툴';
     }
 
     tabWrap.innerHTML = lang === 'en'
       ? `
-        <button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">Languages</button>
+        <button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">Dev Languages</button>
         <button aria-selected="false" class="tab-btn" data-tab="lang-qa-tools" role="tab">QA Tools</button>
         <button aria-selected="false" class="tab-btn" data-tab="lang-dev-tools" role="tab">Dev Tools</button>
       `
       : `
-        <button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">언어</button>
+        <button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">개발 언어</button>
         <button aria-selected="false" class="tab-btn" data-tab="lang-qa-tools" role="tab">QA 협업</button>
         <button aria-selected="false" class="tab-btn" data-tab="lang-dev-tools" role="tab">개발 운영</button>
       `;
@@ -4524,9 +4525,10 @@ document.addEventListener('DOMContentLoaded', function () {
     renderLanguageSectionByLang();
   }
 
+  window.applyCustomSectionText = applyCustomSectionText;
+
   document.addEventListener('DOMContentLoaded', function(){
-    applyCustomSe
-ctionText();
+    applyCustomSectionText();
   });
 })();
 </script>
@@ -4539,15 +4541,4 @@ ctionText();
     var panels=sec.querySelectorAll('.qa-tab-panel');
     tabs.forEach(function(btn){
       btn.addEventListener('click',function(){
-        tabs.forEach(function(b){b.classList.remove('active');b.setAttribute('aria-selected','false');});
-        panels.forEach(function(p){p.style.display='none';});
-        btn.classList.add('active');btn.setAttribute('aria-selected','true');
-        var t=document.getElementById(btn.dataset.qtab);
-        if(t)t.style.display='block';
-      });
-    });
-  });
-})();
-</script>
-</body>
-</html>
+        tabs.forEach(function(b){b.classList
