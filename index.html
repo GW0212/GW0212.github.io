@@ -15,7 +15,7 @@
 #gw-splash{position:fixed;inset:0;z-index:99999;background:#020409;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #gw-splash.gw-hide{display:none!important}
 </style>
-<link href="style.css?v=20260414_v11b" rel="stylesheet"/>
+<link href="style.css?v=20260414_v12" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v11 — Impact ===== -->
@@ -51,7 +51,7 @@
   </div>
 </div>
 <script>
-/* === GW SPLASH v11 — Self-contained (runs immediately) === */
+/* === GW SPLASH v12 — Self-contained === */
 (function(){
   var LS_KEY = 'gw-opening-v11';
   var splash = document.getElementById('gw-splash');
@@ -59,7 +59,19 @@
 
   function isOn(){ try{ return localStorage.getItem(LS_KEY) !== 'off'; }catch(e){ return true; } }
 
-  /* 오프닝 꺼져 있으면 즉시 숨김 */
+  /* ── 토글 바인딩 (항상 등록 — off 상태에서도 on 전환 가능) ── */
+  document.addEventListener('DOMContentLoaded',function(){
+    var btn=document.getElementById('opening-toggle');
+    if(!btn)return;
+    function sync(){btn.classList.toggle('on',isOn());}
+    sync();
+    btn.addEventListener('click',function(){
+      try{localStorage.setItem(LS_KEY,isOn()?'off':'on');}catch(e){}
+      sync();
+    });
+  });
+
+  /* 오프닝 꺼져 있으면 스플래시만 숨기고 종료 */
   if(!isOn()){ splash.classList.add('gw-hide'); return; }
 
   document.body.style.overflow = 'hidden';
@@ -109,18 +121,6 @@
   setTimeout(dismiss,3500);
   splash.addEventListener('click',dismiss);
   document.addEventListener('keydown',function(){dismiss();},{once:true});
-
-  /* ── 토글 바인딩 (헤더가 아직 파싱 안 됐으므로 DOMContentLoaded) ── */
-  document.addEventListener('DOMContentLoaded',function(){
-    var btn=document.getElementById('opening-toggle');
-    if(!btn)return;
-    function sync(){btn.classList.toggle('on',isOn());}
-    sync();
-    btn.addEventListener('click',function(){
-      try{localStorage.setItem(LS_KEY,isOn()?'off':'on');}catch(e){}
-      sync();
-    });
-  });
 })();
 </script><header>
 <h1>
