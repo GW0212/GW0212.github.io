@@ -1697,12 +1697,15 @@ button,
 
 /* ── 모바일 ── */
 @media (max-width: 520px) {
-  .opening-toggle-wrap  { flex-direction: column; align-items: center; margin-right: 6px; gap: 2px; order: 0; }
+  .opening-toggle-wrap  {
+    position: absolute; right: 54px; top: 50%; transform: translateY(-50%);
+    flex-direction: column; align-items: center; margin-right: 0; gap: 2px; order: 0;
+  }
   .opening-label        { font-size: 9px; letter-spacing: 0; }
   .opening-toggle       { width: 30px; height: 17px; }
   .opening-toggle-thumb { width: 11px; height: 11px; }
   .opening-toggle.on .opening-toggle-thumb { transform: translateX(13px); }
-  #gw-name { letter-spacing: 5px; white-space: nowrap; font-size: clamp(7px, 2.2vw, 14px); }
+  #gw-name { letter-spacing: 1px; white-space: nowrap; font-size: clamp(6px, 2vw, 11px); }
   #gw-sub  { letter-spacing: 2px; font-size: 9px; white-space: normal; text-align: center; }
   #gw-ll1.open, #gw-rl1.open { width: 55px; }
   #gw-ll2.open, #gw-rl2.open { width: 28px; }
@@ -1725,4 +1728,13 @@ button,
 .resume-block, .cert-card {
   transform-style: preserve-3d; will-change: transform;
   transition: transform .4s ease, box-shadow .4s ease;
+}
+
+/* ── 모바일 GW 서브텍스트 줄바꿈 방지 ── */
+@media (max-width: 768px) {
+  #gw-name {
+    white-space: nowrap !important;
+    letter-spacing: 1px !important;
+    font-size: clamp(6px, 2vw, 11px) !important;
+  }
 }
