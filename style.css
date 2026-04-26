@@ -1738,3 +1738,30 @@ button,
     font-size: clamp(6px, 2vw, 11px) !important;
   }
 }
+
+
+/* ===== Steam QA tab item ===== */
+.steam-qa-card .wrap-readable{
+  margin-bottom:16px;
+}
+.steam-qa-list{
+  margin-top:14px;
+}
+.steam-qa-list li{
+  margin-bottom:10px;
+  line-height:1.7;
+}
+.steam-qa-link{
+  margin-top:8px;
+}
+@media (max-width:768px){
+  #qa-automation .tabs{
+    justify-content:center;
+  }
+  #qa-automation .tab-btn{
+    text-align:center;
+  }
+  .steam-qa-card{
+    padding:18px;
+  }
+}

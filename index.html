@@ -937,6 +937,9 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 <h2><span data-lang="ko">QA 자동화</span><span data-lang="en" style="display:none;">QA Automation</span></h2>
 <div class="tabs" role="tablist">
   <button class="tab-btn active" role="tab" aria-selected="true" data-qtab="qa-tab-1">🎭 Playwright</button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-qtab="qa-tab-steam">
+    <span data-lang="ko">🎮 Steam 게임 페이지</span><span data-lang="en" style="display:none;">🎮 Steam Game Page</span>
+  </button>
 </div>
 <div class="qa-tab-panel" id="qa-tab-1">
 
@@ -1034,6 +1037,44 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
         <span class="resume-link-btn" data-i18n="qa.links.githubRepo">GitHub Repository</span>
       </a>
     </div>
+  </div>
+
+</div>
+<div class="qa-tab-panel" id="qa-tab-steam" hidden>
+
+  <div class="project-card steam-qa-card">
+    <h3>
+      <span data-lang="ko">Steam 게임 페이지</span><span data-lang="en" style="display:none;">Steam Game Page</span>
+    </h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">Steam Store URL, AppID, 게임명을 입력하면 Steam API 데이터를 기반으로 게임 페이지 품질을 자동 점검하는 QA 대시보드입니다. 게임명 검색, AppID/URL 파싱, 메타데이터 검증, 점수 자동 산정, 리포트 확인 흐름까지 한 화면에서 확인할 수 있도록 구성했습니다.</span>
+      <span data-lang="en" style="display:none;">This QA dashboard automatically checks Steam game page quality using Steam API data from a Store URL, AppID, or game title. It covers game search, AppID/URL parsing, metadata validation, automatic score calculation, and report review in one streamlined page.</span>
+    </p>
+    <ul class="resume-list steam-qa-list">
+      <li>
+        <strong><span data-lang="ko">검증 범위</span><span data-lang="en" style="display:none;">Validation Scope</span></strong> :
+        <span data-lang="ko">썸네일, 가격, 태그, 설명, 장르, 출시일, 스크린샷, 지원 언어 등 Steam 페이지 핵심 데이터 점검</span>
+        <span data-lang="en" style="display:none;">checks key Steam page data such as thumbnails, price, tags, description, genres, release date, screenshots, and supported languages</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">자동 판정</span><span data-lang="en" style="display:none;">Auto Assessment</span></strong> :
+        <span data-lang="ko">PASS / WARN / FAIL 기준으로 결과를 분류하고, 항목별 점수를 자동 산정</span>
+        <span data-lang="en" style="display:none;">classifies results as PASS / WARN / FAIL and automatically calculates item-based scores</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">예외 대응</span><span data-lang="en" style="display:none;">Fallback Handling</span></strong> :
+        <span data-lang="ko">AppID, Store URL, Steam 프로토콜 URL, 게임명 검색을 지원하고 비게임 AppID는 QA 이슈가 아닌 안내 상태로 처리</span>
+        <span data-lang="en" style="display:none;">supports AppID, Store URL, Steam protocol URL, and title search, while non-game AppIDs are handled as guidance instead of QA issues</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+        <span data-lang="ko">게임 QA 포트폴리오, 자동화 검증 흐름 설명, API 기반 데이터 품질 점검 사례로 활용</span>
+        <span data-lang="en" style="display:none;">designed for a game QA portfolio, automation workflow demonstration, and API-based data quality validation case study</span>
+      </li>
+    </ul>
+    <a class="download-button steam-qa-link" href="https://gw0212.github.io/steam_qa/" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ko">Steam 게임 페이지 바로가기</span><span data-lang="en" style="display:none;">Open Steam Game Page QA</span>
+    </a>
   </div>
 
 </div>
@@ -4588,17 +4629,30 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <script>
 (function(){
-  document.addEventListener('DOMContentLoaded',function(){
+  function initQaTabs(){
     var sec=document.getElementById('qa-automation');
     if(!sec)return;
     var tabs=sec.querySelectorAll('[data-qtab]');
     var panels=sec.querySelectorAll('.qa-tab-panel');
     tabs.forEach(function(btn){
       btn.addEventListener('click',function(){
-        tabs.forEach(function(b){b.classList
-/* ============================================================
-   GW EFFECTS v9 — Script
-   ============================================================ */
+        tabs.forEach(function(b){
+          b.classList.remove('active');
+          b.setAttribute('aria-selected','false');
+        });
+        panels.forEach(function(panel){ panel.hidden = true; });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+        var target=document.getElementById(btn.getAttribute('data-qtab'));
+        if(target) target.hidden = false;
+        var current=(document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'ko').toLowerCase();
+        if(typeof setLanguage === 'function') setLanguage(current === 'en' ? 'en' : 'ko');
+      });
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initQaTabs);
+  else initQaTabs();
+})();
 </script>
 <script>
 (function(){
