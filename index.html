@@ -66,7 +66,7 @@
 <button class="menu-button" data-i18n="menu.resume" onclick="showContent('resume')">이력서 요약</button><button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
-<button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">QA 자동화</span><span data-lang="en" style="display:none;">QA Automation</span></button>
+<button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">자동화 QA / TC</span><span data-lang="en" style="display:none;">Automation QA / TC</span></button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
 <button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">개발 언어 · QA 협업 · 개발 툴</button>
@@ -934,11 +934,25 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <!-- QA Automation -->
 <div class="content-section" id="qa-automation" style="display:none;">
-<h2><span data-lang="ko">QA 자동화</span><span data-lang="en" style="display:none;">QA Automation</span></h2>
-<div class="tabs" role="tablist">
+<h2><span data-lang="ko">자동화 QA / TC</span><span data-lang="en" style="display:none;">Automation QA / TC</span></h2>
+
+<div class="tabs qa-main-tabs" role="tablist" aria-label="QA 자동화 및 TC 분류">
+  <button class="tab-btn active" role="tab" aria-selected="true" data-qsub="qa-sub-auto">
+    <span data-lang="ko">자동화 QA</span><span data-lang="en" style="display:none;">Automation QA</span>
+  </button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-qsub="qa-sub-tc">
+    <span data-lang="ko">TC</span><span data-lang="en" style="display:none;">TC</span>
+  </button>
+</div>
+
+<div class="qa-sub-panel" id="qa-sub-auto">
+<div class="tabs qa-child-tabs" role="tablist" aria-label="자동화 QA 상세 탭">
   <button class="tab-btn active" role="tab" aria-selected="true" data-qtab="qa-tab-1">🎭 Playwright</button>
   <button class="tab-btn" role="tab" aria-selected="false" data-qtab="qa-tab-steam">
     <span data-lang="ko">🎮 Steam 게임 페이지</span><span data-lang="en" style="display:none;">🎮 Steam Game Page</span>
+  </button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-qtab="qa-tab-web-inspector">
+    <span data-lang="ko">🌐 Web QA Auto Inspector</span><span data-lang="en" style="display:none;">🌐 Web QA Auto Inspector</span>
   </button>
 </div>
 <div class="qa-tab-panel" id="qa-tab-1">
@@ -1029,13 +1043,6 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
         </div>
         <span class="resume-link-btn" data-i18n="qa.links.dashboardReport">대시보드 · 테스트 리포트</span>
       </a>
-      <!-- 카드 3: GitHub -->
-      <a class="resume-link-card" href="https://github.com/GW0212/qa-automation-portfolio" target="_blank" rel="noopener noreferrer" style="flex-direction:column;align-items:center;gap:6px;">
-        <div style="height:70px;display:flex;align-items:center;justify-content:center;">
-          <img src="github.png" alt="GitHub" class="resume-link-icon"/>
-        </div>
-        <span class="resume-link-btn" data-i18n="qa.links.githubRepo">GitHub Repository</span>
-      </a>
     </div>
   </div>
 
@@ -1077,6 +1084,130 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     </a>
   </div>
 
+</div>
+<div class="qa-tab-panel" id="qa-tab-web-inspector" hidden>
+
+  <div class="project-card steam-qa-card">
+    <h3>
+      <span data-lang="ko">Web QA Auto Inspector</span><span data-lang="en" style="display:none;">Web QA Auto Inspector</span>
+    </h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">웹사이트 URL을 입력하면 핵심 화면 품질, 링크 동작, 접근성, 성능, 메타데이터, 보안 기본 항목을 자동 점검하고 결과를 대시보드 형태로 정리하는 웹 QA 자동화 도구입니다. Dashboard, Test Items, Report 흐름을 분리해 검사 요약과 세부 결과를 한 화면에서 확인할 수 있도록 구성했습니다.</span>
+      <span data-lang="en" style="display:none;">This web QA automation tool checks core page quality, link behavior, accessibility, performance, metadata, and basic security items from a website URL, then summarizes the results in a dashboard. It separates Dashboard, Test Items, and Report flows so users can review both the summary and detailed findings clearly.</span>
+    </p>
+    <ul class="resume-list steam-qa-list">
+      <li>
+        <strong><span data-lang="ko">검증 범위</span><span data-lang="en" style="display:none;">Validation Scope</span></strong> :
+        <span data-lang="ko">페이지 기본 정보, 제목·설명 메타데이터, 링크/버튼 동작, 이미지 대체 텍스트, 반응형 화면, 로딩 상태 등 웹 QA 핵심 항목 점검</span>
+        <span data-lang="en" style="display:none;">checks key web QA items such as page basics, title/description metadata, link/button behavior, image alt text, responsive layout, and loading status</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">자동 판정</span><span data-lang="en" style="display:none;">Auto Assessment</span></strong> :
+        <span data-lang="ko">검사 결과를 PASS / WARN / FAIL 기준으로 분류하고, 항목별 위험도와 개선 필요 내용을 이해하기 쉽게 표시</span>
+        <span data-lang="en" style="display:none;">classifies results as PASS / WARN / FAIL and presents item-level risk and improvement notes in an easy-to-read format</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">리포트 활용</span><span data-lang="en" style="display:none;">Report Usage</span></strong> :
+        <span data-lang="ko">검사 요약, 상세 항목, 이슈 설명, 개선 방향을 리포트로 정리해 QA 포트폴리오와 실무 테스트 결과 공유에 활용</span>
+        <span data-lang="en" style="display:none;">organizes summaries, detailed items, issue explanations, and improvement guidance into reports for QA portfolio use and practical test result sharing</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+        <span data-lang="ko">웹 서비스 품질 점검, 자동화 QA 흐름 설명, 사용자 관점의 화면·기능·접근성 검증 사례로 활용</span>
+        <span data-lang="en" style="display:none;">designed for web service quality checks, automation QA workflow demonstration, and user-focused UI, function, and accessibility validation cases</span>
+      </li>
+    </ul>
+    <a class="download-button steam-qa-link" href="https://gw0212.github.io/Web_QA_Auto_Inspector/" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ko">Web QA Auto Inspector 바로가기</span><span data-lang="en" style="display:none;">Open Web QA Auto Inspector</span>
+    </a>
+  </div>
+
+</div>
+</div>
+
+<div class="qa-sub-panel" id="qa-sub-tc" hidden>
+  <div class="tabs qa-child-tabs" role="tablist" aria-label="TC 문서 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" data-qtc="qa-tc-youtube">
+      <span data-lang="ko">▶ 유튜브 TC</span><span data-lang="en" style="display:none;">▶ YouTube TC</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-malhaeboca">
+      <span data-lang="ko">💬 말해보카 홈페이지 TC</span><span data-lang="en" style="display:none;">💬 Malhaeboca Homepage TC</span>
+    </button>
+  </div>
+
+  <div class="tc-tab-panel" id="qa-tc-youtube" role="tabpanel">
+    <div class="project-card steam-qa-card">
+      <h3>
+        <span data-lang="ko">유튜브 TC</span><span data-lang="en" style="display:none;">YouTube TC</span>
+      </h3>
+      <p class="wrap-readable">
+        <span data-lang="ko">PC 크롬 환경에서 유튜브 쇼츠와 롱폼 영상을 직접 확인하며 정리한 테스트 케이스 문서입니다. 화면 녹화 링크, 상세 현상, 결과 상태, 우선순위, 업데이트 일자를 함께 관리해 재현성과 이슈 추적 흐름을 확인할 수 있습니다.</span>
+        <span data-lang="en" style="display:none;">This test case sheet documents YouTube Shorts and long-form video checks in a PC Chrome environment. It organizes screen recording links, issue details, result status, priority, and update dates for reproduction and issue tracking.</span>
+      </p>
+      <ul class="resume-list steam-qa-list">
+        <li>
+          <strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">유튜브 PC 웹, 쇼츠 화면, 롱폼 영상, 댓글 영역, 프로필/뒤로가기, 음성 검색 등 주요 사용자 흐름</span>
+          <span data-lang="en" style="display:none;">YouTube PC web, Shorts, long-form videos, comments, profile/back navigation, voice search, and major user flows</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">구분, 제목, 상세 내용, 영상 링크, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 정리</span>
+          <span data-lang="en" style="display:none;">organized by category, title, details, video link, notes, result, additional comments, priority, and update date</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">좋아요 버튼 연타 동작, 음성 검색 마이크 아이콘 지연, 쇼츠 화면 빛번짐, 프로필 진입 후 뒤로가기 노출, 댓글 창 닫기/정렬 동작 등 실제 사용 중 발생 가능한 UI·인터랙션 이슈 기록</span>
+          <span data-lang="en" style="display:none;">records practical UI and interaction issues such as repeated Like clicks, delayed voice-search mic indicator, Shorts visual glow, profile/back navigation display, and comment panel close/sort behavior</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">사용자 관점의 탐색 테스트, 버그 리포트 작성 역량, 재현 영상 기반 이슈 관리 경험을 보여주는 TC 자료</span>
+          <span data-lang="en" style="display:none;">a TC reference that demonstrates exploratory testing, bug reporting ability, and issue management based on reproduction videos</span>
+        </li>
+      </ul>
+      <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1rQNGB6AOJ_URZhA17ntvWBlVvPp4Oq1YE04ByCc60Uc/edit?gid=2015895469#gid=2015895469" target="_blank" rel="noopener noreferrer">
+        <span data-lang="ko">유튜브 TC 바로가기</span><span data-lang="en" style="display:none;">Open YouTube TC</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="tc-tab-panel" id="qa-tc-malhaeboca" role="tabpanel" hidden>
+    <div class="project-card steam-qa-card">
+      <h3>
+        <span data-lang="ko">말해보카 홈페이지 TC</span><span data-lang="en" style="display:none;">Malhaeboca Homepage TC</span>
+      </h3>
+      <p class="wrap-readable">
+        <span data-lang="ko">말해보카 및 이팝소프트 홈페이지를 대상으로 콘텐츠 정확성, 외부 링크 유효성, 클릭 가능 요소의 인지성, 운영시간 정보 가독성, 페이지 이동 편의성을 점검한 테스트 케이스 문서입니다.</span>
+        <span data-lang="en" style="display:none;">This test case sheet reviews the Malhaeboca and EPOP homepage for content accuracy, external link validity, clickable element visibility, operating-hour readability, and page navigation usability.</span>
+      </p>
+      <ul class="resume-list steam-qa-list">
+        <li>
+          <strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">홈페이지 성장 연혁, 기사 링크, 메인 로고, 채팅 상담 운영시간, 페이지 최상단 이동 버튼 등 주요 화면 요소</span>
+          <span data-lang="en" style="display:none;">growth timeline, article links, main logo, chat support hours, back-to-top button, and other key page elements</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">제목, 사진, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 정리</span>
+          <span data-lang="en" style="display:none;">organized by title, screenshot, details, notes, result, additional comments, priority, and update date</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">2025년 성장 설명 통일성 문제, 2026년 내용 미작성, 삭제된 기사 링크 연결, 로고 클릭 영역 인지성 부족, 운영시간 정렬 불균일, 최상단 이동 버튼 적용 범위 제한 등 콘텐츠·사용성 이슈 기록</span>
+          <span data-lang="en" style="display:none;">records content and usability issues such as inconsistent 2025 growth text, missing 2026 content, deleted article links, weak logo click affordance, inconsistent support-hour alignment, and limited back-to-top button coverage</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">웹 서비스 QA 관점에서 정보 정확성, 링크 품질, UI 사용성, 개선 제안까지 함께 정리한 실무형 TC 자료</span>
+          <span data-lang="en" style="display:none;">a practical web QA TC reference covering information accuracy, link quality, UI usability, and improvement suggestions</span>
+        </li>
+      </ul>
+      <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1Z7m64Hm5CEMF7VdTzs2b6PIcA9fXjt_cJbNAKrXUODo/edit?gid=2015895469#gid=2015895469" target="_blank" rel="noopener noreferrer">
+        <span data-lang="ko">말해보카 홈페이지 TC 바로가기</span><span data-lang="en" style="display:none;">Open Malhaeboca Homepage TC</span>
+      </a>
+    </div>
+  </div>
 </div>
 </div>
 <!-- Certificates -->
@@ -4629,11 +4760,12 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <script>
 (function(){
-  function initQaTabs(){
-    var sec=document.getElementById('qa-automation');
-    if(!sec)return;
-    var tabs=sec.querySelectorAll('[data-qtab]');
-    var panels=sec.querySelectorAll('.qa-tab-panel');
+  function syncQaLanguage(){
+    var current=(document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'ko').toLowerCase();
+    if(typeof setLanguage === 'function') setLanguage(current === 'en' ? 'en' : 'ko');
+  }
+
+  function bindTabs(tabs, panels, attrName){
     tabs.forEach(function(btn){
       btn.addEventListener('click',function(){
         tabs.forEach(function(b){
@@ -4643,12 +4775,34 @@ document.addEventListener('DOMContentLoaded', function () {
         panels.forEach(function(panel){ panel.hidden = true; });
         btn.classList.add('active');
         btn.setAttribute('aria-selected','true');
-        var target=document.getElementById(btn.getAttribute('data-qtab'));
+        var target=document.getElementById(btn.getAttribute(attrName));
         if(target) target.hidden = false;
-        var current=(document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'ko').toLowerCase();
-        if(typeof setLanguage === 'function') setLanguage(current === 'en' ? 'en' : 'ko');
+        syncQaLanguage();
       });
     });
+  }
+
+  function initQaTabs(){
+    var sec=document.getElementById('qa-automation');
+    if(!sec)return;
+
+    var subTabs=sec.querySelectorAll('[data-qsub]');
+    var subPanels=sec.querySelectorAll('.qa-sub-panel');
+    bindTabs(subTabs, subPanels, 'data-qsub');
+
+    var autoSec=document.getElementById('qa-sub-auto');
+    if(autoSec){
+      var qaTabs=autoSec.querySelectorAll('[data-qtab]');
+      var qaPanels=autoSec.querySelectorAll('.qa-tab-panel');
+      bindTabs(qaTabs, qaPanels, 'data-qtab');
+    }
+
+    var tcSec=document.getElementById('qa-sub-tc');
+    if(tcSec){
+      var tcTabs=tcSec.querySelectorAll('[data-qtc]');
+      var tcPanels=tcSec.querySelectorAll('.tc-tab-panel');
+      bindTabs(tcTabs, tcPanels, 'data-qtc');
+    }
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initQaTabs);
   else initQaTabs();
