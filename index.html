@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=mobileMenuInstantTopFinal20260508" rel="stylesheet"/>
+<link href="style.css?v=mobileContentScrollerTop20260508" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v9 ===== -->
@@ -1656,7 +1656,6 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     document.body.classList.remove('menu-open');
     document.documentElement.classList.remove('menu-open');
 
-    // iOS Safari에서 menu-open overflow lock이 남는 케이스 방지
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
     document.body.style.height = '';
@@ -1667,21 +1666,24 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 function beginInstantMenuSwitch() {
   try {
     document.documentElement.classList.add('gw-no-smooth');
-    document.documentElement.classList.add('gw-section-switching');
   } catch (e) {}
 }
 
 function endInstantMenuSwitch() {
   try {
-    document.documentElement.classList.remove('gw-section-switching');
     setTimeout(function () {
       document.documentElement.classList.remove('gw-no-smooth');
-    }, 120);
+    }, 80);
   } catch (e) {}
+}
+
+function getContentScroller() {
+  return document.querySelector('.content');
 }
 
 function hardScrollTopNow() {
   try {
+    var content = getContentScroller();
     var htmlEl = document.documentElement;
     var bodyEl = document.body;
     var root = document.scrollingElement || htmlEl || bodyEl;
@@ -1703,15 +1705,13 @@ function hardScrollTopNow() {
       root.scrollLeft = 0;
     }
 
-    window.scrollTo(0, 0);
+    if (content) {
+      content.style.scrollBehavior = 'auto';
+      content.scrollTop = 0;
+      content.scrollLeft = 0;
+    }
 
-    ['.container', '.content', 'main'].forEach(function (selector) {
-      var el = document.querySelector(selector);
-      if (el) {
-        el.scrollTop = 0;
-        el.scrollLeft = 0;
-      }
-    });
+    window.scrollTo(0, 0);
   } catch (e) {
     try { window.scrollTo(0, 0); } catch (err) {}
   }
@@ -1721,52 +1721,45 @@ function hardScrollTopRepeat() {
   hardScrollTopNow();
   requestAnimationFrame(function () {
     hardScrollTopNow();
-    requestAnimationFrame(function () {
-      hardScrollTopNow();
-    });
+    requestAnimationFrame(hardScrollTopNow);
   });
   setTimeout(hardScrollTopNow, 0);
-  setTimeout(hardScrollTopNow, 40);
-  setTimeout(hardScrollTopNow, 100);
-  setTimeout(hardScrollTopNow, 200);
+  setTimeout(hardScrollTopNow, 50);
+  setTimeout(hardScrollTopNow, 120);
 }
 
 function showContent(sectionId) {
-  // 메뉴 전환 시작: 기존 하단 화면을 먼저 숨기고 즉시 최상단으로 고정
   beginInstantMenuSwitch();
   closeMobileMenuImmediately();
+
+  // 핵심: 새 섹션을 보여주기 전에 실제 모바일 스크롤 컨테이너(.content)를 먼저 0으로 고정
   hardScrollTopNow();
 
-  // 1) 모든 섹션 숨김
   document.querySelectorAll('.content-section').forEach(function (s) {
     s.style.display = 'none';
   });
 
-  // 섹션 레이아웃 변경 전후 모두 스크롤을 0으로 강제
   hardScrollTopNow();
 
-  // 2) 선택 섹션만 표시
   var active = document.getElementById(sectionId);
   if (active) {
     active.style.display = 'block';
+
+    // 표시 직후에도 .content 스크롤을 즉시 0으로 고정
     hardScrollTopNow();
 
-    // 자기소개 섹션 진입 시 루프 타이핑을 안정적으로 재시작
     try {
       if (sectionId === 'intro' && typeof window.restartIntroTyping === 'function') {
         setTimeout(function(){ window.restartIntroTyping(true); }, 120);
       }
     } catch (e) {}
 
-    // 페이드 인 효과 다시 적용
     try {
       active.classList.remove('fade-in-fast');
-      void active.offsetWidth; // reflow
+      void active.offsetWidth;
       active.classList.add('fade-in-fast');
     } catch (e) {}
 
-    // Reveal-on-scroll로 인해 처음에는 opacity 0 상태인 요소들이
-    // 메뉴 전환 시 바로 보이도록 강제로 표시
     try {
       if (active.classList.contains('reveal')) {
         active.classList.add('is-visible');
@@ -1778,7 +1771,6 @@ function showContent(sectionId) {
     } catch (e) {}
   }
 
-  // 3) 좌측 메뉴 active 처리
   var buttons = document.querySelectorAll('.menu-button');
   Array.prototype.forEach.call(buttons, function (btn) {
     if (!btn) return;
@@ -1789,25 +1781,15 @@ function showContent(sectionId) {
     }
   });
 
-  // 4) 새 섹션이 이미 최상단에 고정된 뒤 화면을 다시 표시
   hardScrollTopRepeat();
-  requestAnimationFrame(function () {
-    hardScrollTopNow();
-    endInstantMenuSwitch();
-  });
-  setTimeout(function () {
-    hardScrollTopNow();
-    endInstantMenuSwitch();
-  }, 80);
-
+  endInstantMenuSwitch();
   return false;
 }
 
-// 메뉴 버튼 터치/클릭 순간부터 이전 화면을 숨겨서
-// 하단에서 최상단으로 올라가는 장면이 보이지 않도록 처리
+// 터치 시작 시점부터 모바일 메뉴를 닫고 .content 스크롤을 0으로 고정
 (function bindInstantMenuSwitchGuard(){
-  if (window.__gwInstantMenuSwitchGuard) return;
-  window.__gwInstantMenuSwitchGuard = true;
+  if (window.__gwInstantMenuSwitchGuardV2) return;
+  window.__gwInstantMenuSwitchGuardV2 = true;
 
   function onMenuStart(event) {
     var target = event.target;
@@ -1819,8 +1801,6 @@ function showContent(sectionId) {
     beginInstantMenuSwitch();
     closeMobileMenuImmediately();
     hardScrollTopNow();
-
-    setTimeout(endInstantMenuSwitch, 650);
   }
 
   document.addEventListener('touchstart', onMenuStart, true);

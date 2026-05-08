@@ -2031,3 +2031,41 @@ html.gw-section-switching .content {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* PATCH — Mobile uses .content as the only vertical scroll container
+   모바일 메뉴 전환 시 window/body 스크롤 복원 문제를 막고,
+   메뉴 선택마다 .content.scrollTop = 0 이 즉시 적용되도록 구조 보정 */
+@media (max-width: 768px) {
+  html,
+  body {
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    width: 100% !important;
+  }
+
+  .container {
+    height: calc(100dvh - var(--header-h)) !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .content {
+    height: calc(100dvh - var(--header-h)) !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-y: contain !important;
+    scroll-behavior: auto !important;
+  }
+
+  .content-section {
+    scroll-margin-top: 0 !important;
+  }
+}
