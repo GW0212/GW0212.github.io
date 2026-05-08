@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=menuScrollTop20260508" rel="stylesheet"/>
+<link href="style.css?v=menuScrollTopMobileFix20260508" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v9 ===== -->
@@ -1645,7 +1645,68 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Section switching
-    function showContent(sectionId) {
+    function closeMobileMenuImmediately() {
+  try {
+    var navMenu = document.getElementById('nav-menu');
+    if (navMenu && navMenu.classList) {
+      navMenu.classList.remove('active');
+      navMenu.classList.remove('show');
+    }
+    document.body.classList.remove('menu-open');
+    document.documentElement.classList.remove('menu-open');
+  } catch (e) {}
+}
+
+function forceSectionTop(sectionId) {
+  var active = document.getElementById(sectionId);
+  var header = document.querySelector('header');
+  var headerH = header ? header.offsetHeight : 0;
+  var root = document.scrollingElement || document.documentElement || document.body;
+
+  function scrollOnce() {
+    try {
+      closeMobileMenuImmediately();
+
+      var target = 0;
+      active = document.getElementById(sectionId);
+
+      if (active) {
+        var currentY = window.pageYOffset || root.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var rect = active.getBoundingClientRect();
+        target = Math.max(0, Math.round(rect.top + currentY - headerH - 8));
+      }
+
+      if (root) root.scrollTop = target;
+      document.documentElement.scrollTop = target;
+      document.body.scrollTop = target;
+      window.scrollTo(0, target);
+
+      // 모바일에서 내부 컨테이너가 스크롤을 갖는 경우까지 같이 초기화
+      ['.container', '.content', 'main'].forEach(function (selector) {
+        var el = document.querySelector(selector);
+        if (el) {
+          el.scrollTop = 0;
+          el.scrollLeft = 0;
+        }
+      });
+    } catch (e) {
+      try { window.scrollTo(0, 0); } catch (err) {}
+    }
+  }
+
+  scrollOnce();
+  requestAnimationFrame(scrollOnce);
+  requestAnimationFrame(function () { requestAnimationFrame(scrollOnce); });
+  setTimeout(scrollOnce, 0);
+  setTimeout(scrollOnce, 80);
+  setTimeout(scrollOnce, 180);
+  setTimeout(scrollOnce, 360);
+}
+
+function showContent(sectionId) {
+  // 0) 모바일 메뉴가 열린 상태에서는 먼저 메뉴/스크롤 락을 해제해야 iOS Safari에서도 스크롤 초기화가 정상 작동함
+  closeMobileMenuImmediately();
+
   // 1) 모든 섹션 숨김
   document.querySelectorAll('.content-section').forEach(function (s) {
     s.style.display = 'none';
@@ -1681,24 +1742,9 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
         card.classList.add('is-visible');
       });
     } catch (e) {}
-
-    // 3) 메뉴 이동 시 항상 최상단에서 시작하도록 스크롤 위치 보정
-    try {
-      // 어떤 화면 크기에서도 메뉴 전환 시 최상단으로 이동
-      window.scrollTo({ top: 0, behavior: 'auto' });
-      // 구형 브라우저/특정 환경 대응
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    } catch (e) {}
   }
 
-  // 4) 햄버거 메뉴 닫기
-  var navMenu = document.getElementById('nav-menu');
-  if (navMenu && navMenu.classList) {
-    navMenu.classList.remove('active');
-  }
-
-  // 5) 좌측 메뉴 active 처리
+  // 3) 좌측 메뉴 active 처리
   var buttons = document.querySelectorAll('.menu-button');
   Array.prototype.forEach.call(buttons, function (btn) {
     if (!btn) return;
@@ -1708,7 +1754,12 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
       btn.classList.add('active');
     }
   });
+
+  // 4) 메뉴 전환 후 항상 해당 섹션의 최상단으로 이동
+  forceSectionTop(sectionId);
+  return false;
 }
+
     // Hamburger menu
     const hamburger = document.getElementById('hamburger-menu');
     const navMenu = document.getElementById('nav-menu');
