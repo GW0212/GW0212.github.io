@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=menuScrollTopMobileFix20260508" rel="stylesheet"/>
+<link href="style.css?v=menuInstantTop20260508" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v9 ===== -->
@@ -1657,65 +1657,81 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   } catch (e) {}
 }
 
-function forceSectionTop(sectionId) {
-  var active = document.getElementById(sectionId);
-  var header = document.querySelector('header');
-  var headerH = header ? header.offsetHeight : 0;
-  var root = document.scrollingElement || document.documentElement || document.body;
+function instantScrollTop() {
+  try {
+    var htmlEl = document.documentElement;
+    var bodyEl = document.body;
+    var root = document.scrollingElement || htmlEl || bodyEl;
 
-  function scrollOnce() {
-    try {
-      closeMobileMenuImmediately();
+    var prevHtmlBehavior = htmlEl ? htmlEl.style.scrollBehavior : '';
+    var prevBodyBehavior = bodyEl ? bodyEl.style.scrollBehavior : '';
 
-      var target = 0;
-      active = document.getElementById(sectionId);
+    if (htmlEl) htmlEl.style.scrollBehavior = 'auto';
+    if (bodyEl) bodyEl.style.scrollBehavior = 'auto';
 
-      if (active) {
-        var currentY = window.pageYOffset || root.scrollTop || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var rect = active.getBoundingClientRect();
-        target = Math.max(0, Math.round(rect.top + currentY - headerH - 8));
-      }
-
-      if (root) root.scrollTop = target;
-      document.documentElement.scrollTop = target;
-      document.body.scrollTop = target;
-      window.scrollTo(0, target);
-
-      // 모바일에서 내부 컨테이너가 스크롤을 갖는 경우까지 같이 초기화
-      ['.container', '.content', 'main'].forEach(function (selector) {
-        var el = document.querySelector(selector);
-        if (el) {
-          el.scrollTop = 0;
-          el.scrollLeft = 0;
-        }
-      });
-    } catch (e) {
-      try { window.scrollTo(0, 0); } catch (err) {}
+    if (root) {
+      root.scrollTop = 0;
+      root.scrollLeft = 0;
     }
-  }
 
-  scrollOnce();
-  requestAnimationFrame(scrollOnce);
-  requestAnimationFrame(function () { requestAnimationFrame(scrollOnce); });
-  setTimeout(scrollOnce, 0);
-  setTimeout(scrollOnce, 80);
-  setTimeout(scrollOnce, 180);
-  setTimeout(scrollOnce, 360);
+    if (htmlEl) {
+      htmlEl.scrollTop = 0;
+      htmlEl.scrollLeft = 0;
+    }
+
+    if (bodyEl) {
+      bodyEl.scrollTop = 0;
+      bodyEl.scrollLeft = 0;
+    }
+
+    window.scrollTo(0, 0);
+
+    ['.container', '.content', 'main'].forEach(function (selector) {
+      var el = document.querySelector(selector);
+      if (el) {
+        el.scrollTop = 0;
+        el.scrollLeft = 0;
+      }
+    });
+
+    requestAnimationFrame(function () {
+      if (root) root.scrollTop = 0;
+      if (htmlEl) htmlEl.scrollTop = 0;
+      if (bodyEl) bodyEl.scrollTop = 0;
+      window.scrollTo(0, 0);
+
+      requestAnimationFrame(function () {
+        if (htmlEl) htmlEl.style.scrollBehavior = prevHtmlBehavior;
+        if (bodyEl) bodyEl.style.scrollBehavior = prevBodyBehavior;
+      });
+    });
+  } catch (e) {
+    try { window.scrollTo(0, 0); } catch (err) {}
+  }
 }
 
 function showContent(sectionId) {
-  // 0) 모바일 메뉴가 열린 상태에서는 먼저 메뉴/스크롤 락을 해제해야 iOS Safari에서도 스크롤 초기화가 정상 작동함
   closeMobileMenuImmediately();
+
+  // 새 메뉴를 표시하기 전에 먼저 스크롤을 0으로 고정해서
+  // 모바일에서 이전 메뉴의 하단 위치가 보였다가 올라가는 현상을 방지
+  instantScrollTop();
 
   // 1) 모든 섹션 숨김
   document.querySelectorAll('.content-section').forEach(function (s) {
     s.style.display = 'none';
   });
 
+  // 섹션 높이가 바뀌는 순간에도 브라우저가 이전 스크롤 위치를 유지하지 못하도록 즉시 재보정
+  instantScrollTop();
+
   // 2) 선택 섹션만 표시
   var active = document.getElementById(sectionId);
   if (active) {
     active.style.display = 'block';
+
+    // 표시 직후 한 번 더 0으로 고정
+    instantScrollTop();
 
     // 자기소개 섹션 진입 시 루프 타이핑을 안정적으로 재시작
     try {
@@ -1755,8 +1771,11 @@ function showContent(sectionId) {
     }
   });
 
-  // 4) 메뉴 전환 후 항상 해당 섹션의 최상단으로 이동
-  forceSectionTop(sectionId);
+  // 모바일 Safari 주소창/렌더링 타이밍 보정. 애니메이션 없이 0 위치만 재고정.
+  setTimeout(instantScrollTop, 0);
+  setTimeout(instantScrollTop, 60);
+  setTimeout(instantScrollTop, 140);
+
   return false;
 }
 
