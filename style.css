@@ -2012,3 +2012,22 @@ html[data-theme="light"] #extensions .tabs .tab-btn.active .tab-count {
     border-radius: 20px !important;
   }
 }
+
+
+/* PATCH — Mobile menu switch starts at top instantly */
+html.gw-no-smooth,
+html.gw-no-smooth body,
+html.gw-no-smooth * {
+  scroll-behavior: auto !important;
+}
+
+html.gw-section-switching .content {
+  visibility: hidden !important;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    scroll-behavior: auto !important;
+  }
+}

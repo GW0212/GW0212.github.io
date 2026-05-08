@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=menuInstantTop20260508" rel="stylesheet"/>
+<link href="style.css?v=mobileMenuInstantTopFinal20260508" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v9 ===== -->
@@ -1652,36 +1652,55 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
       navMenu.classList.remove('active');
       navMenu.classList.remove('show');
     }
+
     document.body.classList.remove('menu-open');
     document.documentElement.classList.remove('menu-open');
+
+    // iOS Safari에서 menu-open overflow lock이 남는 케이스 방지
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    document.body.style.height = '';
+    document.documentElement.style.height = '';
   } catch (e) {}
 }
 
-function instantScrollTop() {
+function beginInstantMenuSwitch() {
+  try {
+    document.documentElement.classList.add('gw-no-smooth');
+    document.documentElement.classList.add('gw-section-switching');
+  } catch (e) {}
+}
+
+function endInstantMenuSwitch() {
+  try {
+    document.documentElement.classList.remove('gw-section-switching');
+    setTimeout(function () {
+      document.documentElement.classList.remove('gw-no-smooth');
+    }, 120);
+  } catch (e) {}
+}
+
+function hardScrollTopNow() {
   try {
     var htmlEl = document.documentElement;
     var bodyEl = document.body;
     var root = document.scrollingElement || htmlEl || bodyEl;
 
-    var prevHtmlBehavior = htmlEl ? htmlEl.style.scrollBehavior : '';
-    var prevBodyBehavior = bodyEl ? bodyEl.style.scrollBehavior : '';
-
-    if (htmlEl) htmlEl.style.scrollBehavior = 'auto';
-    if (bodyEl) bodyEl.style.scrollBehavior = 'auto';
-
-    if (root) {
-      root.scrollTop = 0;
-      root.scrollLeft = 0;
-    }
-
     if (htmlEl) {
+      htmlEl.style.scrollBehavior = 'auto';
       htmlEl.scrollTop = 0;
       htmlEl.scrollLeft = 0;
     }
 
     if (bodyEl) {
+      bodyEl.style.scrollBehavior = 'auto';
       bodyEl.scrollTop = 0;
       bodyEl.scrollLeft = 0;
+    }
+
+    if (root) {
+      root.scrollTop = 0;
+      root.scrollLeft = 0;
     }
 
     window.scrollTo(0, 0);
@@ -1693,45 +1712,44 @@ function instantScrollTop() {
         el.scrollLeft = 0;
       }
     });
-
-    requestAnimationFrame(function () {
-      if (root) root.scrollTop = 0;
-      if (htmlEl) htmlEl.scrollTop = 0;
-      if (bodyEl) bodyEl.scrollTop = 0;
-      window.scrollTo(0, 0);
-
-      requestAnimationFrame(function () {
-        if (htmlEl) htmlEl.style.scrollBehavior = prevHtmlBehavior;
-        if (bodyEl) bodyEl.style.scrollBehavior = prevBodyBehavior;
-      });
-    });
   } catch (e) {
     try { window.scrollTo(0, 0); } catch (err) {}
   }
 }
 
-function showContent(sectionId) {
-  closeMobileMenuImmediately();
+function hardScrollTopRepeat() {
+  hardScrollTopNow();
+  requestAnimationFrame(function () {
+    hardScrollTopNow();
+    requestAnimationFrame(function () {
+      hardScrollTopNow();
+    });
+  });
+  setTimeout(hardScrollTopNow, 0);
+  setTimeout(hardScrollTopNow, 40);
+  setTimeout(hardScrollTopNow, 100);
+  setTimeout(hardScrollTopNow, 200);
+}
 
-  // 새 메뉴를 표시하기 전에 먼저 스크롤을 0으로 고정해서
-  // 모바일에서 이전 메뉴의 하단 위치가 보였다가 올라가는 현상을 방지
-  instantScrollTop();
+function showContent(sectionId) {
+  // 메뉴 전환 시작: 기존 하단 화면을 먼저 숨기고 즉시 최상단으로 고정
+  beginInstantMenuSwitch();
+  closeMobileMenuImmediately();
+  hardScrollTopNow();
 
   // 1) 모든 섹션 숨김
   document.querySelectorAll('.content-section').forEach(function (s) {
     s.style.display = 'none';
   });
 
-  // 섹션 높이가 바뀌는 순간에도 브라우저가 이전 스크롤 위치를 유지하지 못하도록 즉시 재보정
-  instantScrollTop();
+  // 섹션 레이아웃 변경 전후 모두 스크롤을 0으로 강제
+  hardScrollTopNow();
 
   // 2) 선택 섹션만 표시
   var active = document.getElementById(sectionId);
   if (active) {
     active.style.display = 'block';
-
-    // 표시 직후 한 번 더 0으로 고정
-    instantScrollTop();
+    hardScrollTopNow();
 
     // 자기소개 섹션 진입 시 루프 타이핑을 안정적으로 재시작
     try {
@@ -1771,13 +1789,44 @@ function showContent(sectionId) {
     }
   });
 
-  // 모바일 Safari 주소창/렌더링 타이밍 보정. 애니메이션 없이 0 위치만 재고정.
-  setTimeout(instantScrollTop, 0);
-  setTimeout(instantScrollTop, 60);
-  setTimeout(instantScrollTop, 140);
+  // 4) 새 섹션이 이미 최상단에 고정된 뒤 화면을 다시 표시
+  hardScrollTopRepeat();
+  requestAnimationFrame(function () {
+    hardScrollTopNow();
+    endInstantMenuSwitch();
+  });
+  setTimeout(function () {
+    hardScrollTopNow();
+    endInstantMenuSwitch();
+  }, 80);
 
   return false;
 }
+
+// 메뉴 버튼 터치/클릭 순간부터 이전 화면을 숨겨서
+// 하단에서 최상단으로 올라가는 장면이 보이지 않도록 처리
+(function bindInstantMenuSwitchGuard(){
+  if (window.__gwInstantMenuSwitchGuard) return;
+  window.__gwInstantMenuSwitchGuard = true;
+
+  function onMenuStart(event) {
+    var target = event.target;
+    if (!target || !target.closest) return;
+
+    var btn = target.closest('.menu-button[onclick*="showContent"]');
+    if (!btn) return;
+
+    beginInstantMenuSwitch();
+    closeMobileMenuImmediately();
+    hardScrollTopNow();
+
+    setTimeout(endInstantMenuSwitch, 650);
+  }
+
+  document.addEventListener('touchstart', onMenuStart, true);
+  document.addEventListener('pointerdown', onMenuStart, true);
+  document.addEventListener('mousedown', onMenuStart, true);
+})();
 
     // Hamburger menu
     const hamburger = document.getElementById('hamburger-menu');
