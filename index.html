@@ -10,8 +10,8 @@
 <link href="favicon.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=20260319_fix1" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
+<link href="style.css?v=redesign2026" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v9 ===== -->
@@ -44,6 +44,7 @@
 
 
 <header>
+<div class="header-left"></div>
 <h1>
 <button class="title-btn" data-i18n="site.title" id="title-home" onclick="showContent('resume')">GW's website</button>
 </h1>
@@ -58,6 +59,10 @@
     <span class="opening-toggle-thumb"></span>
   </button>
 </div>
+<button aria-label="Toggle theme" class="theme-toggle" id="theme-toggle" title="테마 변경">
+  <span class="icon-dark">🌙</span>
+  <span class="icon-light">☀️</span>
+</button>
 <button aria-label="Toggle navigation" class="hamburger" id="hamburger-menu">☰</button>
 </div>
 </header>
@@ -116,7 +121,7 @@
 </div>
 <div class="resume-block">
 <h3 data-i18n="resume.works.title">개발한 작품</h3>
-<a class="resume-works-sheet-btn" href="https://docs.google.com/spreadsheets/d/1XA7DsCZJcDvkjDTjnCfgGrR-5Poy573sFpD9Td10vIY/edit?gid=1908675140#gid=1908675140" rel="noopener noreferrer" target="_blank" style="display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;max-width:100%;box-sizing:border-box;margin:0 0 14px;padding:10px 14px;border-radius:14px;background:#fff;color:#21314d;text-decoration:none;border:1px solid rgba(43,58,85,.12);box-shadow:0 4px 12px rgba(43,58,85,.08);font-weight:700;overflow:hidden;">
+<a class="resume-works-sheet-btn" href="https://docs.google.com/spreadsheets/d/1XA7DsCZJcDvkjDTjnCfgGrR-5Poy573sFpD9Td10vIY/edit?gid=1908675140#gid=1908675140" rel="noopener noreferrer" target="_blank" >
 <img alt="Google Sheets" class="resume-works-sheet-icon" src="sheet.png?v=20260319_fix1" width="22" height="22" style="width:22px;height:22px;min-width:22px;max-width:22px;object-fit:contain;display:block;flex:0 0 22px;"/>
 <span data-i18n="resume.works.sheetButton" style="display:inline-block;white-space:normal;line-height:1.35;">개발 작품 소개</span>
 </a>
@@ -994,12 +999,12 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     <h3><span data-lang="ko">무엇을 테스트했나</span><span data-lang="en" style="display:none;">What Was Tested</span></h3>
     <ul class="resume-list">
       <li>
-        <strong>SauceDemo</strong> <span style="font-family:monospace;font-size:12px;color:#888;">www.saucedemo.com</span> —
+        <strong>SauceDemo</strong> <span style="font-family:monospace;font-size:12px;opacity:.6;">www.saucedemo.com</span> —
         <span data-lang="ko">QA 연습용으로 공개된 가짜 쇼핑몰 사이트. 로그인·상품 목록·정렬·장바구니 담기·결제 완료까지 전체 흐름을 E2E 테스트</span>
         <span data-lang="en" style="display:none;">A public e-commerce demo site for QA practice. E2E tested the full flow: login, product list, sorting, add to cart, and checkout completion.</span>
       </li>
       <li style="margin-top:8px;">
-        <strong>JSONPlaceholder</strong> <span style="font-family:monospace;font-size:12px;color:#888;">jsonplaceholder.typicode.com</span> —
+        <strong>JSONPlaceholder</strong> <span style="font-family:monospace;font-size:12px;opacity:.6;">jsonplaceholder.typicode.com</span> —
         <span data-lang="ko">REST API 연습용 공용 서버. GET·조회, POST·생성, PUT/PATCH·수정, DELETE·삭제 전 메서드의 응답 코드·데이터 구조·헤더를 API 테스트</span>
         <span data-lang="en" style="display:none;">A public REST API practice server. API tested all methods — GET (read), POST (create), PUT/PATCH (update), DELETE (delete) — validating response codes, data structure, and headers.</span>
       </li>
@@ -1031,7 +1036,7 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
       <div class="resume-link-card" style="flex-direction:column;align-items:center;gap:6px;cursor:default;">
         <div style="height:70px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
           <span style="font-size:28px;line-height:1;">🌐</span>
-          <span data-i18n="qa.links.targetSites" style="font-size:10px;font-weight:600;color:#888;letter-spacing:0.05em;">대상 사이트</span>
+          <span data-i18n="qa.links.targetSites" style="font-size:10px;font-weight:600;opacity:.6;letter-spacing:0.05em;">대상 사이트</span>
         </div>
         <a class="resume-link-btn" href="https://www.saucedemo.com" target="_blank" rel="noopener noreferrer" style="text-align:center;text-decoration:none;width:100%;">SauceDemo</a>
         <a class="resume-link-btn" href="https://jsonplaceholder.typicode.com" target="_blank" rel="noopener noreferrer" style="text-align:center;text-decoration:none;width:100%;">JSONPlaceholder</a>
@@ -4202,17 +4207,26 @@ var aiEN = {
     updateScrollProgress();
 
     document.addEventListener('click', function(e){
-      const target = e.target.closest('button, .download-button, .tab-btn, .menu-button, .cert-nav-btn, .lang-btn, .title-btn');
+      // FIX: 미니게임 패널 내부 클릭은 ripple 제외 (두더지잡기 등 게임 영역)
+      if (e.target.closest('.tab-panel, #whackGrid, canvas')) return;
+      // FIX: 헤더 title-btn은 게임 플레이 중 오발사 방지 — 미니게임 섹션 활성 시 title-btn 제외
+      const inMiniGame = document.getElementById('minigames') &&
+                         document.getElementById('minigames').style.display !== 'none';
+      const target = e.target.closest(
+        inMiniGame
+          ? '.download-button, .lang-btn, .cert-nav-btn'
+          : '.download-button, .tab-btn, .lang-btn, .title-btn, .cert-nav-btn'
+      );
       if (!target) return;
       const rect = target.getBoundingClientRect();
       const ripple = document.createElement('span');
       ripple.className = 'click-ripple';
-      const size = Math.max(rect.width, rect.height) * 1.8;
+      // FIX: 크기 0.65배로 축소 (과하지 않게)
+      const size = Math.max(rect.width, rect.height) * 0.65;
       ripple.style.width = size + 'px';
       ripple.style.height = size + 'px';
       ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
       ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-      target.classList.add('has-ripple');
       target.appendChild(ripple);
       ripple.addEventListener('animationend', function(){ ripple.remove(); }, { once: true });
     }, true);
@@ -4941,3 +4955,25 @@ document.addEventListener('DOMContentLoaded', function(){
 
 })();
 </script>
+
+<script>
+/* ── Theme Toggle ── */
+(function() {
+  var STORAGE_KEY = 'gw-theme';
+  var root = document.documentElement;
+  var saved = localStorage.getItem(STORAGE_KEY) || 'dark';
+  if (saved === 'light') root.setAttribute('data-theme', 'light');
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var isLight = root.getAttribute('data-theme') === 'light';
+      if (isLight) root.removeAttribute('data-theme');
+      else         root.setAttribute('data-theme', 'light');
+      localStorage.setItem(STORAGE_KEY, isLight ? 'dark' : 'light');
+    });
+  });
+})();
+</script>
+
