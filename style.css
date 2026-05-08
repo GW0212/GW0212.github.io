@@ -1298,3 +1298,280 @@ html[data-theme="light"] .menu-button.active {
     padding: 2px 5px !important;
   }
 }
+
+
+/* ══════════════════════════════════════════════
+   PATCH — Tab button border clarity + Intro typing stability
+   - 모든 섹션 탭 버튼을 좌측 메뉴 버튼과 같은 톤의 테두리/인셋 스타일로 통일
+   - 자기소개 상단 루프 타이핑 문구가 모바일에서도 안정적으로 보이도록 폭/정렬 보정
+══════════════════════════════════════════════ */
+.tabs {
+  gap: 8px !important;
+  padding: 8px !important;
+  border: 1px solid rgba(30, 58, 138, .55) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(99, 148, 255, .08),
+    inset 0 -1px 0 rgba(0, 0, 0, .18) !important;
+}
+
+.tabs .tab-btn,
+#qa-automation .qa-main-tabs .tab-btn,
+#qa-automation .qa-child-tabs .tab-btn,
+#extensions .tabs .tab-btn,
+#minigames .tabs .tab-btn {
+  border: 1px solid rgba(30, 58, 138, .58) !important;
+  background: linear-gradient(135deg,
+    rgba(15, 26, 58, .46) 0%,
+    rgba(10, 18, 40, .31) 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(99, 148, 255, .08),
+    inset 0 -1px 0 rgba(0, 0, 0, .18),
+    inset 2px 0 6px rgba(30, 58, 138, .08) !important;
+  color: var(--text-muted) !important;
+  min-height: 38px;
+}
+
+.tabs .tab-btn:hover,
+#qa-automation .qa-main-tabs .tab-btn:hover,
+#qa-automation .qa-child-tabs .tab-btn:hover,
+#extensions .tabs .tab-btn:hover,
+#minigames .tabs .tab-btn:hover {
+  background: linear-gradient(135deg,
+    rgba(30, 58, 138, .36) 0%,
+    rgba(15, 26, 58, .27) 100%) !important;
+  border-color: rgba(59, 130, 246, .48) !important;
+  color: var(--text-bright) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(99, 148, 255, .14),
+    inset 0 -1px 0 rgba(0, 0, 0, .2),
+    inset 2px 0 8px rgba(59, 130, 246, .1),
+    0 0 10px rgba(59, 130, 246, .08) !important;
+}
+
+.tabs .tab-btn.active,
+#qa-automation .qa-main-tabs .tab-btn.active,
+#qa-automation .qa-child-tabs .tab-btn.active,
+#extensions .tabs .tab-btn.active,
+#minigames .tabs .tab-btn.active {
+  background: linear-gradient(135deg,
+    rgba(30, 58, 138, .52) 0%,
+    rgba(15, 26, 58, .40) 100%) !important;
+  border-color: rgba(59, 130, 246, .72) !important;
+  color: var(--accent-2) !important;
+  font-weight: 700 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(99, 148, 255, .22),
+    inset 0 -1px 0 rgba(0, 0, 0, .25),
+    inset 2px 0 10px rgba(59, 130, 246, .18),
+    0 0 14px rgba(59, 130, 246, .14) !important;
+}
+
+.tabs .tab-btn.active::after {
+  background: linear-gradient(to bottom, rgba(255,255,255,.08), transparent) !important;
+}
+
+.gw-typing-wrap {
+  align-items: baseline;
+  min-height: 42px;
+  margin: 2px 0 22px;
+}
+
+.gw-typing-word {
+  display: inline-block;
+  min-width: clamp(120px, 28vw, 260px);
+  white-space: nowrap;
+  line-height: 1.35;
+}
+
+@media (max-width: 768px) {
+  .tabs .tab-btn,
+  #qa-automation .qa-main-tabs .tab-btn,
+  #qa-automation .qa-child-tabs .tab-btn,
+  #extensions .tabs .tab-btn,
+  #minigames .tabs .tab-btn {
+    min-height: 38px !important;
+    padding: 8px 12px !important;
+  }
+
+  .gw-typing-wrap {
+    gap: 7px;
+    min-height: 40px;
+  }
+
+  .gw-typing-word {
+    min-width: min(58vw, 230px);
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   PATCH — Intro typing word alignment fix
+   - Keep the sentence line aligned like the original intro text
+   - Center only the animated job-title text inside its reserved width
+   ══════════════════════════════════════════════ */
+#intro .gw-typing-wrap {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: baseline !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: left !important;
+  gap: 10px !important;
+  margin: 4px 0 24px !important;
+  padding: 0 !important;
+}
+
+#intro .gw-typing-prefix {
+  flex: 0 0 auto !important;
+}
+
+#intro .gw-typing-word {
+  flex: 0 0 9.8em !important;
+  width: 9.8em !important;
+  min-width: 9.8em !important;
+  max-width: 9.8em !important;
+  display: inline-block !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+html[data-lang="en"] #intro .gw-typing-word {
+  flex-basis: 15.8em !important;
+  width: 15.8em !important;
+  min-width: 15.8em !important;
+  max-width: 15.8em !important;
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  #intro .gw-typing-wrap {
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    margin: 2px 0 22px !important;
+  }
+
+  #intro .gw-typing-word {
+    flex-basis: 9.4em !important;
+    width: 9.4em !important;
+    min-width: 9.4em !important;
+    max-width: 9.4em !important;
+  }
+
+  html[data-lang="en"] #intro .gw-typing-word {
+    flex-basis: 14.2em !important;
+    width: 14.2em !important;
+    min-width: 14.2em !important;
+    max-width: 14.2em !important;
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #intro .gw-typing-wrap {
+    gap: 5px !important;
+  }
+
+  #intro .gw-typing-prefix {
+    font-size: .95rem !important;
+  }
+
+  #intro .gw-typing-word {
+    flex-basis: 8.8em !important;
+    width: 8.8em !important;
+    min-width: 8.8em !important;
+    max-width: 8.8em !important;
+    font-size: 1.05rem !important;
+  }
+
+  html[data-lang="en"] #intro .gw-typing-word {
+    flex-basis: 13.2em !important;
+    width: 13.2em !important;
+    min-width: 13.2em !important;
+    max-width: 13.2em !important;
+    text-align: left !important;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   PATCH — Language-specific intro typing alignment
+   - Korean: keep centered job-title text inside reserved slot
+   - English: align the typed job title to the left after "I'm a"
+   ══════════════════════════════════════════════ */
+html[data-lang="ko"] #intro .gw-typing-word {
+  text-align: center !important;
+}
+
+html[data-lang="en"] #intro .gw-typing-word {
+  text-align: left !important;
+}
+
+
+/* ══════════════════════════════════════════════
+   PATCH — Light mode tab button color clarity
+   - 라이트 모드에서 탭 버튼/탭 바가 더 잘 구분되도록 색상 분리
+   ══════════════════════════════════════════════ */
+html[data-theme="light"] .tabs,
+html[data-theme="light"] #qa-automation .qa-main-tabs,
+html[data-theme="light"] #qa-automation .qa-child-tabs,
+html[data-theme="light"] #extensions .tabs,
+html[data-theme="light"] #minigames .tabs {
+  background: linear-gradient(180deg, rgba(243,247,255,.96) 0%, rgba(233,240,253,.92) 100%) !important;
+  border-color: rgba(37, 99, 235, .26) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -1px 0 rgba(37, 99, 235, .08),
+    0 1px 2px rgba(37, 99, 235, .05) !important;
+}
+
+html[data-theme="light"] .tabs .tab-btn,
+html[data-theme="light"] #qa-automation .qa-main-tabs .tab-btn,
+html[data-theme="light"] #qa-automation .qa-child-tabs .tab-btn,
+html[data-theme="light"] #extensions .tabs .tab-btn,
+html[data-theme="light"] #minigames .tabs .tab-btn {
+  background: linear-gradient(180deg, rgba(232,238,248,.98) 0%, rgba(219,228,243,.96) 100%) !important;
+  border-color: rgba(37, 99, 235, .28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.92),
+    inset 0 -1px 0 rgba(37, 99, 235, .07),
+    0 1px 2px rgba(15, 23, 42, .04) !important;
+  color: #4b5563 !important;
+}
+
+html[data-theme="light"] .tabs .tab-btn:hover,
+html[data-theme="light"] #qa-automation .qa-main-tabs .tab-btn:hover,
+html[data-theme="light"] #qa-automation .qa-child-tabs .tab-btn:hover,
+html[data-theme="light"] #extensions .tabs .tab-btn:hover,
+html[data-theme="light"] #minigames .tabs .tab-btn:hover {
+  background: linear-gradient(180deg, rgba(220,231,252,.98) 0%, rgba(204,220,250,.96) 100%) !important;
+  border-color: rgba(37, 99, 235, .42) !important;
+  color: #1d4ed8 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -1px 0 rgba(37, 99, 235, .08),
+    0 2px 6px rgba(37, 99, 235, .10) !important;
+}
+
+html[data-theme="light"] .tabs .tab-btn.active,
+html[data-theme="light"] #qa-automation .qa-main-tabs .tab-btn.active,
+html[data-theme="light"] #qa-automation .qa-child-tabs .tab-btn.active,
+html[data-theme="light"] #extensions .tabs .tab-btn.active,
+html[data-theme="light"] #minigames .tabs .tab-btn.active {
+  background: linear-gradient(180deg, rgba(86, 139, 255, .95) 0%, rgba(37, 99, 235, .98) 100%) !important;
+  border-color: rgba(29, 78, 216, .92) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    0 6px 16px rgba(37, 99, 235, .22) !important;
+}
+
+html[data-theme="light"] .tabs .tab-btn.active .tab-label,
+html[data-theme="light"] #qa-automation .qa-main-tabs .tab-btn.active .tab-label,
+html[data-theme="light"] #qa-automation .qa-child-tabs .tab-btn.active .tab-label,
+html[data-theme="light"] #extensions .tabs .tab-btn.active .tab-label,
+html[data-theme="light"] #minigames .tabs .tab-btn.active .tab-label,
+html[data-theme="light"] .tabs .tab-btn.active .tab-count,
+html[data-theme="light"] #extensions .tabs .tab-btn.active .tab-count {
+  color: #ffffff !important;
+}

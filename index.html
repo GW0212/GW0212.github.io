@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=mobileHeaderFix20260508" rel="stylesheet"/>
+<link href="style.css?v=lightTabColor20260508" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v9 ===== -->
@@ -1655,6 +1655,13 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   var active = document.getElementById(sectionId);
   if (active) {
     active.style.display = 'block';
+
+    // 자기소개 섹션 진입 시 루프 타이핑을 안정적으로 재시작
+    try {
+      if (sectionId === 'intro' && typeof window.restartIntroTyping === 'function') {
+        setTimeout(function(){ window.restartIntroTyping(true); }, 120);
+      }
+    } catch (e) {}
 
     // 페이드 인 효과 다시 적용
     try {
@@ -3624,11 +3631,11 @@ document.addEventListener('DOMContentLoaded', () => setLanguage('ko'));
 <script>
   if (window.i18n && i18n.ko) {
     i18n.ko['web.fortune.title'] = "운세&타로";
-    i18n.ko['web.fortune.desc'] = "오늘의 운세, 종합 운세, 타로를 확인할 수 있는 웹사이트입니다.
+    i18n.ko['web.fortune.desc'] = `오늘의 운세, 종합 운세, 타로를 확인할 수 있는 웹사이트입니다.
 이름, 생년월일, 출생 시간, 성별, 관심사, 관심 분야, 올해 목표/상황, 질문을 바탕으로
-오늘의 운세 600가지, 종합 운세 17,280가지, 타로 리딩 468가지의 경우의 수가 있으며 
+오늘의 운세 600가지, 종합 운세 17,280가지, 타로 리딩 468가지의 경우의 수가 있으며
 사용자가 입력한 값에 따라 결과와 상세 설명이 달라집니다.
-운세, 타로는 재미 삼아 하는 것이니 너무 신뢰하지는 마세요 :)";
+운세, 타로는 재미 삼아 하는 것이니 너무 신뢰하지는 마세요 :)`;
   }
 </script>
 <!-- Intro typing & staged fade-in (recommended combo v3) -->
@@ -4462,7 +4469,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.i18n = window.i18n || {en:{}, ko:{}};
     Object.assign(i18n.en, {
       'web.nexusplay.title':'Nexus_Play',
-      'web.nexusplay.desc':'NEXUS PLAY is a web service that analyzes the user's taste after they select 10 favorite games and recommends tailored titles. Using Steam-linked data, it also provides objective indicators such as real-time player counts, average playtime, and user ratings. Beyond recommendations, it integrates genre-based browsing, real-time trending games, and bookmark features to strengthen the overall game discovery experience. It is a game recommendation platform that combines personalized recommendations with real-time data-driven exploration.',
+      'web.nexusplay.desc':'NEXUS PLAY is a web service that analyzes the user\'s taste after they select 10 favorite games and recommends tailored titles. Using Steam-linked data, it also provides objective indicators such as real-time player counts, average playtime, and user ratings. Beyond recommendations, it integrates genre-based browsing, real-time trending games, and bookmark features to strengthen the overall game discovery experience. It is a game recommendation platform that combines personalized recommendations with real-time data-driven exploration.',
       'web.nexusplay.go':'Click',
       'ext.xvideodownloader.title':'X Video Downloader',
       'ext.xvideodownloader.desc':'A program that lets you use a Twitter (X) video link, choose from the resolutions supported by that video, and download it in your preferred quality.',
@@ -4504,8 +4511,8 @@ document.addEventListener('DOMContentLoaded', function () {
       summaryList.innerHTML =
         '<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">대학교(4년) 졸업</span></li>' +
         '<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 4개월</span></li>' +
-        '<li class="resume-position-line ko-position-line"><strong>희망 포지션</strong> : QA / QA Engineer / Automation QA / 개발 (웹,게임)</li>
-<li><strong>추가 강점</strong> : AI 활용 기반 빠른 구현, 반복 개선, 테스트 생산성 향상</li>';
+        '<li class="resume-position-line ko-position-line"><strong>희망 포지션</strong> : QA / QA Engineer / Automation QA / 개발 (웹,게임)</li>' +
+        '<li><strong>추가 강점</strong> : AI 활용 기반 빠른 구현, 반복 개선, 테스트 생산성 향상</li>';
     }
 
     const introKo = document.querySelector('#intro p[data-lang="ko"]');
@@ -5113,17 +5120,41 @@ document.addEventListener('DOMContentLoaded', function(){
     const el = document.getElementById('gw-typing-word');
     if (!el) return;
 
-    const wordsKo = ['QA 엔지니어', '웹 개발자', '크롬 확장 개발자', 'Unity 개발자', '자동화 테스터', 'QA Automation'];
-    const wordsEn = ['QA Engineer', 'Web Developer', 'Chrome Ext. Dev', 'Unity Developer', 'Test Automator', 'QA Automation'];
+    const prefix = document.querySelector('[data-i18n-typing-prefix]');
+    const suffix = document.querySelector('[data-i18n-typing-suffix]');
 
-    // lang prefix/suffix wiring
-    const prefix  = document.querySelector('[data-i18n-typing-prefix]');
-    const suffix  = document.querySelector('[data-i18n-typing-suffix]');
+    const wordSet = {
+      ko: ['QA 엔지니어', '웹 개발자', '크롬 확장 개발자'],
+      en: ['QA Engineer', 'Web Developer', 'Chrome Extension Developer']
+    };
+
+    const timing = {
+      startDelay: 700,
+      typeBase: 105,
+      typeJitter: 45,
+      holdAfterComplete: 2600,
+      eraseBase: 58,
+      eraseJitter: 24,
+      nextWordDelay: 900
+    };
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let timerId = null;
+    let runToken = 0;
 
     function getLang() {
-      return document.documentElement.lang === 'en' ? 'en' : 'ko';
+      const activeBtn = document.querySelector('.lang-btn.active');
+      const byButton = activeBtn && activeBtn.dataset ? activeBtn.dataset.lang : '';
+      const byAttr = document.documentElement.getAttribute('data-lang') || document.documentElement.lang || 'ko';
+      return (byButton || byAttr).toLowerCase().startsWith('en') ? 'en' : 'ko';
     }
-    function words() { return getLang() === 'en' ? wordsEn : wordsKo; }
+
+    function currentWords() {
+      return getLang() === 'en' ? wordSet.en : wordSet.ko;
+    }
+
     function updateLabels() {
       if (!prefix || !suffix) return;
       if (getLang() === 'en') {
@@ -5135,46 +5166,68 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }
 
-    let idx = 0, charIdx = 0, deleting = false, paused = false;
-
-    function type() {
-      if (paused) return;
-      const ws = words();
-      const word = ws[idx % ws.length];
-
-      if (!deleting) {
-        el.textContent = word.slice(0, ++charIdx);
-        if (charIdx === word.length) {
-          paused = true;
-          setTimeout(() => { paused = false; deleting = true; type(); }, 1800);
-          return;
-        }
-        setTimeout(type, 80 + Math.random() * 40);
-      } else {
-        el.textContent = word.slice(0, --charIdx);
-        if (charIdx === 0) {
-          deleting = false;
-          idx++;
-          setTimeout(type, 350);
-          return;
-        }
-        setTimeout(type, 45 + Math.random() * 20);
-      }
+    function schedule(fn, delay) {
+      if (timerId) clearTimeout(timerId);
+      timerId = setTimeout(fn, delay);
     }
 
-    updateLabels();
-    setTimeout(type, 600);
+    function loop(token) {
+      if (token !== runToken) return;
+      updateLabels();
 
-    // re-sync on language change
+      const words = currentWords();
+      const word = words[wordIndex % words.length];
+
+      if (!deleting) {
+        charIndex = Math.min(charIndex + 1, word.length);
+        el.textContent = word.slice(0, charIndex);
+
+        if (charIndex >= word.length) {
+          schedule(function(){ deleting = true; loop(token); }, timing.holdAfterComplete);
+          return;
+        }
+
+        schedule(function(){ loop(token); }, timing.typeBase + Math.random() * timing.typeJitter);
+        return;
+      }
+
+      charIndex = Math.max(charIndex - 1, 0);
+      el.textContent = word.slice(0, charIndex);
+
+      if (charIndex <= 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        schedule(function(){ loop(token); }, timing.nextWordDelay);
+        return;
+      }
+
+      schedule(function(){ loop(token); }, timing.eraseBase + Math.random() * timing.eraseJitter);
+    }
+
+    function startFresh(resetIndex) {
+      if (timerId) clearTimeout(timerId);
+      runToken += 1;
+      if (resetIndex) wordIndex = 0;
+      charIndex = 0;
+      deleting = false;
+      el.textContent = '';
+      updateLabels();
+      const token = runToken;
+      schedule(function(){ loop(token); }, timing.startDelay);
+    }
+
+    window.restartIntroTyping = startFresh;
+    startFresh(true);
+
     const origApply = window.applyTranslations;
-    if (typeof origApply === 'function') {
-      window.applyTranslations = function(lang) {
-        origApply(lang);
-        updateLabels();
-        idx = 0; charIdx = 0; deleting = false; paused = false;
-        el.textContent = '';
-        setTimeout(type, 300);
+    if (typeof origApply === 'function' && !origApply.__gwTypingWrapped) {
+      const wrappedApply = function(lang) {
+        const result = origApply.apply(this, arguments);
+        startFresh(true);
+        return result;
       };
+      wrappedApply.__gwTypingWrapped = true;
+      window.applyTranslations = wrappedApply;
     }
   }
 
