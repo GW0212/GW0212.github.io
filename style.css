@@ -1903,3 +1903,97 @@ html[data-theme="light"] #extensions .tabs .tab-btn.active .tab-count {
     right: calc(max(7px, env(safe-area-inset-right)) + 42px) !important;
   }
 }
+
+
+/* ══════════════════════════════════════════════
+   PATCH — Mobile resume contact icon column alignment
+   - 이력서 요약의 📱/✉️/🏠/💻/⭐ 아이콘 좌측 기준선 정렬
+   - 영어 주소/설명 줄은 왼쪽에 너무 붙지 않도록 여백 보정
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #resume .resume-contact-list {
+    width: min(100%, 560px) !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding-inline: clamp(12px, 4vw, 24px) !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  #resume .resume-contact-item {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 30px minmax(0, 1fr) !important;
+    column-gap: 10px !important;
+    align-items: start !important;
+    justify-content: initial !important;
+    text-align: left !important;
+    font-size: 13px !important;
+  }
+
+  #resume .resume-contact-item > .resume-icon {
+    grid-column: 1 !important;
+    width: 30px !important;
+    min-width: 30px !important;
+    flex: none !important;
+    justify-self: center !important;
+    text-align: center !important;
+    margin-top: 1px !important;
+  }
+
+  #resume .resume-contact-item > :not(.resume-icon) {
+    grid-column: 2 !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    justify-self: start !important;
+    text-align: left !important;
+  }
+
+  #resume .resume-contact-item .resume-copy-btn {
+    text-align: left !important;
+  }
+
+  #resume .resume-project-item {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  #resume .resume-project-stack {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 30px minmax(0, 1fr) !important;
+    column-gap: 10px !important;
+    row-gap: 8px !important;
+    align-items: center !important;
+  }
+
+  #resume .resume-project-title-row {
+    display: contents !important;
+  }
+
+  #resume .resume-project-title-row .resume-star-icon {
+    grid-column: 1 !important;
+    width: 30px !important;
+    min-width: 30px !important;
+    justify-self: center !important;
+    text-align: center !important;
+  }
+
+  #resume .resume-project-title {
+    grid-column: 2 !important;
+    justify-self: start !important;
+    text-align: left !important;
+  }
+
+  #resume .resume-inline-project-btn {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  html[data-lang="en"] #resume .resume-contact-list {
+    padding-inline: clamp(18px, 6vw, 34px) !important;
+  }
+}
