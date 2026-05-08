@@ -1105,3 +1105,196 @@ html[data-theme="light"] .menu-button.active {
     inset 0 -1px 0 rgba(37,99,235,.14),
     inset 2px 0 10px rgba(37,99,235,.1);
 }
+
+/* ══════════════════════════════════════════════
+   FEATURE PACK — v3.2
+   1. Scroll fade-in  2. Menu highlight
+   3. Photo hover     4. Custom cursor
+   5. Typing anim
+══════════════════════════════════════════════ */
+
+/* ── 1. Scroll reveal ── */
+.gw-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
+}
+.gw-reveal.gw-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* stagger children inside a section */
+.gw-reveal-parent > .gw-reveal:nth-child(1)  { transition-delay: .04s; }
+.gw-reveal-parent > .gw-reveal:nth-child(2)  { transition-delay: .10s; }
+.gw-reveal-parent > .gw-reveal:nth-child(3)  { transition-delay: .16s; }
+.gw-reveal-parent > .gw-reveal:nth-child(4)  { transition-delay: .22s; }
+.gw-reveal-parent > .gw-reveal:nth-child(n+5){ transition-delay: .27s; }
+
+/* ── 3. Profile photo hover ── */
+.resume-photo {
+  transition:
+    transform .4s var(--ease),
+    box-shadow .4s var(--ease),
+    border-color .4s var(--ease);
+  cursor: default;
+}
+.resume-photo:hover {
+  transform: scale(1.04) translateY(-3px);
+  border-color: var(--accent) !important;
+  box-shadow:
+    0 12px 36px rgba(0,0,0,.5),
+    0 0 0 3px var(--accent-glow),
+    0 0 28px var(--accent-glow) !important;
+}
+
+/* ── 5. Typing animation headline ── */
+.gw-typing-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.gw-typing-prefix {
+  font-family: var(--font-head);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.gw-typing-word {
+  font-family: var(--font-head);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 800;
+  color: var(--accent-2);
+  letter-spacing: -.02em;
+  min-width: 2ch;
+  position: relative;
+}
+.gw-typing-word::after {
+  content: "|";
+  margin-left: 2px;
+  color: var(--accent);
+  animation: blinkCaret .75s step-end infinite;
+}
+@keyframes blinkCaret { 0%,100%{opacity:1} 50%{opacity:0} }
+
+
+
+/* ══════════════════════════════════════════════
+   PATCH — Mobile header control overlap fix
+   - 언어 버튼 / 테마 버튼 / 햄버거 버튼을 서로 다른 좌표에 고정
+   - 모바일에서 타이틀과 우측 버튼 묶음이 겹치지 않도록 폭 제한
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  header {
+    position: fixed !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 max(8px, env(safe-area-inset-right)) 0 max(8px, env(safe-area-inset-left)) !important;
+  }
+
+  header > h1 {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 2 !important;
+    max-width: min(46vw, 180px) !important;
+    pointer-events: none !important;
+  }
+
+  header > h1 .title-btn {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    pointer-events: auto !important;
+  }
+
+  header > .header-right {
+    display: contents !important;
+  }
+
+  .opening-toggle-wrap {
+    display: none !important;
+  }
+
+  .hamburger {
+    position: absolute !important;
+    left: max(8px, env(safe-area-inset-left)) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 4 !important;
+    display: flex !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+  }
+
+  .theme-toggle {
+    position: absolute !important;
+    right: max(8px, env(safe-area-inset-right)) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 4 !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+  }
+
+  .theme-toggle:hover {
+    transform: translateY(-50%) !important;
+  }
+
+  .lang-switch {
+    position: absolute !important;
+    right: calc(max(8px, env(safe-area-inset-right)) + 38px) !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 4 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 2px !important;
+  }
+
+  .lang-btn {
+    min-width: 50px !important;
+    height: 18px !important;
+    padding: 2px 6px !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 400px) {
+  header > h1 {
+    max-width: min(39vw, 154px) !important;
+  }
+
+  header > h1 .title-btn {
+    font-size: 13px !important;
+    padding: 5px 9px !important;
+  }
+
+  .hamburger,
+  .theme-toggle {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .lang-switch {
+    right: calc(max(7px, env(safe-area-inset-right)) + 35px) !important;
+  }
+
+  .lang-btn {
+    min-width: 48px !important;
+    height: 17px !important;
+    font-size: 9.5px !important;
+    padding: 2px 5px !important;
+  }
+}

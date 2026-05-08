@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=redesign2026" rel="stylesheet"/>
+<link href="style.css?v=mobileHeaderFix20260508" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH v9 ===== -->
@@ -156,6 +156,11 @@
 </div>
 <div class="content-section" id="intro" style="display:none;">
 <h2 data-i18n="intro.h2">Introduce myself</h2>
+<div class="gw-typing-wrap">
+  <span class="gw-typing-prefix" data-i18n-typing-prefix="ko">저는</span>
+  <span class="gw-typing-word" id="gw-typing-word">QA Engineer</span>
+  <span class="gw-typing-prefix" data-i18n-typing-suffix="ko">입니다.</span>
+</div>
 <p data-lang="ko">저는 QA 실무 경험을 바탕으로 기능 검증, 이슈 재현, 원인 분석, 커뮤니케이션까지 실무 중심으로 수행해 온 인력입니다.<br/><br/>
 단순히 오류를 찾는 데서 끝나지 않고, 발생 조건과 영향 범위를 정리하여 개발자가 바로 확인하고 대응할 수 있는 형태로 전달하는 업무에 익숙합니다.<br/>
 문제를 빠르게 재현하고 핵심 원인을 좁혀 품질 개선으로 연결하는 과정을 중요하게 생각합니다.<br/><br/>
@@ -4953,6 +4958,236 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
+})();
+</script>
+
+
+<script>
+/* ════════════════════════════════════════════
+   GW Feature Pack v3.2
+   1. Scroll reveal  2. Menu auto-highlight
+   3. Photo hover (CSS)  4. Custom cursor + trail
+   5. Typing animation loop
+════════════════════════════════════════════ */
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFine  = window.matchMedia('(pointer: fine)').matches;
+
+  /* ── 1 & 2. Scroll Reveal + Menu Auto-highlight ── */
+  function initScrollFeatures() {
+    // ── 1. Reveal cards/sections on scroll ──
+    const revealEls = document.querySelectorAll(
+      '.project-card, .resume-block, .cert-card, .resume-summary-card, .contact-card, .game-card'
+    );
+    revealEls.forEach(el => el.classList.add('gw-reveal'));
+
+    // Group children in resume-grid / resume-link-buttons for stagger
+    document.querySelectorAll('.resume-grid, .resume-link-buttons, .cert-quick-nav').forEach(p => {
+      p.classList.add('gw-reveal-parent');
+    });
+
+    if (!reduced) {
+      const revIO = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('gw-visible');
+            revIO.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+      revealEls.forEach(el => revIO.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('gw-visible'));
+    }
+
+    // ── 2. Menu auto-highlight on scroll ──
+    const sections   = Array.from(document.querySelectorAll('.content-section'));
+    const menuBtns   = Array.from(document.querySelectorAll('.menu-button'));
+    const headerH    = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h') || '64');
+
+    // Map section id → menu button
+    const sectionMap = {};
+    menuBtns.forEach(btn => {
+      const onclick = btn.getAttribute('onclick') || '';
+      const m = onclick.match(/showContent\(['"](.+?)['"]\)/);
+      if (m) sectionMap[m[1]] = btn;
+    });
+
+    function getActiveSectionId() {
+      const scrollY = window.scrollY + headerH + 32;
+      // find last section whose top <= scrollY
+      let active = null;
+      sections.forEach(sec => {
+        if (sec.style.display === 'none') return;
+        if (sec.offsetTop <= scrollY) active = sec.id;
+      });
+      return active;
+    }
+
+    let lastId = null;
+    function onScroll() {
+      const id = getActiveSectionId();
+      if (!id || id === lastId) return;
+      lastId = id;
+      menuBtns.forEach(b => b.classList.remove('active'));
+      if (sectionMap[id]) sectionMap[id].classList.add('active');
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // run once on load
+  }
+
+  /* ── 4. Custom cursor + trail ── */
+  function initCursor() {
+    if (!isFine || reduced) return;
+
+    // Create elements
+    const dot  = document.createElement('div');
+    const ring = document.createElement('div');
+    dot.id  = 'gw-cursor';
+    ring.id = 'gw-cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    let mx = -100, my = -100;
+    let rx = -100, ry = -100;
+    let raf;
+
+    // Smooth ring lag via lerp
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function loop() {
+      rx = lerp(rx, mx, 0.14);
+      ry = lerp(ry, my, 0.14);
+      dot.style.left  = mx + 'px';
+      dot.style.top   = my + 'px';
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      raf = requestAnimationFrame(loop);
+    }
+    loop();
+
+    // Trail particles
+    let lastTrailTime = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      const now = Date.now();
+      if (now - lastTrailTime < 40) return; // throttle ~25fps
+      lastTrailTime = now;
+
+      const t = document.createElement('div');
+      t.className = 'gw-trail';
+      const sz = 4 + Math.random() * 4;
+      t.style.cssText = `width:${sz}px;height:${sz}px;left:${mx}px;top:${my}px;opacity:.5;`;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 500);
+    }, { passive: true });
+
+    // Hover state
+    document.addEventListener('mouseover', e => {
+      const el = e.target.closest('a, button, [role="button"], label, input, textarea, select, .project-card, .cert-card, .menu-button');
+      document.body.classList.toggle('cursor-hover', !!el);
+    });
+
+    // Click flash
+    document.addEventListener('mousedown', () => {
+      document.body.classList.add('cursor-click');
+    });
+    document.addEventListener('mouseup', () => {
+      document.body.classList.remove('cursor-click');
+    });
+
+    // Hide on leave
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity  = '0';
+      ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity  = '';
+      ring.style.opacity = '';
+    });
+  }
+
+  /* ── 5. Typing animation ── */
+  function initTyping() {
+    const el = document.getElementById('gw-typing-word');
+    if (!el) return;
+
+    const wordsKo = ['QA 엔지니어', '웹 개발자', '크롬 확장 개발자', 'Unity 개발자', '자동화 테스터', 'QA Automation'];
+    const wordsEn = ['QA Engineer', 'Web Developer', 'Chrome Ext. Dev', 'Unity Developer', 'Test Automator', 'QA Automation'];
+
+    // lang prefix/suffix wiring
+    const prefix  = document.querySelector('[data-i18n-typing-prefix]');
+    const suffix  = document.querySelector('[data-i18n-typing-suffix]');
+
+    function getLang() {
+      return document.documentElement.lang === 'en' ? 'en' : 'ko';
+    }
+    function words() { return getLang() === 'en' ? wordsEn : wordsKo; }
+    function updateLabels() {
+      if (!prefix || !suffix) return;
+      if (getLang() === 'en') {
+        prefix.textContent = "I'm a";
+        suffix.textContent = '';
+      } else {
+        prefix.textContent = '저는';
+        suffix.textContent = '입니다.';
+      }
+    }
+
+    let idx = 0, charIdx = 0, deleting = false, paused = false;
+
+    function type() {
+      if (paused) return;
+      const ws = words();
+      const word = ws[idx % ws.length];
+
+      if (!deleting) {
+        el.textContent = word.slice(0, ++charIdx);
+        if (charIdx === word.length) {
+          paused = true;
+          setTimeout(() => { paused = false; deleting = true; type(); }, 1800);
+          return;
+        }
+        setTimeout(type, 80 + Math.random() * 40);
+      } else {
+        el.textContent = word.slice(0, --charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          idx++;
+          setTimeout(type, 350);
+          return;
+        }
+        setTimeout(type, 45 + Math.random() * 20);
+      }
+    }
+
+    updateLabels();
+    setTimeout(type, 600);
+
+    // re-sync on language change
+    const origApply = window.applyTranslations;
+    if (typeof origApply === 'function') {
+      window.applyTranslations = function(lang) {
+        origApply(lang);
+        updateLabels();
+        idx = 0; charIdx = 0; deleting = false; paused = false;
+        el.textContent = '';
+        setTimeout(type, 300);
+      };
+    }
+  }
+
+  /* ── Init ── */
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn, { once: true });
+  }
+
+  ready(function() {
+    initScrollFeatures();
+    initTyping();
+  });
 })();
 </script>
 
