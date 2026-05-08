@@ -1886,3 +1886,20 @@ html[data-theme="light"] #extensions .tabs .tab-btn.active .tab-count {
     padding-right: 4px !important;
   }
 }
+
+
+/* ══════════════════════════════════════════════
+   PATCH — Mobile language/theme button spacing
+   - 모바일에서 한국어/English 버튼을 다크·라이트 버튼과 조금 더 떨어지게 배치
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .lang-switch {
+    right: calc(max(8px, env(safe-area-inset-right)) + 46px) !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .lang-switch {
+    right: calc(max(7px, env(safe-area-inset-right)) + 42px) !important;
+  }
+}
