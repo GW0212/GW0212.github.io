@@ -1385,7 +1385,7 @@ html[data-theme="light"] .menu-button.active {
   }
   .opening-toggle-wrap {
     position: absolute !important;
-    left: calc(max(8px, env(safe-area-inset-left)) + 36px) !important;
+    left: calc(max(8px, env(safe-area-inset-left)) + 56px) !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     z-index: 4 !important;
