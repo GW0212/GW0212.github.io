@@ -938,7 +938,15 @@ form input:focus, form textarea:focus { outline: none; border-color: var(--accen
     position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
     gap: 5px; z-index: 1;
   }
-  .opening-toggle-wrap { display: none; } /* hidden on mobile to save space */
+  .opening-toggle-wrap {
+    display: flex;   /* 햄버거 옆에 표시 */
+    align-items: center;
+    gap: 4px;
+  }
+  .opening-toggle-wrap .opening-label { font-size: 9px; letter-spacing: .2px; }
+  .opening-toggle-wrap .opening-toggle { width: 28px; height: 16px; }
+  .opening-toggle-wrap .opening-toggle-thumb { width: 11px; height: 11px; }
+  .opening-toggle-wrap .opening-toggle.on .opening-toggle-thumb { transform: translateX(12px); }
   .theme-toggle { width: 30px; height: 30px; font-size: 13px; }
   .hamburger { display: flex !important; width: 30px; height: 30px; font-size: 16px; }
 
@@ -1375,11 +1383,6 @@ html[data-theme="light"] .menu-button.active {
   header > .header-right {
     display: contents !important;
   }
-
-  .opening-toggle-wrap {
-    display: none !important;
-  }
-
   .hamburger {
     position: absolute !important;
     left: max(8px, env(safe-area-inset-left)) !important;
