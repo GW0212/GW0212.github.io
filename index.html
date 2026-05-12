@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
 <meta property="og:image" content="https://gw0212.github.io/preview_v4.png">
 <meta name="twitter:image" content="https://gw0212.github.io/preview_v4.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+(function() {
+  var root = document.documentElement;
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem('gw-theme'); } catch (e) {}
+  if (savedTheme === 'dark') root.removeAttribute('data-theme');
+  else root.setAttribute('data-theme', 'light');
+})();
+</script>
 <title>근우의 웹사이트</title>
 <link href="favicon.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=mobileContentScrollerTop20260508" rel="stylesheet"/>
+<link href="style.css?v=lightDefault20260512" rel="stylesheet"/>
 </head>
 <body>
-<!-- ===== GW SPLASH v9 ===== -->
+<!-- ===== GW SPLASH — GENESIS ===== -->
 <div id="gw-splash">
+  <canvas id="gw-bg-canvas"></canvas>
+  <canvas id="gw-main-canvas"></canvas>
+  <div id="gw-grain"></div>
   <div id="gw-bg">
     <div class="gw-amb" id="gw-amb1"></div>
     <div class="gw-amb" id="gw-amb2"></div>
     <div class="gw-amb" id="gw-amb3"></div>
   </div>
+  <div class="gw-corner gw-corner-tl"></div>
+  <div class="gw-corner gw-corner-tr"></div>
+  <div class="gw-corner gw-corner-bl"></div>
+  <div class="gw-corner gw-corner-br"></div>
   <div id="gw-content">
-    <div id="gw-halo"></div>
     <div id="gw-logo-wrap">
-      <div class="gw-ripple" id="gw-rp1"></div>
-      <div class="gw-ripple" id="gw-rp2"></div>
-      <div class="gw-ripple" id="gw-rp3"></div>
+      <div id="gw-halo"></div>
       <div id="gw-logo">
         <span id="gw-g">G</span><span id="gw-w">W</span>
       </div>
     </div>
     <div id="gw-lines">
-      <div class="gw-line-seg" id="gw-ll2"></div>
-      <div class="gw-line-seg" id="gw-ll1"></div>
-      <div id="gw-dot"></div>
-      <div class="gw-line-seg" id="gw-rl1"></div>
-      <div class="gw-line-seg" id="gw-rl2"></div>
+      <div id="gw-line-left"></div>
+      <div id="gw-diamond"></div>
+      <div id="gw-line-right"></div>
     </div>
     <div id="gw-name">QA ENGINEER &nbsp;·&nbsp; WEB DEV &nbsp;·&nbsp; PROGRAM DEV</div>
+    <div id="gw-hint">click anywhere to enter</div>
   </div>
 </div>
 
@@ -4954,56 +4966,368 @@ toggleBtn.addEventListener('click', function(){
   localStorage.setItem(LS_KEY, isOn() ? 'off' : 'on'); syncToggle();
 });
 
-/* ── 스플래시 ── */
+/* ══════════════════════════════
+   GENESIS — Particle Assembly
+══════════════════════════════ */
 var splash = document.getElementById('gw-splash');
 if(!splash) return;
-if(!isOn()){ splash.style.display = 'none'; return; }
-document.body.style.overflow = 'hidden';
+if(!isOn()){ splash.style.display='none'; return; }
+document.body.style.overflow='hidden';
 
-/* 타이밍 시퀀스 */
-/* 0.75s — G+W 거의 착지 → 헤일로·라인·점·ripple 등장 */
-setTimeout(function(){
-  var halo = document.getElementById('gw-halo');
-  var ll1  = document.getElementById('gw-ll1');
-  var ll2  = document.getElementById('gw-ll2');
-  var rl1  = document.getElementById('gw-rl1');
-  var rl2  = document.getElementById('gw-rl2');
-  var dot  = document.getElementById('gw-dot');
-  var rp1  = document.getElementById('gw-rp1');
-  var rp2  = document.getElementById('gw-rp2');
-  var rp3  = document.getElementById('gw-rp3');
-  if(halo) halo.classList.add('vis');
-  if(ll1)  ll1.classList.add('open');
-  if(ll2)  ll2.classList.add('open');
-  if(rl1)  rl1.classList.add('open');
-  if(rl2)  rl2.classList.add('open');
-  if(dot)  dot.classList.add('open');
-  if(rp1)  rp1.classList.add('go');
-  if(rp2)  rp2.classList.add('go');
-  if(rp3)  rp3.classList.add('go');
-}, 750);
+var W=window.innerWidth, H=window.innerHeight;
+var MOB=W<768;
+var dismissed=false;
+var bgRaf, mainRaf;
+var mx=W/2, my=H/2;
 
-/* 1.1s — 이름 등장 */
-setTimeout(function(){
-  var n = document.getElementById('gw-name');
-  if(n) n.classList.add('vis');
-}, 1100);
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
 
-/* 1.45s — 서브 등장 */
-setTimeout(function(){
-  var s = document.getElementById('gw-sub');
-  if(s) s.classList.add('vis');
-}, 1450);
+/* ── Background Canvas: Dot Grid + Ambient Particles ── */
+var bgC=$('gw-bg-canvas');
+bgC.width=W; bgC.height=H;
+var bgX=bgC.getContext('2d');
 
-/* ── 닫기 ── */
-function dismiss(){
-  splash.classList.add('gw-out');
-  document.body.style.overflow = '';
-  setTimeout(function(){ splash.style.display = 'none'; }, 720);
+// Dot grid
+var GRID=MOB?44:52;
+var dots=[];
+for(var gy=0;gy<=H+GRID;gy+=GRID){
+  for(var gx=0;gx<=W+GRID;gx+=GRID){
+    dots.push({x:gx,y:gy,o:0,maxO:Math.random()*.1+.03,spd:.002+Math.random()*.004,d:Math.random()*2.5});
+  }
 }
-setTimeout(dismiss, 2800);
-splash.addEventListener('click', dismiss);
-document.addEventListener('keydown', dismiss, { once: true });
+
+// Ambient floaters — 줄임
+var floaters=[];
+for(var i=0;i<(MOB?16:28);i++){
+  floaters.push({
+    x:Math.random()*W,y:Math.random()*H,
+    r:Math.random()*.8+.2,
+    vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,
+    o:Math.random()*.28+.05,
+    ph:Math.random()*Math.PI*2,spd:.006+Math.random()*.008
+  });
+}
+
+// 그리드 완성 여부 추적 (다 뜨면 정적 버퍼로 전환)
+var gridBuf=null, gridDone=false;
+
+var bgT0=performance.now();
+function drawBg(ts){
+  var elapsed=(ts-bgT0)/1000;
+  bgX.clearRect(0,0,W,H);
+  var px=(mx-W/2)/W, py=(my-H/2)/H;
+
+  // Grid: 완성 후 정적 버퍼 사용
+  if(gridDone && gridBuf){
+    bgX.drawImage(gridBuf,0,0);
+  } else {
+    var allMax=true;
+    bgX.fillStyle='rgba(96,165,250,1)'; // 색은 globalAlpha로 제어
+    for(var i=0;i<dots.length;i++){
+      var d=dots[i];
+      if(elapsed>d.d) d.o=Math.min(d.o+d.spd,d.maxO);
+      else allMax=false;
+      if(d.o<.005) continue;
+      bgX.globalAlpha=d.o;
+      bgX.beginPath();
+      bgX.arc(d.x,d.y,.85,0,Math.PI*2);
+      bgX.fill();
+    }
+    bgX.globalAlpha=1;
+    if(allMax){
+      // 그리드 완성 → 정적 버퍼로 캐시
+      gridBuf=document.createElement('canvas');
+      gridBuf.width=W; gridBuf.height=H;
+      var gx=gridBuf.getContext('2d');
+      gx.fillStyle='rgba(96,165,250,1)';
+      for(var i=0;i<dots.length;i++){
+        var d=dots[i];
+        gx.globalAlpha=d.maxO;
+        gx.beginPath();
+        gx.arc(d.x,d.y,.85,0,Math.PI*2);
+        gx.fill();
+      }
+      gx.globalAlpha=1;
+      gridDone=true;
+    }
+  }
+
+  // Floaters — 배치 렌더링
+  bgX.fillStyle='rgba(147,197,253,1)';
+  for(var i=0;i<floaters.length;i++){
+    var f=floaters[i];
+    f.x+=f.vx+px*.25; f.y+=f.vy+py*.25; f.ph+=f.spd;
+    if(f.x<0)f.x=W; if(f.x>W)f.x=0;
+    if(f.y<0)f.y=H; if(f.y>H)f.y=0;
+    var a=f.o*(0.5+0.5*Math.sin(f.ph));
+    bgX.globalAlpha=a;
+    bgX.beginPath();
+    bgX.arc(f.x,f.y,f.r,0,Math.PI*2);
+    bgX.fill();
+  }
+  bgX.globalAlpha=1;
+  bgRaf=requestAnimationFrame(drawBg);
+}
+bgRaf=requestAnimationFrame(drawBg);
+
+/* ── Main Canvas: Particle Assembly + Shockwaves ── */
+var mc=$('gw-main-canvas');
+mc.width=W; mc.height=H;
+var mx2=mc.getContext('2d');
+var shockwaves=[];
+var particles=[];
+var assemblyDone=false;
+var sequenceFired=false;
+
+// Hide DOM logo until assembled
+var logo=$('gw-logo');
+if(logo){ logo.style.opacity='0'; logo.style.transition='opacity .55s ease'; }
+
+// Font-ready guard
+var ftDone=false;
+var ftTimer=setTimeout(runAssembly,380);
+if(typeof document.fonts!=='undefined'){
+  document.fonts.ready.then(function(){ clearTimeout(ftTimer); runAssembly(); });
+} else { clearTimeout(ftTimer); runAssembly(); }
+
+function runAssembly(){
+  if(ftDone) return; ftDone=true;
+
+  var logoEl=$('gw-logo');
+  var logoRect=logoEl ? logoEl.getBoundingClientRect() : null;
+  if(!logoRect || logoRect.width<10){ fireSequence(); return; }
+
+  var fs=parseFloat(window.getComputedStyle(logoEl).fontSize);
+
+  // 넉넉한 오프스크린 캔버스에 GW 렌더
+  var OW=Math.ceil(logoRect.width*2+100);
+  var OH=Math.ceil(logoRect.height*3+100);
+  var oc=document.createElement('canvas');
+  oc.width=OW; oc.height=OH;
+  var o2=oc.getContext('2d');
+  try{ o2.letterSpacing=(-0.04*fs).toFixed(2)+'px'; }catch(e){}
+  o2.fillStyle='#fff';
+  o2.font='800 '+fs+'px "Outfit",sans-serif';
+  o2.textBaseline='alphabetic'; // baseline 기준으로 그리기
+  o2.textAlign='center';
+  o2.fillText('GW', OW/2, OH/2);
+
+  // TextMetrics로 정확한 오프셋 계산
+  var m=o2.measureText('GW');
+
+  // X: 캔버스 텍스트 중심(OW/2) → DOM 엘리먼트 수평 중심
+  var offsetX=(logoRect.left+logoRect.width/2)-OW/2;
+
+  // Y: 캔버스 baseline(OH/2) → DOM baseline
+  //    fontBoundingBoxAscent = baseline에서 폰트 박스 상단까지의 거리
+  //    DOM에서 line-height:1 이면 element top + fontBoundingBoxAscent = baseline
+  var fba=m.fontBoundingBoxAscent!=null ? m.fontBoundingBoxAscent : m.actualBoundingBoxAscent;
+  var domBaseline=logoRect.top+fba;
+  var offsetY=domBaseline-(OH/2);
+
+  // 픽셀 샘플링 및 타겟 생성
+  var raw=o2.getImageData(0,0,OW,OH).data;
+  var minPX=OW,minPY=OH,maxPX=0,maxPY=0;
+  for(var y=0;y<OH;y++){
+    for(var x=0;x<OW;x++){
+      if(raw[(y*OW+x)*4+3]>90){
+        if(x<minPX)minPX=x; if(x>maxPX)maxPX=x;
+        if(y<minPY)minPY=y; if(y>maxPY)maxPY=y;
+      }
+    }
+  }
+  if(minPX>maxPX){ fireSequence(); return; }
+
+  var targets=[];
+  var step=2;
+  for(var y=minPY;y<=maxPY;y+=step){
+    for(var x=minPX;x<=maxPX;x+=step){
+      if(raw[(y*OW+x)*4+3]>60) targets.push({x:x+offsetX,y:y+offsetY});
+    }
+  }
+  var maxP=MOB?600:1500;
+  if(targets.length>maxP){
+    for(var i=targets.length-1;i>0;i--){
+      var j=Math.floor(Math.random()*(i+1));
+      var tmp=targets[i];targets[i]=targets[j];targets[j]=tmp;
+    }
+    targets=targets.slice(0,maxP);
+  }
+  if(targets.length<15){ fireSequence(); return; }
+
+  var PR=MOB?1.8:1.6;
+
+  // ── 최종 완성 텍스트 버퍼 (캔버스에 직접 fillText → 파티클과 좌표 동일) ──
+  // offsetX, offsetY, OW, OH, fs 는 모두 이 클로저 안에 있음
+  var textX=OW/2+offsetX;  // = logoRect 수평 중심
+  var textY=OH/2+offsetY;  // = domBaseline
+  var textBuf=document.createElement('canvas');
+  textBuf.width=W; textBuf.height=H;
+  var tbx=textBuf.getContext('2d');
+  var fontDecl='800 '+fs+'px "Outfit",sans-serif';
+  try{ tbx.letterSpacing=(-0.04*fs).toFixed(2)+'px'; }catch(e){}
+  // 외곽 글로우
+  tbx.save();
+  tbx.shadowColor='rgba(147,197,253,0.6)'; tbx.shadowBlur=28;
+  tbx.fillStyle='rgba(255,255,255,0.6)';
+  tbx.font=fontDecl; tbx.textBaseline='alphabetic'; tbx.textAlign='center';
+  tbx.fillText('GW',textX,textY);
+  tbx.restore();
+  // 내부 글로우
+  tbx.save();
+  tbx.shadowColor='rgba(200,225,255,0.8)'; tbx.shadowBlur=10;
+  tbx.fillStyle='rgba(255,255,255,0.88)';
+  tbx.font=fontDecl; tbx.textBaseline='alphabetic'; tbx.textAlign='center';
+  tbx.fillText('GW',textX,textY);
+  tbx.restore();
+  // 코어 (선명한 흰색)
+  tbx.fillStyle='rgba(245,250,255,0.97)';
+  tbx.font=fontDecl; tbx.textBaseline='alphabetic'; tbx.textAlign='center';
+  tbx.fillText('GW',textX,textY);
+
+  particles=targets.map(function(t){
+    var a=Math.random()*Math.PI*2;
+    var d=Math.random()*Math.max(W,H)*.55+80;
+    return {
+      x:W/2+Math.cos(a)*d, y:H/2+Math.sin(a)*d,
+      sx:W/2+Math.cos(a)*d, sy:H/2+Math.sin(a)*d,
+      tx:t.x, ty:t.y,
+      dur:0.9+Math.random()*.8,
+      delay:Math.random()*.4,
+      locked:false
+    };
+  });
+
+  var aT0=performance.now();
+  var lockedN=0;
+  var transStart=-1;
+  var TRANS=0.55; // 전환 시간(초)
+
+  function drawMain(ts){
+    var el=(ts-aT0)/1000;
+    var tp=transStart<0 ? 0 : Math.min(1,(el-transStart)/TRANS);
+
+    mx2.clearRect(0,0,W,H);
+
+    // 전환 완료 → 텍스트 버퍼 고정 후 RAF 종료
+    if(tp>=1){
+      mx2.drawImage(textBuf,0,0);
+      cancelAnimationFrame(mainRaf);
+      return;
+    }
+
+    // 위치 업데이트
+    for(var i=0;i<particles.length;i++){
+      var p=particles[i];
+      if(p.locked) continue;
+      var prog=(el-p.delay)/p.dur;
+      if(prog<=0) continue;
+      if(prog>=1){ p.x=p.tx; p.y=p.ty; p.locked=true; lockedN++; }
+      else { var e=1-Math.pow(1-prog,3); p.x=p.sx+(p.tx-p.sx)*e; p.y=p.sy+(p.ty-p.sy)*e; }
+    }
+
+    // 파티클 렌더 (전환 중엔 점점 흐려짐)
+    var pA=1-tp;
+    if(pA>0.01){
+      mx2.globalAlpha=pA;
+      mx2.fillStyle='rgba(90,160,255,0.05)';
+      mx2.beginPath();
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i]; if((el-p.delay)/p.dur<=0) continue;
+        mx2.moveTo(p.x+PR*3,p.y); mx2.arc(p.x,p.y,PR*3,0,Math.PI*2);
+      }
+      mx2.fill();
+      mx2.fillStyle='rgba(220,235,255,0.92)';
+      mx2.beginPath();
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i]; if((el-p.delay)/p.dur<=0) continue;
+        mx2.moveTo(p.x+PR,p.y); mx2.arc(p.x,p.y,PR,0,Math.PI*2);
+      }
+      mx2.fill();
+      mx2.globalAlpha=1;
+    }
+
+    // 텍스트 버퍼 fade in (전환 시작 후)
+    if(tp>0.01){
+      mx2.globalAlpha=tp;
+      mx2.drawImage(textBuf,0,0);
+      mx2.globalAlpha=1;
+    }
+
+    // 충격파
+    for(var s=shockwaves.length-1;s>=0;s--){
+      var sw=shockwaves[s];
+      sw.r+=sw.spd; sw.a-=.015;
+      if(sw.a<=0){shockwaves.splice(s,1);continue;}
+      var lw=sw.w*(1-sw.r/sw.maxR);
+      if(lw<.05) continue;
+      mx2.beginPath();
+      mx2.arc(W/2,H/2,sw.r,0,Math.PI*2);
+      mx2.strokeStyle='rgba(147,197,253,'+sw.a+')';
+      mx2.lineWidth=lw;
+      mx2.stroke();
+    }
+
+    // 70% 도달 → 전환 시작
+    if(transStart<0 && el>0.5 && lockedN>=particles.length*0.7){
+      transStart=el;
+      assemblyDone=true;
+      shockwaves.push({r:20,maxR:Math.max(W,H)*.6,spd:9,a:.55,w:2.2});
+      shockwaves.push({r:8,maxR:Math.max(W,H)*.45,spd:5,a:.32,w:1.3});
+      fireSequence();
+    }
+
+    mainRaf=requestAnimationFrame(drawMain);
+  }
+  mainRaf=requestAnimationFrame(drawMain);
+}
+
+function $$(q){ return document.querySelectorAll(q); }
+function $(id){ return document.getElementById(id); }
+
+function fireSequence(){
+  if(sequenceFired) return; sequenceFired=true;
+
+  // Halo
+  var h=$('gw-halo'); if(h) h.classList.add('vis');
+
+  // Lines + diamond
+  setTimeout(function(){
+    var ll=$('gw-line-left'),lr=$('gw-line-right'),dm=$('gw-diamond');
+    if(ll) ll.classList.add('open');
+    if(lr) lr.classList.add('open');
+    if(dm) dm.classList.add('open');
+  },220);
+
+  // Corners
+  setTimeout(function(){
+    $$('.gw-corner').forEach(function(c){c.classList.add('vis');});
+  },320);
+
+  // Name
+  setTimeout(function(){
+    var n=$('gw-name'); if(n) n.classList.add('vis');
+  },680);
+
+  // Hint
+  setTimeout(function(){
+    var hn=$('gw-hint'); if(hn) hn.classList.add('vis');
+  },1260);
+}
+
+/* ── Dismiss ── */
+function dismiss(){
+  if(dismissed) return; dismissed=true;
+  cancelAnimationFrame(bgRaf);
+  cancelAnimationFrame(mainRaf);
+  splash.classList.add('gw-out');
+  document.body.style.overflow='';
+  setTimeout(function(){ splash.style.display='none'; },980);
+}
+
+setTimeout(dismiss,4800);
+splash.addEventListener('click',dismiss);
+document.addEventListener('keydown',function(){dismiss();},{once:true});
 
 /* ── NAV AURORA ── */
 document.addEventListener('DOMContentLoaded', function(){
@@ -5348,12 +5672,18 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 <script>
-/* ── Theme Toggle ── */
+/* ── Theme Toggle : first visit defaults to Light ── */
 (function() {
   var STORAGE_KEY = 'gw-theme';
   var root = document.documentElement;
-  var saved = localStorage.getItem(STORAGE_KEY) || 'dark';
-  if (saved === 'light') root.setAttribute('data-theme', 'light');
+  var saved = null;
+
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  // 저장된 테마가 없는 첫 방문자는 화이트 모드로 시작합니다.
+  // 사용자가 직접 다크 모드를 선택한 경우에만 다크 모드를 유지합니다.
+  if (saved === 'dark') root.removeAttribute('data-theme');
+  else root.setAttribute('data-theme', 'light');
 
   document.addEventListener('DOMContentLoaded', function() {
     var btn = document.getElementById('theme-toggle');
@@ -5362,7 +5692,7 @@ document.addEventListener('DOMContentLoaded', function(){
       var isLight = root.getAttribute('data-theme') === 'light';
       if (isLight) root.removeAttribute('data-theme');
       else         root.setAttribute('data-theme', 'light');
-      localStorage.setItem(STORAGE_KEY, isLight ? 'dark' : 'light');
+      try { localStorage.setItem(STORAGE_KEY, isLight ? 'dark' : 'light'); } catch (e) {}
     });
   });
 })();
