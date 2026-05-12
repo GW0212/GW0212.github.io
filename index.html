@@ -95,6 +95,12 @@
 <p><span data-i18n="card.telLabel">TEL</span> : <button aria-label="Copy phone number" class="copy-contact" data-copy="01021131655" type="button">01021131655</button></p>
 <p><span data-i18n="card.emailLabel">Email</span> : <button aria-label="Copy email" class="copy-contact" data-copy="rmsdn1955@naver.com" type="button">rmsdn1955@naver.com</button></p>
 </div>
+<div class="nav-opening-row">
+  <span class="opening-label">오프닝 애니메이션</span>
+  <button class="opening-toggle" id="opening-toggle-nav" aria-label="오프닝 on/off" role="switch">
+    <span class="opening-toggle-thumb"></span>
+  </button>
+</div>
 </nav>
 <main class="content">
 <!-- Intro -->
@@ -4958,13 +4964,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* ── 토글 ── */
 var LS_KEY = 'gw-opening';
-var toggleBtn = document.getElementById('opening-toggle');
+var toggleBtn    = document.getElementById('opening-toggle');
+var toggleBtnNav = document.getElementById('opening-toggle-nav');
 function isOn(){ return localStorage.getItem(LS_KEY) !== 'off'; }
-function syncToggle(){ toggleBtn.classList.toggle('on', isOn()); }
-syncToggle();
-toggleBtn.addEventListener('click', function(){
+function syncToggle(){
+  if(toggleBtn)    toggleBtn.classList.toggle('on', isOn());
+  if(toggleBtnNav) toggleBtnNav.classList.toggle('on', isOn());
+}
+function handleToggle(){
   localStorage.setItem(LS_KEY, isOn() ? 'off' : 'on'); syncToggle();
-});
+}
+syncToggle();
+if(toggleBtn)    toggleBtn.addEventListener('click', handleToggle);
+if(toggleBtnNav) toggleBtnNav.addEventListener('click', handleToggle);
 
 /* ══════════════════════════════
    GENESIS — Particle Assembly
@@ -5083,20 +5095,34 @@ var sequenceFired=false;
 var logo=$('gw-logo');
 if(logo){ logo.style.opacity='0'; logo.style.transition='opacity .55s ease'; }
 
-// Font-ready guard
+// Font-ready guard — mobile에서 더 안정적인 폰트 로딩
 var ftDone=false;
-var ftTimer=setTimeout(runAssembly,380);
+var ftTimer=setTimeout(runAssembly, MOB?700:400);
 if(typeof document.fonts!=='undefined'){
-  document.fonts.ready.then(function(){ clearTimeout(ftTimer); runAssembly(); });
-} else { clearTimeout(ftTimer); runAssembly(); }
+  var fp=typeof document.fonts.load==='function'
+    ? document.fonts.load('800 16px "Outfit"')
+    : document.fonts.ready;
+  fp.then(function(){ clearTimeout(ftTimer); runAssembly(); })
+    .catch(function(){ clearTimeout(ftTimer); runAssembly(); });
+}
 
 function runAssembly(){
   if(ftDone) return; ftDone=true;
 
-  var logoEl=$('gw-logo');
-  var logoRect=logoEl ? logoEl.getBoundingClientRect() : null;
-  if(!logoRect || logoRect.width<10){ fireSequence(); return; }
+  // 레이아웃 확정 후 측정 (모바일 렌더링 지연 대응)
+  requestAnimationFrame(function(){
+    var logoEl=$('gw-logo');
+    var logoRect=logoEl ? logoEl.getBoundingClientRect() : null;
+    if(!logoRect || logoRect.width<10){
+      // 폰트/레이아웃 미완성 → 로고 직접 노출 후 시퀀스
+      if(logo){ logo.style.transition='opacity 0.5s ease'; logo.style.opacity='1'; }
+      fireSequence(); return;
+    }
+    runAssemblyWithRect(logoEl, logoRect);
+  });
+}
 
+function runAssemblyWithRect(logoEl, logoRect){
   var fs=parseFloat(window.getComputedStyle(logoEl).fontSize);
 
   // 넉넉한 오프스크린 캔버스에 GW 렌더

@@ -2228,3 +2228,21 @@ html.gw-section-switching .content {
     scroll-margin-top: 0 !important;
   }
 }
+
+/* ── 모바일 Nav 오프닝 토글 ── */
+.nav-opening-row { display: none; }
+@media (max-width: 768px) {
+  .nav-opening-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    margin-top: 4px;
+    border-top: 1px solid var(--border);
+  }
+  .nav-opening-row .opening-label {
+    font-size: 13px;
+    color: var(--text-2);
+    letter-spacing: .3px;
+  }
+}
