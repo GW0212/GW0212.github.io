@@ -1383,6 +1383,13 @@ html[data-theme="light"] .menu-button.active {
   header > .header-right {
     display: contents !important;
   }
+  .opening-toggle-wrap {
+    position: absolute !important;
+    left: calc(max(8px, env(safe-area-inset-left)) + 36px) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 4 !important;
+  }
   .hamburger {
     position: absolute !important;
     left: max(8px, env(safe-area-inset-left)) !important;
