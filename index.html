@@ -83,10 +83,10 @@
 <button class="menu-button" data-i18n="menu.resume" onclick="showContent('resume')">이력서 요약</button><button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
-<button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">자동화 QA / TC</span><span data-lang="en" style="display:none;">Automation QA / TC</span></button>
+<button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">QA / TC 관련 웹사이트</span><span data-lang="en" style="display:none;">QA / TC Related Websites</span></button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
-<button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">개발 언어 · QA 협업 · 개발 툴</button>
+<button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">사용 가능 언어 · 툴</button>
 <button class="menu-button" data-i18n="menu.edu" onclick="showContent('edu')">Education / Military / Career</button>
 <button class="menu-button" data-i18n="menu.goal" onclick="showContent('goal')">Goal</button>
 <button class="menu-button" data-i18n="menu.minigames" onclick="showContent('minigames')">Mini games</button>
@@ -139,7 +139,7 @@
 </a>
 <ul class="resume-list">
 <li><strong data-i18n="resume.work.chrome">크롬 확장 프로그램</strong> <span id="resume-count-extensions">38개</span></li>
-<li><strong data-i18n="resume.work.website">웹사이트</strong> <span id="resume-count-websites">25개</span></li>
+<li><strong data-i18n="resume.work.website">웹사이트</strong> <span id="resume-count-websites">34개</span></li>
 <li><strong data-i18n="resume.work.program">윈도우 프로그램</strong> <span id="resume-count-programs">2개</span></li>
 <li><strong data-i18n="resume.work.game">유니티 게임</strong> <span id="resume-count-games">1개</span></li>
 </ul>
@@ -194,7 +194,7 @@ I will continue strengthening my advantages and improving my weaknesses to becom
 </div> <!-- ✅ intro 섹션 닫기 -->
 <!-- Languages / Tools -->
 <div class="content-section" id="languages" style="display:none;">
-<h2 data-i18n="languages.h2">개발 언어 · QA 협업 · 개발 툴</h2>
+<h2 data-i18n="languages.h2">사용 가능 언어 · 툴</h2>
 <!-- 내부 탭 버튼 -->
 <div aria-label="언어 및 툴 탭" class="tabs" role="tablist">
 <button aria-selected="true" class="tab-btn active" data-tab="lang-languages" role="tab">개발 언어</button>
@@ -652,15 +652,6 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <div class="tab-panel" hidden="" id="work-panel-web" role="tabpanel">
 <div class="project-card">
-<h3 data-i18n="web.qatc.title">QA TC 정리기</h3>
-<p class="wrap-readable" data-i18n="web.qatc.desc">
-    QA 업무에서 작성하는 테스트 케이스(TC)를 자동으로 정리해주는 웹 도구입니다. 일감 원문을 붙여넣으면 상세 설명·재현 스텝·기대결과를 유형별로 분석해서 깔끔하게 출력해줍니다.
-  </p>
-<a href="https://gw0212.github.io/QA_TC/" rel="noopener" target="_blank">
-<button class="download-button" data-i18n="web.qatc.go">바로가기</button>
-</a>
-</div>
-<div class="project-card">
 <h3 data-i18n="web.petguide.title">펫 가이드</h3>
 <p class="wrap-readable" data-i18n="web.petguide.desc">
     반려견·반려묘 품종 정보, 위험 음식 검색, 입양 전 체크리스트, 맞춤 추천, 지식 테스트, 위급 응급처치 영상까지 한 곳에서 확인할 수 있는 반려동물 통합 학습 가이드입니다.
@@ -988,10 +979,13 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <!-- QA Automation -->
 <div class="content-section" id="qa-automation" style="display:none;">
-<h2><span data-lang="ko">자동화 QA / TC</span><span data-lang="en" style="display:none;">Automation QA / TC</span></h2>
+<h2><span data-lang="ko">QA / TC 관련 웹사이트</span><span data-lang="en" style="display:none;">QA / TC Related Websites</span></h2>
 
-<div class="tabs qa-main-tabs" role="tablist" aria-label="QA 자동화 및 TC 분류">
-  <button class="tab-btn active" role="tab" aria-selected="true" data-qsub="qa-sub-auto">
+<div class="tabs qa-main-tabs" role="tablist" aria-label="QA / TC 관련 웹사이트 분류">
+  <button class="tab-btn active" role="tab" aria-selected="true" data-qsub="qa-sub-qa">
+    <span data-lang="ko">QA</span><span data-lang="en" style="display:none;">QA</span>
+  </button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-qsub="qa-sub-auto">
     <span data-lang="ko">자동화 QA</span><span data-lang="en" style="display:none;">Automation QA</span>
   </button>
   <button class="tab-btn" role="tab" aria-selected="false" data-qsub="qa-sub-tc">
@@ -999,7 +993,44 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   </button>
 </div>
 
-<div class="qa-sub-panel" id="qa-sub-auto">
+<div class="qa-sub-panel" id="qa-sub-qa">
+  <div class="project-card steam-qa-card">
+    <h3>
+      <span data-lang="ko">QA TC 정리기</span><span data-lang="en" style="display:none;">QA TC Organizer</span>
+    </h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">QA 업무에서 작성하는 테스트 케이스(TC)를 빠르게 정리할 수 있는 웹 도구입니다. 일감 원문을 붙여넣으면 상세 설명, 재현 스텝, 기대결과를 유형별로 분석해 실무에서 바로 확인하기 좋은 형태로 출력합니다.</span>
+      <span data-lang="en" style="display:none;">This web tool helps organize QA test cases quickly. Paste the original task text, and it analyzes the details, reproduction steps, and expected results by type, then outputs them in a practical format for QA work.</span>
+    </p>
+    <ul class="resume-list steam-qa-list">
+      <li>
+        <strong><span data-lang="ko">주요 기능</span><span data-lang="en" style="display:none;">Main Features</span></strong> :
+        <span data-lang="ko">일감 원문 분석, 상세 설명 정리, 재현 스텝 구성, 기대결과 자동 정리</span>
+        <span data-lang="en" style="display:none;">task text analysis, detail cleanup, reproduction step structuring, and expected result organization</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">활용 범위</span><span data-lang="en" style="display:none;">Use Scope</span></strong> :
+        <span data-lang="ko">QA 테스트 케이스 작성, 이슈 확인 전 사전 정리, 검증 흐름 문서화, 반복 정리 업무 단축</span>
+        <span data-lang="en" style="display:none;">QA test case writing, pre-check organization, validation flow documentation, and repetitive cleanup reduction</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">출력 방식</span><span data-lang="en" style="display:none;">Output Format</span></strong> :
+        <span data-lang="ko">상황에 따라 단계형 스텝과 요약형 설명을 구분해 깔끔하게 정리</span>
+        <span data-lang="en" style="display:none;">organizes content into clear step-based or summary-based output depending on the case</span>
+      </li>
+      <li>
+        <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+        <span data-lang="ko">QA 문서 작성 속도 개선, TC 품질 표준화, 개발자와 QA 담당자가 바로 이해할 수 있는 검증 자료 생성</span>
+        <span data-lang="en" style="display:none;">improves QA documentation speed, standardizes TC quality, and creates validation notes that developers and QA members can understand quickly</span>
+      </li>
+    </ul>
+    <a class="download-button steam-qa-link" href="https://gw0212.github.io/QA_TC/" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ko">QA TC 정리기 바로가기</span><span data-lang="en" style="display:none;">Open QA TC Organizer</span>
+    </a>
+  </div>
+</div>
+
+<div class="qa-sub-panel" id="qa-sub-auto" hidden>
 <div class="tabs qa-child-tabs" role="tablist" aria-label="자동화 QA 상세 탭">
   <button class="tab-btn active" role="tab" aria-selected="true" data-qtab="qa-tab-web-inspector">
     <span data-lang="ko">🌐 Web QA Auto Inspector</span><span data-lang="en" style="display:none;">🌐 Web QA Auto Inspector</span>
@@ -2184,7 +2215,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 'web.dyk.title': '그거 아세요?',
 'web.dyk.desc': '사람들이 잘 알지 못하는 사실을 알려드립니다. 총 100가지 사실이 랜덤으로 나오며 Space 버튼 혹은 놀라운 사실 버튼 클릭 시 새로운 사실이 나오는 형식입니다. 다크/라이트 모드 설정이 가능하며 추후에 더 많은 놀라운 사실들을 추가 할 예정입니다. 재밌게 봐주세요',
 
-'languages.h2':'개발 언어 · QA 협업 · 개발 툴',
+'languages.h2':'사용 가능 언어 · 툴',
 'languages.tab.langs':'언어',
 'languages.tab.tools':'사용 가능 툴',
 
@@ -2248,7 +2279,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 
       'menu.resume':'이력서 요약',
       'menu.intro':'자기소개',
-      'menu.languages':'개발 언어 · QA 협업 · 개발 툴',
+      'menu.languages':'사용 가능 언어 · 툴',
       'menu.projects':'프로그램, 게임',
       'menu.extensions':'1인 개발 작품',
             'menu.certificates':'자격증',
@@ -2302,7 +2333,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'intro.p11':'그 질문이 내가 개발을 이어가는 이유이고, 그 답을 찾아 세상과 연결되는 것이 내가 이 일을 사랑하는 방식이다.',
 
       // Languages / Tools
-      'languages.h2':'개발 언어 · QA 협업 · 개발 툴',
+      'languages.h2':'사용 가능 언어 · 툴',
       'languages.sub.langs':'언어',
       'languages.sub.tools':'사용 가능 툴',
       'languages.tools.chrome':'크롬 확장 프로그램 개발 환경 (Manifest v3)',
@@ -2563,8 +2594,8 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 
 
     // === English label overrides ===
-    i18n.en['menu.languages'] = 'Dev Languages · QA · Dev Tools';
-    i18n.en['languages.h2'] = 'Dev Languages · QA · Dev Tools';
+    i18n.en['menu.languages'] = 'Available Languages · Tools';
+    i18n.en['languages.h2'] = 'Available Languages · Tools';
     i18n.en['languages.sub.langs'] = 'Language';
     i18n.en['languages.sub.tools'] = 'Tools';
     i18n.en['languages.tools.chrome'] = 'Chrome Extension Dev Environment (Manifest v3)';
@@ -4437,8 +4468,26 @@ function updateResumeSummaryStats() {
 
   const lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ko';
 
+  const countDirectProjectCards = (selector) => {
+    const panel = document.querySelector(selector);
+    if (!panel) return 0;
+    return Array.from(panel.children).filter((node) => {
+      return node.classList && node.classList.contains('project-card');
+    }).length;
+  };
+  const countAutomationQaWebsites = () => {
+    const autoPanel = document.getElementById('qa-sub-auto');
+    if (!autoPanel) return 0;
+    const tabCount = autoPanel.querySelectorAll('.qa-child-tabs [data-qtab]').length;
+    if (tabCount > 0) return tabCount;
+    return autoPanel.querySelectorAll('.qa-tab-panel .project-card').length;
+  };
+
   const extCount = parseCount('[data-count-for="work-panel-extensions"]');
-  const webCount = parseCount('[data-count-for="work-panel-web"]') + parseCount('[data-count-for="work-panel-pcgame"]');
+  const webCount = parseCount('[data-count-for="work-panel-web"]')
+    + parseCount('[data-count-for="work-panel-pcgame"]')
+    + countDirectProjectCards('#qa-sub-qa')
+    + countAutomationQaWebsites();
 
   const extEl = document.getElementById('resume-count-extensions');
   const webEl = document.getElementById('resume-count-websites');
@@ -4713,10 +4762,10 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   try {
     const langMenuBtn = document.querySelector('.menu-button[data-i18n="menu.languages"]');
-    if (langMenuBtn) langMenuBtn.textContent = '개발 언어 · QA 협업 · 개발 툴';
+    if (langMenuBtn) langMenuBtn.textContent = '사용 가능 언어 · 툴';
 
     const langTitle = document.querySelector('#languages h2');
-    if (langTitle) langTitle.textContent = '개발 언어 · QA 협업 · 개발 툴';
+    if (langTitle) langTitle.textContent = '사용 가능 언어 · 툴';
 
     const tabWrap = document.querySelector('#languages .tabs');
     const panels = document.querySelectorAll('#languages .tab-panel');
@@ -4846,14 +4895,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (langMenuBtn) {
       langMenuBtn.textContent = lang === 'en'
-        ? 'Dev Languages · QA · Dev Tools'
-        : '개발 언어 · QA 협업 · 개발 툴';
+        ? 'Available Languages · Tools'
+        : '사용 가능 언어 · 툴';
     }
 
     if (langTitle) {
       langTitle.textContent = lang === 'en'
-        ? 'Dev Languages · QA · Dev Tools'
-        : '개발 언어 · QA 협업 · 개발 툴';
+        ? 'Available Languages · Tools'
+        : '사용 가능 언어 · 툴';
     }
 
     tabWrap.innerHTML = lang === 'en'
