@@ -147,7 +147,7 @@
 </a>
 <ul class="resume-list">
 <li><strong data-i18n="resume.work.chrome">크롬 확장 프로그램</strong> <span id="resume-count-extensions">39개</span></li>
-<li><strong data-i18n="resume.work.website">웹사이트</strong> <span id="resume-count-websites">34개</span></li>
+<li><strong data-i18n="resume.work.website">웹사이트</strong> <span id="resume-count-websites">35개</span></li>
 <li><strong data-i18n="resume.work.program">윈도우 프로그램</strong> <span id="resume-count-programs">2개</span></li>
 <li><strong data-i18n="resume.work.game">유니티 게임</strong> <span id="resume-count-games">1개</span></li>
 </ul>
@@ -659,6 +659,15 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 </div>
 <div class="tab-panel" hidden="" id="work-panel-web" role="tabpanel">
+<div class="project-card">
+<h3 data-i18n="web.textract.title">TEXTRACT</h3>
+<p class="wrap-readable" data-i18n="web.textract.desc">
+    TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.
+  </p>
+<a href="https://gw0212.github.io/TEXTRACT/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.textract.go">바로가기</button>
+</a>
+</div>
 <div class="project-card">
 <h3 data-i18n="web.cinefinder.title">cinefinder</h3>
 <p class="wrap-readable" data-i18n="web.cinefinder.desc">
@@ -2056,6 +2065,15 @@ i18n.en['web.pixelcard.title'] = 'Pixel Card';
 i18n.en['web.pixelcard.desc'] = 'A web generator for creating RPG character profile cards in an 8-bit pixel art style. You can freely customize the job, name, stats, and appearance, decorate the card with your preferred background theme, then save it as a PNG or share it through a link.';
 i18n.en['web.pixelcard.go'] = 'Open';
 
+// === TEXTRACT i18n entries ===
+i18n.ko['web.textract.title'] = 'TEXTRACT';
+i18n.ko['web.textract.desc'] = 'TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.';
+i18n.ko['web.textract.go'] = '바로가기';
+i18n.en['web.textract.title'] = 'TEXTRACT';
+i18n.en['web.textract.desc'] = 'TEXTRACT is a web tool that extracts text from uploaded images using Gemini-based AI Vision OCR. It supports full-image recognition as well as drag-select area OCR, plus 22 language options, copy, and TXT download features.';
+i18n.en['web.textract.go'] = 'Open';
+
+
 i18n.ko['web.maplink.title'] = '지도 경로 저장 웹사이트';
 i18n.ko['web.maplink.desc'] = '지도 경로 저장 웹사이트는 네이버 지도와 카카오맵의 길찾기 링크를 손쉽게 저장하고 정리할 수 있는 경로 북마크 도구입니다. 필요한 길찾기 URL을 저장해두면 언제든지 터치 한 번으로 바로 열 수 있으며, 필터·정렬·검색 기능을 통해 여러 경로를 깔끔하게 관리할 수 있습니다.';
 i18n.en['web.maplink.title'] = 'Map Route Saving Website';
@@ -2252,6 +2270,10 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 'web.pixelcard.title': 'Pixel Card',
 'web.pixelcard.desc': '8비트 픽셀 아트 스타일의 RPG 캐릭터 명함 카드를 만드는 웹 생성기입니다. 직업·이름·스탯·외모를 자유롭게 커스터마이징하고, 원하는 배경 테마로 꾸민 뒤 PNG로 저장하거나 링크로 공유할 수 있습니다.',
 'web.pixelcard.go': '바로가기',
+
+'web.textract.title': 'TEXTRACT',
+'web.textract.desc': 'TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.',
+'web.textract.go': '바로가기',
 
 'web.canvas.desc': '연필, 에어브러스, 캘리그래피, 점묘, 스플래터 등 여러가지 도구와 도형을 사용하여 마음대로 캔버스를 색칠하고 PNG로 저장할 수 있습니다. 색상, 투명도, 두께를 설정할 수 있으며 캔버스 초기화 버튼을 통해 빈 캔버스로 리셋이 가능합니다.',
       'web.wmpins.title':'world_map_pins',
@@ -4723,6 +4745,9 @@ document.addEventListener('DOMContentLoaded', function () {
       'web.pixelcard.title':'Pixel Card',
       'web.pixelcard.desc':'A web generator for creating RPG character profile cards in an 8-bit pixel art style. You can freely customize the job, name, stats, and appearance, decorate the card with your preferred background theme, then save it as a PNG or share it through a link.',
       'web.pixelcard.go':'Open',
+      'web.textract.title':'TEXTRACT',
+      'web.textract.desc':'TEXTRACT is a web tool that extracts text from uploaded images using Gemini-based AI Vision OCR. It supports full-image recognition as well as drag-select area OCR, plus 22 language options, copy, and TXT download features.',
+      'web.textract.go':'Open',
       'ext.xvideodownloader.title':'X Video Downloader',
       'ext.xvideodownloader.desc':'A program that lets you use a Twitter (X) video link, choose from the resolutions supported by that video, and download it in your preferred quality.',
       'ext.xvideodownloader.btn':'Open',
@@ -4738,6 +4763,9 @@ document.addEventListener('DOMContentLoaded', function () {
       'web.pixelcard.title':'Pixel Card',
       'web.pixelcard.desc':'8비트 픽셀 아트 스타일의 RPG 캐릭터 명함 카드를 만드는 웹 생성기입니다. 직업·이름·스탯·외모를 자유롭게 커스터마이징하고, 원하는 배경 테마로 꾸민 뒤 PNG로 저장하거나 링크로 공유할 수 있습니다.',
       'web.pixelcard.go':'바로가기',
+      'web.textract.title':'TEXTRACT',
+      'web.textract.desc':'TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.',
+      'web.textract.go':'바로가기',
       'ext.xvideodownloader.title':'X Video Downloader',
       'ext.xvideodownloader.desc':'트위터 (X) 영상 링크를 사용하여 해당 영상에서 지원하는 해상도 중 원하는 해상도를 선택해 영상을 다운로드할 수 있는 프로그램입니다.',
       'ext.xvideodownloader.btn':'바로가기',
