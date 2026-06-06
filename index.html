@@ -6,6 +6,9 @@
 <meta name="twitter:image" content="https://gw0212.github.io/preview_v4.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
 <script>
 (function() {
   var root = document.documentElement;
@@ -20,7 +23,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=lightDefault20260512" rel="stylesheet"/>
+<link href="style.css?v=recentUpdatesLive20260606_1" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH — GENESIS ===== -->
@@ -94,9 +97,8 @@
 <details class="nav-recent-updates">
   <summary><span data-lang="ko">최근 업데이트</span><span data-lang="en" style="display:none;">Recent Updates</span></summary>
   <ul class="nav-recent-update-list">
-    <li><strong>2026.05.27</strong><span data-lang="ko"> QA / TC 관련 웹사이트 메뉴 개편 및 QA 탭 추가</span><span data-lang="en" style="display:none;"> Reorganized QA / TC related websites and added the QA tab</span></li>
-    <li><strong>2026.05.27</strong><span data-lang="ko"> QA TC 정리기를 QA 탭으로 이동하고 웹사이트 개수 합산 반영</span><span data-lang="en" style="display:none;"> Moved QA TC Organizer into the QA tab and reflected it in website counts</span></li>
-    <li><strong>2026.05.27</strong><span data-lang="ko"> Playwright QA 자동화 명칭 변경 및 버튼명/HTML 안정화</span><span data-lang="en" style="display:none;"> Renamed Playwright QA Automation and polished button labels / HTML stability</span></li>
+    <li><strong>2026.06.06</strong><span data-lang="ko"> 최근 업데이트를 최신 2개만 표시하도록 정리</span><span data-lang="en" style="display:none;"> Limited Recent Updates to show only the two latest items</span></li>
+    <li><strong>2026.06.06</strong><span data-lang="ko"> 최근 업데이트 실시간 갱신 및 화살표 중앙 정렬 개선</span><span data-lang="en" style="display:none;"> Improved live refresh for Recent Updates and centered the arrow alignment</span></li>
   </ul>
 </details>
 <p class="name" data-i18n="card.name">Geun Woo KIM</p>
@@ -5938,6 +5940,103 @@ document.addEventListener('DOMContentLoaded', function(){
     improveGenericButtonLabels();
   }
   window.addEventListener('load', improveGenericButtonLabels);
+})();
+</script>
+
+<script>
+/* ── Recent Updates Live Refresh : GitHub Pages cache-safe polling ── */
+(function () {
+  var REFRESH_MS = 15000;
+
+  function normalizedHTML(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function currentLang() {
+    var active = document.querySelector('.lang-btn.active');
+    var lang = (active && active.dataset && active.dataset.lang) ||
+               document.documentElement.getAttribute('data-lang') ||
+               document.documentElement.lang || 'ko';
+    return String(lang).toLowerCase().startsWith('en') ? 'en' : 'ko';
+  }
+
+
+  function limitRecentUpdatesToLatestTwo(root) {
+    if (!root) return;
+    var items = root.querySelectorAll('.nav-recent-update-list li');
+    items.forEach(function (item, index) {
+      if (index >= 2) item.remove();
+    });
+  }
+
+  function reapplyRecentUpdateLanguage() {
+    var lang = currentLang();
+    if (typeof window.setLanguage === 'function') {
+      window.setLanguage(lang);
+      return;
+    }
+    if (typeof window.applyTranslations === 'function') {
+      window.applyTranslations(lang);
+      return;
+    }
+    document.querySelectorAll('.nav-recent-updates [data-lang]').forEach(function (el) {
+      el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+  }
+
+  async function refreshRecentUpdates() {
+    var current = document.querySelector('.nav-recent-updates');
+    if (!current || document.hidden) return;
+    limitRecentUpdatesToLatestTwo(current);
+
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set('gw_recent_updates', Date.now().toString());
+
+      var response = await fetch(url.toString(), {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache'
+        }
+      });
+      if (!response.ok) return;
+
+      var html = await response.text();
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var latest = doc.querySelector('.nav-recent-updates');
+      if (!latest) return;
+      limitRecentUpdatesToLatestTwo(latest);
+
+      var nextHTML = latest.innerHTML;
+      if (normalizedHTML(nextHTML) && normalizedHTML(nextHTML) !== normalizedHTML(current.innerHTML)) {
+        var wasOpen = current.hasAttribute('open');
+        current.innerHTML = nextHTML;
+        if (wasOpen) current.setAttribute('open', '');
+        else current.removeAttribute('open');
+        reapplyRecentUpdateLanguage();
+      }
+    } catch (e) {
+      // GitHub Pages/CDN or offline preview errors are ignored silently.
+    }
+  }
+
+  function initRecentUpdatesLiveRefresh() {
+    if (!document.querySelector('.nav-recent-updates')) return;
+    limitRecentUpdatesToLatestTwo(document.querySelector('.nav-recent-updates'));
+    setTimeout(refreshRecentUpdates, 1200);
+    setInterval(refreshRecentUpdates, REFRESH_MS);
+    window.addEventListener('focus', refreshRecentUpdates);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) refreshRecentUpdates();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRecentUpdatesLiveRefresh, { once: true });
+  } else {
+    initRecentUpdatesLiveRefresh();
+  }
 })();
 </script>
 
