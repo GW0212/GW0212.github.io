@@ -662,6 +662,15 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <div class="tab-panel" hidden="" id="work-panel-web" role="tabpanel">
 <div class="project-card">
+<h3 data-i18n="web.depression.title">마음 진단</h3>
+<p class="wrap-readable" data-i18n="web.depression.desc">
+    마음 진단은 100개 문항 중 30개를 무작위로 선별해 사용자의 현재 감정·심리 상태를 5단계 척도로 확인하는 자가진단 웹사이트입니다. 약 5분 내에 결과 보고서, 점수 분포, 주요 관찰 증상, 감정 기록 등을 확인할 수 있습니다.
+  </p>
+<a href="https://gw0212.github.io/depression_test/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.depression.go">바로가기</button>
+</a>
+</div>
+<div class="project-card">
 <h3 data-i18n="web.textract.title">TEXTRACT</h3>
 <p class="wrap-readable" data-i18n="web.textract.desc">
     TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.
@@ -2068,6 +2077,15 @@ i18n.en['web.pixelcard.title'] = 'Pixel Card';
 i18n.en['web.pixelcard.desc'] = 'A web generator for creating RPG character profile cards in an 8-bit pixel art style. You can freely customize the job, name, stats, and appearance, decorate the card with your preferred background theme, then save it as a PNG or share it through a link.';
 i18n.en['web.pixelcard.go'] = 'Open';
 
+
+// === Depression Test i18n entries ===
+i18n.ko['web.depression.title'] = '마음 진단';
+i18n.ko['web.depression.desc'] = '마음 진단은 100개 문항 중 30개를 무작위로 선별해 사용자의 현재 감정·심리 상태를 5단계 척도로 확인하는 자가진단 웹사이트입니다. 약 5분 내에 결과 보고서, 점수 분포, 주요 관찰 증상, 감정 기록 등을 확인할 수 있습니다.';
+i18n.ko['web.depression.go'] = '바로가기';
+i18n.en['web.depression.title'] = 'Depression Test';
+i18n.en['web.depression.desc'] = 'Depression Test is a self-assessment website that randomly selects 30 questions from a pool of 100 and checks the user’s current emotional and psychological state on a five-point scale. Within about five minutes, users can review a result report, score distribution, key observed symptoms, and emotion records.';
+i18n.en['web.depression.go'] = 'Open';
+
 // === TEXTRACT i18n entries ===
 i18n.ko['web.textract.title'] = 'TEXTRACT';
 i18n.ko['web.textract.desc'] = 'TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.';
@@ -2273,6 +2291,10 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
 'web.pixelcard.title': 'Pixel Card',
 'web.pixelcard.desc': '8비트 픽셀 아트 스타일의 RPG 캐릭터 명함 카드를 만드는 웹 생성기입니다. 직업·이름·스탯·외모를 자유롭게 커스터마이징하고, 원하는 배경 테마로 꾸민 뒤 PNG로 저장하거나 링크로 공유할 수 있습니다.',
 'web.pixelcard.go': '바로가기',
+
+'web.depression.title': '마음 진단',
+'web.depression.desc': '마음 진단은 100개 문항 중 30개를 무작위로 선별해 사용자의 현재 감정·심리 상태를 5단계 척도로 확인하는 자가진단 웹사이트입니다. 약 5분 내에 결과 보고서, 점수 분포, 주요 관찰 증상, 감정 기록 등을 확인할 수 있습니다.',
+'web.depression.go': '바로가기',
 
 'web.textract.title': 'TEXTRACT',
 'web.textract.desc': 'TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.',
@@ -4748,6 +4770,9 @@ document.addEventListener('DOMContentLoaded', function () {
       'web.pixelcard.title':'Pixel Card',
       'web.pixelcard.desc':'A web generator for creating RPG character profile cards in an 8-bit pixel art style. You can freely customize the job, name, stats, and appearance, decorate the card with your preferred background theme, then save it as a PNG or share it through a link.',
       'web.pixelcard.go':'Open',
+      'web.depression.title':'Depression Test',
+      'web.depression.desc':'Depression Test is a self-assessment website that randomly selects 30 questions from a pool of 100 and checks the user’s current emotional and psychological state on a five-point scale. Within about five minutes, users can review a result report, score distribution, key observed symptoms, and emotion records.',
+      'web.depression.go':'Open',
       'web.textract.title':'TEXTRACT',
       'web.textract.desc':'TEXTRACT is a web tool that extracts text from uploaded images using Gemini-based AI Vision OCR. It supports full-image recognition as well as drag-select area OCR, plus 22 language options, copy, and TXT download features.',
       'web.textract.go':'Open',
@@ -4766,6 +4791,9 @@ document.addEventListener('DOMContentLoaded', function () {
       'web.pixelcard.title':'Pixel Card',
       'web.pixelcard.desc':'8비트 픽셀 아트 스타일의 RPG 캐릭터 명함 카드를 만드는 웹 생성기입니다. 직업·이름·스탯·외모를 자유롭게 커스터마이징하고, 원하는 배경 테마로 꾸민 뒤 PNG로 저장하거나 링크로 공유할 수 있습니다.',
       'web.pixelcard.go':'바로가기',
+      'web.depression.title':'마음 진단',
+      'web.depression.desc':'마음 진단은 100개 문항 중 30개를 무작위로 선별해 사용자의 현재 감정·심리 상태를 5단계 척도로 확인하는 자가진단 웹사이트입니다. 약 5분 내에 결과 보고서, 점수 분포, 주요 관찰 증상, 감정 기록 등을 확인할 수 있습니다.',
+      'web.depression.go':'바로가기',
       'web.textract.title':'TEXTRACT',
       'web.textract.desc':'TEXTRACT는 이미지를 업로드하면 Gemini 기반 AI Vision OCR로 이미지 속 텍스트를 추출해주는 웹 도구입니다. 이미지 전체 인식은 물론, 사용자가 드래그로 특정 영역만 선택해 텍스트를 판독할 수 있으며 22개 언어 선택과 복사/TXT 다운로드 기능을 지원합니다.',
       'web.textract.go':'바로가기',
