@@ -86,7 +86,7 @@
 <button class="menu-button" data-i18n="menu.resume" onclick="showContent('resume')">이력서 요약</button><button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
-<button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">QA / TC 관련 웹사이트</span><span data-lang="en" style="display:none;">QA / TC Related Websites</span></button>
+<button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">업무 관련 프로그램 / 웹사이트</span><span data-lang="en" style="display:none;">Work-related Programs / Websites</span></button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
 <button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">사용 가능 언어 · 툴</button>
@@ -745,6 +745,42 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </a>
 </div>
 <div class="project-card">
+<h3 data-i18n="web.qatc.title">QA TC 정리기</h3>
+<p class="wrap-readable" data-i18n="web.qatc.desc">
+    QA 업무에서 작성하는 테스트 케이스를 빠르게 정리해주는 웹 도구입니다. 일감 원문을 붙여넣으면 상세 설명, 재현 스텝, 기대결과를 유형별로 정리해 실무에서 바로 쓰기 좋은 형태로 출력합니다.
+  </p>
+<a href="https://gw0212.github.io/QA_TC/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.qatc.go">바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="web.webqa.title">Web QA Auto Inspector</h3>
+<p class="wrap-readable" data-i18n="web.webqa.desc">
+    웹사이트 URL을 입력하면 링크, 접근성, 성능, 메타데이터 등 기본 품질 항목을 자동 점검하는 웹 QA 도구입니다. 검사 결과를 PASS/WARN/FAIL 기준으로 정리해 QA 리포트 작성과 개선 포인트 파악에 활용할 수 있습니다.
+  </p>
+<a href="https://gw0212.github.io/Web_QA_Auto_Inspector/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.webqa.go">바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="web.steamqa.title">Steam 게임 페이지</h3>
+<p class="wrap-readable" data-i18n="web.steamqa.desc">
+    Steam Store URL, AppID, 게임명을 기반으로 게임 페이지의 핵심 정보를 자동 점검하는 QA 대시보드입니다. 썸네일, 가격, 태그, 설명, 출시일 등 게임 페이지 품질 확인 흐름을 한 화면에서 볼 수 있습니다.
+  </p>
+<a href="https://gw0212.github.io/steam_qa/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.steamqa.go">바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="web.playwrightqa.title">Playwright QA 자동화</h3>
+<p class="wrap-readable" data-i18n="web.playwrightqa.desc">
+    Playwright와 TypeScript 기반으로 E2E, API, Visual Regression 테스트 흐름을 정리한 QA 자동화 포트폴리오입니다. 실제 브라우저 조작, 테스트 케이스 구성, 리포트 확인까지 자동화 QA 구조를 보여줍니다.
+  </p>
+<a href="https://gw0212.github.io/qa-automation-portfolio/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.playwrightqa.go">바로가기</button>
+</a>
+</div>
+<div class="project-card">
 <h3 data-i18n="web.pixelcard.title">Pixel Card</h3>
 <p class="wrap-readable" data-i18n="web.pixelcard.desc">
     8비트 픽셀 아트 스타일의 RPG 캐릭터 명함 카드를 만드는 웹 생성기입니다. 직업·이름·스탯·외모를 자유롭게 커스터마이징하고, 원하는 배경 테마로 꾸민 뒤 PNG로 저장하거나 링크로 공유할 수 있습니다.
@@ -1045,9 +1081,54 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <!-- QA Automation -->
 <div class="content-section" id="qa-automation" style="display:none;">
-<h2><span data-lang="ko">QA / TC 관련 웹사이트</span><span data-lang="en" style="display:none;">QA / TC Related Websites</span></h2>
+<h2><span data-lang="ko">업무 관련 프로그램 / 웹사이트</span><span data-lang="en" style="display:none;">Work-related Programs / Websites</span></h2>
 
-<div class="tabs qa-main-tabs" role="tablist" aria-label="QA / TC 관련 웹사이트 분류">
+<div class="tabs qa-work-tabs" role="tablist" aria-label="업무 관련 프로그램 / 웹사이트 분류">
+  <button class="tab-btn active" role="tab" aria-selected="true" data-qwork="qa-work-extensions">
+    <span data-lang="ko">크롬 확장 프로그램</span><span data-lang="en" style="display:none;">Chrome Extensions</span>
+  </button>
+  <button class="tab-btn" role="tab" aria-selected="false" data-qwork="qa-work-websites">
+    <span data-lang="ko">웹사이트</span><span data-lang="en" style="display:none;">Websites</span>
+  </button>
+</div>
+
+<div class="qa-work-panel" id="qa-work-extensions" role="tabpanel">
+  <div class="project-card steam-qa-card">
+    <h3><span data-lang="ko">Auto Start Tabs</span><span data-lang="en" style="display:none;">Auto Start Tabs</span></h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">QA 업무 시작 시 Jira, Confluence, 테스트 환경, 스프레드시트 등 자주 쓰는 페이지를 한 번에 열어주는 크롬 확장 프로그램입니다. 반복 접속 시간을 줄이고, 매일 동일한 검증 환경을 빠르게 세팅하는 데 활용할 수 있습니다.</span>
+      <span data-lang="en" style="display:none;">A Chrome extension that opens frequently used QA pages such as Jira, Confluence, test environments, and spreadsheets at once when starting work. It reduces repetitive setup time and helps build a consistent daily QA workspace.</span>
+    </p>
+    <a class="download-button steam-qa-link" href="https://chromewebstore.google.com/detail/knbadjgpompmgodchjgdiolkmfmcjfph?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ko">프로그램 다운로드 바로가기</span><span data-lang="en" style="display:none;">Download Program</span>
+    </a>
+  </div>
+
+  <div class="project-card steam-qa-card">
+    <h3><span data-lang="ko">RegionShot - 단축키 캡쳐</span><span data-lang="en" style="display:none;">RegionShot - Shortcut Capture</span></h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">버그 화면이나 UI 깨짐 구간을 단축키로 빠르게 영역 캡쳐할 수 있는 크롬 확장 프로그램입니다. 이슈 등록 시 재현 화면을 즉시 첨부해 개발자가 문제 지점을 더 빠르게 파악하도록 도와줍니다.</span>
+      <span data-lang="en" style="display:none;">A Chrome extension for quickly capturing bug screens or broken UI areas with a shortcut. It helps QA attach clear reproduction evidence to issue reports so developers can identify the problem faster.</span>
+    </p>
+    <a class="download-button steam-qa-link" href="https://chromewebstore.google.com/detail/cmdljodidfhifgepennkihialidddipa?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ko">프로그램 다운로드 바로가기</span><span data-lang="en" style="display:none;">Download Program</span>
+    </a>
+  </div>
+
+  <div class="project-card steam-qa-card">
+    <h3><span data-lang="ko">Sheets Middle-Click Copy</span><span data-lang="en" style="display:none;">Sheets Middle-Click Copy</span></h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">구글 스프레드시트에서 선택한 셀 내용을 마우스 휠 클릭만으로 복사할 수 있는 크롬 확장 프로그램입니다. TC, 결함 목록, 검증 결과를 반복 복사하는 QA 문서 작업 속도를 줄이는 데 유용합니다.</span>
+      <span data-lang="en" style="display:none;">A Chrome extension that copies selected Google Sheets cell content with a middle mouse click. It is useful for speeding up QA documentation tasks that involve repeatedly copying test cases, defect lists, and verification results.</span>
+    </p>
+    <a class="download-button steam-qa-link" href="https://chromewebstore.google.com/detail/ldepaicagcgkndeiajkcgppbnejfkmfo?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ko">프로그램 다운로드 바로가기</span><span data-lang="en" style="display:none;">Download Program</span>
+    </a>
+  </div>
+</div>
+
+<div class="qa-work-panel" id="qa-work-websites" role="tabpanel" hidden>
+<div class="tabs qa-main-tabs" role="tablist" aria-label="웹사이트 업무 탭">
   <button class="tab-btn active" role="tab" aria-selected="true" data-qsub="qa-sub-qa">
     <span data-lang="ko">QA</span><span data-lang="en" style="display:none;">QA</span>
   </button>
@@ -1060,6 +1141,19 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 
 <div class="qa-sub-panel" id="qa-sub-qa">
+  <div class="project-card steam-qa-card">
+    <h3>
+      <span data-lang="ko">TEXTRACT</span><span data-lang="en" style="display:none;">TEXTRACT</span>
+    </h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">이미지 속 텍스트를 Gemini Vision OCR로 추출하고, 필요한 영역만 드래그해 판독할 수 있는 웹 도구입니다. QA 업무에서는 기획서 이미지, 오류 화면, 스크린샷 속 문구를 빠르게 텍스트화해 이슈 작성과 TC 정리에 활용할 수 있습니다.</span>
+      <span data-lang="en" style="display:none;">A web tool that extracts text from images using Gemini Vision OCR and can read only a selected dragged area. In QA work, it helps convert planning screenshots, error screens, and UI text into editable text for issue reports and TC organization.</span>
+    </p>
+    <a class="download-button steam-qa-link" href="https://gw0212.github.io/TEXTRACT/" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ko">웹사이트 바로가기</span><span data-lang="en" style="display:none;">Open Website</span>
+    </a>
+  </div>
+
   <div class="project-card steam-qa-card">
     <h3>
       <span data-lang="ko">QA TC 정리기</span><span data-lang="en" style="display:none;">QA TC Organizer</span>
@@ -1091,7 +1185,7 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
       </li>
     </ul>
     <a class="download-button steam-qa-link" href="https://gw0212.github.io/QA_TC/" target="_blank" rel="noopener noreferrer">
-      <span data-lang="ko">QA TC 정리기 바로가기</span><span data-lang="en" style="display:none;">Open QA TC Organizer</span>
+      <span data-lang="ko">웹사이트 바로가기</span><span data-lang="en" style="display:none;">Open Website</span>
     </a>
   </div>
 </div>
@@ -1361,6 +1455,7 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
       </a>
     </div>
   </div>
+</div>
 </div>
 </div>
 <!-- Certificates -->
@@ -2089,6 +2184,27 @@ i18n.ko['web.nexusplay.go'] = '바로가기';
 i18n.en['web.nexusplay.title'] = 'Nexus_Play';
 i18n.en['web.nexusplay.desc'] = "NEXUS PLAY is a web service that analyzes the user's taste after they select 10 favorite games and recommends tailored titles. Using Steam-linked data, it also provides objective indicators such as real-time player counts, average playtime, and user ratings. Beyond recommendations, it integrates genre-based browsing, real-time trending games, and bookmark features to strengthen the overall game discovery experience. It is a game recommendation platform that combines personalized recommendations with real-time data-driven exploration.";
 i18n.en['web.nexusplay.go'] = 'Click';
+
+i18n.ko['web.qatc.desc'] = 'QA 업무에서 작성하는 테스트 케이스를 빠르게 정리해주는 웹 도구입니다. 일감 원문을 붙여넣으면 상세 설명, 재현 스텝, 기대결과를 유형별로 정리해 실무에서 바로 쓰기 좋은 형태로 출력합니다.';
+i18n.en['web.qatc.desc'] = 'A web tool for quickly organizing test cases used in QA work. Paste the original task text, and it structures the details, reproduction steps, and expected results into a practical format for real work.';
+i18n.ko['web.webqa.title'] = 'Web QA Auto Inspector';
+i18n.ko['web.webqa.desc'] = '웹사이트 URL을 입력하면 링크, 접근성, 성능, 메타데이터 등 기본 품질 항목을 자동 점검하는 웹 QA 도구입니다. 검사 결과를 PASS/WARN/FAIL 기준으로 정리해 QA 리포트 작성과 개선 포인트 파악에 활용할 수 있습니다.';
+i18n.ko['web.webqa.go'] = '바로가기';
+i18n.en['web.webqa.title'] = 'Web QA Auto Inspector';
+i18n.en['web.webqa.desc'] = 'A web QA tool that automatically checks basic quality items such as links, accessibility, performance, and metadata from a website URL. It organizes results as PASS/WARN/FAIL so they can be used for QA reports and improvement tracking.';
+i18n.en['web.webqa.go'] = 'Open';
+i18n.ko['web.steamqa.title'] = 'Steam 게임 페이지';
+i18n.ko['web.steamqa.desc'] = 'Steam Store URL, AppID, 게임명을 기반으로 게임 페이지의 핵심 정보를 자동 점검하는 QA 대시보드입니다. 썸네일, 가격, 태그, 설명, 출시일 등 게임 페이지 품질 확인 흐름을 한 화면에서 볼 수 있습니다.';
+i18n.ko['web.steamqa.go'] = '바로가기';
+i18n.en['web.steamqa.title'] = 'Steam Game Page';
+i18n.en['web.steamqa.desc'] = 'A QA dashboard that automatically checks key game page information based on a Steam Store URL, AppID, or game title. It shows the game page quality flow for thumbnails, price, tags, descriptions, release date, and more in one screen.';
+i18n.en['web.steamqa.go'] = 'Open';
+i18n.ko['web.playwrightqa.title'] = 'Playwright QA 자동화';
+i18n.ko['web.playwrightqa.desc'] = 'Playwright와 TypeScript 기반으로 E2E, API, Visual Regression 테스트 흐름을 정리한 QA 자동화 포트폴리오입니다. 실제 브라우저 조작, 테스트 케이스 구성, 리포트 확인까지 자동화 QA 구조를 보여줍니다.';
+i18n.ko['web.playwrightqa.go'] = '바로가기';
+i18n.en['web.playwrightqa.title'] = 'Playwright QA Automation';
+i18n.en['web.playwrightqa.desc'] = 'A QA automation portfolio built around Playwright and TypeScript, covering E2E, API, and visual regression test flows. It demonstrates automation QA structure from real browser control to test case design and report review.';
+i18n.en['web.playwrightqa.go'] = 'Open';
 i18n.ko['web.pixelcard.title'] = 'Pixel Card';
 i18n.ko['web.pixelcard.desc'] = '8비트 픽셀 아트 스타일의 RPG 캐릭터 명함 카드를 만드는 웹 생성기입니다. 직업·이름·스탯·외모를 자유롭게 커스터마이징하고, 원하는 배경 테마로 꾸민 뒤 PNG로 저장하거나 링크로 공유할 수 있습니다.';
 i18n.ko['web.pixelcard.go'] = '바로가기';
@@ -4609,9 +4725,7 @@ function updateResumeSummaryStats() {
 
   const extCount = parseCount('[data-count-for="work-panel-extensions"]');
   const webCount = parseCount('[data-count-for="work-panel-web"]')
-    + parseCount('[data-count-for="work-panel-pcgame"]')
-    + countDirectProjectCards('#qa-sub-qa')
-    + countAutomationQaWebsites();
+    + parseCount('[data-count-for="work-panel-pcgame"]');
 
   const extEl = document.getElementById('resume-count-extensions');
   const webEl = document.getElementById('resume-count-websites');
@@ -5173,6 +5287,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function initQaTabs(){
     var sec=document.getElementById('qa-automation');
     if(!sec)return;
+
+    var workTabs=sec.querySelectorAll('[data-qwork]');
+    var workPanels=sec.querySelectorAll('.qa-work-panel');
+    bindTabs(workTabs, workPanels, 'data-qwork');
 
     var subTabs=sec.querySelectorAll('[data-qsub]');
     var subPanels=sec.querySelectorAll('.qa-sub-panel');
