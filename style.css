@@ -2333,79 +2333,20 @@ html.gw-section-switching .content {
   white-space: nowrap;
 }
 
-
-/* ─────────────────────────────────────────────
-   Cross-browser theme lock v2
-   Chrome / Edge / OS 테마와 무관하게 사이트의 data-theme 값만 사용
-───────────────────────────────────────────── */
-html[data-theme="dark"] {
-  color-scheme: dark !important;
-  --bg        : #06090f;
-  --bg-2      : #0a0f1c;
-  --surface   : #0e1628;
-  --surface-2 : #121d32;
-  --surface-3 : #172038;
-  --accent    : #3b82f6;
-  --accent-2  : #60a5fa;
-  --accent-glow: rgba(59,130,246,.28);
-  --accent-dim : rgba(59,130,246,.1);
-  --indigo    : #818cf8;
-  --cyan      : #22d3ee;
-  --text        : #cbd5e1;
-  --text-bright : #f1f5f9;
-  --text-muted  : #64748b;
-  --text-dim    : #2d3a52;
-  --border      : rgba(99,148,255,.12);
-  --border-2    : rgba(99,148,255,.26);
-  --border-nav  : rgba(255,255,255,.06);
-  --shadow-xs : 0 1px 2px rgba(0,0,0,.4);
-  --shadow-sm : 0 2px 10px rgba(0,0,0,.45);
-  --shadow-md : 0 6px 24px rgba(0,0,0,.55);
-  --shadow-lg : 0 16px 48px rgba(0,0,0,.65);
-  --glow-sm   : 0 0 22px rgba(59,130,246,.22);
-  --glow-md   : 0 0 44px rgba(59,130,246,.28);
-  --nav-bg    : rgba(6,9,16,.93);
-  --header-bg : rgba(6,9,16,.86);
-  --card-label : #94a3b8;
-  --card-value : #e2e8f0;
-}
-
-html[data-theme="light"] {
+/* ============================================================
+   FINAL PATCH — Edge/Chrome theme parity
+   - 사이트 토글값(data-theme)만 사용
+   - Edge/Chromium 자동 다크 변환으로 한 번 더 검게 되는 현상 방지
+   ============================================================ */
+html,
+body {
   color-scheme: only light !important;
-  --bg        : #f0f4ff;
-  --bg-2      : #e6ecf8;
-  --surface   : #ffffff;
-  --surface-2 : #f5f8ff;
-  --surface-3 : #eaeffa;
-  --accent    : #2563eb;
-  --accent-2  : #3b82f6;
-  --accent-glow: rgba(37,99,235,.2);
-  --accent-dim : rgba(37,99,235,.09);
-  --indigo    : #6366f1;
-  --cyan      : #0891b2;
-  --text        : #374151;
-  --text-bright : #0f172a;
-  --text-muted  : #6b7280;
-  --text-dim    : #d1d5db;
-  --border      : rgba(37,99,235,.13);
-  --border-2    : rgba(37,99,235,.28);
-  --border-nav  : rgba(0,0,0,.07);
-  --shadow-xs : 0 1px 2px rgba(0,0,0,.07);
-  --shadow-sm : 0 2px 10px rgba(0,0,0,.09);
-  --shadow-md : 0 6px 24px rgba(0,0,0,.11);
-  --shadow-lg : 0 16px 48px rgba(0,0,0,.14);
-  --glow-sm   : 0 0 22px rgba(37,99,235,.16);
-  --glow-md   : 0 0 44px rgba(37,99,235,.2);
-  --nav-bg    : rgba(250,252,255,.94);
-  --header-bg : rgba(245,248,255,.9);
-  --card-label : #6b7280;
-  --card-value : #1e293b;
+  forced-color-adjust: none;
 }
 
 html[data-theme="light"],
 html[data-theme="light"] body,
 body[data-theme="light"] {
-  color-scheme: only light !important;
   background-color: #f0f4ff !important;
   color: #374151 !important;
 }
@@ -2413,32 +2354,23 @@ body[data-theme="light"] {
 html[data-theme="dark"],
 html[data-theme="dark"] body,
 body[data-theme="dark"] {
-  color-scheme: dark !important;
   background-color: #06090f !important;
   color: #cbd5e1 !important;
 }
 
-/* Edge가 prefers-color-scheme: dark를 보내도 화이트 테마에서는 색상 토큰을 다시 고정 */
-@media (prefers-color-scheme: dark) {
-  html[data-theme="light"],
-  html[data-theme="light"] body,
-  body[data-theme="light"] {
-    color-scheme: only light !important;
-    background-color: #f0f4ff !important;
-    color: #374151 !important;
-  }
-
-  html[data-theme="light"] header { background: rgba(245,248,255,.9) !important; }
-  html[data-theme="light"] .nav-menu { background: rgba(250,252,255,.94) !important; }
-  html[data-theme="light"] .content-section { background: #ffffff !important; }
-  html[data-theme="light"] .project-card,
-  html[data-theme="light"] .resume-summary-card,
-  html[data-theme="light"] .resume-block,
-  html[data-theme="light"] .contact-card { background: #f5f8ff !important; }
+html[data-theme="light"] .theme-toggle .icon-dark,
+body[data-theme="light"] .theme-toggle .icon-dark {
+  display: none !important;
 }
-
-/* 아이콘 표시도 data-theme 기준으로 명시 */
-html[data-theme="dark"] .theme-toggle .icon-dark { display: block !important; }
-html[data-theme="dark"] .theme-toggle .icon-light { display: none !important; }
-html[data-theme="light"] .theme-toggle .icon-dark { display: none !important; }
-html[data-theme="light"] .theme-toggle .icon-light { display: block !important; }
+html[data-theme="light"] .theme-toggle .icon-light,
+body[data-theme="light"] .theme-toggle .icon-light {
+  display: block !important;
+}
+html[data-theme="dark"] .theme-toggle .icon-dark,
+body[data-theme="dark"] .theme-toggle .icon-dark {
+  display: block !important;
+}
+html[data-theme="dark"] .theme-toggle .icon-light,
+body[data-theme="dark"] .theme-toggle .icon-light {
+  display: none !important;
+}

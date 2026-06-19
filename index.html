@@ -6,29 +6,24 @@
 <meta name="twitter:image" content="https://gw0212.github.io/preview_v4.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="color-scheme" content="light"/>
+<meta name="color-scheme" content="only light"/>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
 <script>
+/* Edge/Chrome 공통 테마 초기화: 브라우저/OS 다크모드가 아니라 사이트 토글값만 사용 */
 (function() {
-  var STORAGE_KEY = 'gw-theme';
   var root = document.documentElement;
   var savedTheme = null;
-  try { savedTheme = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-
-  // 브라우저/OS/Edge 다크 모드가 아닌 사이트 내부 토글값만 사용합니다.
-  // 첫 방문 또는 값이 깨진 경우에는 항상 화이트 모드로 시작합니다.
-  var theme = (savedTheme === 'dark') ? 'dark' : 'light';
+  try { savedTheme = localStorage.getItem('gw-theme'); } catch (e) {}
+  var theme = savedTheme === 'dark' ? 'dark' : 'light';
 
   root.setAttribute('data-theme', theme);
   root.classList.toggle('theme-dark', theme === 'dark');
   root.classList.toggle('theme-light', theme === 'light');
-  root.style.colorScheme = (theme === 'dark') ? 'dark' : 'light';
-  root.style.backgroundColor = (theme === 'dark') ? '#06090f' : '#f0f4ff';
 
-  var meta = document.querySelector('meta[name="color-scheme"]');
-  if (meta) meta.setAttribute('content', theme === 'dark' ? 'dark' : 'light');
+  /* Edge의 자동 다크/색상 강제 변환 방지 */
+  root.style.setProperty('color-scheme', 'only light', 'important');
 })();
 </script>
 <title>근우의 웹사이트</title>
@@ -36,7 +31,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=edgeThemeFix20260619_v2" rel="stylesheet"/>
+<link href="style.css?v=edgeChromeThemeFinal20260619_4" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH — GENESIS ===== -->
@@ -6112,7 +6107,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 <script>
-/* ── Theme Toggle : Chrome / Edge 동일 동작 고정 v2 ── */
+/* ── Theme Toggle : Edge/Chrome 동일 동작 고정 ── */
 (function() {
   var STORAGE_KEY = 'gw-theme';
   var root = document.documentElement;
@@ -6121,33 +6116,46 @@ document.addEventListener('DOMContentLoaded', function(){
     return value === 'dark' ? 'dark' : 'light';
   }
 
-  function applyTheme(theme, persist) {
-    var normalized = normalizeTheme(theme);
-
-    // 핵심: data-theme를 제거하지 않고 light/dark를 항상 명시합니다.
-    // Edge 다크 모드, OS 다크 모드, Chrome 설정과 무관하게 사이트 토글값만 적용됩니다.
-    root.setAttribute('data-theme', normalized);
-    root.classList.toggle('theme-dark', normalized === 'dark');
-    root.classList.toggle('theme-light', normalized === 'light');
-    root.style.colorScheme = normalized === 'dark' ? 'dark' : 'light';
-    root.style.backgroundColor = normalized === 'dark' ? '#06090f' : '#f0f4ff';
-
+  function lockBrowserAutoDark() {
+    /* Edge/Chromium 자동 다크 처리로 사이트 색상이 한 번 더 어두워지는 현상 방지 */
+    root.style.setProperty('color-scheme', 'only light', 'important');
     if (document.body) {
-      document.body.setAttribute('data-theme', normalized);
-      document.body.style.colorScheme = normalized === 'dark' ? 'dark' : 'light';
+      document.body.style.setProperty('color-scheme', 'only light', 'important');
     }
 
     var meta = document.querySelector('meta[name="color-scheme"]');
-    if (meta) meta.setAttribute('content', normalized === 'dark' ? 'dark' : 'light');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'color-scheme');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'only light');
+  }
 
-    try {
-      if (persist) localStorage.setItem(STORAGE_KEY, normalized);
-    } catch (e) {}
+  function applyTheme(value, shouldSave) {
+    var theme = normalizeTheme(value);
+
+    /* 핵심: dark일 때도 data-theme를 제거하지 않습니다. */
+    root.setAttribute('data-theme', theme);
+    root.classList.toggle('theme-dark', theme === 'dark');
+    root.classList.toggle('theme-light', theme === 'light');
+
+    if (document.body) {
+      document.body.setAttribute('data-theme', theme);
+      document.body.classList.toggle('theme-dark', theme === 'dark');
+      document.body.classList.toggle('theme-light', theme === 'light');
+    }
+
+    lockBrowserAutoDark();
+
+    if (shouldSave) {
+      try { localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+    }
   }
 
   var saved = null;
   try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-  applyTheme(saved === 'dark' ? 'dark' : 'light', false);
+  applyTheme(saved, false);
 
   document.addEventListener('DOMContentLoaded', function() {
     applyTheme(root.getAttribute('data-theme'), false);
@@ -6156,9 +6164,26 @@ document.addEventListener('DOMContentLoaded', function(){
     if (!btn) return;
 
     btn.addEventListener('click', function() {
-      var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      applyTheme(current === 'dark' ? 'light' : 'dark', true);
+      var current = normalizeTheme(root.getAttribute('data-theme'));
+      var next = current === 'light' ? 'dark' : 'light';
+      applyTheme(next, true);
     });
+
+    /* 페이지 복귀/캐시 복원 시 Edge가 색을 다시 건드리는 케이스 방지 */
+    window.addEventListener('pageshow', function() {
+      var current = normalizeTheme(root.getAttribute('data-theme'));
+      applyTheme(current, false);
+    });
+
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) {
+        var current = normalizeTheme(root.getAttribute('data-theme'));
+        applyTheme(current, false);
+      }
+    });
+
+    setTimeout(function() { applyTheme(root.getAttribute('data-theme'), false); }, 50);
+    setTimeout(function() { applyTheme(root.getAttribute('data-theme'), false); }, 300);
   });
 })();
 </script>
