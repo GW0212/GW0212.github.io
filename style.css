@@ -12,6 +12,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 /* ── Tokens : Dark (default) ────────────────── */
 :root {
+  /* 브라우저/OS 자동 다크 변환 방지용 명시 스킴 */
+  color-scheme: dark;
   --header-h : 64px;
   --nav-w    : 290px;
 
@@ -60,8 +62,17 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   --card-value : #e2e8f0;
 }
 
+
+/* Explicit Dark Theme: data-theme를 항상 명시해도 기존 다크 토큰이 유지되도록 고정 */
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 /* ── Tokens : Light ─────────────────────────── */
 html[data-theme="light"] {
+  /* Edge/Chrome의 자동 다크 모드가 화이트 테마 색상을 강제로 반전하지 않도록 고정 */
+  color-scheme: only light;
+
   --bg        : #f0f4ff;
   --bg-2      : #e6ecf8;
   --surface   : #ffffff;
@@ -2331,4 +2342,20 @@ html.gw-section-switching .content {
   margin-right: 5px;
   color: var(--accent-2);
   white-space: nowrap;
+}
+
+
+/* ─────────────────────────────────────────────
+   Cross-browser theme lock
+   - Chrome / Edge / OS 다크 모드와 무관하게 사이트 토글값을 우선합니다.
+   - Edge에서 화이트 모드가 검게 강제 변환되는 현상을 방지합니다.
+───────────────────────────────────────────── */
+html[data-theme="light"],
+html[data-theme="light"] body {
+  color-scheme: only light;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  color-scheme: dark;
 }
