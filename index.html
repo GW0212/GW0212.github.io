@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
-<html lang="ko" data-theme="light">
+<html data-theme="light" lang="ko" style="color-scheme: light;">
 <head>
 <meta property="og:image" content="https://gw0212.github.io/preview_v4.png">
 <meta name="twitter:image" content="https://gw0212.github.io/preview_v4.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="color-scheme" content="light"/>
+<meta name="supported-color-schemes" content="light dark"/>
 <meta name="theme-color" content="#f0f4ff"/>
 <meta name="msapplication-navbutton-color" content="#f0f4ff"/>
 <meta name="msapplication-TileColor" content="#f0f4ff"/>
@@ -25,18 +26,20 @@
   var theme = (savedTheme === 'dark') ? 'dark' : 'light';
   var bgColor = (theme === 'dark') ? '#06090f' : '#f0f4ff';
 
+  // html 태그는 이미 inline style="color-scheme:light"로 시작하므로
+  // 여기서는 저장된 값과 다를 때만(다크 저장 시) 즉시 덮어씁니다.
+  // paint 이전(동기 스크립트)에 처리되어 Edge의 시스템-다크 추정 렌더링을 막습니다.
   root.setAttribute('data-theme', theme);
   root.classList.toggle('theme-dark', theme === 'dark');
   root.classList.toggle('theme-light', theme === 'light');
   root.style.colorScheme = (theme === 'dark') ? 'dark' : 'light';
   root.style.backgroundColor = bgColor;
 
-  var meta = document.querySelector('meta[name="color-scheme"]');
-  if (meta) meta.setAttribute('content', theme === 'dark' ? 'dark' : 'light');
+  var csMeta = document.querySelector('meta[name="color-scheme"]');
+  if (csMeta) csMeta.setAttribute('content', theme === 'dark' ? 'dark' : 'light');
 
-  // Edge는 theme-color meta가 없거나 갱신되지 않으면
+  // Edge는 theme-color meta가 실제 배경과 다르거나 없으면
   // 주소창/타이틀바 색을 자체 추론(라이트=파란색 틴트, 다크=완전 검정)합니다.
-  // 실제 배경색과 항상 동일하게 고정해 Chrome과 동일하게 동작시킵니다.
   ['theme-color', 'msapplication-navbutton-color', 'msapplication-TileColor'].forEach(function(name) {
     var m = document.querySelector('meta[name="' + name + '"]');
     if (m) m.setAttribute('content', bgColor);
@@ -48,7 +51,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=edgeThemeFix20260620_v3" rel="stylesheet"/>
+<link href="style.css?v=edgeThemeFix20260620_v4" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH — GENESIS ===== -->
