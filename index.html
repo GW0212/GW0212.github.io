@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 
-<html data-theme="light" lang="ko" style="color-scheme: light;">
+<html lang="ko" data-theme="light">
 <head>
 <meta property="og:image" content="https://gw0212.github.io/preview_v4.png">
 <meta name="twitter:image" content="https://gw0212.github.io/preview_v4.png">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="color-scheme" content="light"/>
-<meta name="supported-color-schemes" content="light dark"/>
-<meta name="theme-color" content="#f0f4ff"/>
-<meta name="msapplication-navbutton-color" content="#f0f4ff"/>
-<meta name="msapplication-TileColor" content="#f0f4ff"/>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta http-equiv="Expires" content="0"/>
@@ -24,26 +20,15 @@
   // 브라우저/OS/Edge 다크 모드가 아닌 사이트 내부 토글값만 사용합니다.
   // 첫 방문 또는 값이 깨진 경우에는 항상 화이트 모드로 시작합니다.
   var theme = (savedTheme === 'dark') ? 'dark' : 'light';
-  var bgColor = (theme === 'dark') ? '#06090f' : '#f0f4ff';
 
-  // html 태그는 이미 inline style="color-scheme:light"로 시작하므로
-  // 여기서는 저장된 값과 다를 때만(다크 저장 시) 즉시 덮어씁니다.
-  // paint 이전(동기 스크립트)에 처리되어 Edge의 시스템-다크 추정 렌더링을 막습니다.
   root.setAttribute('data-theme', theme);
   root.classList.toggle('theme-dark', theme === 'dark');
   root.classList.toggle('theme-light', theme === 'light');
   root.style.colorScheme = (theme === 'dark') ? 'dark' : 'light';
-  root.style.backgroundColor = bgColor;
+  root.style.backgroundColor = (theme === 'dark') ? '#06090f' : '#f0f4ff';
 
-  var csMeta = document.querySelector('meta[name="color-scheme"]');
-  if (csMeta) csMeta.setAttribute('content', theme === 'dark' ? 'dark' : 'light');
-
-  // Edge는 theme-color meta가 실제 배경과 다르거나 없으면
-  // 주소창/타이틀바 색을 자체 추론(라이트=파란색 틴트, 다크=완전 검정)합니다.
-  ['theme-color', 'msapplication-navbutton-color', 'msapplication-TileColor'].forEach(function(name) {
-    var m = document.querySelector('meta[name="' + name + '"]');
-    if (m) m.setAttribute('content', bgColor);
-  });
+  var meta = document.querySelector('meta[name="color-scheme"]');
+  if (meta) meta.setAttribute('content', theme === 'dark' ? 'dark' : 'light');
 })();
 </script>
 <title>근우의 웹사이트</title>
@@ -51,7 +36,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=edgeThemeFix20260620_v4" rel="stylesheet"/>
+<link href="style.css?v=edgeThemeFix20260619_v2" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH — GENESIS ===== -->
@@ -115,6 +100,7 @@
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
 <button class="menu-button" onclick="showContent('qa-automation')"><span data-lang="ko">업무 관련 프로그램 / 웹사이트</span><span data-lang="en" style="display:none;">Work-related Programs / Websites</span></button>
+<button class="menu-button" onclick="showContent('tc-menu')"><span data-lang="ko">TC</span><span data-lang="en" style="display:none;">TC</span></button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
 <button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">사용 가능 언어 · 툴</button>
@@ -1187,9 +1173,6 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   <button class="tab-btn" role="tab" aria-selected="false" data-qsub="qa-sub-auto">
     <span data-lang="ko">자동화 QA</span><span data-lang="en" style="display:none;">Automation QA</span>
   </button>
-  <button class="tab-btn" role="tab" aria-selected="false" data-qsub="qa-sub-tc">
-    <span data-lang="ko">TC</span><span data-lang="en" style="display:none;">TC</span>
-  </button>
 </div>
 
 <div class="qa-sub-panel" id="qa-sub-qa">
@@ -1437,13 +1420,23 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 </div>
 
-<div class="qa-sub-panel" id="qa-sub-tc" hidden>
+
+</div>
+</div>
+
+<!-- TC Menu -->
+<div class="content-section" id="tc-menu" style="display:none;">
+<h2><span data-lang="ko">TC</span><span data-lang="en" style="display:none;">TC</span></h2>
+<div class="qa-sub-panel" id="qa-sub-tc">
   <div class="tabs qa-child-tabs" role="tablist" aria-label="TC 문서 탭">
     <button class="tab-btn active" role="tab" aria-selected="true" data-qtc="qa-tc-youtube">
       <span data-lang="ko">▶ 유튜브 TC</span><span data-lang="en" style="display:none;">▶ YouTube TC</span>
     </button>
     <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-malhaeboca">
       <span data-lang="ko">💬 말해보카 홈페이지 TC</span><span data-lang="en" style="display:none;">💬 Malhaeboca Homepage TC</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-pokemongo">
+      <span data-lang="ko">🎮 포켓몬고 TC</span><span data-lang="en" style="display:none;">🎮 Pokémon GO TC</span>
     </button>
   </div>
 
@@ -1520,7 +1513,44 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
       </a>
     </div>
   </div>
-</div>
+
+
+  <div class="tc-tab-panel" id="qa-tc-pokemongo" role="tabpanel" hidden>
+    <div class="project-card steam-qa-card">
+      <h3>
+        <span data-lang="ko">포켓몬고 TC</span><span data-lang="en" style="display:none;">Pokémon GO TC</span>
+      </h3>
+      <p class="wrap-readable">
+        <span data-lang="ko">포켓몬고를 대상으로 게임 플레이 흐름, UI 동작, 기능 검증 포인트를 정리한 테스트 케이스 문서입니다. 모바일 게임 QA 관점에서 사용자 행동 기준의 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
+        <span data-lang="en" style="display:none;">This test case sheet organizes validation points for Pokémon GO gameplay flow, UI behavior, and feature checks. It is structured to manage user-action-based test items and results from a mobile game QA perspective.</span>
+      </p>
+      <ul class="resume-list steam-qa-list">
+        <li>
+          <strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">포켓몬고 모바일 게임 내 주요 화면, 플레이 흐름, 버튼/메뉴 동작, 콘텐츠 진입 및 결과 확인 과정</span>
+          <span data-lang="en" style="display:none;">major Pokémon GO mobile game screens, gameplay flow, button/menu behavior, content entry, and result confirmation flow</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">테스트 항목, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 관리</span>
+          <span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">실제 플레이 중 확인 가능한 UI/UX, 기능 동작, 화면 전환, 예외 상황, 사용자 관점의 불편 요소를 테스트 케이스 형태로 정리</span>
+          <span data-lang="en" style="display:none;">organizes UI/UX, feature behavior, screen transitions, edge cases, and user-facing friction points found during real gameplay into TC format</span>
+        </li>
+        <li>
+          <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">모바일 게임 QA 관점의 테스트 설계, 반복 검증, 결과 관리 역량을 보여주는 TC 자료</span>
+          <span data-lang="en" style="display:none;">a TC reference demonstrating mobile game QA test design, repeated validation, and result management capability</span>
+        </li>
+      </ul>
+      <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1NKbcOwschw5Dwmw7j5pg5zf6o3903e-z37LF4x_joIA/edit?pli=1&amp;gid=2015895469#gid=2015895469" target="_blank" rel="noopener noreferrer">
+        <span data-lang="ko">포켓몬고 TC 바로가기</span><span data-lang="en" style="display:none;">Open Pokémon GO TC</span>
+      </a>
+    </div>
+  </div>
 </div>
 </div>
 <!-- Certificates -->
@@ -6138,7 +6168,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function applyTheme(theme, persist) {
     var normalized = normalizeTheme(theme);
-    var bgColor = normalized === 'dark' ? '#06090f' : '#f0f4ff';
 
     // 핵심: data-theme를 제거하지 않고 light/dark를 항상 명시합니다.
     // Edge 다크 모드, OS 다크 모드, Chrome 설정과 무관하게 사이트 토글값만 적용됩니다.
@@ -6146,23 +6175,15 @@ document.addEventListener('DOMContentLoaded', function(){
     root.classList.toggle('theme-dark', normalized === 'dark');
     root.classList.toggle('theme-light', normalized === 'light');
     root.style.colorScheme = normalized === 'dark' ? 'dark' : 'light';
-    root.style.backgroundColor = bgColor;
+    root.style.backgroundColor = normalized === 'dark' ? '#06090f' : '#f0f4ff';
 
     if (document.body) {
       document.body.setAttribute('data-theme', normalized);
       document.body.style.colorScheme = normalized === 'dark' ? 'dark' : 'light';
-      document.body.style.backgroundColor = bgColor;
     }
 
     var meta = document.querySelector('meta[name="color-scheme"]');
     if (meta) meta.setAttribute('content', normalized === 'dark' ? 'dark' : 'light');
-
-    // Edge 주소창/타이틀바 색 추론 방지: theme-color 계열 meta를
-    // 실제 배경색과 항상 일치시켜 Chrome과 동일하게 렌더링되도록 합니다.
-    ['theme-color', 'msapplication-navbutton-color', 'msapplication-TileColor'].forEach(function(name) {
-      var m = document.querySelector('meta[name="' + name + '"]');
-      if (m) m.setAttribute('content', bgColor);
-    });
 
     try {
       if (persist) localStorage.setItem(STORAGE_KEY, normalized);

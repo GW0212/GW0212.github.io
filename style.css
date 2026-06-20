@@ -2335,16 +2335,8 @@ html.gw-section-switching .content {
 
 
 /* ─────────────────────────────────────────────
-   Cross-browser theme lock v3
+   Cross-browser theme lock v2
    Chrome / Edge / OS 테마와 무관하게 사이트의 data-theme 값만 사용
-
-   문제의 본질: Edge는 OS가 다크일 때 "웹 콘텐츠 모양"을
-   시스템 설정에 맞춰 페이지 렌더링 자체에 다크 추정/보정을
-   먼저 걸고, 이후 사이트 CSS가 따라오지 못하면 두 레이어가
-   섞여 보입니다(라이트 화면이 남색으로, 다크 화면이 무채색
-   검정으로 보이는 현상). 따라서 prefers-color-scheme 값과
-   무관하게 data-theme 기준의 변수 전체를 매번 다시 선언해
-   브라우저가 끼어들 여지를 없앱니다.
 ───────────────────────────────────────────── */
 html[data-theme="dark"] {
   color-scheme: dark !important;
@@ -2426,30 +2418,8 @@ body[data-theme="dark"] {
   color: #cbd5e1 !important;
 }
 
-/* OS/Edge가 어떤 prefers-color-scheme 값을 보내든
-   data-theme 기준 변수를 동일한 우선순위로 다시 선언합니다.
-   (한쪽만 재정의하면 반대 조합에서 토큰 누락이 생기므로
-   dark / light 양방향 모두 명시) */
+/* Edge가 prefers-color-scheme: dark를 보내도 화이트 테마에서는 색상 토큰을 다시 고정 */
 @media (prefers-color-scheme: dark) {
-  html[data-theme="light"] {
-    color-scheme: only light !important;
-    --bg        : #f0f4ff !important;
-    --bg-2      : #e6ecf8 !important;
-    --surface   : #ffffff !important;
-    --surface-2 : #f5f8ff !important;
-    --surface-3 : #eaeffa !important;
-    --accent    : #2563eb !important;
-    --accent-2  : #3b82f6 !important;
-    --text        : #374151 !important;
-    --text-bright : #0f172a !important;
-    --text-muted  : #6b7280 !important;
-    --border      : rgba(37,99,235,.13) !important;
-    --border-nav  : rgba(0,0,0,.07) !important;
-    --nav-bg    : rgba(250,252,255,.94) !important;
-    --header-bg : rgba(245,248,255,.9) !important;
-    --card-label : #6b7280 !important;
-    --card-value : #1e293b !important;
-  }
   html[data-theme="light"],
   html[data-theme="light"] body,
   body[data-theme="light"] {
@@ -2457,35 +2427,14 @@ body[data-theme="dark"] {
     background-color: #f0f4ff !important;
     color: #374151 !important;
   }
-}
 
-@media (prefers-color-scheme: light) {
-  html[data-theme="dark"] {
-    color-scheme: dark !important;
-    --bg        : #06090f !important;
-    --bg-2      : #0a0f1c !important;
-    --surface   : #0e1628 !important;
-    --surface-2 : #121d32 !important;
-    --surface-3 : #172038 !important;
-    --accent    : #3b82f6 !important;
-    --accent-2  : #60a5fa !important;
-    --text        : #cbd5e1 !important;
-    --text-bright : #f1f5f9 !important;
-    --text-muted  : #64748b !important;
-    --border      : rgba(99,148,255,.12) !important;
-    --border-nav  : rgba(255,255,255,.06) !important;
-    --nav-bg    : rgba(6,9,16,.93) !important;
-    --header-bg : rgba(6,9,16,.86) !important;
-    --card-label : #94a3b8 !important;
-    --card-value : #e2e8f0 !important;
-  }
-  html[data-theme="dark"],
-  html[data-theme="dark"] body,
-  body[data-theme="dark"] {
-    color-scheme: dark !important;
-    background-color: #06090f !important;
-    color: #cbd5e1 !important;
-  }
+  html[data-theme="light"] header { background: rgba(245,248,255,.9) !important; }
+  html[data-theme="light"] .nav-menu { background: rgba(250,252,255,.94) !important; }
+  html[data-theme="light"] .content-section { background: #ffffff !important; }
+  html[data-theme="light"] .project-card,
+  html[data-theme="light"] .resume-summary-card,
+  html[data-theme="light"] .resume-block,
+  html[data-theme="light"] .contact-card { background: #f5f8ff !important; }
 }
 
 /* 아이콘 표시도 data-theme 기준으로 명시 */
@@ -2493,36 +2442,3 @@ html[data-theme="dark"] .theme-toggle .icon-dark { display: block !important; }
 html[data-theme="dark"] .theme-toggle .icon-light { display: none !important; }
 html[data-theme="light"] .theme-toggle .icon-dark { display: none !important; }
 html[data-theme="light"] .theme-toggle .icon-light { display: block !important; }
-
-/* Edge/시스템 다크모드가 이모지·아이콘에 자체 색 보정을
-   거는 것을 막아 토글 아이콘이 뒤바뀌어 보이지 않게 합니다. */
-.theme-toggle .icon-dark,
-.theme-toggle .icon-light {
-  forced-color-adjust: none;
-  color-scheme: light;
-  filter: none !important;
-}
-
-/* ─────────────────────────────────────────────
-   Edge 전용 보강 (theme-color meta 외 CSS 레벨 고정)
-   - Edge는 color-scheme에 따라 폼 컨트롤·스크롤바·
-     선택 영역 색을 자체 팔레트로 강하게 덮어씌우는 경향이 있어
-     accent-color와 selection 색까지 명시적으로 고정합니다.
-───────────────────────────────────────────── */
-html { color-scheme: light; }
-
-html[data-theme="light"],
-html[data-theme="light"] body {
-  accent-color: #2563eb;
-}
-html[data-theme="dark"],
-html[data-theme="dark"] body {
-  accent-color: #3b82f6;
-}
-
-html[data-theme="light"] ::selection { background: rgba(37,99,235,.22); color: #0f172a; }
-html[data-theme="dark"]  ::selection { background: rgba(59,130,246,.35); color: #f1f5f9; }
-
-/* Edge/Chromium 스크롤바도 테마값 기준 고정 */
-html[data-theme="light"] { scrollbar-color: rgba(37,99,235,.35) #f0f4ff; }
-html[data-theme="dark"]  { scrollbar-color: rgba(99,148,255,.35) #06090f; }
