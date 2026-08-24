@@ -36,7 +36,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=edgeThemeFix20260619_v2" rel="stylesheet"/>
+<link href="style.css?v=tcGrouped20260824_v1" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH — GENESIS ===== -->
@@ -297,6 +297,34 @@ I will continue strengthening my advantages and improving my weaknesses to becom
     </p>
 <a href="https://chromewebstore.google.com/detail/inmhdpabkickpbemmagdhhafkpbmffai?utm_source=item-share-cb" rel="noopener noreferrer" target="_blank">
 <button class="download-button" data-i18n="ext.cinefinder.btn">다운로드 바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="ext.youtubepip.title">Youtube PIP</h3>
+<p class="wrap-readable" data-i18n="ext.youtubepip.desc">유튜브 영상을 크롬 기본 PiP 창으로 띄워 다른 탭이나 창 위에서도 계속 시청할 수 있는 확장 프로그램입니다. PiP에서 재생·일시정지, 앞뒤 5초 이동, 이전·다음 영상 이동을 지원하며 Alt+P 단축키로 빠르게 실행할 수 있습니다.</p>
+<a href="https://chromewebstore.google.com/detail/okpkbiiaagcahdkbbbkifkigpdaindmb?utm_source=item-share-cb" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="ext.youtubepip.btn">Youtube PIP 바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="ext.copysourceremover.title">복사 출처 문구 제거기</h3>
+<p class="wrap-readable" data-i18n="ext.copysourceremover.desc">웹페이지에서 텍스트를 복사할 때 자동으로 따라붙는 출처·광고 문구를 제거해 깔끔한 원문만 복사할 수 있도록 도와주는 확장 프로그램입니다. 복사나 드래그가 제한된 사이트에서도 텍스트 선택과 복사를 사용할 수 있도록 지원합니다.</p>
+<a href="https://chromewebstore.google.com/detail/fmfgdofgmfdgcjchjefanmpcnkcckech?utm_source=item-share-cb" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="ext.copysourceremover.btn">복사 출처 문구 제거기 바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="ext.youtuberepeat.title">Youtube Repeat</h3>
+<p class="wrap-readable" data-i18n="ext.youtuberepeat.desc">유튜브 영상에서 원하는 시작·종료 구간(A~B)을 지정해 해당 부분만 자동으로 반복 재생하는 확장 프로그램입니다. 시·분·초 직접 입력과 현재 재생 위치 지정을 지원하며, 재생바의 S/E 마커와 Alt+L 단축키로 반복 구간을 편리하게 관리할 수 있습니다.</p>
+<a href="https://chromewebstore.google.com/detail/kmfedjliedihnmihmkmgihldbgjkkbad?utm_source=item-share-cb" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="ext.youtuberepeat.btn">Youtube Repeat 바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="ext.reelsdownloader.title">Reels Downloader</h3>
+<p class="wrap-readable" data-i18n="ext.reelsdownloader.desc">인스타그램 릴스 URL을 붙여넣으면 영상을 자동으로 찾아 새 탭에서 미리 확인할 수 있는 다운로드 확장 프로그램입니다. 미리보기 후 간단한 조작으로 MP4 파일을 저장할 수 있으며 Windows 환경의 코덱 충돌을 피하도록 구성되어 있습니다.</p>
+<a href="https://chromewebstore.google.com/detail/iladdlgppdleghgpbpjngikogpooalmf?utm_source=item-share-cb" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="ext.reelsdownloader.btn">Reels Downloader 바로가기</button>
 </a>
 </div>
 <div class="project-card">
@@ -1428,168 +1456,303 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 <div class="content-section" id="tc-menu" style="display:none;">
 <h2><span data-lang="ko">TC</span><span data-lang="en" style="display:none;">TC</span></h2>
 <div class="qa-sub-panel" id="qa-sub-tc">
-  <div class="tabs qa-child-tabs" role="tablist" aria-label="TC 문서 탭">
+  <div class="tabs tc-category-tabs" role="tablist" aria-label="TC 분류 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" data-qtc-category="tc-category-web">
+      <span data-lang="ko">🌐 웹사이트 TC</span><span data-lang="en" style="display:none;">🌐 Website TC</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc-category="tc-category-game">
+      <span data-lang="ko">🎮 게임 TC</span><span data-lang="en" style="display:none;">🎮 Game TC</span>
+    </button>
+  </div>
+
+  <div class="tc-category-panel" id="tc-category-web" role="tabpanel">
+  <div class="tabs tc-sub-tabs" role="tablist" aria-label="웹사이트 TC 상세 탭">
     <button class="tab-btn active" role="tab" aria-selected="true" data-qtc="qa-tc-youtube">
       <span data-lang="ko">▶ 유튜브 TC</span><span data-lang="en" style="display:none;">▶ YouTube TC</span>
-    </button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-malhaeboca">
-      <span data-lang="ko">💬 말해보카 홈페이지 TC</span><span data-lang="en" style="display:none;">💬 Malhaeboca Homepage TC</span>
-    </button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-pokemongo">
-      <span data-lang="ko">🎮 포켓몬고 TC</span><span data-lang="en" style="display:none;">🎮 Pokémon GO TC</span>
     </button>
     <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-naver">
       <span data-lang="ko">🟢 네이버 TC</span><span data-lang="en" style="display:none;">🟢 Naver TC</span>
     </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-coupang">
+      <span data-lang="ko">🛒 쿠팡 TC</span><span data-lang="en" style="display:none;">🛒 Coupang TC</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-malhaeboca">
+      <span data-lang="ko">💬 말해보카 홈페이지 TC</span><span data-lang="en" style="display:none;">💬 Malhaeboca Homepage TC</span>
+    </button>
   </div>
 
-  <div class="tc-tab-panel" id="qa-tc-youtube" role="tabpanel">
-    <div class="project-card steam-qa-card">
-      <h3>
-        <span data-lang="ko">유튜브 TC</span><span data-lang="en" style="display:none;">YouTube TC</span>
-      </h3>
-      <p class="wrap-readable">
-        <span data-lang="ko">PC 크롬 환경에서 유튜브 쇼츠와 롱폼 영상을 직접 확인하며 정리한 테스트 케이스 문서입니다. 화면 녹화 링크, 상세 현상, 결과 상태, 우선순위, 업데이트 일자를 함께 관리해 재현성과 이슈 추적 흐름을 확인할 수 있습니다.</span>
-        <span data-lang="en" style="display:none;">This test case sheet documents YouTube Shorts and long-form video checks in a PC Chrome environment. It organizes screen recording links, issue details, result status, priority, and update dates for reproduction and issue tracking.</span>
-      </p>
-      <ul class="resume-list steam-qa-list">
-        <li>
-          <strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+<div class="tc-tab-panel" id="qa-tc-youtube" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">유튜브 TC</span><span data-lang="en" style="display:none;">YouTube TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">PC 크롬 환경에서 유튜브 쇼츠와 롱폼 영상을 직접 확인하며 정리한 테스트 케이스 문서입니다. 화면 녹화 링크, 상세 현상, 결과 상태, 우선순위, 업데이트 일자를 함께 관리해 재현성과 이슈 추적 흐름을 확인할 수 있습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet documents YouTube Shorts and long-form video checks in a PC Chrome environment. It organizes screen recording links, issue details, result status, priority, and update dates for reproduction and issue tracking.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
           <span data-lang="ko">유튜브 PC 웹, 쇼츠 화면, 롱폼 영상, 댓글 영역, 프로필/뒤로가기, 음성 검색 등 주요 사용자 흐름</span>
-          <span data-lang="en" style="display:none;">YouTube PC web, Shorts, long-form videos, comments, profile/back navigation, voice search, and major user flows</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+<span data-lang="en" style="display:none;">YouTube PC web, Shorts, long-form videos, comments, profile/back navigation, voice search, and major user flows</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
           <span data-lang="ko">구분, 제목, 상세 내용, 영상 링크, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 정리</span>
-          <span data-lang="en" style="display:none;">organized by category, title, details, video link, notes, result, additional comments, priority, and update date</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+<span data-lang="en" style="display:none;">organized by category, title, details, video link, notes, result, additional comments, priority, and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
           <span data-lang="ko">좋아요 버튼 연타 동작, 음성 검색 마이크 아이콘 지연, 쇼츠 화면 빛번짐, 프로필 진입 후 뒤로가기 노출, 댓글 창 닫기/정렬 동작 등 실제 사용 중 발생 가능한 UI·인터랙션 이슈 기록</span>
-          <span data-lang="en" style="display:none;">records practical UI and interaction issues such as repeated Like clicks, delayed voice-search mic indicator, Shorts visual glow, profile/back navigation display, and comment panel close/sort behavior</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+<span data-lang="en" style="display:none;">records practical UI and interaction issues such as repeated Like clicks, delayed voice-search mic indicator, Shorts visual glow, profile/back navigation display, and comment panel close/sort behavior</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
           <span data-lang="ko">사용자 관점의 탐색 테스트, 버그 리포트 작성 역량, 재현 영상 기반 이슈 관리 경험을 보여주는 TC 자료</span>
-          <span data-lang="en" style="display:none;">a TC reference that demonstrates exploratory testing, bug reporting ability, and issue management based on reproduction videos</span>
-        </li>
-      </ul>
-      <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1rQNGB6AOJ_URZhA17ntvWBlVvPp4Oq1YE04ByCc60Uc/edit?gid=2015895469#gid=2015895469" target="_blank" rel="noopener noreferrer">
-        <span data-lang="ko">유튜브 TC 바로가기</span><span data-lang="en" style="display:none;">Open YouTube TC</span>
-      </a>
-    </div>
-  </div>
+<span data-lang="en" style="display:none;">a TC reference that demonstrates exploratory testing, bug reporting ability, and issue management based on reproduction videos</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1rQNGB6AOJ_URZhA17ntvWBlVvPp4Oq1YE04ByCc60Uc/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">유튜브 TC 바로가기</span><span data-lang="en" style="display:none;">Open YouTube TC</span>
+</a>
+</div>
+</div>
 
-  <div class="tc-tab-panel" id="qa-tc-malhaeboca" role="tabpanel" hidden>
-    <div class="project-card steam-qa-card">
-      <h3>
-        <span data-lang="ko">말해보카 홈페이지 TC</span><span data-lang="en" style="display:none;">Malhaeboca Homepage TC</span>
-      </h3>
-      <p class="wrap-readable">
-        <span data-lang="ko">말해보카 및 이팝소프트 홈페이지를 대상으로 콘텐츠 정확성, 외부 링크 유효성, 클릭 가능 요소의 인지성, 운영시간 정보 가독성, 페이지 이동 편의성을 점검한 테스트 케이스 문서입니다.</span>
-        <span data-lang="en" style="display:none;">This test case sheet reviews the Malhaeboca and EPOP homepage for content accuracy, external link validity, clickable element visibility, operating-hour readability, and page navigation usability.</span>
-      </p>
-      <ul class="resume-list steam-qa-list">
-        <li>
-          <strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
-          <span data-lang="ko">홈페이지 성장 연혁, 기사 링크, 메인 로고, 채팅 상담 운영시간, 페이지 최상단 이동 버튼 등 주요 화면 요소</span>
-          <span data-lang="en" style="display:none;">growth timeline, article links, main logo, chat support hours, back-to-top button, and other key page elements</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
-          <span data-lang="ko">제목, 사진, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 정리</span>
-          <span data-lang="en" style="display:none;">organized by title, screenshot, details, notes, result, additional comments, priority, and update date</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
-          <span data-lang="ko">2025년 성장 설명 통일성 문제, 2026년 내용 미작성, 삭제된 기사 링크 연결, 로고 클릭 영역 인지성 부족, 운영시간 정렬 불균일, 최상단 이동 버튼 적용 범위 제한 등 콘텐츠·사용성 이슈 기록</span>
-          <span data-lang="en" style="display:none;">records content and usability issues such as inconsistent 2025 growth text, missing 2026 content, deleted article links, weak logo click affordance, inconsistent support-hour alignment, and limited back-to-top button coverage</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
-          <span data-lang="ko">웹 서비스 QA 관점에서 정보 정확성, 링크 품질, UI 사용성, 개선 제안까지 함께 정리한 실무형 TC 자료</span>
-          <span data-lang="en" style="display:none;">a practical web QA TC reference covering information accuracy, link quality, UI usability, and improvement suggestions</span>
-        </li>
-      </ul>
-      <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1Z7m64Hm5CEMF7VdTzs2b6PIcA9fXjt_cJbNAKrXUODo/edit?gid=2015895469#gid=2015895469" target="_blank" rel="noopener noreferrer">
-        <span data-lang="ko">말해보카 홈페이지 TC 바로가기</span><span data-lang="en" style="display:none;">Open Malhaeboca Homepage TC</span>
-      </a>
-    </div>
-  </div>
-
-
-  <div class="tc-tab-panel" id="qa-tc-pokemongo" role="tabpanel" hidden>
-    <div class="project-card steam-qa-card">
-      <h3>
-        <span data-lang="ko">포켓몬고 TC</span><span data-lang="en" style="display:none;">Pokémon GO TC</span>
-      </h3>
-      <p class="wrap-readable">
-        <span data-lang="ko">포켓몬고를 대상으로 게임 플레이 흐름, UI 동작, 기능 검증 포인트를 정리한 테스트 케이스 문서입니다. 모바일 게임 QA 관점에서 사용자 행동 기준의 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
-        <span data-lang="en" style="display:none;">This test case sheet organizes validation points for Pokémon GO gameplay flow, UI behavior, and feature checks. It is structured to manage user-action-based test items and results from a mobile game QA perspective.</span>
-      </p>
-      <ul class="resume-list steam-qa-list">
-        <li>
-          <strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
-          <span data-lang="ko">포켓몬고 모바일 게임 내 주요 화면, 플레이 흐름, 버튼/메뉴 동작, 콘텐츠 진입 및 결과 확인 과정</span>
-          <span data-lang="en" style="display:none;">major Pokémon GO mobile game screens, gameplay flow, button/menu behavior, content entry, and result confirmation flow</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
-          <span data-lang="ko">테스트 항목, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 관리</span>
-          <span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
-          <span data-lang="ko">실제 플레이 중 확인 가능한 UI/UX, 기능 동작, 화면 전환, 예외 상황, 사용자 관점의 불편 요소를 테스트 케이스 형태로 정리</span>
-          <span data-lang="en" style="display:none;">organizes UI/UX, feature behavior, screen transitions, edge cases, and user-facing friction points found during real gameplay into TC format</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
-          <span data-lang="ko">모바일 게임 QA 관점의 테스트 설계, 반복 검증, 결과 관리 역량을 보여주는 TC 자료</span>
-          <span data-lang="en" style="display:none;">a TC reference demonstrating mobile game QA test design, repeated validation, and result management capability</span>
-        </li>
-      </ul>
-      <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1NKbcOwschw5Dwmw7j5pg5zf6o3903e-z37LF4x_joIA/edit?pli=1&amp;gid=2015895469#gid=2015895469" target="_blank" rel="noopener noreferrer">
-        <span data-lang="ko">포켓몬고 TC 바로가기</span><span data-lang="en" style="display:none;">Open Pokémon GO TC</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="tc-tab-panel" id="qa-tc-naver" role="tabpanel" hidden>
-    <div class="project-card steam-qa-card">
-      <h3>
-        <span data-lang="ko">네이버 TC</span><span data-lang="en" style="display:none;">Naver TC</span>
-      </h3>
-      <p class="wrap-readable">
-        <span data-lang="ko">네이버 서비스를 대상으로 주요 화면 흐름, 검색/이동 동작, UI 사용성, 링크 및 콘텐츠 노출 상태를 정리한 테스트 케이스 문서입니다. 웹 서비스 QA 관점에서 사용자 행동 기준의 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
-        <span data-lang="en" style="display:none;">This test case sheet organizes validation points for Naver service flows, search/navigation behavior, UI usability, links, and content display status. It is structured to manage user-action-based test items and results from a web service QA perspective.</span>
-      </p>
-      <ul class="resume-list steam-qa-list">
-        <li>
-          <strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+<div class="tc-tab-panel" hidden="" id="qa-tc-naver" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">네이버 TC</span><span data-lang="en" style="display:none;">Naver TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">네이버 서비스를 대상으로 주요 화면 흐름, 검색/이동 동작, UI 사용성, 링크 및 콘텐츠 노출 상태를 정리한 테스트 케이스 문서입니다. 웹 서비스 QA 관점에서 사용자 행동 기준의 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet organizes validation points for Naver service flows, search/navigation behavior, UI usability, links, and content display status. It is structured to manage user-action-based test items and results from a web service QA perspective.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
           <span data-lang="ko">네이버 웹 서비스 내 주요 화면, 검색 흐름, 메뉴/버튼 동작, 페이지 이동, 콘텐츠 노출 및 결과 확인 과정</span>
-          <span data-lang="en" style="display:none;">major Naver web screens, search flow, menu/button behavior, page navigation, content display, and result confirmation flow</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+<span data-lang="en" style="display:none;">major Naver web screens, search flow, menu/button behavior, page navigation, content display, and result confirmation flow</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
           <span data-lang="ko">테스트 항목, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 관리</span>
-          <span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+<span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
           <span data-lang="ko">실제 사용 중 확인 가능한 UI/UX, 검색·페이지 이동, 링크 동작, 콘텐츠 표시, 예외 상황, 사용자 관점의 불편 요소를 테스트 케이스 형태로 정리</span>
-          <span data-lang="en" style="display:none;">organizes UI/UX, search/page navigation, link behavior, content display, edge cases, and user-facing friction points found during real use into TC format</span>
-        </li>
-        <li>
-          <strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+<span data-lang="en" style="display:none;">organizes UI/UX, search/page navigation, link behavior, content display, edge cases, and user-facing friction points found during real use into TC format</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
           <span data-lang="ko">웹 서비스 QA 관점의 테스트 설계, 반복 검증, 결과 관리 역량을 보여주는 TC 자료</span>
-          <span data-lang="en" style="display:none;">a TC reference demonstrating web service QA test design, repeated validation, and result management capability</span>
-        </li>
-      </ul>
-      <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/18MVAro1slLyrUpQIcGFG8MYbtofJllDOOnkLMoWI__U/edit?gid=2015895469#gid=2015895469" target="_blank" rel="noopener noreferrer">
-        <span data-lang="ko">네이버 TC 바로가기</span><span data-lang="en" style="display:none;">Open Naver TC</span>
-      </a>
-    </div>
+<span data-lang="en" style="display:none;">a TC reference demonstrating web service QA test design, repeated validation, and result management capability</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/18MVAro1slLyrUpQIcGFG8MYbtofJllDOOnkLMoWI__U/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">네이버 TC 바로가기</span><span data-lang="en" style="display:none;">Open Naver TC</span>
+</a>
+</div>
+</div>
+
+<div class="tc-tab-panel" hidden="" id="qa-tc-coupang" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">쿠팡 TC</span><span data-lang="en" style="display:none;">Coupang TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">쿠팡 서비스를 대상으로 주요 기능 흐름, UI 동작, 화면 전환, 콘텐츠 노출 상태와 예외 상황을 정리한 테스트 케이스 문서입니다. 커머스 서비스 QA 관점에서 사용자 행동 기준의 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet organizes major feature flows, UI behavior, screen transitions, content display status, and edge cases for Coupang. It is structured to manage user-action-based test items and results from an e-commerce QA perspective.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">서비스 내 주요 화면, 탐색 흐름, 메뉴/버튼 동작, 화면 이동, 콘텐츠 노출 및 결과 확인 과정</span>
+<span data-lang="en" style="display:none;">major service screens, browsing flows, menu/button behavior, navigation, content display, and result confirmation</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">테스트 항목, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 관리</span>
+<span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">실제 사용 중 확인 가능한 기능 동작, UI/UX, 화면 이동, 콘텐츠 표시, 예외 상황과 사용자 관점의 불편 요소를 테스트 케이스 형태로 정리</span>
+<span data-lang="en" style="display:none;">organizes feature behavior, UI/UX, navigation, content display, edge cases, and user-facing friction points found during actual use into TC format</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">커머스 서비스 QA 관점의 테스트 설계, 반복 검증, 결과 관리 및 문서화 역량을 보여주는 TC 자료</span>
+<span data-lang="en" style="display:none;">a TC reference demonstrating e-commerce QA test design, repeated validation, result management, and documentation capability</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1kGyta3TGHkbLh5YjvyIX6yUeXjJ2t956PWFWKrPPLXo/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">쿠팡 TC 바로가기</span><span data-lang="en" style="display:none;">Open Coupang TC</span>
+</a>
+</div>
+</div>
+
+<div class="tc-tab-panel" hidden="" id="qa-tc-malhaeboca" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">말해보카 홈페이지 TC</span><span data-lang="en" style="display:none;">Malhaeboca Homepage TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">말해보카 및 이팝소프트 홈페이지를 대상으로 콘텐츠 정확성, 외부 링크 유효성, 클릭 가능 요소의 인지성, 운영시간 정보 가독성, 페이지 이동 편의성을 점검한 테스트 케이스 문서입니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet reviews the Malhaeboca and EPOP homepage for content accuracy, external link validity, clickable element visibility, operating-hour readability, and page navigation usability.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">홈페이지 성장 연혁, 기사 링크, 메인 로고, 채팅 상담 운영시간, 페이지 최상단 이동 버튼 등 주요 화면 요소</span>
+<span data-lang="en" style="display:none;">growth timeline, article links, main logo, chat support hours, back-to-top button, and other key page elements</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">제목, 사진, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 정리</span>
+<span data-lang="en" style="display:none;">organized by title, screenshot, details, notes, result, additional comments, priority, and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">2025년 성장 설명 통일성 문제, 2026년 내용 미작성, 삭제된 기사 링크 연결, 로고 클릭 영역 인지성 부족, 운영시간 정렬 불균일, 최상단 이동 버튼 적용 범위 제한 등 콘텐츠·사용성 이슈 기록</span>
+<span data-lang="en" style="display:none;">records content and usability issues such as inconsistent 2025 growth text, missing 2026 content, deleted article links, weak logo click affordance, inconsistent support-hour alignment, and limited back-to-top button coverage</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">웹 서비스 QA 관점에서 정보 정확성, 링크 품질, UI 사용성, 개선 제안까지 함께 정리한 실무형 TC 자료</span>
+<span data-lang="en" style="display:none;">a practical web QA TC reference covering information accuracy, link quality, UI usability, and improvement suggestions</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1Z7m64Hm5CEMF7VdTzs2b6PIcA9fXjt_cJbNAKrXUODo/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">말해보카 홈페이지 TC 바로가기</span><span data-lang="en" style="display:none;">Open Malhaeboca Homepage TC</span>
+</a>
+</div>
+</div>
+  </div>
+
+  <div class="tc-category-panel" id="tc-category-game" role="tabpanel" hidden>
+  <div class="tabs tc-sub-tabs" role="tablist" aria-label="게임 TC 상세 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" data-qtc="qa-tc-pokemongo">
+      <span data-lang="ko">🎮 포켓몬고 TC</span><span data-lang="en" style="display:none;">🎮 Pokémon GO TC</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-mecha-chameleon">
+      <span data-lang="ko">🦎 메챠 카멜레온 TC</span><span data-lang="en" style="display:none;">🦎 Mecha Chameleon TC</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-apex-legends">
+      <span data-lang="ko">🔺 에이펙스 레전드 TC</span><span data-lang="en" style="display:none;">🔺 Apex Legends TC</span>
+    </button>
+  </div>
+
+<div class="tc-tab-panel" hidden="" id="qa-tc-pokemongo" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">포켓몬고 TC</span><span data-lang="en" style="display:none;">Pokémon GO TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">포켓몬고를 대상으로 게임 플레이 흐름, UI 동작, 기능 검증 포인트를 정리한 테스트 케이스 문서입니다. 모바일 게임 QA 관점에서 사용자 행동 기준의 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet organizes validation points for Pokémon GO gameplay flow, UI behavior, and feature checks. It is structured to manage user-action-based test items and results from a mobile game QA perspective.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">포켓몬고 모바일 게임 내 주요 화면, 플레이 흐름, 버튼/메뉴 동작, 콘텐츠 진입 및 결과 확인 과정</span>
+<span data-lang="en" style="display:none;">major Pokémon GO mobile game screens, gameplay flow, button/menu behavior, content entry, and result confirmation flow</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">테스트 항목, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 관리</span>
+<span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">실제 플레이 중 확인 가능한 UI/UX, 기능 동작, 화면 전환, 예외 상황, 사용자 관점의 불편 요소를 테스트 케이스 형태로 정리</span>
+<span data-lang="en" style="display:none;">organizes UI/UX, feature behavior, screen transitions, edge cases, and user-facing friction points found during real gameplay into TC format</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">모바일 게임 QA 관점의 테스트 설계, 반복 검증, 결과 관리 역량을 보여주는 TC 자료</span>
+<span data-lang="en" style="display:none;">a TC reference demonstrating mobile game QA test design, repeated validation, and result management capability</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1NKbcOwschw5Dwmw7j5pg5zf6o3903e-z37LF4x_joIA/edit?pli=1&amp;gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">포켓몬고 TC 바로가기</span><span data-lang="en" style="display:none;">Open Pokémon GO TC</span>
+</a>
+</div>
+</div>
+
+<div class="tc-tab-panel" hidden="" id="qa-tc-mecha-chameleon" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">메챠 카멜레온 TC</span><span data-lang="en" style="display:none;">Mecha Chameleon TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">메챠 카멜레온을 대상으로 주요 기능, 화면 흐름, UI 동작, 예외 상황을 정리한 테스트 케이스 문서입니다. 사용자 행동을 기준으로 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet organizes major features, screen flows, UI behavior, and edge cases for Mecha Chameleon. It is structured to manage validation items and results based on user actions.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">주요 화면, 기능 흐름, 버튼/메뉴 동작, 화면 전환 및 결과 확인 과정</span>
+<span data-lang="en" style="display:none;">major screens, feature flows, button/menu behavior, screen transitions, and result confirmation</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">테스트 항목, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 관리</span>
+<span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">실제 사용 과정에서 확인 가능한 기능 동작, UI/UX, 화면 전환, 예외 상황과 사용자 관점의 불편 요소를 TC 형태로 정리</span>
+<span data-lang="en" style="display:none;">organizes feature behavior, UI/UX, screen transitions, edge cases, and user-facing friction points found during actual use into TC format</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">기능 테스트 설계, 반복 검증, 결과 관리 및 QA 문서화 역량을 보여주는 TC 자료</span>
+<span data-lang="en" style="display:none;">a TC reference demonstrating functional test design, repeated validation, result management, and QA documentation capability</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1qaeUT24mhGj4RIdkJVNx91wkj0Emdpfvn6MNRREr44E/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">메챠 카멜레온 TC 바로가기</span><span data-lang="en" style="display:none;">Open Mecha Chameleon TC</span>
+</a>
+</div>
+</div>
+
+<div class="tc-tab-panel" hidden="" id="qa-tc-apex-legends" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">에이펙스 레전드 TC</span><span data-lang="en" style="display:none;">Apex Legends TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">에이펙스 레전드를 대상으로 게임 플레이 흐름, UI 동작, 기능 검증 포인트와 예외 상황을 정리한 테스트 케이스 문서입니다. 게임 QA 관점에서 사용자 행동 기준의 검증 항목과 결과를 관리할 수 있도록 구성했습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet organizes gameplay flows, UI behavior, functional validation points, and edge cases for Apex Legends. It is structured to manage user-action-based test items and results from a game QA perspective.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">게임 내 주요 화면, 플레이 흐름, 버튼/메뉴 동작, 콘텐츠 진입, 화면 전환 및 결과 확인 과정</span>
+<span data-lang="en" style="display:none;">major in-game screens, gameplay flows, button/menu behavior, content entry, screen transitions, and result confirmation</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">테스트 항목, 상세 내용, 참고 사항, 결과, 추가 코멘트, 우선순위, 업데이트 기준으로 관리</span>
+<span data-lang="en" style="display:none;">managed by test item, details, notes, result, additional comments, priority, and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">실제 플레이 중 확인 가능한 기능 동작, UI/UX, 화면 전환, 예외 상황과 사용자 관점의 불편 요소를 테스트 케이스 형태로 정리</span>
+<span data-lang="en" style="display:none;">organizes feature behavior, UI/UX, screen transitions, edge cases, and user-facing friction points found during actual gameplay into TC format</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">게임 QA 관점의 테스트 설계, 반복 검증, 결과 관리 및 문서화 역량을 보여주는 TC 자료</span>
+<span data-lang="en" style="display:none;">a TC reference demonstrating game QA test design, repeated validation, result management, and documentation capability</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1CUXTcx9iQARgif7LdNeUQjXz4JLl3H0VNsBN-DXaiVA/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">에이펙스 레전드 TC 바로가기</span><span data-lang="en" style="display:none;">Open Apex Legends TC</span>
+</a>
+</div>
+</div>
   </div>
 </div>
 </div>
@@ -2516,6 +2679,22 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
     i18n.en['ext.cinefinder.desc'] = 'It is a Chrome extension program that allows you to explore movies and dramas around the world on one screen and quickly check information on each piece. Through search, sorting, and genre filters, you can find the content you want efficiently, and you can organize and manage your favorite or watchlist. It supports five languages.';
     i18n.en['ext.cinefinder.btn'] = 'Click to download';
 
+    i18n.en['ext.youtubepip.title'] = 'Youtube PIP';
+    i18n.en['ext.youtubepip.desc'] = 'A Chrome extension that plays YouTube videos in the browser\'s native Picture-in-Picture window so they stay visible above other tabs and windows. It supports play/pause, 5-second skip backward or forward, previous/next video controls, and quick launch with the Alt+P shortcut.';
+    i18n.en['ext.youtubepip.btn'] = 'Open Youtube PIP';
+
+    i18n.en['ext.copysourceremover.title'] = 'Copy Source Text Remover';
+    i18n.en['ext.copysourceremover.desc'] = 'A Chrome extension that removes source or promotional text automatically appended when copying from web pages, leaving cleaner copied text. It also helps restore text selection, dragging, and copying on sites that restrict those actions.';
+    i18n.en['ext.copysourceremover.btn'] = 'Open Copy Source Text Remover';
+
+    i18n.en['ext.youtuberepeat.title'] = 'Youtube Repeat';
+    i18n.en['ext.youtuberepeat.desc'] = 'A Chrome extension that repeatedly plays only a selected A-to-B section of a YouTube video. You can set the start and end by entering hours, minutes, and seconds or by using the current playback position, while S/E markers and the Alt+L shortcut make loop control quick and clear.';
+    i18n.en['ext.youtuberepeat.btn'] = 'Open Youtube Repeat';
+
+    i18n.en['ext.reelsdownloader.title'] = 'Reels Downloader';
+    i18n.en['ext.reelsdownloader.desc'] = 'A Chrome extension that finds an Instagram Reels video from a pasted URL and opens a preview in a new tab. From the preview, you can save the video as an MP4 with a simple action, with a download flow designed to avoid Windows codec conflicts.';
+    i18n.en['ext.reelsdownloader.btn'] = 'Open Reels Downloader';
+
     i18n.ko['ext.xvideodownloader.title'] = 'X Video Downloader';
     i18n.ko['ext.xvideodownloader.desc'] = '트위터 (X) 영상 링크를 사용하여 해당 영상에서 지원하는 해상도 중 원하는 해상도를 선택해 영상을 다운로드할 수 있는 프로그램입니다.';
     i18n.ko['ext.xvideodownloader.btn'] = '바로가기';
@@ -2971,6 +3150,18 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'ext.cinefinder.title':'cinefinder',
       'ext.cinefinder.desc':'전 세계 영화와 드라마를 한 화면에서 탐색하고, 작품별 정보를 빠르게 확인할 수 있도록 만든 크롬 확장 프로그램입니다. 검색과 정렬, 장르 필터를 통해 원하는 콘텐츠를 효율적으로 찾을 수 있으며, 관심 작품은 즐겨찾기나 워치리스트로 정리해 관리할 수 있습니다. 5개 국어를 지원합니다.',
       'ext.cinefinder.btn':'다운로드 바로가기',
+      'ext.youtubepip.title':'Youtube PIP',
+      'ext.youtubepip.desc':'유튜브 영상을 크롬 기본 PiP 창으로 띄워 다른 탭이나 창 위에서도 계속 시청할 수 있는 확장 프로그램입니다. PiP에서 재생·일시정지, 앞뒤 5초 이동, 이전·다음 영상 이동을 지원하며 Alt+P 단축키로 빠르게 실행할 수 있습니다.',
+      'ext.youtubepip.btn':'Youtube PIP 바로가기',
+      'ext.copysourceremover.title':'복사 출처 문구 제거기',
+      'ext.copysourceremover.desc':'웹페이지에서 텍스트를 복사할 때 자동으로 따라붙는 출처·광고 문구를 제거해 깔끔한 원문만 복사할 수 있도록 도와주는 확장 프로그램입니다. 복사나 드래그가 제한된 사이트에서도 텍스트 선택과 복사를 사용할 수 있도록 지원합니다.',
+      'ext.copysourceremover.btn':'복사 출처 문구 제거기 바로가기',
+      'ext.youtuberepeat.title':'Youtube Repeat',
+      'ext.youtuberepeat.desc':'유튜브 영상에서 원하는 시작·종료 구간(A~B)을 지정해 해당 부분만 자동으로 반복 재생하는 확장 프로그램입니다. 시·분·초 직접 입력과 현재 재생 위치 지정을 지원하며, 재생바의 S/E 마커와 Alt+L 단축키로 반복 구간을 편리하게 관리할 수 있습니다.',
+      'ext.youtuberepeat.btn':'Youtube Repeat 바로가기',
+      'ext.reelsdownloader.title':'Reels Downloader',
+      'ext.reelsdownloader.desc':'인스타그램 릴스 URL을 붙여넣으면 영상을 자동으로 찾아 새 탭에서 미리 확인할 수 있는 다운로드 확장 프로그램입니다. 미리보기 후 간단한 조작으로 MP4 파일을 저장할 수 있으며 Windows 환경의 코덱 충돌을 피하도록 구성되어 있습니다.',
+      'ext.reelsdownloader.btn':'Reels Downloader 바로가기',
       'ext.xvideodownloader.title':'X Video Downloader',
       'ext.xvideodownloader.desc':'트위터 (X) 영상 링크를 사용하여 해당 영상에서 지원하는 해상도 중 원하는 해상도를 선택해 영상을 다운로드할 수 있는 프로그램입니다.',
       'ext.xvideodownloader.btn':'바로가기'
@@ -5451,6 +5642,28 @@ document.addEventListener('DOMContentLoaded', function () {
       var tcTabs=tcSec.querySelectorAll('[data-qtc]');
       var tcPanels=tcSec.querySelectorAll('.tc-tab-panel');
       bindTabs(tcTabs, tcPanels, 'data-qtc');
+
+      var tcCategoryTabs=tcSec.querySelectorAll('[data-qtc-category]');
+      var tcCategoryPanels=tcSec.querySelectorAll('.tc-category-panel');
+      tcCategoryTabs.forEach(function(btn){
+        btn.addEventListener('click',function(){
+          tcCategoryTabs.forEach(function(b){
+            b.classList.remove('active');
+            b.setAttribute('aria-selected','false');
+          });
+          tcCategoryPanels.forEach(function(panel){ panel.hidden = true; });
+
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected','true');
+          var target=document.getElementById(btn.getAttribute('data-qtc-category'));
+          if(target){
+            target.hidden = false;
+            var subTab=target.querySelector('[data-qtc].active') || target.querySelector('[data-qtc]');
+            if(subTab) subTab.click();
+          }
+          syncQaLanguage();
+        });
+      });
     }
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initQaTabs);
