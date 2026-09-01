@@ -1641,6 +1641,9 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-apex-legends">
       <span data-lang="ko">🔺 에이펙스 레전드 TC</span><span data-lang="en" style="display:none;">🔺 Apex Legends TC</span>
     </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-tft">
+      <span data-lang="ko">♟ 롤토체스 TC</span><span data-lang="en" style="display:none;">♟ Teamfight Tactics TC</span>
+    </button>
   </div>
 
 <div class="tc-tab-panel" hidden="" id="qa-tc-pokemongo" role="tabpanel">
@@ -1750,6 +1753,43 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </ul>
 <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1CUXTcx9iQARgif7LdNeUQjXz4JLl3H0VNsBN-DXaiVA/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
 <span data-lang="ko">에이펙스 레전드 TC 바로가기</span><span data-lang="en" style="display:none;">Open Apex Legends TC</span>
+</a>
+</div>
+</div>
+
+<div class="tc-tab-panel" hidden="" id="qa-tc-tft" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">롤토체스 TC</span><span data-lang="en" style="display:none;">Teamfight Tactics TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">롤토체스(TFT) 시즌 18을 대상으로 PC와 모바일 양쪽 환경에서 발생하는 현상을 함께 정리한 테스트 케이스 문서입니다. 특성/증강 관련 UI 오류, 대기석·기물 잔존 현상, 로딩 및 크립 라운드 이슈 등을 스크린샷과 함께 관리해 크로스플랫폼 QA 흐름을 확인할 수 있습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet documents issues found in Teamfight Tactics Season 18 across both PC and mobile environments. It manages trait/augment UI errors, bench and unit persistence bugs, loading and creep-round issues alongside screenshots, showing a cross-platform QA workflow.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">특성/증강 선택 UI, 대기석·상점 화면, 기물 배치 및 3성 합성, 크립 라운드, 로딩 화면, 채팅, 처형씬 등 PC·모바일 공통 플레이 흐름</span>
+<span data-lang="en" style="display:none;">trait/augment selection UI, bench and shop screens, unit placement and 3-star combining, creep rounds, loading screen, chat, and execution scenes across PC and mobile</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">설명, 스크린샷, 상세 내용, 참고 사항, 결과(Pass/Fail/N-A), 추가 코멘트, 우선순위(Major/Normal/Minor), 업데이트 일자로 관리하며 PC용·모바일용 시트를 분리해 운영</span>
+<span data-lang="en" style="display:none;">organized by description, screenshot, details, notes, result (Pass/Fail/N-A), additional comments, priority (Major/Normal/Minor), and update date, with separate PC and mobile sheets</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">특성 UI 내 챔피언 중복 노출, 로딩 87%에서 진행 정체, 크립 라운드 크립 미등장, 증강 미선택 시 자동 선택, 돌거북 등 기물이 대기석에 잔존, 게임 중 채팅 미작동, 처형씬·전설이 스킨 미구현 등 실사용 중 재현된 버그를 기록</span>
+<span data-lang="en" style="display:none;">records reproduced bugs such as duplicate champions in trait UI, loading stuck at 87%, creeps failing to spawn, auto-selected augments on timeout, units like the stone turtle persisting on the bench, non-functional chat during matches, and unimplemented execution-scene/Little Legend skins</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">시즌별 패치 대응 탐색 테스트, 크로스플랫폼(PC/모바일) 이슈 비교, 재현 스크린샷 기반 우선순위 판단 역량을 보여주는 TC 자료</span>
+<span data-lang="en" style="display:none;">a TC reference demonstrating per-season patch exploratory testing, cross-platform (PC/mobile) issue comparison, and priority triage based on reproduction screenshots</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1u0gw2CbaMRMgBSRBIC9ajBZDJAgItvXeLgyG9RGAMxA/edit?usp=sharing" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">롤토체스 TC 바로가기</span><span data-lang="en" style="display:none;">Open Teamfight Tactics TC</span>
 </a>
 </div>
 </div>

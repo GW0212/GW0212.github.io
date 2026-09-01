@@ -671,6 +671,7 @@ html[data-theme="light"] .theme-toggle .icon-light { display: block; }
    UTILITIES
 ══════════════════════════════════════════════ */
 .wrap-readable { max-width: 76ch; line-height: 1.8; word-break: keep-all; font-size: 14.5px; color: var(--text); }
+#tc-menu .wrap-readable { margin-bottom: 18px; }
 .nowrap { white-space: nowrap; }
 .reveal { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
