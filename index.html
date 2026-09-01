@@ -3464,8 +3464,49 @@ document.getElementById('lang-ko').addEventListener('click', () => { applyTransl
   }
 
   window.hsKey = window.hsKey || function(id){ return 'hs_'+id; }
-  window.readHS = window.readHS || function(id){ try{ return JSON.parse(localStorage.getItem(hsKey(id))||'null'); }catch(e){ return null; } }
-  window.writeHS = window.writeHS || function(id, obj){ try{ localStorage.setItem(hsKey(id), JSON.stringify(obj)); }catch(e){} }
+
+  // ── Durable storage helpers ──
+  // localStorage alone can be wiped by some browsers' privacy/tracking-prevention
+  // features after a period of inactivity (e.g. Safari ITP), even though the site
+  // itself never touches it. A long-lived cookie is used as a second copy so a
+  // score can be restored if localStorage gets cleared, and vice versa.
+  window.gwSetCookie = window.gwSetCookie || function(name, value, days){
+    try{
+      const maxAge = days * 24 * 60 * 60;
+      document.cookie = name + '=' + encodeURIComponent(value) + ';max-age=' + maxAge + ';path=/;SameSite=Lax';
+    }catch(e){}
+  }
+  window.gwGetCookie = window.gwGetCookie || function(name){
+    try{
+      const match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)'));
+      return match ? decodeURIComponent(match[1]) : null;
+    }catch(e){ return null; }
+  }
+  window.readHS = window.readHS || function(id){
+    const key = hsKey(id);
+    let fromLS = null, fromCookie = null;
+    try{ fromLS = JSON.parse(localStorage.getItem(key)||'null'); }catch(e){}
+    try{ fromCookie = JSON.parse(gwGetCookie(key)||'null'); }catch(e){}
+
+    if(fromLS && fromCookie){
+      // Keep the better/more recent of the two, and re-sync both copies.
+      const chosen = (fromCookie.value !== undefined && fromLS.value !== undefined && fromCookie.value !== fromLS.value)
+        ? ((fromCookie.ts||0) >= (fromLS.ts||0) ? fromCookie : fromLS)
+        : fromLS;
+      writeHS(id, chosen, true);
+      return chosen;
+    }
+    if(fromLS && !fromCookie){ writeHS(id, fromLS, true); return fromLS; }
+    if(fromCookie && !fromLS){ writeHS(id, fromCookie, true); return fromCookie; }
+    return null;
+  }
+  window.writeHS = window.writeHS || function(id, obj, _skipTimestamp){
+    const key = hsKey(id);
+    const payload = _skipTimestamp ? obj : Object.assign({}, obj, { ts: Date.now() });
+    try{ localStorage.setItem(key, JSON.stringify(payload)); }catch(e){}
+    // ~10 years, refreshed on every write so an active player's record never expires.
+    gwSetCookie(key, JSON.stringify(payload), 3650);
+  }
   window.fmtHS = window.fmtHS || function(lang, labelKey, value){ 
     const label = (i18n[lang] && i18n[lang][labelKey]) ? i18n[lang][labelKey] : 'High Score';
     return label + ': ' + value;
