@@ -2531,3 +2531,259 @@ html[data-theme="light"] .theme-toggle .icon-light { display: block !important; 
   #tc-menu .tc-sub-tabs::-webkit-scrollbar { display: none; }
   #tc-menu .tc-sub-tabs .tab-btn { flex: 0 0 auto; }
 }
+
+/* ══════════════════════════════════════════════
+   PATCH — Card title/content spacing
+   - 카드 제목과 본문 사이 여백을 확보해 가독성 개선
+   ══════════════════════════════════════════════ */
+.project-card > h3 {
+  margin-bottom: 12px;
+}
+
+/* ══════════════════════════════════════════════
+   PATCH — Work-related marker visibility / legend layout
+   ══════════════════════════════════════════════ */
+#extensions .work-related-filter-btn {
+  position: absolute;
+  top: 25px;
+  right: 32px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 7px 12px;
+  border: 1px solid rgba(245, 158, 11, .38);
+  border-radius: 999px;
+  background: rgba(245, 158, 11, .08);
+  color: #f59e0b;
+  font-family: var(--font-head);
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, .08);
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+
+#extensions .work-related-filter-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(245, 158, 11, .14);
+  border-color: rgba(245, 158, 11, .62);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, .14);
+}
+
+#extensions .work-related-filter-btn.active,
+#extensions .work-related-filter-btn[aria-pressed="true"] {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, .24);
+}
+
+#extensions .work-related-filter-btn:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+#extensions .work-related-title::after {
+  content: "★";
+  display: inline-block;
+  margin-left: 8px;
+  color: #f59e0b;
+  font-size: .9em;
+  line-height: 1;
+  vertical-align: .04em;
+  text-shadow: 0 0 10px rgba(245, 158, 11, .18);
+}
+
+@media (max-width: 640px) {
+  #extensions .work-related-filter-btn {
+    position: static;
+    display: flex;
+    width: fit-content;
+    margin: -12px 0 16px auto;
+    font-size: 12px;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   FINAL POLISH — Goal section + mobile resilience
+   - 목표를 QA / 개발 / 기획의 3축으로 정리
+   - 모바일에서 카드·탭·긴 텍스트가 화면 밖으로 밀리지 않도록 보정
+   ══════════════════════════════════════════════ */
+#goal .goal-lead {
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-lg);
+  background: var(--accent-dim);
+}
+
+#goal .goal-lead p {
+  margin: 0;
+  color: var(--text);
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+#goal .goal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+#goal .goal-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-xs);
+}
+
+#goal .goal-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 24px;
+  margin-bottom: 10px;
+  padding: 3px 8px;
+  border: 1px solid var(--border-2);
+  border-radius: 99px;
+  background: var(--accent-dim);
+  color: var(--accent-2);
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+#goal .goal-card h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+#goal .goal-card p {
+  margin: 0;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.78;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+#goal .goal-vision {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  padding: 15px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--bg-2);
+}
+
+#goal .goal-vision strong {
+  color: var(--accent-2);
+  white-space: nowrap;
+}
+
+#goal .goal-vision p {
+  margin: 0;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+/* 긴 한글/영문 제목, 링크, 탭이 좁은 화면에서 레이아웃을 밀어내지 않도록 공통 보정 */
+.content-section h2,
+.project-card h3,
+.tab-btn,
+.download-button,
+.resume-link-btn {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  #goal .goal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-section {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  #extensions > .tabs,
+  #game-design-docs > .tabs {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #game-design-docs .terranova-summary-card .download-button {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  #goal .goal-lead {
+    padding: 14px 15px;
+    margin-bottom: 14px;
+  }
+
+  #goal .goal-lead p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  #goal .goal-grid {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  #goal .goal-card {
+    padding: 15px;
+  }
+
+  #goal .goal-vision {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 15px;
+  }
+}
+
+@media (max-width: 420px) {
+  .content-section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  #extensions .work-related-filter-btn {
+    margin-top: -8px;
+  }
+
+  #goal .goal-card p,
+  #goal .goal-vision p {
+    font-size: 13px;
+  }
+}
+
+/* FINAL MOBILE HEADER CHECK — narrow screens
+   오프닝 텍스트가 중앙 사이트 제목과 겹치지 않도록 토글만 유지 */
+@media (max-width: 500px) {
+  .opening-toggle-wrap .opening-label {
+    display: none !important;
+  }
+
+  .opening-toggle-wrap {
+    left: calc(max(8px, env(safe-area-inset-left)) + 46px) !important;
+    gap: 0 !important;
+  }
+}
