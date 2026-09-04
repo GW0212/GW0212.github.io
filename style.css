@@ -2787,3 +2787,130 @@ html[data-theme="light"] .theme-toggle .icon-light { display: block !important; 
     gap: 0 !important;
   }
 }
+
+
+/* ── Dark mode contrast boost for inactive boxes ───────────────────────── */
+html[data-theme="dark"] .menu-button {
+  color: #9fb2d1;
+  border-color: rgba(59, 130, 246, .42);
+  background: linear-gradient(135deg,
+    rgba(19, 33, 68, .82) 0%,
+    rgba(11, 19, 40, .76) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(140, 180, 255, .11),
+    inset 0 -1px 0 rgba(0, 0, 0, .24),
+    inset 2px 0 8px rgba(59, 130, 246, .11),
+    0 0 0 1px rgba(59, 130, 246, .05);
+}
+
+html[data-theme="dark"] .menu-button:hover {
+  color: #dce8ff;
+  border-color: rgba(96, 165, 250, .6);
+  background: linear-gradient(135deg,
+    rgba(28, 49, 102, .9) 0%,
+    rgba(14, 25, 56, .84) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(160, 196, 255, .16),
+    inset 0 -1px 0 rgba(0, 0, 0, .26),
+    inset 2px 0 10px rgba(96, 165, 250, .15),
+    0 0 12px rgba(59, 130, 246, .10);
+}
+
+html[data-theme="dark"] .tabs {
+  background: rgba(7, 13, 28, .9);
+  border-color: rgba(59, 130, 246, .18);
+}
+
+html[data-theme="dark"] .tab-btn {
+  color: #a7b7d3;
+  background: linear-gradient(135deg,
+    rgba(17, 29, 58, .72) 0%,
+    rgba(11, 19, 39, .66) 100%);
+  border: 1px solid rgba(59, 130, 246, .22);
+  box-shadow: inset 0 1px 0 rgba(140, 180, 255, .08);
+}
+
+html[data-theme="dark"] .tab-btn:hover {
+  color: #e1ebff;
+  background: linear-gradient(135deg,
+    rgba(26, 45, 92, .8) 0%,
+    rgba(14, 24, 49, .74) 100%);
+  border-color: rgba(96, 165, 250, .42);
+}
+
+
+/* ── Content area hierarchy boost (dark/light) ─────────────────────────── */
+html[data-theme="dark"] .content-section {
+  background: linear-gradient(180deg, rgba(9, 18, 39, .98) 0%, rgba(7, 14, 31, .98) 100%);
+  border-color: rgba(59, 130, 246, .20);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, .32),
+    inset 0 1px 0 rgba(148, 190, 255, .05);
+}
+
+html[data-theme="dark"] .content-section > h2 {
+  border-bottom-color: rgba(96, 165, 250, .18);
+}
+
+html[data-theme="dark"] .tab-panel {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(6, 13, 29, .88) 0%, rgba(4, 9, 21, .92) 100%);
+  border: 1px solid rgba(59, 130, 246, .16);
+  box-shadow: inset 0 1px 0 rgba(150, 190, 255, .04);
+}
+
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .resume-summary-card,
+html[data-theme="dark"] .resume-block,
+html[data-theme="dark"] .cert-card,
+html[data-theme="dark"] .contact-card {
+  background: linear-gradient(180deg, rgba(20, 35, 68, .90) 0%, rgba(16, 29, 56, .94) 100%);
+  border-color: rgba(96, 165, 250, .18);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, .22),
+    inset 0 1px 0 rgba(169, 201, 255, .05);
+}
+
+html[data-theme="dark"] .project-card::before,
+html[data-theme="dark"] .resume-summary-card::before {
+  background: linear-gradient(135deg, rgba(59,130,246,.06), rgba(99,102,241,.03) 55%, transparent 100%);
+}
+
+html[data-theme="light"] .content-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%) !important;
+  border-color: rgba(37, 99, 235, .16);
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, .06),
+    inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+
+html[data-theme="light"] .content-section > h2 {
+  border-bottom-color: rgba(59, 130, 246, .15);
+}
+
+html[data-theme="light"] .tab-panel {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #eef3fb 0%, #e8eef8 100%);
+  border: 1px solid rgba(37, 99, 235, .15);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .resume-summary-card,
+html[data-theme="light"] .resume-block,
+html[data-theme="light"] .cert-card,
+html[data-theme="light"] .contact-card {
+  background: linear-gradient(180deg, #f8fbff 0%, #f2f6fd 100%) !important;
+  border-color: rgba(37, 99, 235, .14);
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, .05),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+#game-design-docs .project-card {
+  padding: 24px;
+}
