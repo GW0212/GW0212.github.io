@@ -1728,22 +1728,101 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 <!-- Game Design Documents -->
 <div class="content-section" id="game-design-docs" style="display:none;">
 <h2><span data-lang="ko">게임 기획서</span><span data-lang="en" style="display:none;">Game Design Documents</span></h2>
-<div class="tabs" role="tablist" aria-label="게임 기획서 탭">
-  <button class="tab-btn active" role="tab" aria-selected="true" data-tab="gdd-prism-relay-aetherlink">
-    <span data-lang="ko">프리즘 릴레이: 에테르링크</span><span data-lang="en" style="display:none;">PRISM RELAY: AETHERLINK</span>
+<style>
+  #game-design-docs .gdd-platform-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  #game-design-docs .gdd-platform-tab-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 18px;
+    border-radius: var(--r-md);
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-2);
+    background: rgba(255,255,255,.04);
+    transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  }
+  #game-design-docs .gdd-platform-tab-btn:hover {
+    background: var(--surface-2);
+    color: var(--text-bright);
+    border-color: var(--border-2);
+  }
+  #game-design-docs .gdd-platform-tab-btn.active {
+    background: linear-gradient(180deg, #4f8dfb 0%, #2d62eb 100%);
+    color: #fff;
+    border-color: rgba(37,99,235,.55);
+    box-shadow: 0 6px 18px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  #game-design-docs .gdd-platform-tab-btn.active::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,.18), transparent 55%);
+    pointer-events: none;
+  }
+  #game-design-docs .gdd-platform-tab-btn:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 2px;
+  }
+  #game-design-docs .gdd-platform-panel[hidden] { display: none; }
+  #game-design-docs .gdd-platform-panel > .gdd-game-tabs { margin-bottom: 22px; }
+  @media (max-width: 640px) {
+    #game-design-docs .gdd-platform-tabs {
+      flex-wrap: wrap;
+    }
+    #game-design-docs .gdd-platform-tab-btn {
+      flex-basis: 100%;
+      white-space: normal;
+    }
+  }
+</style>
+
+<div class="gdd-platform-tabs" role="tablist" aria-label="게임 플랫폼 탭">
+  <button class="gdd-platform-tab-btn active" type="button" role="tab" aria-selected="true" data-gdd-platform="pc" aria-controls="gdd-platform-pc">
+    <span data-lang="ko">PC 게임</span><span data-lang="en" style="display:none;">PC Games</span>
   </button>
-  <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-noreum">
-    <span data-lang="ko">노름 : NOREUM</span><span data-lang="en" style="display:none;">노름 : NOREUM</span>
+  <button class="gdd-platform-tab-btn" type="button" role="tab" aria-selected="false" data-gdd-platform="mobile" aria-controls="gdd-platform-mobile">
+    <span data-lang="ko">모바일 게임</span><span data-lang="en" style="display:none;">Mobile Games</span>
   </button>
-  <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-pixel-chronicle-lumencia">
-    <span data-lang="ko">PIXEL CHRONICLE: LUMENCIA</span><span data-lang="en" style="display:none;">PIXEL CHRONICLE: LUMENCIA</span>
-  </button>
-  <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-vanta-afterimage">
-    <span data-lang="ko">VANTA: AFTERIMAGE</span><span data-lang="en" style="display:none;">VANTA: AFTERIMAGE</span>
-  </button>
-  <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-terranova">
-    <span data-lang="ko">테라노바 온라인</span><span data-lang="en" style="display:none;">Terranova Online</span>
-  </button>
+</div>
+
+<div class="gdd-platform-panel" id="gdd-platform-pc" role="tabpanel">
+  <div class="tabs gdd-game-tabs" role="tablist" aria-label="PC 게임 기획서 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" data-tab="gdd-noreum">
+      <span data-lang="ko">노름 : NOREUM</span><span data-lang="en" style="display:none;">노름 : NOREUM</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-terranova">
+      <span data-lang="ko">테라노바 온라인</span><span data-lang="en" style="display:none;">Terranova Online</span>
+    </button>
+  </div>
+
+<div class="tab-panel" id="gdd-noreum" role="tabpanel">
+  <div class="project-card terranova-summary-card">
+    <h3><span data-lang="ko">노름 : NOREUM</span><span data-lang="en" style="display:none;">노름 : NOREUM</span></h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">한국 전통 화투의 섯다 규칙과 로그라이크 덱빌딩 구조를 결합한 싱글플레이 카드 게임 <strong>‘노름(NOREUM)’</strong> 기획서입니다. 1970~80년대 한국의 은밀한 화투판을 배경으로 손패·족보·비기 조합을 활용해 8개 스테이지의 타짜들을 공략하며 자신만의 빌드를 완성하는 구조로 설계했습니다. Steam 패키지 출시를 기준으로 픽셀아트 기반의 복고 한국 정서와 전략적인 점수·상점·메타 성장 시스템을 구성했습니다.</span>
+      <span data-lang="en" style="display:none;">A game design document for <strong>NOREUM</strong>, a single-player card game that combines the Korean Seotda rules of Hwatu with roguelike deck-building. Set in clandestine Korean gambling rooms of the 1970s and 1980s, players use hands, combinations, and secret techniques to defeat gamblers across eight stages and complete their own build. Designed as a Steam package title, it features retro Korean pixel art alongside strategic scoring, shop, and meta-progression systems.</span>
+    </p>
+    <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/YmNdoTWVKdY0/pages/4391103/NOREUM" rel="noopener noreferrer" target="_blank">
+      <span data-lang="ko">노름 : NOREUM 바로가기</span><span data-lang="en" style="display:none;">Open 노름 : NOREUM</span>
+    </a>
+  </div>
 </div>
 
 <div class="tab-panel" hidden="" id="gdd-terranova" role="tabpanel">
@@ -1758,16 +1837,30 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     </a>
   </div>
 </div>
+</div>
 
-<div class="tab-panel" hidden="" id="gdd-vanta-afterimage" role="tabpanel">
+<div class="gdd-platform-panel" id="gdd-platform-mobile" role="tabpanel" hidden>
+  <div class="tabs gdd-game-tabs" role="tablist" aria-label="모바일 게임 기획서 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" data-tab="gdd-prism-relay-aetherlink">
+      <span data-lang="ko">프리즘 릴레이: 에테르링크</span><span data-lang="en" style="display:none;">PRISM RELAY: AETHERLINK</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-pixel-chronicle-lumencia">
+      <span data-lang="ko">PIXEL CHRONICLE: LUMENCIA</span><span data-lang="en" style="display:none;">PIXEL CHRONICLE: LUMENCIA</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-vanta-afterimage">
+      <span data-lang="ko">VANTA: AFTERIMAGE</span><span data-lang="en" style="display:none;">VANTA: AFTERIMAGE</span>
+    </button>
+  </div>
+
+<div class="tab-panel" hidden="" id="gdd-prism-relay-aetherlink" role="tabpanel">
   <div class="project-card terranova-summary-card">
-    <h3><span data-lang="ko">VANTA: AFTERIMAGE</span><span data-lang="en" style="display:none;">VANTA: AFTERIMAGE</span></h3>
+    <h3><span data-lang="ko">프리즘 릴레이: 에테르링크 (PRISM RELAY: AETHERLINK)</span><span data-lang="en" style="display:none;">PRISM RELAY: AETHERLINK</span></h3>
     <p class="wrap-readable">
-      <span data-lang="ko">성인 타깃 어반 오컬트 SF 수집형 액션 RPG <strong>‘VANTA: AFTERIMAGE’</strong>를 직접 기획해 정리한 게임 기획서입니다. 캐릭터 수집과 실시간 액션 전투를 중심으로 세계관·전투·성장·콘텐츠와 BM·라이브 운영·QA·글로벌 서비스까지 실제 개발 프로젝트 문서 형태로 구성했습니다. 전체 상세 기획은 아래 Confluence 문서에서 확인할 수 있습니다.</span>
-      <span data-lang="en" style="display:none;">A game design document for <strong>VANTA: AFTERIMAGE</strong>, a fictional mature-target urban occult sci-fi collectible action RPG that I planned from the ground up. Built around character collection and real-time action combat, it covers worldbuilding, combat, progression, content, monetization, live operations, QA, and global service strategy in a production-style document structure. The complete design document is available in Confluence below.</span>
+      <span data-lang="ko">프리즘 문양을 연결하고 행·열을 이동시키는 독창적인 전술 퍼즐 시스템을 기반으로 한 모바일 수집형 퍼즐 RPG <strong>‘PRISM RELAY: AETHERLINK’</strong> 기획서입니다. 적의 행동 예고를 읽고 퍼즐·전투·캐릭터 역할을 조합하는 전략성을 중심으로, 성장·스테이지·BM·QA·라이브 운영까지 전체 게임 구조를 상세하게 설계했습니다.</span>
+      <span data-lang="en" style="display:none;">A game design document for <strong>PRISM RELAY: AETHERLINK</strong>, a fictional mobile collectible puzzle RPG built around a tactical system of linking prism sigils and shifting rows and columns. It focuses on reading enemy action forecasts and combining puzzle decisions, combat, and character roles, while covering progression, stages, monetization, QA, and live operations across the full game structure.</span>
     </p>
-    <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/VA/pages/2129965/VANTA+AFTERIMAGE" rel="noopener noreferrer" target="_blank">
-      <span data-lang="ko">VANTA: AFTERIMAGE 기획서 바로가기</span><span data-lang="en" style="display:none;">Open VANTA: AFTERIMAGE Design Document</span>
+    <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/PRA/pages/4522557" rel="noopener noreferrer" target="_blank">
+      <span data-lang="ko">프리즘 릴레이: 에테르링크 바로가기</span><span data-lang="en" style="display:none;">Open PRISM RELAY: AETHERLINK</span>
     </a>
   </div>
 </div>
@@ -1785,32 +1878,80 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   </div>
 </div>
 
-<div class="tab-panel" hidden="" id="gdd-noreum" role="tabpanel">
+<div class="tab-panel" hidden="" id="gdd-vanta-afterimage" role="tabpanel">
   <div class="project-card terranova-summary-card">
-    <h3><span data-lang="ko">노름 : NOREUM</span><span data-lang="en" style="display:none;">노름 : NOREUM</span></h3>
+    <h3><span data-lang="ko">VANTA: AFTERIMAGE</span><span data-lang="en" style="display:none;">VANTA: AFTERIMAGE</span></h3>
     <p class="wrap-readable">
-      <span data-lang="ko">한국 전통 화투의 섯다 규칙과 로그라이크 덱빌딩 구조를 결합한 싱글플레이 카드 게임 <strong>‘노름(NOREUM)’</strong> 기획서입니다. 1970~80년대 한국의 은밀한 화투판을 배경으로 손패·족보·비기 조합을 활용해 8개 스테이지의 타짜들을 공략하며 자신만의 빌드를 완성하는 구조로 설계했습니다. Steam 패키지 출시를 기준으로 픽셀아트 기반의 복고 한국 정서와 전략적인 점수·상점·메타 성장 시스템을 구성했습니다.</span>
-      <span data-lang="en" style="display:none;">A game design document for <strong>NOREUM</strong>, a single-player card game that combines the Korean Seotda rules of Hwatu with roguelike deck-building. Set in clandestine Korean gambling rooms of the 1970s and 1980s, players use hands, combinations, and secret techniques to defeat gamblers across eight stages and complete their own build. Designed as a Steam package title, it features retro Korean pixel art alongside strategic scoring, shop, and meta-progression systems.</span>
+      <span data-lang="ko">성인 타깃 어반 오컬트 SF 수집형 액션 RPG <strong>‘VANTA: AFTERIMAGE’</strong>를 직접 기획해 정리한 게임 기획서입니다. 캐릭터 수집과 실시간 액션 전투를 중심으로 세계관·전투·성장·콘텐츠와 BM·라이브 운영·QA·글로벌 서비스까지 실제 개발 프로젝트 문서 형태로 구성했습니다. 전체 상세 기획은 아래 Confluence 문서에서 확인할 수 있습니다.</span>
+      <span data-lang="en" style="display:none;">A game design document for <strong>VANTA: AFTERIMAGE</strong>, a fictional mature-target urban occult sci-fi collectible action RPG that I planned from the ground up. Built around character collection and real-time action combat, it covers worldbuilding, combat, progression, content, monetization, live operations, QA, and global service strategy in a production-style document structure. The complete design document is available in Confluence below.</span>
     </p>
-    <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/YmNdoTWVKdY0/pages/4391103/NOREUM" rel="noopener noreferrer" target="_blank">
-      <span data-lang="ko">노름 : NOREUM 바로가기</span><span data-lang="en" style="display:none;">Open 노름 : NOREUM</span>
+    <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/VA/pages/2129965/VANTA+AFTERIMAGE" rel="noopener noreferrer" target="_blank">
+      <span data-lang="ko">VANTA: AFTERIMAGE 기획서 바로가기</span><span data-lang="en" style="display:none;">Open VANTA: AFTERIMAGE Design Document</span>
     </a>
   </div>
 </div>
+</div>
+</div>
+<script>
+(function() {
+  function setupGameDesignPlatformTabs() {
+    const section = document.getElementById('game-design-docs');
+    if (!section || section.dataset.platformTabsReady === 'true') return;
+    section.dataset.platformTabsReady = 'true';
 
-<div class="tab-panel" id="gdd-prism-relay-aetherlink" role="tabpanel">
-  <div class="project-card terranova-summary-card">
-    <h3><span data-lang="ko">프리즘 릴레이: 에테르링크 (PRISM RELAY: AETHERLINK)</span><span data-lang="en" style="display:none;">PRISM RELAY: AETHERLINK</span></h3>
-    <p class="wrap-readable">
-      <span data-lang="ko">프리즘 문양을 연결하고 행·열을 이동시키는 독창적인 전술 퍼즐 시스템을 기반으로 한 모바일 수집형 퍼즐 RPG <strong>‘PRISM RELAY: AETHERLINK’</strong> 기획서입니다. 적의 행동 예고를 읽고 퍼즐·전투·캐릭터 역할을 조합하는 전략성을 중심으로, 성장·스테이지·BM·QA·라이브 운영까지 전체 게임 구조를 상세하게 설계했습니다.</span>
-      <span data-lang="en" style="display:none;">A game design document for <strong>PRISM RELAY: AETHERLINK</strong>, a fictional mobile collectible puzzle RPG built around a tactical system of linking prism sigils and shifting rows and columns. It focuses on reading enemy action forecasts and combining puzzle decisions, combat, and character roles, while covering progression, stages, monetization, QA, and live operations across the full game structure.</span>
-    </p>
-    <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/PRA/pages/4522557" rel="noopener noreferrer" target="_blank">
-      <span data-lang="ko">프리즘 릴레이: 에테르링크 바로가기</span><span data-lang="en" style="display:none;">Open PRISM RELAY: AETHERLINK</span>
-    </a>
-  </div>
-</div>
-</div>
+    const platformButtons = Array.from(section.querySelectorAll('.gdd-platform-tab-btn'));
+    const platformPanels = Array.from(section.querySelectorAll('.gdd-platform-panel'));
+
+    function activatePlatform(platform) {
+      platformButtons.forEach(btn => {
+        const active = btn.dataset.gddPlatform === platform;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      platformPanels.forEach(panel => {
+        panel.hidden = panel.id !== 'gdd-platform-' + platform;
+      });
+
+      section.querySelectorAll('.gdd-game-tabs .tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      section.querySelectorAll('.tab-panel').forEach(panel => panel.setAttribute('hidden', ''));
+
+      const activePlatformPanel = document.getElementById('gdd-platform-' + platform);
+      const firstGameButton = activePlatformPanel ? activePlatformPanel.querySelector('.gdd-game-tabs .tab-btn') : null;
+      if (firstGameButton) {
+        firstGameButton.classList.add('active');
+        firstGameButton.setAttribute('aria-selected', 'true');
+        const targetPanel = document.getElementById(firstGameButton.getAttribute('data-tab'));
+        if (targetPanel) targetPanel.removeAttribute('hidden');
+      }
+    }
+
+    platformButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        activatePlatform(this.dataset.gddPlatform);
+      });
+    });
+
+    const menuButton = document.querySelector('.menu-button[onclick*="game-design-docs"]');
+    if (menuButton) {
+      menuButton.addEventListener('click', function() {
+        setTimeout(function() { activatePlatform('pc'); }, 0);
+      });
+    }
+
+    activatePlatform('pc');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupGameDesignPlatformTabs);
+  } else {
+    setupGameDesignPlatformTabs();
+  }
+})();
+</script>
 
 <!-- Certificates -->
 <div class="content-section" id="certificates" style="display:none;">
