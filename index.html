@@ -1535,6 +1535,9 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-dragonvillage3">
       <span data-lang="ko">🐉 드래곤 빌리지3 TC</span><span data-lang="en" style="display:none;">🐉 Dragon Village 3 TC</span>
     </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-qtc="qa-tc-jeungbaram">
+      <span data-lang="ko">⚔️ 증바람 TC</span><span data-lang="en" style="display:none;">⚔️ Jeungbaram TC</span>
+    </button>
   </div>
 
 <div class="tc-tab-panel" hidden="" id="qa-tc-pokemongo" role="tabpanel">
@@ -1718,6 +1721,43 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </ul>
 <a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1k2g5HZZK3YIZNZRr7OlnQ7spcWYiCZJASgSZEkimNDI/edit?usp=sharing" rel="noopener noreferrer" target="_blank">
 <span data-lang="ko">드래곤 빌리지3 TC 바로가기</span><span data-lang="en" style="display:none;">Open Dragon Village 3 TC</span>
+</a>
+</div>
+</div>
+
+<div class="tc-tab-panel" hidden="" id="qa-tc-jeungbaram" role="tabpanel">
+<div class="project-card steam-qa-card">
+<h3>
+<span data-lang="ko">증바람 TC</span><span data-lang="en" style="display:none;">Jeungbaram TC</span>
+</h3>
+<p class="wrap-readable">
+<span data-lang="ko">증바람 플레이 중 확인한 증강·챔피언 상호작용, 아이템 및 상점 동작, 스킬·패시브 처리와 전투 진행 이상 현상을 스크린샷과 재현 영상 링크로 정리한 테스트 케이스 문서입니다. 실제 플레이에서 재현된 문제를 결과와 우선순위 기준으로 관리할 수 있도록 구성했습니다.</span>
+<span data-lang="en" style="display:none;">This test case sheet documents issues reproduced during Jeungbaram gameplay, including augment/champion interactions, item and shop behavior, skill/passive processing, and combat-flow abnormalities, with screenshots and reproduction video links. Issues are managed by result and priority based on actual gameplay reproduction.</span>
+</p>
+<ul class="resume-list steam-qa-list">
+<li>
+<strong><span data-lang="ko">검증 대상</span><span data-lang="en" style="display:none;">Test Target</span></strong> :
+          <span data-lang="ko">증강 선택·변경, 챔피언별 증강/패시브 상호작용, 아이템 획득·변환, 상점 구매, 스킬 활성 상태 및 전투 진행 과정</span>
+<span data-lang="en" style="display:none;">augment selection/change, champion-specific augment and passive interactions, item acquisition/transformation, shop purchases, skill activation states, and combat progression</span>
+</li>
+<li>
+<strong><span data-lang="ko">문서 구성</span><span data-lang="en" style="display:none;">Sheet Structure</span></strong> :
+          <span data-lang="ko">제목, 재현 스크린샷, 상세 내용, 참고 사항(재현 영상 링크 등), 결과(Pass/Fail), 추가 코멘트, 우선순위(Major/Minor), 업데이트 일자로 관리</span>
+<span data-lang="en" style="display:none;">organized by title, reproduction screenshot, details, notes (including reproduction video links), result (Pass/Fail), additional comments, priority (Major/Minor), and update date</span>
+</li>
+<li>
+<strong><span data-lang="ko">핵심 내용</span><span data-lang="en" style="display:none;">Key Coverage</span></strong> :
+          <span data-lang="ko">히드라 증강의 티아멧 획득·아이템 변환 이상, 동전 과다 드랍, 특정 증강 선택 후 Q/E/R 스킬 비활성화, 도박꾼 시너지 상점 구매 불가, 라칸 메아리 시전 미발동, 비에고 변신 중 게임 종료, 상점 아이템 중복 노출, 신성한 중재 무한 발동, 증강 변경 버튼 오동작, 스킬 단축키 미표시 등 재현 이슈를 기록</span>
+<span data-lang="en" style="display:none;">records reproduced issues including abnormal Tiamat acquisition/item conversion from a Hydra augment, excessive coin drops, Q/E/R skills becoming disabled after specific augment choices, shop purchases failing with Gambler synergy, Rakan's echo cast not triggering, game termination during Viego transformation, duplicated shop items, infinite Divine Intervention activation, malfunctioning augment reroll behavior, and missing skill hotkey labels</span>
+</li>
+<li>
+<strong><span data-lang="ko">활용 목적</span><span data-lang="en" style="display:none;">Purpose</span></strong> :
+          <span data-lang="ko">증강 중심 게임 모드의 조합·상태 전이·상호작용 탐색 테스트, 재현 자료 기반 이슈 보고, 심각도에 따른 우선순위 분류 역량을 보여주는 TC 자료</span>
+<span data-lang="en" style="display:none;">a TC reference demonstrating exploratory testing of combinations, state transitions, and interactions in an augment-focused game mode, evidence-based issue reporting, and severity-based priority triage</span>
+</li>
+</ul>
+<a class="download-button steam-qa-link" href="https://docs.google.com/spreadsheets/d/1YYmG4jrTQl6awN1BG7m0PsIItnWIGZq2bIFYCZYDVi8/edit?gid=2015895469#gid=2015895469" rel="noopener noreferrer" target="_blank">
+<span data-lang="ko">증바람 TC 바로가기</span><span data-lang="en" style="display:none;">Open Jeungbaram TC</span>
 </a>
 </div>
 </div>
