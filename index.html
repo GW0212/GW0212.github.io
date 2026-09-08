@@ -100,7 +100,7 @@
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
 <button class="menu-button" onclick="showContent('tc-menu')"><span data-lang="ko">Test Case</span><span data-lang="en" style="display:none;">Test Case</span></button>
-<button class="menu-button" onclick="showContent('game-design-docs')"><span data-lang="ko">게임 기획서</span><span data-lang="en" style="display:none;">Game Design Documents</span></button>
+<button class="menu-button" onclick="showContent('game-design-docs')"><span data-lang="ko">기획서</span><span data-lang="en" style="display:none;">Planning Documents</span></button>
 <!-- ✅ 단일 메뉴: 내부 탭으로 학력/병역/경력 3분할 -->
 <button class="menu-button" data-i18n="menu.certificates" onclick="showContent('certificates')">Certificates</button>
 <button class="menu-button" data-i18n="menu.languages" onclick="showContent('languages')">사용 가능 언어 · 툴</button>
@@ -1765,9 +1765,9 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 </div>
 
-<!-- Game Design Documents -->
+<!-- Planning Documents -->
 <div class="content-section" id="game-design-docs" style="display:none;">
-<h2><span data-lang="ko">게임 기획서</span><span data-lang="en" style="display:none;">Game Design Documents</span></h2>
+<h2><span data-lang="ko">기획서</span><span data-lang="en" style="display:none;">Planning Documents</span></h2>
 <style>
   #game-design-docs .gdd-platform-tabs {
     display: flex;
@@ -1847,11 +1847,14 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     <button class="tab-btn active" role="tab" aria-selected="true" data-tab="gdd-jikyeoyo-oneuldo">
       <span data-lang="ko">지켜요, 오늘도</span><span data-lang="en" style="display:none;">Protect Today</span>
     </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-noreum">
+      <span data-lang="ko">노름 : NOREUM</span><span data-lang="en" style="display:none;">노름 : NOREUM</span>
+    </button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-gwisurok-black-moon">
       <span data-lang="ko">귀수록 - 검은달</span><span data-lang="en" style="display:none;">GWISUROK - BLACK MOON</span>
     </button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-noreum">
-      <span data-lang="ko">노름 : NOREUM</span><span data-lang="en" style="display:none;">노름 : NOREUM</span>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-cinebranch-your-cut">
+      <span data-lang="ko">CINEBRANCH: YOUR CUT</span><span data-lang="en" style="display:none;">CINEBRANCH: YOUR CUT</span>
     </button>
     <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-terranova">
       <span data-lang="ko">테라노바 온라인</span><span data-lang="en" style="display:none;">Terranova Online</span>
@@ -1893,6 +1896,19 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     </p>
     <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/YF6iGY5pJQ0p/pages/4392979/-" rel="noopener noreferrer" target="_blank">
       <span data-lang="ko">귀수록 - 검은달 바로가기</span><span data-lang="en" style="display:none;">Open GWISUROK: BLACK MOON</span>
+    </a>
+  </div>
+</div>
+
+<div class="tab-panel" hidden="" id="gdd-cinebranch-your-cut" role="tabpanel">
+  <div class="project-card terranova-summary-card">
+    <h3><span data-lang="ko">CINEBRANCH: YOUR CUT</span><span data-lang="en" style="display:none;">CINEBRANCH: YOUR CUT</span></h3>
+    <p class="wrap-readable">
+      <span data-lang="ko">정식 라이선스를 확보한 실제 영화·드라마·애니메이션의 스토리를 플레이어가 직접 선택하며 자신만의 전개와 결말을 만들어가는 <strong>인터랙티브 시네마 게임 플랫폼 ‘CINEBRANCH: YOUR CUT’</strong> 기획서입니다. 원작과 다른 선택지는 승인된 AI 영상·음성 기술로 자연스럽게 이어지며, 완결 후에는 플레이어가 만든 전체 스토리를 소설형 텍스트와 챕터별 영상으로 소장할 수 있도록 설계했습니다.</span>
+      <span data-lang="en" style="display:none;">A game design document for <strong>CINEBRANCH: YOUR CUT</strong>, an interactive cinema game platform built around officially licensed films, dramas, and animation, where players make choices to create their own story routes and endings. Alternative branches are designed to continue naturally through approved AI video and voice technology, with completed stories preserved as novel-style text and chapter-based video collections.</span>
+    </p>
+    <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/CYC/pages/5865487/CINEBRANCH+YOUR+CUT" rel="noopener noreferrer" target="_blank">
+      <span data-lang="ko">CINEBRANCH: YOUR CUT 바로가기</span><span data-lang="en" style="display:none;">Open CINEBRANCH: YOUR CUT</span>
     </a>
   </div>
 </div>
