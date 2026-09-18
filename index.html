@@ -150,17 +150,22 @@
 </div>
 <div class="resume-block">
 <h3 data-i18n="resume.works.title">개발한 작품</h3>
-<a class="resume-works-sheet-btn" href="https://docs.google.com/spreadsheets/d/1XA7DsCZJcDvkjDTjnCfgGrR-5Poy573sFpD9Td10vIY/edit?gid=1908675140#gid=1908675140" rel="noopener noreferrer" target="_blank" >
-<img alt="Google Sheets" class="resume-works-sheet-icon" src="sheet.png?v=20260319_fix1" width="22" height="22" style="width:22px;height:22px;min-width:22px;max-width:22px;object-fit:contain;display:block;flex:0 0 22px;"/>
-<span data-i18n="resume.works.sheetButton" style="display:inline-block;white-space:normal;line-height:1.35;">개발 작품 소개</span>
-</a>
-<ul class="resume-list">
-<li><strong data-i18n="resume.work.chrome">크롬 확장 프로그램</strong> <span id="resume-count-extensions">39개</span></li>
-<li><strong data-i18n="resume.work.website">웹사이트</strong> <span id="resume-count-websites">35개</span></li>
-<li><strong><span data-lang="ko">자동화 QA</span><span data-lang="en" style="display:none;">Automation QA</span></strong> <span id="resume-count-automationqa">3개</span></li>
-<li><strong data-i18n="resume.work.program">윈도우 프로그램</strong> <span id="resume-count-programs">2개</span></li>
-<li><strong data-i18n="resume.work.game">유니티 게임</strong> <span id="resume-count-games">1개</span></li>
-</ul>
+<div class="resume-works-columns" aria-label="개발 작품 요약">
+  <ul class="resume-works-list resume-works-list-left">
+    <li><strong data-i18n="resume.work.chrome">크롬 확장 프로그램</strong><span class="resume-work-count" id="resume-count-extensions">43개</span></li>
+    <li><strong data-i18n="resume.work.website">웹사이트</strong><span class="resume-work-count" id="resume-count-websites">42개</span></li>
+    <li><strong><span data-lang="ko">자동화 QA</span><span data-lang="en" style="display:none;">Automation QA</span></strong><span class="resume-work-count" id="resume-count-automationqa">3개</span></li>
+    <li><strong data-i18n="resume.work.program">윈도우 프로그램</strong><span class="resume-work-count" id="resume-count-programs">2개</span></li>
+    <li><strong data-i18n="resume.work.game">유니티 게임</strong><span class="resume-work-count" id="resume-count-games">1개</span></li>
+  </ul>
+  <div class="resume-works-divider" aria-hidden="true"></div>
+  <ul class="resume-works-list resume-works-list-right">
+    <li><strong><span data-lang="ko">웹사이트 Test Case</span><span data-lang="en" style="display:none;">Website Test Cases</span></strong><span class="resume-work-count" id="resume-count-web-tc">4개</span></li>
+    <li><strong><span data-lang="ko">게임 Test Case</span><span data-lang="en" style="display:none;">Game Test Cases</span></strong><span class="resume-work-count" id="resume-count-game-tc">6개</span></li>
+    <li><strong><span data-lang="ko">PC 게임 기획서</span><span data-lang="en" style="display:none;">PC Game Design Docs</span></strong><span class="resume-work-count" id="resume-count-pc-gdd">5개</span></li>
+    <li><strong><span data-lang="ko">모바일 게임 기획서</span><span data-lang="en" style="display:none;">Mobile Game Design Docs</span></strong><span class="resume-work-count" id="resume-count-mobile-gdd">6개</span></li>
+  </ul>
+</div>
 </div>
 <div class="resume-block">
 <h3 data-i18n="resume.links.title">링크</h3>
@@ -2767,8 +2772,6 @@ i18n.en['resume.work.program'] = 'Windows Programs';
 
 i18n.ko['resume.work.game'] = '유니티 게임';
 i18n.en['resume.work.game'] = 'Unity Games';
-i18n.ko['resume.works.sheetButton'] = '개발 작품 소개';
-i18n.en['resume.works.sheetButton'] = 'Project Overview';
 
 i18n.ko['resume.links.title'] = '링크';
 i18n.en['resume.links.title'] = 'Links';
@@ -3231,7 +3234,6 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'resume.work.website':'웹사이트',
       'resume.work.program':'윈도우 프로그램',
       'resume.work.game':'유니티 게임',
-      'resume.works.sheetButton':'개발 작품 소개',
       'resume.links.title':'링크',
       'resume.address':'(13144) 경기 성남시 수정구 산성대로 437번길',
       'resume.qaDev':'QA / 웹·크롬 확장·게임·서비스 구조 이해',
@@ -5533,49 +5535,50 @@ var aiEN = {
 </script>
 <script>
 function updateResumeSummaryStats() {
-  const parseCount = (selector) => {
-    const el = document.querySelector(selector);
-    if (!el) return 0;
-    const m = (el.textContent || '').match(/\d+/);
-    return m ? parseInt(m[0], 10) : 0;
-  };
-
   const lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ko';
 
-  const countDirectProjectCards = (selector) => {
+  const countDirectChildren = (selector, childSelector) => {
     const panel = document.querySelector(selector);
     if (!panel) return 0;
-    return Array.from(panel.children).filter((node) => {
-      return node.classList && node.classList.contains('project-card');
-    }).length;
-  };
-  const countAutomationQaWebsites = () => {
-    const autoPanel = document.getElementById('qa-sub-auto');
-    if (!autoPanel) return 0;
-    const tabCount = autoPanel.querySelectorAll('.qa-child-tabs [data-qtab]').length;
-    if (tabCount > 0) return tabCount;
-    return autoPanel.querySelectorAll('.qa-tab-panel .project-card').length;
+    return Array.from(panel.children).filter((node) => node.matches && node.matches(childSelector)).length;
   };
 
-  const extCount = parseCount('[data-count-for="work-panel-extensions"]');
-  const webCount = parseCount('[data-count-for="work-panel-web"]')
-    + parseCount('[data-count-for="work-panel-pcgame"]');
+  const setCount = (id, count) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (lang === 'en') {
+      el.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
+    } else {
+      el.textContent = `${count}개`;
+    }
+  };
 
-  const extEl = document.getElementById('resume-count-extensions');
-  const webEl = document.getElementById('resume-count-websites');
-  const automationQaEl = document.getElementById('resume-count-automationqa');
-  const programEl = document.getElementById('resume-count-programs');
-  const gameEl = document.getElementById('resume-count-games');
+  // One-man Work: 실제 카드 수를 직접 계산해 요약과 본문 숫자가 어긋나지 않도록 합니다.
+  const extCount = countDirectChildren('#work-panel-extensions', '.project-card');
+  const webCount = countDirectChildren('#work-panel-web', '.project-card')
+    + countDirectChildren('#work-panel-pcgame', '.project-card');
+  const automationQaCount = document.querySelectorAll('#qa-automation .qa-child-tabs [data-qtab]').length
+    || countDirectChildren('#qa-automation', '.qa-tab-panel');
+  const programCount = countDirectChildren('#proj-program', '.project-card');
+  const gameCount = countDirectChildren('#proj-game', '.project-card');
+
+  // Test Case / 게임 기획서: 각 카테고리의 실제 탭 패널 수를 계산합니다.
+  const webTcCount = countDirectChildren('#tc-category-web', '.tc-tab-panel');
+  const gameTcCount = countDirectChildren('#tc-category-game', '.tc-tab-panel');
+  const pcGddCount = document.querySelectorAll('#gdd-platform-pc > .gdd-game-tabs [data-tab]').length;
+  const mobileGddCount = document.querySelectorAll('#gdd-platform-mobile > .gdd-game-tabs [data-tab]').length;
+
+  setCount('resume-count-extensions', extCount);
+  setCount('resume-count-websites', webCount);
+  setCount('resume-count-automationqa', automationQaCount);
+  setCount('resume-count-programs', programCount);
+  setCount('resume-count-games', gameCount);
+  setCount('resume-count-web-tc', webTcCount);
+  setCount('resume-count-game-tc', gameTcCount);
+  setCount('resume-count-pc-gdd', pcGddCount);
+  setCount('resume-count-mobile-gdd', mobileGddCount);
+
   const careerEl = document.getElementById('career-duration-text');
-
-  const automationQaCount = document.querySelectorAll('#qa-automation .qa-child-tabs [data-qtab]').length;
-
-  if (extEl) extEl.textContent = lang === 'en' ? `${extCount} items` : `${extCount}개`;
-  if (webEl) webEl.textContent = lang === 'en' ? `${webCount} items` : `${webCount}개`;
-  if (automationQaEl) automationQaEl.textContent = lang === 'en' ? `${automationQaCount} items` : `${automationQaCount}개`;
-  if (programEl) programEl.textContent = lang === 'en' ? `2 items` : `2개`;
-  if (gameEl) gameEl.textContent = lang === 'en' ? `1 item` : `1개`;
-
   if (careerEl) {
     const fixedMonths = 3;
     const startDate = new Date(2025, 2, 1);

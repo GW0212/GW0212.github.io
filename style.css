@@ -541,16 +541,6 @@ html[data-theme="light"] .theme-toggle .icon-light { display: block; }
 .resume-block { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 18px; box-shadow: var(--shadow-xs); transition: box-shadow var(--t) var(--ease), border-color var(--t) var(--ease); }
 .resume-block:hover { box-shadow: var(--shadow-sm), var(--glow-sm); border-color: var(--border-2); }
 .resume-block h3 { font-size: 1rem; text-align: center; margin-bottom: 14px; }
-.resume-works-sheet-btn {
-  display: flex; align-items: center; gap: 10px; width: 100%; margin-bottom: 12px;
-  padding: 10px 14px; border-radius: var(--r-sm);
-  background: var(--surface-2) !important; color: var(--text-bright) !important;
-  border: 1px solid var(--border-2) !important; box-shadow: var(--shadow-xs) !important;
-  text-decoration: none; font-weight: 700; font-size: 13.5px;
-  transition: all var(--t) var(--ease);
-}
-.resume-works-sheet-btn:hover { transform: translateY(-1px); box-shadow: var(--glow-sm) !important; border-color: var(--accent) !important; }
-.resume-works-sheet-icon { width: 20px; height: 20px; object-fit: contain; flex: 0 0 20px; }
 .resume-list { list-style: none; padding: 0; }
 .resume-list li { font-size: 13.5px; margin-bottom: 7px; }
 .resume-list li strong { color: var(--text-bright); }
@@ -2914,3 +2904,103 @@ html[data-theme="light"] .contact-card {
 #game-design-docs .project-card {
   padding: 24px;
 }
+
+/* ══════════════════════════════════════════════
+   PATCH — Resume works summary: 2-column portfolio matrix
+   - Left: development / automation works
+   - Right: Test Case / game design documents
+   - Counts are aligned and refreshed from the actual content by JS
+══════════════════════════════════════════════ */
+.resume-works-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.resume-works-divider {
+  width: 1px;
+  min-height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--border-2) 10%,
+    var(--border-2) 90%,
+    transparent 100%
+  );
+}
+
+.resume-works-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.resume-works-list li {
+  min-height: 32px;
+  margin: 0;
+  padding: 6px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.resume-works-list li:last-child {
+  border-bottom: 0;
+}
+
+.resume-works-list li strong {
+  min-width: 0;
+  color: var(--text-bright);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.resume-work-count {
+  flex: 0 0 auto;
+  min-width: 42px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border-2);
+  background: var(--accent-dim);
+  color: var(--accent-2);
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 1180px) and (min-width: 981px) {
+  .resume-works-columns { gap: 10px; }
+  .resume-works-list li { font-size: 12.5px; gap: 7px; }
+  .resume-work-count { min-width: 38px; padding-inline: 6px; }
+}
+
+@media (max-width: 560px) {
+  .resume-works-columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .resume-works-divider { display: none; }
+
+  .resume-works-list-right {
+    padding-top: 8px;
+    border-top: 1px solid var(--border-2);
+  }
+
+  .resume-works-list li {
+    min-height: 36px;
+    padding: 7px 2px;
+    font-size: 13px;
+  }
+}
+
