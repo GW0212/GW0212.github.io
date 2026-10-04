@@ -117,8 +117,8 @@
 <!-- Intro -->
 <div class="content-section" id="resume">
 <h2 data-i18n="resume.h2">이력서 요약</h2>
-<p class="resume-keyline" data-lang="ko">QA 실무 경험과 개인 개발·게임 기획 역량을 함께 갖춘 품질 중심 인재</p>
-<p class="resume-keyline" data-lang="en" style="display:none;">A quality-focused candidate with hands-on QA, personal development, and game planning capabilities.</p>
+<p class="resume-keyline" data-lang="ko">카카오 게임즈 QA 실무 경험과 개인 개발·게임 기획 역량을 함께 갖춘 품질 중심 인재</p>
+<p class="resume-keyline" data-lang="en" style="display:none;">A quality-focused candidate with hands-on Kakao Games QA experience, personal development, and game planning capabilities.</p>
 <div class="resume-summary-card">
 <div class="resume-profile">
 <img alt="김근우 프로필 사진" class="resume-photo" src="resume_photo.png"/>
@@ -141,11 +141,11 @@
 <div class="resume-block">
 <h3 data-i18n="resume.summary.title">요약 정보</h3>
 <ul class="resume-list">
-<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">대학교(4년) 졸업</span></li>
-<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 4개월</span></li>
+<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">동국대학교(4년/컴퓨터공학과) 졸업</span></li>
+<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 9개월</span></li>
 <li class="resume-position-line ko-position-line"><strong>희망 포지션</strong> : QA / QA Engineer / Automation QA</li>
-<li><strong>추가 역량</strong> : 웹·게임 개발 가능</li>
-<li><strong>추가 강점</strong> : 반복 업무 자동화, 빠른 구현, 테스트 업무 효율화</li>
+<li><strong>추가 역량</strong> : 웹·게임 개발 / PC,모바일 게임 기획</li>
+<li><strong>추가 강점</strong> : Ai 전문 활용, 반복 업무 자동화</li>
 </ul>
 </div>
 <div class="resume-block">
@@ -2752,8 +2752,8 @@ i18n.en['resume.summary.title'] = 'Summary';
 i18n.ko['resume.education.label'] = '학력사항';
 i18n.en['resume.education.label'] = 'Education';
 
-i18n.ko['resume.education.value'] = '대학교(4년) 졸업';
-i18n.en['resume.education.value'] = "Bachelor's Degree Completed";
+i18n.ko['resume.education.value'] = '동국대학교(4년/컴퓨터공학과) 졸업';
+i18n.en['resume.education.value'] = "Dongguk University (4-year / Computer Engineering), Graduated";
 
 i18n.ko['resume.career.label'] = '경력사항';
 i18n.en['resume.career.label'] = 'Career';
@@ -3227,7 +3227,7 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
       'resume.gender':'남자',
       'resume.summary.title':'요약 정보',
       'resume.education.label':'학력사항',
-      'resume.education.value':'대학교(4년) 졸업',
+      'resume.education.value':'동국대학교(4년/컴퓨터공학과) 졸업',
       'resume.career.label':'경력사항',
       'resume.works.title':'개발한 작품',
       'resume.work.chrome':'크롬 확장 프로그램',
@@ -5580,19 +5580,8 @@ function updateResumeSummaryStats() {
 
   const careerEl = document.getElementById('career-duration-text');
   if (careerEl) {
-    const fixedMonths = 3;
-    const startDate = new Date(2025, 2, 1);
-    const now = new Date();
-    let months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-    if (now.getDate() < startDate.getDate()) months -= 1;
-    if (months < 0) months = 0;
-    const totalMonths = fixedMonths + months;
-    const years = Math.floor(totalMonths / 12);
-    const remainMonths = totalMonths % 12;
-
-    careerEl.textContent = lang === 'en'
-      ? `Total ${years > 0 ? years + ' year' + (years > 1 ? 's ' : ' ') : ''}${remainMonths} month${remainMonths !== 1 ? 's' : ''}`
-      : `경력 총 ${years > 0 ? years + '년 ' : ''}${remainMonths}개월`;
+    // 경력 기간은 퇴직 기준으로 고정하며 현재 날짜에 따라 자동 증가하지 않습니다.
+    careerEl.textContent = lang === 'en' ? 'Total 1 year 9 months' : '경력 총 1년 9개월';
   }
 }
 
@@ -5823,10 +5812,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const summaryList = document.querySelector('#resume .resume-block .resume-list');
     if (summaryList) {
       summaryList.innerHTML =
-        '<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">대학교(4년) 졸업</span></li>' +
-        '<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 4개월</span></li>' +
-        '<li class="resume-position-line ko-position-line"><strong>희망 포지션</strong> : QA / QA Engineer / Automation QA / 개발 (웹,게임)</li>' +
-        '<li><strong>추가 강점</strong> : AI 활용 기반 빠른 구현, 반복 개선, 테스트 생산성 향상</li>';
+        '<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">동국대학교(4년/컴퓨터공학과) 졸업</span></li>' +
+        '<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 9개월</span></li>' +
+        '<li class="resume-position-line ko-position-line"><strong>희망 포지션</strong> : QA / QA Engineer / Automation QA</li>' +
+        '<li><strong>추가 역량</strong> : 웹·게임 개발 / PC,모바일 게임 기획</li>' +
+        '<li><strong>추가 강점</strong> : Ai 전문 활용, 반복 업무 자동화</li>';
     }
 
     const introKo = document.querySelector('#intro p[data-lang="ko"]');
@@ -5967,18 +5957,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const lang = getCurrentLang();
     if (lang === 'en') {
       summaryList.innerHTML =
-        '<li><strong>Education</strong> : Bachelor\'s Degree (4-year university)</li>' +
-        '<li><strong>Career</strong> : <span id="career-duration-text">Total 1 year 4 months</span></li>' +
+        '<li><strong>Education</strong> : Dongguk University (4-year / Computer Engineering), Graduated</li>' +
+        '<li><strong>Career</strong> : <span id="career-duration-text">Total 1 year 9 months</span></li>' +
         '<li class="resume-position-line"><strong>Desired Position</strong> : QA / QA Engineer / Automation QA</li>' +
-        '<li><strong>Additional Capability</strong> : Web and game development</li>' +
-        '<li><strong>Additional Strength</strong> : Task automation, rapid implementation, improved test workflow efficiency</li>';
+        '<li><strong>Additional Capability</strong> : Web/game development / PC & mobile game planning</li>' +
+        '<li><strong>Additional Strength</strong> : Professional use of AI, repetitive task automation</li>';
     } else {
       summaryList.innerHTML =
-        '<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">대학교(4년) 졸업</span></li>' +
-        '<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 4개월</span></li>' +
+        '<li><strong data-i18n="resume.education.label">학력사항</strong> : <span data-i18n="resume.education.value">동국대학교(4년/컴퓨터공학과) 졸업</span></li>' +
+        '<li><strong data-i18n="resume.career.label">경력사항</strong> : <span id="career-duration-text">경력 총 1년 9개월</span></li>' +
         '<li class="resume-position-line ko-position-line"><strong>희망 포지션</strong> : QA / QA Engineer / Automation QA</li>' +
-        '<li><strong>추가 역량</strong> : 웹·게임 개발 가능</li>' +
-        '<li><strong>추가 강점</strong> : 반복 업무 자동화, 빠른 구현, 테스트 업무 효율화</li>';
+        '<li><strong>추가 역량</strong> : 웹·게임 개발 / PC,모바일 게임 기획</li>' +
+        '<li><strong>추가 강점</strong> : Ai 전문 활용, 반복 업무 자동화</li>';
     }
     if (typeof updateResumeSummaryStats === 'function') updateResumeSummaryStats();
   }
