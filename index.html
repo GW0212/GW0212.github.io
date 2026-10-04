@@ -164,6 +164,7 @@
     <li><strong><span data-lang="ko">게임 Test Case</span><span data-lang="en" style="display:none;">Game Test Cases</span></strong><span class="resume-work-count" id="resume-count-game-tc">6개</span></li>
     <li><strong><span data-lang="ko">PC 게임 기획서</span><span data-lang="en" style="display:none;">PC Game Design Docs</span></strong><span class="resume-work-count" id="resume-count-pc-gdd">5개</span></li>
     <li><strong><span data-lang="ko">모바일 게임 기획서</span><span data-lang="en" style="display:none;">Mobile Game Design Docs</span></strong><span class="resume-work-count" id="resume-count-mobile-gdd">6개</span></li>
+    <li><strong><span data-lang="ko">어플 기획서</span><span data-lang="en" style="display:none;">App Planning Docs</span></strong><span class="resume-work-count" id="resume-count-app-gdd">2개</span></li>
   </ul>
 </div>
 </div>
@@ -2046,6 +2047,9 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     <button class="tab-btn active" role="tab" aria-selected="true" data-tab="gdd-roaddive-korea">
       <span data-lang="ko">로드다이브 - 코리아</span><span data-lang="en" style="display:none;">RoadDive - Korea</span>
     </button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-tab="gdd-next-stop">
+      <span data-lang="ko">하차온 - Next Stop</span><span data-lang="en" style="display:none;">Next Stop</span>
+    </button>
   </div>
 
   <div class="tab-panel" id="gdd-roaddive-korea" role="tabpanel">
@@ -2057,6 +2061,19 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
       </p>
       <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/aMYI7lxXxUAn/pages/14417942/-+.?atlOrigin=eyJpIjoiYTMyMWM1ZDY4NzA1NDk0MThlYmMzMTE0MjA3M2FkZWYiLCJwIjoiYyJ9" rel="noopener noreferrer" target="_blank">
         <span data-lang="ko">로드다이브 - 코리아 기획서 바로가기</span><span data-lang="en" style="display:none;">Open RoadDive - Korea Planning Document</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="gdd-next-stop" role="tabpanel" hidden>
+    <div class="project-card terranova-summary-card">
+      <h3><span data-lang="ko">하차온 - Next Stop</span><span data-lang="en" style="display:none;">Next Stop</span></h3>
+      <p class="wrap-readable">
+        <span data-lang="ko">지하철·버스 이용 중 목적지 하차를 놓치지 않도록 실시간 탑승 상태를 추적하고 원하는 정거장 전에 알려주는 이동 알림 어플 <strong>‘하차온 - Next Stop’</strong> 기획서입니다. 경로 설정, N정거장 전 알림, 차량·열차 매칭과 GPS 약화 구간 대응을 중심으로 TTS·햅틱·잠금화면 알림과 접근성 UX까지 설계했습니다. 기술·데이터·보안, QA·운영 안정성, 출시·확장 전략까지 실제 서비스 관점의 전체 제품 구조를 체계적으로 구성했습니다.</span>
+        <span data-lang="en" style="display:none;">A product planning document for <strong>Next Stop</strong>, a transit alert app that tracks subway and bus journeys in real time and notifies users before their destination stop. It covers route setup, N-stop advance alerts, vehicle and train matching, degraded-GPS handling, TTS, haptics, lock-screen notifications, accessibility UX, and the broader technical, security, QA, operations, launch, and expansion strategy.</span>
+      </p>
+      <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/NS/pages/14451223/-+Next+Stop?atlOrigin=eyJpIjoiNzEzNjE4ZDg5NDQ2NDA1YmFlM2I3MGY2Nzg4MjQ5OWQiLCJwIjoiYyJ9" rel="noopener noreferrer" target="_blank">
+        <span data-lang="ko">하차온 - Next Stop 기획서 바로가기</span><span data-lang="en" style="display:none;">Open Next Stop Planning Document</span>
       </a>
     </div>
   </div>
@@ -5596,6 +5613,7 @@ function updateResumeSummaryStats() {
   const gameTcCount = countDirectChildren('#tc-category-game', '.tc-tab-panel');
   const pcGddCount = document.querySelectorAll('#gdd-platform-pc > .gdd-game-tabs [data-tab]').length;
   const mobileGddCount = document.querySelectorAll('#gdd-platform-mobile > .gdd-game-tabs [data-tab]').length;
+  const appGddCount = document.querySelectorAll('#gdd-platform-app > .gdd-game-tabs [data-tab]').length;
 
   setCount('resume-count-extensions', extCount);
   setCount('resume-count-websites', webCount);
@@ -5606,6 +5624,7 @@ function updateResumeSummaryStats() {
   setCount('resume-count-game-tc', gameTcCount);
   setCount('resume-count-pc-gdd', pcGddCount);
   setCount('resume-count-mobile-gdd', mobileGddCount);
+  setCount('resume-count-app-gdd', appGddCount);
 
   const careerEl = document.getElementById('career-duration-text');
   if (careerEl) {
