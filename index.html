@@ -1829,11 +1829,16 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   #game-design-docs .gdd-platform-panel > .gdd-game-tabs { margin-bottom: 22px; }
   @media (max-width: 640px) {
     #game-design-docs .gdd-platform-tabs {
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      gap: 6px;
+      padding: 6px;
     }
     #game-design-docs .gdd-platform-tab-btn {
-      flex-basis: 100%;
-      white-space: normal;
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 10px 6px;
+      font-size: 13px;
+      white-space: nowrap;
     }
   }
 </style>
@@ -1844,6 +1849,9 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   </button>
   <button class="gdd-platform-tab-btn" type="button" role="tab" aria-selected="false" data-gdd-platform="mobile" aria-controls="gdd-platform-mobile">
     <span data-lang="ko">모바일 게임</span><span data-lang="en" style="display:none;">Mobile Games</span>
+  </button>
+  <button class="gdd-platform-tab-btn" type="button" role="tab" aria-selected="false" data-gdd-platform="app" aria-controls="gdd-platform-app">
+    <span data-lang="ko">어플</span><span data-lang="en" style="display:none;">App</span>
   </button>
 </div>
 
@@ -2031,6 +2039,27 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
     </a>
   </div>
 </div>
+</div>
+
+<div class="gdd-platform-panel" id="gdd-platform-app" role="tabpanel" hidden>
+  <div class="tabs gdd-game-tabs" role="tablist" aria-label="어플 기획서 탭">
+    <button class="tab-btn active" role="tab" aria-selected="true" data-tab="gdd-roaddive-korea">
+      <span data-lang="ko">로드다이브 - 코리아</span><span data-lang="en" style="display:none;">RoadDive - Korea</span>
+    </button>
+  </div>
+
+  <div class="tab-panel" id="gdd-roaddive-korea" role="tabpanel">
+    <div class="project-card terranova-summary-card">
+      <h3><span data-lang="ko">로드다이브 - 코리아</span><span data-lang="en" style="display:none;">RoadDive - Korea</span></h3>
+      <p class="wrap-readable">
+        <span data-lang="ko">국내 실제 파노라마와 경로 데이터를 활용해 처음 가는 길과 장소를 이동 전에 미리 체험할 수 있도록 설계한 탐험형 어플 <strong>‘로드다이브 - 코리아’</strong> 기획서입니다. A→B 경로 프리뷰와 걷기·러닝·드라이브 시뮬레이션, 개인 이동 페이스 반영을 통해 실제 소요시간과 현장 분위기를 보다 직관적으로 파악하도록 구성했습니다. 지도·파노라마 연동부터 UI/UX, 데이터·권리, 운영·사업, QA와 리스크 관리까지 제품 전반의 구조를 체계적으로 설계했습니다.</span>
+        <span data-lang="en" style="display:none;">A product planning document for <strong>RoadDive - Korea</strong>, an exploration app that uses real Korean panorama and route data so users can preview unfamiliar roads and places before traveling. It combines A-to-B route previews with walking, running, and driving simulations that reflect personal movement pace, while also covering UI/UX, data and rights, operations, business planning, QA, and risk management.</span>
+      </p>
+      <a class="download-button" href="https://rmsdn1955.atlassian.net/wiki/spaces/aMYI7lxXxUAn/pages/14417942/-+.?atlOrigin=eyJpIjoiYTMyMWM1ZDY4NzA1NDk0MThlYmMzMTE0MjA3M2FkZWYiLCJwIjoiYyJ9" rel="noopener noreferrer" target="_blank">
+        <span data-lang="ko">로드다이브 - 코리아 기획서 바로가기</span><span data-lang="en" style="display:none;">Open RoadDive - Korea Planning Document</span>
+      </a>
+    </div>
+  </div>
 </div>
 </div>
 <script>
