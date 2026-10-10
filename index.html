@@ -714,20 +714,6 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <div class="tab-panel" hidden="" id="work-panel-web" role="tabpanel">
 <div class="project-card">
-<h3 class="work-related-title">
-  <span data-lang="ko">Confluence 기반 질의응답 AI 시스템</span><span data-lang="en" style="display:none;">Confluence-Based AI Q&amp;A System</span>
-</h3>
-<p class="wrap-readable">
-  <span data-lang="ko">Confluence 문서를 이메일과 API 토큰만으로 연결해서, 수천 페이지 분량의 기획서·문서를 AI(Gemini)가 학습한 뒤 한국어 질문에 정확한 답변을 찾아주는 사내 문서 Q&amp;A 챗봇입니다.<br/>사이드바에서 문서를 트리 구조로 탐색하거나 검색할 수 있고, AI 답변에는 근거가 된 페이지가 출처로 표시돼 클릭하면 바로 원문을 확인할 수 있습니다.</span>
-  <span data-lang="en" style="display:none;">An internal document Q&amp;A chatbot that connects Confluence documents using only an email address and API token, then lets AI (Gemini) learn from thousands of pages of planning documents and reference materials to find accurate answers to Korean questions.<br/>Users can browse documents in a tree structure or search them from the sidebar, and each AI answer displays the source pages used as evidence so they can click through to the original content.</span>
-</p>
-<a href="https://confluence-bot.vercel.app/" rel="noopener noreferrer" target="_blank">
-<button class="download-button">
-  <span data-lang="ko">Confluence 기반 질의응답 AI 시스템 바로가기</span><span data-lang="en" style="display:none;">Open Confluence-Based AI Q&amp;A System</span>
-</button>
-</a>
-</div>
-<div class="project-card">
 <h3 data-i18n="web.worldmap.title">World_map</h3>
 <p class="wrap-readable" data-i18n="web.worldmap.desc">
     실제 위성 이미지를 입힌 3D 지구본을 브라우저에서 자유롭게 탐색할 수 있는 웹페이지입니다. 위성·일반·지형 세 가지 지도 스타일로 전환할 수 있고, 일반 지도로 변경하면 한국 지하철 노선도가 오버레이로 표시됩니다. 도시나 지하철역을 검색하면 해당 위치로 카메라가 이동합니다.
@@ -743,6 +729,15 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   </p>
 <a href="https://gw0212.github.io/TEXTRACT/" rel="noopener noreferrer" target="_blank">
 <button class="download-button" data-i18n="web.textract.go">바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 data-i18n="web.subbridge.title">SubBridge</h3>
+<p class="wrap-readable" data-i18n="web.subbridge.desc">
+    유튜브 채널 URL이나 핸들을 입력해 공개된 구독 채널 목록을 조회할 수 있는 웹서비스입니다. 채널명 검색·정렬·CSV 저장을 지원하며, Google 계정 연결 시 내 구독 목록 조회와 서비스 내 바로 구독 기능도 이용할 수 있습니다.
+  </p>
+<a href="https://gw0212.github.io/SubBridge/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.subbridge.go">바로가기</button>
 </a>
 </div>
 <div class="project-card">
@@ -771,6 +766,20 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
   </p>
 <a href="https://gw0212.github.io/cinefinder/" rel="noopener noreferrer" target="_blank">
 <button class="download-button" data-i18n="web.cinefinder.go">바로가기</button>
+</a>
+</div>
+<div class="project-card">
+<h3 class="work-related-title">
+  <span data-lang="ko">Confluence 기반 질의응답 AI 시스템</span><span data-lang="en" style="display:none;">Confluence-Based AI Q&amp;A System</span>
+</h3>
+<p class="wrap-readable">
+  <span data-lang="ko">Confluence 문서를 이메일과 API 토큰만으로 연결해서, 수천 페이지 분량의 기획서·문서를 AI(Gemini)가 학습한 뒤 한국어 질문에 정확한 답변을 찾아주는 사내 문서 Q&amp;A 챗봇입니다.<br/>사이드바에서 문서를 트리 구조로 탐색하거나 검색할 수 있고, AI 답변에는 근거가 된 페이지가 출처로 표시돼 클릭하면 바로 원문을 확인할 수 있습니다.</span>
+  <span data-lang="en" style="display:none;">An internal document Q&amp;A chatbot that connects Confluence documents using only an email address and API token, then lets AI (Gemini) learn from thousands of pages of planning documents and reference materials to find accurate answers to Korean questions.<br/>Users can browse documents in a tree structure or search them from the sidebar, and each AI answer displays the source pages used as evidence so they can click through to the original content.</span>
+</p>
+<a href="https://confluence-bot.vercel.app/" rel="noopener noreferrer" target="_blank">
+<button class="download-button">
+  <span data-lang="ko">Confluence 기반 질의응답 AI 시스템 바로가기</span><span data-lang="en" style="display:none;">Open Confluence-Based AI Q&amp;A System</span>
+</button>
 </a>
 </div>
 <div class="project-card">
@@ -2957,6 +2966,15 @@ i18n.ko['web.textract.go'] = '바로가기';
 i18n.en['web.textract.title'] = 'TEXTRACT';
 i18n.en['web.textract.desc'] = 'TEXTRACT is a web tool that extracts text from uploaded images using Gemini-based AI Vision OCR. It supports full-image recognition as well as drag-select area OCR, plus 22 language options, copy, and TXT download features.';
 i18n.en['web.textract.go'] = 'Open';
+
+// === SubBridge i18n entries ===
+i18n.ko['web.subbridge.title'] = 'SubBridge';
+i18n.ko['web.subbridge.desc'] = '유튜브 채널 URL이나 핸들을 입력해 공개된 구독 채널 목록을 조회할 수 있는 웹서비스입니다. 채널명 검색·정렬·CSV 저장을 지원하며, Google 계정 연결 시 내 구독 목록 조회와 서비스 내 바로 구독 기능도 이용할 수 있습니다.';
+i18n.ko['web.subbridge.go'] = '바로가기';
+i18n.en['web.subbridge.title'] = 'SubBridge';
+i18n.en['web.subbridge.desc'] = 'SubBridge lets you explore a YouTube channel’s public subscription list by entering its URL or handle. Search, sort, and export channels to CSV, or connect your Google account to view your own subscriptions and subscribe directly within the service.';
+i18n.en['web.subbridge.go'] = 'Open';
+
 
 
 i18n.ko['web.maplink.title'] = '지도 경로 저장 웹사이트';
