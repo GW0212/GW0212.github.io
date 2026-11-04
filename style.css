@@ -516,7 +516,7 @@ html[data-theme="light"] .theme-toggle .icon-light { display: block; }
   background: radial-gradient(circle, var(--accent-glow), transparent 65%);
   opacity: .35; pointer-events: none;
 }
-.resume-profile { display: flex; gap: 26px; align-items: flex-start; margin-bottom: 22px; }
+.resume-profile { display: flex; gap: 26px; align-items: center; margin-bottom: 22px; }
 .resume-photo { width: 170px; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--r-lg); border: 2px solid var(--border-2); box-shadow: var(--shadow-md); flex-shrink: 0; }
 .resume-basic { flex: 1; min-width: 0; }
 .resume-name-stack { margin-bottom: 14px; }
@@ -3004,3 +3004,57 @@ html[data-theme="light"] .contact-card {
   }
 }
 
+
+/* Resume featured projects — compact, responsive tiles */
+#resume .resume-project-item { width: 100%; min-width: 0; }
+#resume .resume-project-stack { width: 100%; min-width: 0; }
+#resume .resume-featured-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px;
+  width: min(100%, 680px); margin-top: 3px;
+}
+#resume .resume-featured-card {
+  display: flex; align-items: center; gap: 10px; min-width: 0;
+  padding: 10px 12px; border-radius: 12px;
+  border: 1px solid var(--border-2);
+  background: var(--accent-dim); color: var(--text-bright);
+  transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+#resume .resume-featured-card:hover {
+  background: var(--surface-3); border-color: var(--accent);
+  transform: translateY(-2px); box-shadow: var(--shadow-sm);
+}
+#resume .resume-featured-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#resume .resume-featured-icon {
+  display: grid; place-items: center; width: 30px; height: 30px; flex: 0 0 30px;
+  border-radius: 9px; background: var(--surface); color: var(--accent-2);
+  font-size: 16px; font-weight: 800;
+}
+#resume .resume-featured-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+#resume .resume-featured-type {
+  color: var(--text-muted); font-size: 10.5px; line-height: 1.3; font-weight: 600;
+  overflow-wrap: anywhere;
+}
+#resume .resume-featured-name {
+  color: var(--text-bright); font-size: 12.5px; font-weight: 750;
+  line-height: 1.35; overflow-wrap: anywhere;
+}
+#resume .resume-featured-arrow { margin-left: auto; align-self: flex-start; color: var(--accent-2); font-size: 15px; line-height: 1; }
+@media (max-width: 1150px) and (min-width: 769px) {
+  #resume .resume-featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  #resume .resume-project-stack { display: flex !important; flex-direction: column !important; gap: 8px !important; }
+  #resume .resume-project-title-row { display: flex !important; gap: 8px !important; }
+  #resume .resume-featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; }
+  #resume .resume-featured-card { padding: 9px; gap: 8px; }
+  #resume .resume-featured-icon { width: 28px; height: 28px; flex-basis: 28px; }
+  #resume .resume-featured-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (max-width: 390px) {
+  #resume .resume-featured-grid { grid-template-columns: 1fr; }
+  #resume .resume-featured-card:last-child:nth-child(odd) { grid-column: auto; }
+}
+
+/* Resume featured project icons - supplied project artwork */
+#resume .resume-featured-icon { overflow: hidden; }
+#resume .resume-featured-icon img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 6px; }
