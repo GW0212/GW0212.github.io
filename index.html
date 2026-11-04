@@ -279,8 +279,8 @@ I will continue strengthening my advantages and improving my weaknesses to becom
 </button>
 <div aria-label="One-man Work tabs" class="tabs" role="tablist">
 <button aria-selected="true" class="tab-btn active" data-tab="work-panel-extensions" role="tab"><span class="tab-label" data-i18n="work.tab.extensions">Chrome Extensions</span> <span class="tab-count" data-count-for="work-panel-extensions">[43]</span></button>
-<button aria-selected="false" class="tab-btn" data-tab="work-panel-web" role="tab"><span class="tab-label" data-i18n="websites.tab.web">웹사이트</span> <span class="tab-count" data-count-for="work-panel-web">[29]</span></button>
-<button aria-selected="false" class="tab-btn" data-tab="work-panel-pcgame" role="tab"><span class="tab-label" data-i18n="websites.tab.pcgame">웹사이트 (게임)</span> <span class="tab-count" data-count-for="work-panel-pcgame">[13]</span></button>
+<button aria-selected="false" class="tab-btn" data-tab="work-panel-web" role="tab"><span class="tab-label" data-i18n="websites.tab.web">웹사이트</span> <span class="tab-count" data-count-for="work-panel-web">[30]</span></button>
+<button aria-selected="false" class="tab-btn" data-tab="work-panel-pcgame" role="tab"><span class="tab-label" data-i18n="websites.tab.pcgame">웹사이트 (게임)</span> <span class="tab-count" data-count-for="work-panel-pcgame">[14]</span></button>
 <button aria-selected="false" class="tab-btn" data-tab="qa-automation" role="tab"><span class="tab-label"><span data-lang="ko">자동화 QA</span><span data-lang="en" style="display:none;">Automation QA</span></span> <span class="tab-count" data-count-for="qa-automation">[3]</span></button>
 <button aria-selected="false" class="tab-btn" data-tab="proj-program" role="tab"><span class="tab-label"><span data-lang="ko">윈도우 프로그램</span><span data-lang="en" style="display:none;">Windows Program</span></span> <span class="tab-count" data-count-for="proj-program">[2]</span></button>
 <button aria-selected="false" class="tab-btn" data-tab="proj-game" role="tab"><span class="tab-label"><span data-lang="ko">유니티 게임</span><span data-lang="en" style="display:none;">Unity Game</span></span> <span class="tab-count" data-count-for="proj-game">[1]</span></button></div>
@@ -722,6 +722,8 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 <button class="download-button" data-i18n="web.worldmap.go">바로가기</button>
 </a>
 </div>
+<!-- Frame: movie-scene quiz (placed immediately after World_map) -->
+
 <div class="project-card">
 <h3 data-i18n="web.cinefinder.title">cinefinder</h3>
 <p class="wrap-readable" data-i18n="web.cinefinder.desc">
@@ -1018,6 +1020,13 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 
 <div class="tab-panel" hidden="" id="work-panel-pcgame" role="tabpanel">
+<div class="project-card">
+<h3 data-i18n="web.frame.title">Frame</h3>
+<p class="wrap-readable" data-i18n="web.frame.desc">영화 장면을 3초 동안 기억한 뒤 5초 안에 제목을 맞히는 영화 퀴즈 웹게임입니다. 한국·외국 영화 또는 종합 모드를 선택할 수 있으며, 쉬움·중간·어려움 난이도와 10문제·20문제·전체 문제 수 설정을 지원합니다.</p>
+<a href="https://gw0212.github.io/Frame/" rel="noopener noreferrer" target="_blank">
+<button class="download-button" data-i18n="web.frame.go">바로가기</button>
+</a>
+</div>
 <div class="project-card">
 <h3 data-i18n="web_game.2048.title">2048</h3>
 <p class="wrap-readable" data-i18n="web_game.2048.desc">
@@ -3139,6 +3148,14 @@ i18n.en['ext.regionshot.btn'] = 'Click to download';
     i18n.en['web.wmpins.desc'] = 'This website is a personal location logging tool built on a global satellite map that lets you save and manage pins at specific locations. Double-click a pin to open a rename window, and use the left-hand list to edit each pin name, category, and memo, or organize them by category and collapse or expand groups. With the search feature you can quickly find pins by name, memo, or #tags, and clicking a pin on the map immediately moves the view to that location. All data is stored locally in your browser, so everything remains safely kept only on the device you use.';
 
 
+
+    // Frame — KO / EN bilingual portfolio card
+    i18n.ko['web.frame.title'] = 'Frame';
+    i18n.en['web.frame.title'] = 'Frame';
+    i18n.ko['web.frame.desc'] = '영화 장면을 3초 동안 기억한 뒤 5초 안에 제목을 맞히는 영화 퀴즈 웹게임입니다. 한국·외국 영화 또는 종합 모드를 선택할 수 있으며, 쉬움·중간·어려움 난이도와 10문제·20문제·전체 문제 수 설정을 지원합니다.';
+    i18n.en['web.frame.desc'] = 'A movie-scene quiz game where you memorize a scene for 3 seconds and guess the film title within 5 seconds. Choose Korean, international, or mixed movies, with three difficulty levels and 10, 20, or all questions.';
+    i18n.ko['web.frame.go'] = '바로가기';
+    i18n.en['web.frame.go'] = 'Open';
 
     const i18nNodes = document.querySelectorAll('[data-i18n]');
     i18nNodes.forEach(n => {
