@@ -36,7 +36,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=clickAreaFullWidth20261104_v4" rel="stylesheet"/>
+<link href="style.css?v=quickMathLayout20261104_v5" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH — GENESIS ===== -->
@@ -2544,22 +2544,26 @@ PiP 내부에서 재생/일시정지, 처음으로, 다음 영상 이동이 가�
 </div>
 <!-- Quick Math -->
 <div class="tab-panel" hidden="" id="game-math" role="tabpanel">
-<div class="game-card">
-<p class="wrap-readable" data-i18n="minigames.math.desc">
-        Solve as many small addition and subtraction problems as you can in 60 seconds.
-      </p>
-<p class="wrap-readable" id="mathPrompt"></p>
-<div class="game-row">
-<button class="download-button ghost" data-i18n="minigames.btn.guide" id="mathGuide">Guide</button>
-<button class="download-button" id="mathStart">Start</button>
-<span class="game-info" id="mathInfo"></span>
-<span class="game-hs" id="mathHS"></span>
-</div>
-<div class="game-row">
-<input class="mini-input" id="mathAnswer" placeholder="정답을 입력해 주세요" type="number"/>
-<button class="download-button" id="mathSubmit">OK</button>
-</div>
-</div>
+  <div class="game-card quick-math-card">
+    <div class="quick-math-shell">
+      <p class="wrap-readable quick-math-desc" data-i18n="minigames.math.desc">Solve as many small addition and subtraction problems as you can in 60 seconds.</p>
+      <div class="quick-math-actions">
+        <button class="download-button ghost" data-i18n="minigames.btn.guide" id="mathGuide" type="button">Guide</button>
+        <button class="download-button" id="mathStart" type="button">Start</button>
+      </div>
+      <div class="quick-math-status" aria-live="polite">
+        <span class="game-info" id="mathInfo"></span>
+        <span class="game-hs" id="mathHS"></span>
+      </div>
+      <div class="quick-math-problem" id="mathProblemWrap" aria-live="polite">
+        <p class="wrap-readable" id="mathPrompt"></p>
+      </div>
+      <div class="quick-math-answer-row">
+        <input class="mini-input" id="mathAnswer" placeholder="정답을 입력해 주세요" type="number" inputmode="numeric" autocomplete="off" aria-label="Quick Math answer"/>
+        <button class="download-button" id="mathSubmit" type="button">OK</button>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Memory Match -->
 <div class="tab-panel" hidden="" id="game-memory" role="tabpanel">
