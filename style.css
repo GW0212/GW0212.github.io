@@ -3009,8 +3009,8 @@ html[data-theme="light"] .contact-card {
 #resume .resume-project-item { width: 100%; min-width: 0; }
 #resume .resume-project-stack { width: 100%; min-width: 0; }
 #resume .resume-featured-grid {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px;
-  width: min(100%, 680px); margin-top: 3px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px;
+  width: min(100%, 940px); margin-top: 3px;
 }
 #resume .resume-featured-card {
   display: flex; align-items: center; gap: 10px; min-width: 0;
