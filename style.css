@@ -3408,3 +3408,29 @@ html[data-theme="light"] .contact-card {
   #minigames > .tabs > button.tab-btn { gap: 5px !important; padding: 6px !important; font-size: 11px !important; }
   #minigames > .tabs > button.tab-btn::before { width: 25px; height: 25px; flex-basis: 25px; font-size: 14px; }
 }
+
+/* 2026-11-04 Click Speed: full-width tap target and centered text on all screens.
+   Mobile game-row is 2-column grid; this target must span BOTH columns. */
+#game-click .click-target-row {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+#game-click .click-target-row #clickArea {
+  display: flex !important;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+  min-height: 70px !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 12px 16px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  font-size: 18px !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  touch-action: manipulation;
+}
