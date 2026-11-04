@@ -3307,3 +3307,104 @@ html[data-theme="light"] .contact-card {
   #languages #lang-qa-tools > ul,
   #languages #lang-dev-tools > ul { grid-template-columns: 1fr; }
 }
+/* 2026-11-04 — Mobile mini-game launcher and compact PC skills (final overrides) */
+@media (min-width: 769px) {
+  /* Restrict skill tiles to content width rather than stretching across entire desktop panel. */
+  #languages #lang-languages > ul,
+  #languages #lang-qa-tools > ul,
+  #languages #lang-dev-tools > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    max-width: 970px !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+  #languages #lang-languages > ul > li,
+  #languages #lang-qa-tools > ul > li,
+  #languages #lang-dev-tools > ul > li {
+    min-height: 38px !important;
+    padding: 8px 10px 8px 27px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    border-radius: 9px !important;
+  }
+  #languages #lang-languages > ul > li::before,
+  #languages #lang-qa-tools > ul > li::before,
+  #languages #lang-dev-tools > ul > li::before {
+    left: 11px !important;
+    width: 7px !important;
+    height: 7px !important;
+  }
+}
+@media (max-width: 768px) {
+  /* Visually distinct game-picker: compact 2-column icon + text launch tiles. */
+  #minigames > .tabs {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+    padding: 8px !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+  #minigames > .tabs > button.tab-btn {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 7px 9px !important;
+    margin: 0 !important;
+    border-radius: 11px !important;
+    font-size: clamp(11px, 3.25vw, 13px) !important;
+    font-weight: 650 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -.03em !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
+    box-shadow: 0 1px 3px rgba(29,65,145,.1) !important;
+  }
+  #minigames > .tabs > button.tab-btn::before {
+    content: '🎮';
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 8px;
+    background: var(--accent-dim);
+    box-shadow: inset 0 0 0 1px var(--border);
+    pointer-events: none;
+  }
+  #minigames > .tabs > button[data-tab="game-aim"]::before { content: '🎯'; }
+  #minigames > .tabs > button[data-tab="game-reaction"]::before { content: '⚡'; }
+  #minigames > .tabs > button[data-tab="game-whack"]::before { content: '🔨'; }
+  #minigames > .tabs > button[data-tab="game-dodge"]::before { content: '🛡️'; }
+  #minigames > .tabs > button[data-tab="game-math"]::before { content: '🧮'; }
+  #minigames > .tabs > button[data-tab="game-memory"]::before { content: '🧩'; }
+  #minigames > .tabs > button[data-tab="game-click"]::before { content: '👆'; }
+  #minigames > .tabs > button[data-tab="game-color"]::before { content: '🎨'; }
+  #minigames > .tabs > button.tab-btn.active {
+    border-color: var(--accent) !important;
+    background: linear-gradient(135deg, #5284ee, #2e61dc) !important;
+    color: #fff !important;
+    box-shadow: 0 3px 9px var(--accent-glow) !important;
+  }
+  #minigames > .tabs > button.tab-btn.active::before {
+    background: rgba(255,255,255,.2);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
+  }
+  #minigames > .tab-panel > .game-card { padding: 12px !important; }
+  #minigames > .tab-panel > .game-card .game-row { gap: 7px !important; }
+}
+@media (max-width: 370px) {
+  #minigames > .tabs > button.tab-btn { gap: 5px !important; padding: 6px !important; font-size: 11px !important; }
+  #minigames > .tabs > button.tab-btn::before { width: 25px; height: 25px; flex-basis: 25px; font-size: 14px; }
+}
