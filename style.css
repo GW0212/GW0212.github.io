@@ -3101,3 +3101,209 @@ html[data-theme="light"] .contact-card {
     line-height: 1.3 !important;
   }
 }
+
+
+/* ==========================================================
+   Mobile usability polish 2026-11-04 / authoritative overrides
+   (1) compact navigation and correctly positioned close control
+   (2) single-line long game design tabs
+   (3) compact certificate quick-nav (label set in JS)
+   (4) language/tool chip grid (all 3 tabs)
+   (5) consistent responsive minigame selectors and controls
+   ========================================================== */
+/* Skill and tool items: replace unstyled bullet points with scannable cards. */
+#languages #lang-languages > ul,
+#languages #lang-qa-tools > ul,
+#languages #lang-dev-tools > ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 !important;
+  margin: 0;
+  list-style: none !important;
+}
+#languages #lang-languages > ul > li,
+#languages #lang-qa-tools > ul > li,
+#languages #lang-dev-tools > ul > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 12px 12px 12px 33px;
+  border: 1px solid var(--border-2);
+  background: var(--surface-2);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text-bright);
+  overflow-wrap: anywhere;
+  box-shadow: var(--shadow-xs);
+}
+#languages #lang-languages > ul > li::before,
+#languages #lang-qa-tools > ul > li::before,
+#languages #lang-dev-tools > ul > li::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+#certificates .cert-quick-nav { gap: 7px; }
+#certificates .cert-quick-nav .cert-nav-btn {
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: normal;
+  text-align: left;
+}
+@media (max-width: 768px) {
+  /* The navigation is a full-screen drawer below the sticky header. */
+  #nav-menu.nav-menu {
+    position: fixed !important;
+    top: var(--header-h) !important;
+    height: calc(100dvh - var(--header-h)) !important;
+    width: 100vw !important;
+    padding: 48px 12px calc(14px + env(safe-area-inset-bottom)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 4px !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+  #nav-menu.nav-menu > #mobile-nav-close.mobile-nav-close {
+    position: absolute !important;
+    top: 8px !important;
+    right: 12px !important;
+    left: auto !important;
+    bottom: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 25px !important;
+    line-height: 1 !important;
+    flex: none !important;
+    border: 1px solid var(--border-2) !important;
+    border-radius: 9px !important;
+    background: var(--surface-2) !important;
+    z-index: 5 !important;
+  }
+  #nav-menu.nav-menu > .menu-button {
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    padding: 5px 12px !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    border-radius: 9px !important;
+    text-align: left !important;
+  }
+  #nav-menu.nav-menu > .menu-button > span { line-height: inherit !important; }
+  #nav-menu.nav-menu > .contact-card { display: none !important; }
+
+  /* Keep only the two long mobile design-document names on one row. */
+  #game-design-docs .gdd-game-tabs [data-tab="gdd-pixel-chronicle-lumencia"],
+  #game-design-docs .gdd-game-tabs [data-tab="gdd-vanta-afterimage"] {
+    font-size: clamp(9px, 2.55vw, 11px) !important;
+    letter-spacing: -0.045em !important;
+    padding: 8px 7px !important;
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    min-width: 0 !important;
+  }
+  #game-design-docs .gdd-game-tabs [data-tab="gdd-pixel-chronicle-lumencia"] span,
+  #game-design-docs .gdd-game-tabs [data-tab="gdd-vanta-afterimage"] span {
+    white-space: nowrap !important;
+    font-size: inherit !important;
+  }
+
+  #languages #lang-languages > ul,
+  #languages #lang-qa-tools > ul,
+  #languages #lang-dev-tools > ul { gap: 8px !important; }
+  #languages #lang-languages > ul > li,
+  #languages #lang-qa-tools > ul > li,
+  #languages #lang-dev-tools > ul > li { padding: 11px 9px 11px 29px; font-size: 12px; }
+  #languages #lang-languages > ul > li::before,
+  #languages #lang-qa-tools > ul > li::before,
+  #languages #lang-dev-tools > ul > li::before { left: 11px; }
+
+  /* Mini games: predictable two-column selector and balanced action row. */
+  #minigames > .tabs {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 8px !important;
+    overflow: visible !important;
+  }
+  #minigames > .tabs > .tab-btn {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 42px !important;
+    padding: 8px 5px !important;
+    font-size: clamp(11px, 3.2vw, 13px) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    text-align: center !important;
+    overflow-wrap: break-word !important;
+  }
+  #minigames .game-card { padding: 14px !important; border-radius: 14px; }
+  #minigames .game-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  #minigames .game-row .download-button {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 10px 7px !important;
+    min-height: 40px !important;
+  }
+  #minigames .game-row .game-info,
+  #minigames .game-row .game-hs {
+    grid-column: 1 / -1;
+    min-width: 0;
+    text-align: center;
+    margin: 0 !important;
+    font-size: 12px;
+  }
+  #minigames .game-canvas,
+  #minigames #aimCanvas,
+  #minigames #dodgeCanvas {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 240px !important;
+    object-fit: contain;
+  }
+}
+@media (max-width: 360px) {
+  #languages #lang-languages > ul,
+  #languages #lang-qa-tools > ul,
+  #languages #lang-dev-tools > ul { grid-template-columns: 1fr; }
+}

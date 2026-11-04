@@ -36,7 +36,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
-<link href="style.css?v=finalGoalMobile20260903_v1" rel="stylesheet"/>
+<link href="style.css?v=mobileUX20261104_v2" rel="stylesheet"/>
 </head>
 <body>
 <!-- ===== GW SPLASH — GENESIS ===== -->
@@ -5410,7 +5410,7 @@ var aiEN = {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'cert-nav-btn';
-      btn.textContent = titleEl.textContent.trim();
+      btn.textContent = titleEl.textContent.trim().replace(/^Microsoft Office Specialist\b/, 'MOS');
       btn.setAttribute('data-target', card.id);
       btn.addEventListener('click', function(){
         const target = document.getElementById(card.id);
