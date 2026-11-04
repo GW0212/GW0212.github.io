@@ -3548,3 +3548,17 @@ html[data-theme="light"] .contact-card {
   #game-math .quick-math-answer-row { gap: 8px !important; }
   #game-math .quick-math-status { gap: 8px; }
 }
+
+/* Quick Math mobile placeholder: keep input at 16px to prevent iOS focus zoom,
+   but reduce placeholder text only to avoid clipping in the two-column layout. */
+@media (max-width: 768px) {
+  #game-math #mathAnswer::placeholder {
+    font-size: 12px !important;
+    letter-spacing: -0.35px;
+    opacity: 1;
+  }
+  #game-math #mathAnswer::-webkit-input-placeholder {
+    font-size: 12px !important;
+    letter-spacing: -0.35px;
+  }
+}
