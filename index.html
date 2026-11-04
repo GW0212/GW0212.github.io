@@ -96,6 +96,9 @@
 </header>
 <div class="container">
 <nav class="nav-menu" id="nav-menu">
+<button type="button" class="mobile-nav-close" id="mobile-nav-close" aria-label="메뉴 닫기" title="메뉴 닫기">
+<span aria-hidden="true">×</span>
+</button>
 <button class="menu-button" data-i18n="menu.resume" onclick="showContent('resume')">이력서 요약</button><button class="menu-button" data-i18n="menu.intro" onclick="showContent('intro')">Introduce myself</button>
 <button class="menu-button" data-i18n="menu.jd" onclick="showContent('jd')">Job Description (JD)</button>
 <button class="menu-button" data-i18n="menu.extensions" onclick="showContent('extensions')">One-man Work</button>
@@ -7100,5 +7103,48 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 
+<script>
+/* Mobile navigation: explicit close control; keeps the previously selected section. */
+(function () {
+  function setupCloseButton() {
+    var close = document.getElementById('mobile-nav-close');
+    var nav = document.getElementById('nav-menu');
+    var hamburger = document.getElementById('hamburger-menu');
+    if (!close || !nav || close.dataset.bound === 'true') return;
+    close.dataset.bound = 'true';
+    function dismissMenu() {
+      nav.classList.remove('active', 'show');
+      document.body.classList.remove('menu-open');
+      document.documentElement.classList.remove('menu-open');
+      if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+      // No section switch or scroll reset: return to the content that was open.
+    }
+    close.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      dismissMenu();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && window.innerWidth <= 768 &&
+          (nav.classList.contains('active') || nav.classList.contains('show'))) {
+        dismissMenu();
+        if (hamburger) hamburger.focus();
+      }
+    });
+    function updateLabel() {
+      var en = document.documentElement.lang === 'en' ||
+        (document.getElementById('lang-en')?.classList.contains('active'));
+      close.setAttribute('aria-label', en ? 'Close menu' : '메뉴 닫기');
+      close.title = en ? 'Close menu' : '메뉴 닫기';
+    }
+    document.getElementById('lang-ko')?.addEventListener('click', updateLabel);
+    document.getElementById('lang-en')?.addEventListener('click', updateLabel);
+    updateLabel();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupCloseButton);
+  } else setupCloseButton();
+})();
+</script>
 </body>
 </html>

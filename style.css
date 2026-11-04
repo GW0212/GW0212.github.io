@@ -3058,3 +3058,46 @@ html[data-theme="light"] .contact-card {
 /* Resume featured project icons - supplied project artwork */
 #resume .resume-featured-icon { overflow: hidden; }
 #resume .resume-featured-icon img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 6px; }
+
+/* ── Compact mobile navigation and dismiss button (2026-11-04) ── */
+.mobile-nav-close { display: none; }
+@media (max-width: 768px) {
+  #nav-menu.nav-menu {
+    gap: 2px !important;
+    padding: 8px 12px calc(20px + env(safe-area-inset-bottom)) !important;
+  }
+  #nav-menu .mobile-nav-close {
+    display: flex !important;
+    position: sticky;
+    top: 0;
+    align-self: flex-end;
+    flex: 0 0 34px;
+    width: 36px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px 5px 0;
+    padding: 0;
+    color: var(--text-bright);
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1;
+    border: 1px solid var(--border-2);
+    border-radius: 10px;
+    background: var(--surface-2);
+    box-shadow: var(--shadow-xs);
+    z-index: 3;
+    cursor: pointer;
+  }
+  #nav-menu .mobile-nav-close:active { background: var(--accent-dim); }
+  #nav-menu .mobile-nav-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #nav-menu .menu-button {
+    flex-shrink: 0;
+    min-height: 38px !important;
+    padding: 8px 13px !important;
+    margin: 0 0 3px !important;
+    border-radius: 11px !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+}
